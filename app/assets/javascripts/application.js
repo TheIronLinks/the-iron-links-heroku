@@ -13,7 +13,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore.min
+//= require underscore-min
 //= require angular.min
 //= require angular-ui-router
 //= require foundation
