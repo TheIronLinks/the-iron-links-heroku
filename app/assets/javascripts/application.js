@@ -16,6 +16,7 @@
 //= require underscore-min
 //= require angular.min
 //= require angular-ui-router
+//= require devise
 //= require foundation
 //= require welcome
 //= require sidebar.module

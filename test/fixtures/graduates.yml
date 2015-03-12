@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  grad_city: MyString
+  grad_state: MyString
+  grad_zip: MyString
+  grad_date: 2015-03-11
+  grad_focus: MyString
+  current_city: MyString
+  current_state: MyString
+  current_zip: MyString
+  workflow_state: MyString
+  additional_info: MyText
+  image_url: MyText
+
+two:
+  first_name: MyString
+  last_name: MyString
+  grad_city: MyString
+  grad_state: MyString
+  grad_zip: MyString
+  grad_date: 2015-03-11
+  grad_focus: MyString
+  current_city: MyString
+  current_state: MyString
+  current_zip: MyString
+  workflow_state: MyString
+  additional_info: MyText
+  image_url: MyText
