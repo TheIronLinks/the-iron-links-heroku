@@ -19,6 +19,7 @@
 //= require devise
 //= require foundation
 //= require welcome
+//= require sidebar.module
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
