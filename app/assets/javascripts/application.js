@@ -16,6 +16,7 @@
 //= require underscore-min
 //= require angular.min
 //= require angular-route.min
+//= require devise
 //= require foundation
 //= require welcome
 //= require_tree .
