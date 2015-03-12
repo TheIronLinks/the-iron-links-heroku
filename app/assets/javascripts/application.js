@@ -18,6 +18,7 @@
 //= require angular-ui-router
 //= require foundation
 //= require welcome
+//= require sidebar.module
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
