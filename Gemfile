@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -20,7 +20,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'workflow'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
