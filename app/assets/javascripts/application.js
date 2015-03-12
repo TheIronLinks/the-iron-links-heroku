@@ -15,11 +15,10 @@
 //= require jquery_ujs
 //= require underscore-min
 //= require angular.min
-//= require angular-ui-router
+//= require angular-route.min
 //= require devise
 //= require foundation
 //= require welcome
-//= require sidebar.module
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
