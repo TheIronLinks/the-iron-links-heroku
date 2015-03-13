@@ -1,0 +1,67 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{"ng-app" => "tilAPP"}
+    .off-canvas-wrap{"data-offcanvas" => ""}
+      .inner-wrap
+        %nav.tab-bar
+          %section.left-small
+            %a.left-off-canvas-toggle
+              %i.fa.fa-user
+          %section.middle.tab-bar-section
+            %h1.title The Iron Links
+          %section.right-small
+            %a.right-off-canvas-toggle
+              %i.fa.fa-search
+        %aside.left-off-canvas-menu
+          %ul.off-canvas-list
+            %li
+              %label Login
+            = render 'sidebar'
+            %li Username
+            %li
+              %input{:type => "text"}/
+            %li
+              %button submit
+        %aside.right-off-canvas-menu
+          %ul.off-canvas-list
+            %li
+              %label Search
+            %li
+              %a{:href => "#"} Hari Seldon
+            %li.has-submenu
+              %a{:href => "#"} R. Giskard Reventlov
+              %ul.right-submenu
+                %li.back
+                  %a{:href => "#"} Back
+                %li
+                  %label Level 1
+                %li
+                  %a{:href => "#"} Link 1
+                %li.has-submenu
+                  %a{:href => "#"} Link 2 w/ submenu
+                  %ul.right-submenu
+                    %li.back
+                      %a{:href => "#"} Back
+                    %li
+                      %label Level 2
+                    %li
+                      %a{:href => "#"} ...
+                %li
+                  %a{:href => "#"} ...
+            %li
+              %a{:href => "#"} ...
+        %section.main-section
+          .row
+            .large-12.small-12.columns
+              = yield
+        %a.exit-off-canvas
+/ header/footer
