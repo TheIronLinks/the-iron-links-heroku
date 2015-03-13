@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
 gem 'angular_rails_csrf'
 gem 'haml-rails'
 gem 'devise'
