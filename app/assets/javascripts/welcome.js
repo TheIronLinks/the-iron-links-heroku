@@ -6,14 +6,14 @@
     'ngRoute',
     'Devise'
   ])
-  .config(function($httpProvider) {
+  .config(['$httpProvider', function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
-   })
-  .config(function ($routeProvider) {
+   }])
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'assets/views/index.html'
       })
-  })
+  }])
   .constant('_',_);
 })();

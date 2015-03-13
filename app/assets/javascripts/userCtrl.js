@@ -2,10 +2,10 @@
   "use strict";
   var tilAPP = angular.module('tilAPP')
   tilAPP
-    .config(function($httpProvider) {
+    .config(['$httpProvider', function($httpProvider) {
        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
-     })
-    .controller('userCtrl', function($routeParams,$location,$scope,_,Auth){
+     }])
+    .controller('userCtrl',['$routeParams', '$location', '$scope', '_', function($routeParams,$location,$scope,_,Auth){
 
       $scope.setUser = function() {
         Auth.currentUser().then(function(user) {
@@ -54,6 +54,6 @@
       };
       $scope.setUser();
 
-    });
+    }]);
 
 })();
