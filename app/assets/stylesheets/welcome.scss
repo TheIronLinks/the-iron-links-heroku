@@ -2,12 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//setting background
+body {
+  min-height: 100%;
+}
+.off-canvas-wrap {
+  min-height: 100%;
+}
+.main-section {
+  min-height: 100%;
+  background: url('/assets/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.inner-wrap {
+  min-height: 100%;
+}
+//end set background
+
+
+//setting left sidebar
 #searchWrapper{
   width:100%;
-  background-color: gray;
   position:fixed;
   top:0;
   z-index:99999;
+}
+.off-canvas-list {
+  color: white;
 }
 .right-small {
   margin: auto;
@@ -17,6 +40,13 @@
   margin-left: 15px;
   color: white;
 }
-/* html {
-  width: 80%;
-} */
+.left-small {
+  margin: auto;
+  padding: auto;
+  color: white;
+}
+.left-small a {
+  margin-left: 15px;
+  color: white;
+}
+//setting left sidebar
