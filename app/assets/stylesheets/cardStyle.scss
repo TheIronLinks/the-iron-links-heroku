@@ -1,0 +1,74 @@
+
+
+//===============marked for deletion
+span{
+  font-size:100px;
+  line-height:250px;
+  color:lightgrey;
+}
+h1{
+  color:lightgrey;
+}
+//===============
+
+.invis{
+  display:none;
+}
+
+.contentWrapper{
+  display:flex;//flex container
+  justify-content:space-around;//equal spacing between, but no margins on row ends
+  flex-wrap:wrap;//enables responsiveness
+  max-width:1065px;
+  margin:auto;
+}
+ul{
+  border:1px solid red;
+  list-style-type:none;
+  display:inline-block;
+  position:relative;
+  margin:0;
+  padding:35px 0;
+}
+.innerWrapper{
+  border:1px solid blue;
+  width:250px;
+  height:400px;
+  display:inline-block;
+  margin:0 50px;
+  text-align:center;
+  position:relative;
+  -webkit-transition:0s linear all;
+}
+.card-detail{
+  width:100%;
+  //width:957px;
+}
+.fa-expand{
+  position:absolute;
+  top:5px;
+  right:5px;
+  color:grey;
+  &:hover{
+    font-size:20px;
+    cursor:pointer;
+  }
+}
+.fa-chevron-left,.fa-chevron-right{
+  transform:scale(0.7,1.5);
+  &:hover{
+    transform:scale(0.8,1.6);
+  }
+  font-size:50px;
+  position:absolute;
+  top:210px;
+  letter-spacing: 0px;
+  cursor:pointer;
+  color:grey;
+}
+.fa-chevron-left{
+  left:18px;
+}
+.fa-chevron-right{
+  right:18px;
+}
