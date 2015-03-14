@@ -1,0 +1,11 @@
+= link_to "New job listing", new_employer_location_job_listing_path(@employer, @location)
+- @job_listings.each do |listing|
+  = listing.name
+  %br/
+  = listing.position
+  %br/
+  = listing.description
+  %br/
+  = listing.post_date
+  %br/
+  = link_to "Show", employer_location_job_listing_path(@employer, @location, listing)

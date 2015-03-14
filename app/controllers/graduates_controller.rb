@@ -1,10 +1,6 @@
 class GraduatesController < ApplicationController
   def index
     @graduates = Graduate.all
-    respond_to do |format|
-      format.html
-      format.json{render @graduates.as_json}  
-    end
   end
 
   def show

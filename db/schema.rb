@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311210334) do
+ActiveRecord::Schema.define(version: 20150314180118) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -53,14 +53,13 @@ ActiveRecord::Schema.define(version: 20150311210334) do
     t.string   "grad_zip"
     t.date     "grad_date"
     t.string   "grad_focus"
-    t.string   "current_city"
-    t.string   "current_state"
     t.string   "current_zip"
     t.string   "workflow_state"
     t.text     "additional_info"
     t.text     "image_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "current_location"
   end
 
   create_table "job_listings", force: :cascade do |t|
@@ -88,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150311210334) do
     t.integer  "employer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "description"
   end
 
   create_table "skill_graduates", force: :cascade do |t|

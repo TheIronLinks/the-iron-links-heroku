@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+
+
+
+gem 'rabl'
+gem 'oj'
 gem "nested_form"
 gem 'angular_rails_csrf'
 gem 'haml-rails'
