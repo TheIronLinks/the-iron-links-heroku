@@ -17,6 +17,7 @@
           console.log(error);
         });
       };
+      
       $scope.loggedIn = function() {
         return Auth.isAuthenticated();
       };
