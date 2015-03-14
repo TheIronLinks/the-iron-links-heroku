@@ -26,6 +26,7 @@
         Auth.register(credentials).then(function(user) {
           $scope.setUser();
           $scope.signUpCredentials='';
+          $location.path('/newGrad');
         },function(error){
         $scope.error_message = error;
         console.log(error);

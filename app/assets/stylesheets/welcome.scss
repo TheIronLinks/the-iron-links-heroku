@@ -2,27 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//setting background
-body {
-  min-height: 100%;
+
+//setting home view
+//setting home view
+.main-section {
+  background: url('/assets/bgtest11.png');
+  height: 100vh;
+  padding: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .off-canvas-wrap {
   min-height: 100%;
 }
-.main-section {
-  min-height: 100%;
-  background: url('/assets/background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 .inner-wrap {
   min-height: 100%;
 }
-//end set background
+//end setting home view
+//end setting home view
 
 
-//setting left sidebar
+//home page login form
+//home page login form
+.mainForm {
+  margin: 0px;
+  padding: 0px;
+}
+
+.homeForm {
+  background: white;
+  border-radius: 2%;
+  width: 300px;
+  margin-top: 150px;
+  margin-left: 80%;
+  padding: 8px;
+  box-shadow: 2px 4px 4px #9C9C9C;
+}
+.login-container, .signUp-container {
+   margin: auto;
+   padding: 0px;
+}
+.ng-untouched.ng-valid {
+  margin: 0px;
+  padding: 0px;
+  width: 90%;
+  margin-left: 5%;
+}
+.ng-pristine.ng-untouched.ng-valid {
+  border: 1px solid lightgray;
+}
+
+//end home page login form
+//end home page login form
+
+
+//left sidebar
+//left sidebar
 #searchWrapper{
   width:100%;
   position:fixed;
@@ -49,4 +84,5 @@ body {
   margin-left: 15px;
   color: white;
 }
-//setting left sidebar
+//end left sidebar
+//end left sidebar
