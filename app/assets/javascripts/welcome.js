@@ -3,7 +3,8 @@
   'use strict';
 
   angular.module('tilAPP', [
-    'ngRoute'
+    'ngRoute',
+    'Devise'
   ])
   .config(function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
@@ -11,8 +12,8 @@
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'assets/views/cardStack/cardStackView.html'
-      })
+        templateUrl: 'assets/views/index.html'
+      });
   })
   .constant('_',_);
 })();
