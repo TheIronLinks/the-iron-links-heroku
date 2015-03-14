@@ -4,7 +4,8 @@
 
   angular.module('tilAPP', [
     'ngRoute',
-    'Devise'
+    'Devise',
+    'cardStackUI'
   ])
   .config(function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
@@ -16,6 +17,9 @@
       })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html'
+      })
+      .when('/cardStackView', {
+        templateUrl: 'assets/views/cardstack/cardStackView.html'
       })
   })
   .constant('_',_);

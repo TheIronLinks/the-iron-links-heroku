@@ -39,6 +39,7 @@
           console.log(user);
           $scope.setUser();
           $scope.loginCredentials='';
+          $location.path('/cardStackView');
         }, function(error) {
           $scope.error_message = error;
           console.log(error);
