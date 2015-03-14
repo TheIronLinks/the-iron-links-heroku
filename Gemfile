@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 
 gem 'rabl'
 gem 'oj'
+ruby '2.2.0'
 gem "nested_form"
 gem 'angular_rails_csrf'
 gem 'haml-rails'
