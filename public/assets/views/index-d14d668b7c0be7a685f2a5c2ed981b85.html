@@ -1,0 +1,32 @@
+
+
+<h1>{{currentUser.email}}</h1>
+<h1>{{error_message.data.error}}</h1>
+
+    <div class="mainForm">
+    <div ng-controller='userCtrl as user' class='homeForm'>
+      <div ng-hide='loggedIn()' class='login-container'>
+       <form ng-submit='submitLogin()'>
+         <input placeholder='Email' type='text' ng-model='loginCredentials.email'>
+         <input placeholder='Password' type='password' ng-model="loginCredentials.password" class="logpass">
+         <input type='submit'>
+        </form>
+      </div>
+      <div ng-hide='loggedIn()' class='signUp-container'>
+         Sign Up:
+        <form ng-submit='submitSignUp()'>
+         <label>Email</label>
+         <input type='text' ng-model='signUpCredentials.email'>
+         <label>Password</label>
+         <input type='password' ng-model="signUpCredentials.password">
+         <label>Confirm</label>
+         <input type='password' ng-model="signUpCredentials.password_confirmation">
+         <input type='submit'>
+       </form>
+      </div>
+      <a ng-click='submitLogout()' ng-show='loggedIn()'>
+       Logout
+      </a>
+      </div>
+    </div>
+</div>

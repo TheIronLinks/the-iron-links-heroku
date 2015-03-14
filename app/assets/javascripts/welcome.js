@@ -15,13 +15,9 @@
       .when('/', {
         templateUrl: 'assets/views/index.html'
       })
-<<<<<<< HEAD
-  }])
-=======
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html'
       })
-  })
->>>>>>> c77e24be9eca1b1a050fd0d88749e42b2304e2f1
+    }])
   .constant('_',_);
 })();
