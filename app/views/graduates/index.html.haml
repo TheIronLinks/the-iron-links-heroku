@@ -1,0 +1,21 @@
+.body_stuff
+  = link_to "New Graduate", new_graduate_path
+  %br/
+  - @graduates.each do |graduate|
+    = graduate.first_name
+    = graduate.last_name
+    %br/
+    = graduate.grad_city
+    = graduate.grad_state
+    %br/
+    = graduate.current_city
+    = graduate.current_state
+    %br/
+    = graduate.workflow_state
+    %br/
+    = graduate.additional_info
+    %br/
+    = image_tag(graduate.image_url)
+    %br/
+    = link_to "Show", graduate_path(graduate)
+    %br/

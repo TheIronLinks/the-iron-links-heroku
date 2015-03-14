@@ -14,6 +14,9 @@
       .when('/', {
         templateUrl: 'assets/views/index.html'
       })
+      .when('/newGrad', {
+        templateUrl: 'assets/views/newGrad.html'
+      })
   })
   .constant('_',_);
 })();
