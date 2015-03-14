@@ -15,14 +15,14 @@ h1{
   display:none;
 }
 
-.contentWrapper{
+.cards-wrapper{
   display:flex;//flex container
   justify-content:space-around;//equal spacing between, but no margins on row ends
   flex-wrap:wrap;//enables responsiveness
   max-width:1065px;
   margin:auto;
 }
-ul{
+.card-outer-wrapper{
   border:1px solid red;
   list-style-type:none;
   display:inline-block;
@@ -30,7 +30,7 @@ ul{
   margin:0;
   padding:35px 0;
 }
-.innerWrapper{
+.card-inner-wrapper{
   border:1px solid blue;
   width:250px;
   height:400px;
@@ -39,10 +39,6 @@ ul{
   text-align:center;
   position:relative;
   -webkit-transition:0s linear all;
-}
-.card-detail{
-  width:100%;
-  //width:957px;
 }
 .fa-expand{
   position:absolute;
