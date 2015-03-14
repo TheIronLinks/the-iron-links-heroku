@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "nested_form"
 gem 'angular_rails_csrf'
 gem 'haml-rails'
 gem 'devise'
@@ -42,6 +43,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'quiet_assets'
   gem 'erb2haml'
+  gem 'rspec'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
