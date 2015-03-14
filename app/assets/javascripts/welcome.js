@@ -7,10 +7,10 @@
     'Devise',
     'cardStackUI'
   ])
-  .config(function($httpProvider) {
+  .config(['$httpProvider', function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
-   })
-  .config(function ($routeProvider) {
+   }])
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'assets/views/index.html'
@@ -21,6 +21,7 @@
       .when('/cardStackView', {
         templateUrl: 'assets/views/cardstack/cardStackView.html'
       })
-  })
+    })
+  }])
   .constant('_',_);
 })();
