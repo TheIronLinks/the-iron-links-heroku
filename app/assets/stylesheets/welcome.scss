@@ -1,22 +1,38 @@
-
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//testing slider
 
+//end testing slider
 
 //setting home view
 //setting home view
-.main-section {
-  background: url('/assets/bgtest11.png');
-  height: 100vh;
-  padding: 0px;
-  background-size: cover;
-  background-repeat: no-repeat;
+* {
+font-family: 'Playfair Display', serif;
 }
-.off-canvas-wrap {
-  min-height: 100%;
+.main-section {
+  padding: 0px;
 }
 .inner-wrap {
+  height: 100vh;
+//test slide
+  .photo {
+    position:fixed;
+    margin-top: -80px;
+    -webkit-animation:round 16s infinite;
+    opacity:0;
+  }
+}
+@-webkit-keyframes round{
+  25%{opacity:1;}
+  40%{opacity:0;}
+}
+img:nth-child(4){animation-delay:0s;}
+img:nth-child(3){animation-delay:4s;}
+img:nth-child(2){animation-delay:8s;}
+img:nth-child(1){animation-delay:12s;}
+
+.off-canvas-wrap {
   min-height: 100%;
 }
 //end setting home view
@@ -27,17 +43,21 @@
 //home page login form
 .mainForm {
   margin: 0px;
-  padding: 0px;
+  padding-top: 10%;
 }
-
+.logoBlue {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  padding: 5px;
+}
 .homeForm {
   background: white;
   border-radius: 2%;
-  width: 300px;
-  margin-top: 150px;
-  margin-left: 80%;
+  width: 290px;
+  margin: auto;
   padding: 8px;
-  box-shadow: 2px 4px 4px #9C9C9C;
+  box-shadow: 6px 6px 5px #9C9C9C;
 }
 .login-container, .signUp-container {
    margin: auto;
@@ -52,7 +72,22 @@
 .ng-pristine.ng-untouched.ng-valid {
   border: 1px solid lightgray;
 }
-
+input {
+  background-color: #39474E;
+  border: 0px;
+  margin: 4px;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  margin-left: 77%;
+}
+/* .small-8 {
+  margin-left: 7%;
+  padding: 0px;
+}
+.small-9  {
+  width: 80%;
+} */
 //end home page login form
 //end home page login form
 

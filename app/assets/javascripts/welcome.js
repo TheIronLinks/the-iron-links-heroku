@@ -4,13 +4,12 @@
 
   angular.module('tilAPP', [
     'ngRoute',
-    'Devise',
-    'cardStackUI'
+    'Devise'
   ])
-  .config(['$httpProvider', function($httpProvider) {
+  .config(function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
-   }])
-  .config(['$routeProvider', function ($routeProvider) {
+   })
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'assets/views/index.html'
@@ -18,10 +17,6 @@
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html'
       })
-      .when('/cardStackView', {
-        templateUrl: 'assets/views/cardstack/cardStackView.html'
-      })
-    })
-  }])
+  })
   .constant('_',_);
 })();
