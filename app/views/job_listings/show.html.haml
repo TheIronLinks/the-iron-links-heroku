@@ -1,0 +1,11 @@
+= @job_listing.name
+%br/
+= @job_listing.position
+%br/
+= @job_listing.post_date
+%br/
+= @job_listing.description
+%br/
+= link_to "Edit", edit_employer_location_job_listing_path(@employer, @location, @job_listing)
+|
+= link_to "Destroy", employer_location_job_listing_path(@employer, @location, @job_listing), method: :delete
