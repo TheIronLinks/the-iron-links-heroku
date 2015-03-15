@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311210334) do
+ActiveRecord::Schema.define(version: 20150315160659) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 20150311210334) do
     t.string   "grad_zip"
     t.date     "grad_date"
     t.string   "grad_focus"
-    t.string   "current_city"
-    t.string   "current_state"
     t.string   "current_zip"
     t.string   "workflow_state"
     t.text     "additional_info"
     t.text     "image_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "current_location"
+    t.string   "email"
   end
 
   create_table "job_listings", force: :cascade do |t|
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20150311210334) do
     t.integer  "employer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "description"
   end
 
   create_table "skill_graduates", force: :cascade do |t|
@@ -104,12 +105,12 @@ ActiveRecord::Schema.define(version: 20150311210334) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",        null: false
+    t.string   "encrypted_password",     default: "",        null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,         null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20150311210334) do
     t.datetime "updated_at"
     t.string   "userable_type"
     t.integer  "userable_id"
+    t.string   "account_type",           default: "student"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

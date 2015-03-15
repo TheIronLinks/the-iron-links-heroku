@@ -1,0 +1,21 @@
+= image_tag(@employer.image_url)
+%br/
+= @employer.name
+%br/
+= @employer.industry
+%br/
+= @employer.founded
+%br/
+= @employer.size
+%br/
+= @employer.city
+%br/
+= @employer.state
+%br/
+= @employer.zip
+%br/
+= link_to "See Locations", employer_locations_path(@employer)
+|
+= link_to "Edit", edit_employer_path(@employer)
+|
+= link_to "Delete", employer_path(@employer), method: :delete

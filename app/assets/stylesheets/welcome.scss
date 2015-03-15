@@ -7,32 +7,14 @@
 //setting home view
 //setting home view
 
-//===============================================Adam made the following changes
 
-//OLD****
-/* .main-section {
+.main-section {
   background: url('/assets/bgtest11.png');
   height: 100vh;
   padding: 0px;
   background-size: cover;
   background-repeat: no-repeat;
-} */
-
-//NEW****
-body{
-  background: url('/assets/bgtest11.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
-.tab-bar{
-  //position:fixed;
-}
-
-
-
-
-
 .off-canvas-wrap {
   min-height: 100%;
 }
