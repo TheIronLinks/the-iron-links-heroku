@@ -1,0 +1,11 @@
+= link_to "New Location for #{@employer.name}", new_employer_location_path(@employer)
+- @locations.each do |location|
+  = location.city
+  %br/
+  = location.state
+  %br/
+  = location.zip
+  %br/
+  = location.description
+  %br/
+  = link_to "Show", employer_location_path(@employer, location)

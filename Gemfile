@@ -1,9 +1,16 @@
 source 'https://rubygems.org'
 
+
+
+gem 'rabl'
+gem 'oj'
+ruby '2.2.0'
+gem "nested_form"
 gem 'angular_rails_csrf'
 gem 'haml-rails'
 gem 'devise'
 gem 'rails_12factor'
+gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record

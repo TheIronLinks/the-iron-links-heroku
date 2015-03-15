@@ -1,0 +1,26 @@
+= form_for(@employer) do |f|
+  = f.label :name
+  = f.text_field :name
+  %br/
+  = f.label :industry
+  = f.text_field :industry
+  %br/
+  = f.label :founded
+  = f.text_field :founded
+  %br/
+  = f.label :size
+  = f.text_field :size
+  %br/
+  = f.label :city
+  = f.text_field :city
+  %br/
+  = f.label :state
+  = f.text_field :state
+  %br/
+  = f.label :zip
+  = f.text_field :zip
+  %br/
+  = f.label :image_url
+  = f.text_field :image_url
+  %br/
+  = f.submit

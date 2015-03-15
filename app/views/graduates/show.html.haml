@@ -1,0 +1,38 @@
+= image_tag(@graduate.image_url)
+%br/
+= @graduate.first_name
+= @graduate.last_name
+%br/
+= @graduate.grad_city
+= @graduate.grad_state
+%br/
+= @graduate.grad_date
+%br/
+= @graduate.grad_focus
+%br/
+= @graduate.current_city
+= @graduate.current_state
+%br/
+= @graduate.workflow_state
+%br/
+= @graduate.additional_info
+%br/
+- @graduate.links.each do |link|
+  = link_to link.description, link.url
+  %br/
+- @graduate.experiences.each do |experience|
+  = experience.company
+  = experience.position
+  %br/
+  = experience.description
+- @graduate.educations.each do |education|
+  = education.school_name
+  %br/
+  = education.start_date
+  = education.end_date
+  %br/
+  = education.concentration
+  %br/
+= link_to "Edit", edit_graduate_path(@graduate)
+|
+= link_to "Delete", graduate_path(@graduate), method: :delete
