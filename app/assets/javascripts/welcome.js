@@ -16,7 +16,8 @@
         templateUrl: 'assets/views/index.html'
       })
       .when('/newGrad', {
-        templateUrl: 'assets/views/newGrad.html'
+        templateUrl: 'assets/views/newGrad.html',
+        controller: 'ProfileController as profileCtrl'
       })
     }])
   .constant('_',_);

@@ -16,7 +16,7 @@
             // element.find('.fa-expand').on('click', function(){
             //   console.log(indexArray);
             // });
-            element.find('.fa-chevron-left').on('click',function(){
+            element.find('.fa.fa-5x.fa-caret-left').on('click',function(){
               var comingFrom = element.find('li[rel=\'selected\']').attr('id');
               var goingTo;
               if(comingFrom === '1'){
@@ -29,7 +29,7 @@
               element.find('li[rel='+goingTo+']').attr('rel', 'selected');
               element.find('li[rel=\'selected\']').css("display", "inline-block");
             });
-            element.find('.fa-chevron-right').on('click',function(){
+            element.find('.fa.fa-5x.fa-caret-right').on('click',function(){
               var comingFrom = element.find('li[rel=\'selected\']').attr('id');
               var goingTo;
               if(comingFrom === '4'){

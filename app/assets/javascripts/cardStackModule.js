@@ -4,9 +4,9 @@
   angular.module('cardStackUI', [
     'ngRoute'
   ])
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
-      .when('/alumni', {
+      .when('/graduates', {
         templateUrl: 'assets/views/cardStack/alumniCardView.html',
         controller: 'CardController as cardCtrl'
       })
