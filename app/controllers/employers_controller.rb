@@ -16,7 +16,10 @@ class EmployersController < ApplicationController
     @employer = Employer.create employer_params
     respond_to do |format|
       format.html{redirect_to employers_path}
-      format.json{render nothing: true}
+      format.json{
+        
+        render nothing: true
+      }
     end 
   end
 

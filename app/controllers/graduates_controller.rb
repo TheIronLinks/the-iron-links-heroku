@@ -16,7 +16,6 @@ class GraduatesController < ApplicationController
   end
 
   def create
-    current_user
     @graduate = Graduate.create graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}

@@ -1,4 +1,7 @@
-= link_to "New job listing", new_employer_location_job_listing_path(@employer, @location)
+- if params[:location_id]
+  = link_to "New job listing", new_employer_location_job_listing_path(@employer, @location)
+%br/
+
 - @job_listings.each do |listing|
   = listing.name
   %br/
@@ -8,4 +11,6 @@
   %br/
   = listing.post_date
   %br/
-  = link_to "Show", employer_location_job_listing_path(@employer, @location, listing)
+  %br/
+  - if params[:location_id]
+    = link_to "Show", employer_location_job_listing_path(@employer, @location, listing)

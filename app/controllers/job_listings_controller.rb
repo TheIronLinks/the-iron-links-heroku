@@ -47,11 +47,15 @@ class JobListingsController < ApplicationController
 
   private
   def set_employer
-    @employer = Employer.find params[:employer_id]
+    if params[:employer_id]
+      @employer = Employer.find params[:employer_id]
+    end
   end
 
   def set_location
-    @location = Location.find params[:location_id]
+    if params[:location_id]
+      @location = Location.find params[:location_id]
+    end
   end
 
   def set_job_listing
