@@ -1,0 +1,72 @@
+
+
+//===============marked for deletion
+span{
+  font-size:100px;
+  line-height:400px;
+  color:lightgrey;
+}
+//===============
+
+.invis{
+  display:none;
+}
+
+.cards-wrapper{
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  max-width:960px;
+  //max-width:70%;
+  margin:auto;
+/*   @media only screen and (max-width : 1150px){
+  max-width:66%;
+}
+@media only screen and (max-width : 500px){
+  max-width:100%;
+} */
+}
+.card-outer-wrapper{
+  //border:1px solid red;
+  list-style-type:none;
+  display:inline-block;
+  margin:0;
+  padding:35px;
+  &:hover .fa.fa-5x.fa-caret-left,&:hover .fa.fa-5x.fa-caret-right{
+    visibility: visible!important;
+  }
+}
+.card-inner-wrapper{
+  //border:1px solid blue;
+  background-color:white;
+  width:250px;
+  height:400px;
+  display:inline-block;
+  text-align:center;
+  position:relative;
+  position:relative;
+}
+.fa-expand{
+  position:absolute;
+  top:5px;
+  right:5px;
+  color:grey;
+  &:hover{
+    font-size:20px;
+    cursor:pointer;
+  }
+}
+.fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
+  visibility:hidden;
+  position:absolute;
+  top:160px;
+  letter-spacing: 0px;
+  cursor:pointer;
+  color:grey;
+}
+.fa.fa-5x.fa-caret-left{
+  left:5px;
+}
+.fa.fa-5x.fa-caret-right{
+  right:5px;
+}
