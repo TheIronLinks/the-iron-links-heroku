@@ -3,10 +3,7 @@
 //===============marked for deletion
 span{
   font-size:100px;
-  line-height:250px;
-  color:lightgrey;
-}
-h1{
+  line-height:400px;
   color:lightgrey;
 }
 //===============
@@ -16,29 +13,38 @@ h1{
 }
 
 .cards-wrapper{
-  display:flex;//flex container
-  justify-content:space-around;//equal spacing between, but no margins on row ends
-  flex-wrap:wrap;//enables responsiveness
-  max-width:1065px;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  //max-width:960px;
+  max-width:70%;
   margin:auto;
+/*   @media only screen and (max-width : 1150px){
+  max-width:66%;
+}
+@media only screen and (max-width : 500px){
+  max-width:100%;
+} */
 }
 .card-outer-wrapper{
-  border:1px solid red;
+  //border:1px solid red;
   list-style-type:none;
   display:inline-block;
-  position:relative;
   margin:0;
-  padding:35px 0;
+  padding:35px;
+  &:hover .fa.fa-5x.fa-caret-left,&:hover .fa.fa-5x.fa-caret-right{
+    visibility: visible!important;
+  }
 }
 .card-inner-wrapper{
-  border:1px solid blue;
+  //border:1px solid blue;
+  background-color:white;
   width:250px;
   height:400px;
   display:inline-block;
-  margin:0 50px;
   text-align:center;
   position:relative;
-  -webkit-transition:0s linear all;
+  position:relative;
 }
 .fa-expand{
   position:absolute;
@@ -50,21 +56,17 @@ h1{
     cursor:pointer;
   }
 }
-.fa-chevron-left,.fa-chevron-right{
-  transform:scale(0.7,1.5);
-  &:hover{
-    transform:scale(0.8,1.6);
-  }
-  font-size:50px;
+.fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
+  visibility:hidden;
   position:absolute;
-  top:210px;
+  top:160px;
   letter-spacing: 0px;
   cursor:pointer;
   color:grey;
 }
-.fa-chevron-left{
-  left:18px;
+.fa.fa-5x.fa-caret-left{
+  left:5px;
 }
-.fa-chevron-right{
-  right:18px;
+.fa.fa-5x.fa-caret-right{
+  right:5px;
 }

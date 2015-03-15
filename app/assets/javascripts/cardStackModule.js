@@ -4,9 +4,9 @@
   angular.module('cardStackUI', [
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
-      .when('/alumni', {
+      .when('/graduates', {
         templateUrl: 'assets/views/cardStack/alumniCardView.html',
         controller: 'CardController as cardCtrl'
       })
@@ -25,5 +25,5 @@
       .otherwise({
         redirectTo: '/not-found'
       });
-  });
+  }]);
 })();
