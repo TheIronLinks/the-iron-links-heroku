@@ -1,9 +1,7 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-//testing slider
 
-//end testing slider
 
 //setting home view
 //setting home view
@@ -63,15 +61,13 @@ img:nth-child(1){animation-delay:12s;}
    margin: auto;
    padding: 0px;
 }
-.ng-untouched.ng-valid {
+.ng-valid {
   margin: 0px;
   padding: 0px;
   width: 90%;
   margin-left: 5%;
 }
-.ng-pristine.ng-untouched.ng-valid {
-  border: 1px solid lightgray;
-}
+
 input {
   background-color: #39474E;
   border: 0px;
