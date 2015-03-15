@@ -1,0 +1,14 @@
+= form_for [@employer, @location, @job_listing] do |f|
+  = f.label :name
+  = f.text_field :name
+  %br/
+  = f.label :position
+  = f.text_field :position
+  %br/
+  = f.label :description
+  = f.text_area :description
+  %br/
+  = f.label :post_date
+  = f.text_area :post_date
+  %br/
+  = f.submit
