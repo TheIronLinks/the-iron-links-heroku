@@ -12,21 +12,26 @@
   %body{"ng-app" => "tilAPP"}
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
+        .bgSlider
+          %img.photo{:src => "assets/bgslider1.png"}
+          %img.photo{:src => "assets/bgslider2.png"}
+          %img.photo{:src => "assets/bgslider3.png"}
+          %img.photo{:src => "assets/bgslider4.png"}
         %nav.tab-bar
-          - if current_user
+          %a.left-off-canvas-toggle
             %section.left-small
-              %a.left-off-canvas-toggle
-                %i.fa.fa-user
+              %i.fa.fa-user
+
           %section.middle.tab-bar-section
-            %h1.title The Iron Links
-          %section.right-small
-            %a.right-off-canvas-toggle
+            %img.logoBar{:src => "assets/logoClear.png"}
+          %a.right-off-canvas-toggle
+            %section.right-small
               %i.fa.fa-search
         %aside.left-off-canvas-menu
           %ul.off-canvas-list
             %li
               %label Login
-            = render 'layouts/sidebar'
+            = render 'sidebar'
             %li Username
             %li
               %input{:type => "text"}/
@@ -61,6 +66,8 @@
             %li
               %a{:href => "#"} ...
         %section.main-section
-          = yield
+          .row
+            .large-12.small-12.columns
+              = yield
         %a.exit-off-canvas
 / header/footer

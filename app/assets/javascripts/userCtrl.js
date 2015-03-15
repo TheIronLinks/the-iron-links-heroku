@@ -1,11 +1,11 @@
 (function () {
   "use strict";
-  var tilAPP = angular.module('tilAPP');
+  var tilAPP = angular.module('tilAPP')
   tilAPP
-    .config(['$httpProvider', function($httpProvider) {
+    .config(function($httpProvider) {
        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
-     }])
-    .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams,$location,$scope,_,Auth){
+     })
+    .controller('userCtrl', function($routeParams,$location,$scope,_,Auth){
 
       $scope.setUser = function() {
         Auth.currentUser().then(function(user) {
@@ -17,13 +17,12 @@
           console.log(error);
         });
       };
-      
       $scope.loggedIn = function() {
         return Auth.isAuthenticated();
       };
 
       $scope.submitSignUp = function() {
-        var credentials = $scope.signUpCredentials;
+        var credentials = $scope.signUpCredentials
         Auth.register(credentials).then(function(user) {
           $scope.setUser();
           $scope.signUpCredentials='';
@@ -36,10 +35,11 @@
     };
       $scope.submitLogin = function() {
         var credentials = $scope.loginCredentials;
+        console.log(credentials)
         Auth.login(credentials).then(function(user) {
-          console.log(user);
+          console.log(user)
           $scope.setUser();
-          $scope.loginCredentials='';
+          $scope.loginCredentials=''
         }, function(error) {
           $scope.error_message = error;
           console.log(error);
@@ -55,6 +55,6 @@
       };
       $scope.setUser();
 
-    }]);
+    });
 
 })();

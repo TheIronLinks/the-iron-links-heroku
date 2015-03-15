@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   # get 'welcome/index'
+
   resources :graduates
-  resources :employers do 
+  resources :employers do
     resources 'locations' do
       resources 'job_listings'
     end
