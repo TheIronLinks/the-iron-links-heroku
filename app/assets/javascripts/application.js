@@ -18,6 +18,7 @@
 //= require angular-route.min
 //= require devise
 //= require foundation
+//= require jquery_nested_form
 //= require welcome
 //= require_tree .
 

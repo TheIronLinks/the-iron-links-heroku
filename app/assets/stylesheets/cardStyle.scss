@@ -1,4 +1,8 @@
-
+$cardColor:white;
+$bgCardOne:#b8584c;
+$bgCardTwo:#ce832d;
+$bgCardThree:#d3b42b;
+$bgCardFour:#35a0ad;
 
 //===============marked for deletion
 span{
@@ -8,17 +12,15 @@ span{
 }
 //===============
 
-.invis{
-  display:none;
-}
 
 .cards-wrapper{
   display:flex;
   justify-content:space-around;
   flex-wrap:wrap;
-  max-width:960px;
-  //max-width:70%;
+
+  max-width:1250px;
   margin:auto;
+  position:relative;
 /*   @media only screen and (max-width : 1150px){
   max-width:66%;
 }
@@ -29,30 +31,59 @@ span{
 .card-outer-wrapper{
   //border:1px solid red;
   list-style-type:none;
-  display:inline-block;
-  margin:0;
-  padding:35px;
-  &:hover .fa.fa-5x.fa-caret-left,&:hover .fa.fa-5x.fa-caret-right{
+  margin:35px;
+  position:relative;
+  width:250px;
+  height:400px;
+  &:hover .fa.fa-5x.fa-caret-left{
+    visibility: visible!important;
+  }
+  &:hover .fa.fa-5x.fa-caret-right{
     visibility: visible!important;
   }
 }
 .card-inner-wrapper{
   //border:1px solid blue;
   background-color:white;
-  width:250px;
-  height:400px;
-  display:inline-block;
+  border-radius:5px;
   text-align:center;
-  position:relative;
-  position:relative;
-}
-.fa-expand{
+  display:inline-block;
   position:absolute;
-  top:5px;
-  right:5px;
-  color:grey;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+[data-trait='1']{
+  background-color:$bgCardOne;
+}
+[data-trait='2']{
+  background-color:$bgCardTwo;
+}
+[data-trait='3']{
+  background-color:$bgCardThree;
+}
+[data-trait='4']{
+  background-color:$bgCardFour;
+}
+.fa.fa-2x.fa-ellipsis-v{
+  position:absolute;
+  top:7px;
+  left:13px;
+  color:$cardColor;
   &:hover{
-    font-size:20px;
+    transform:scale(1.1);
+    cursor:pointer;
+  }
+}
+.fa.fa-lg.fa-flip-horizontal.fa-expand{
+  position:absolute;
+  top:10px;
+  right:8px;
+  color:$cardColor;
+  font-weight:bold;
+  &:hover{
+    transform:scale(1.1) rotate(90deg);;
     cursor:pointer;
   }
 }
@@ -61,8 +92,13 @@ span{
   position:absolute;
   top:160px;
   letter-spacing: 0px;
-  cursor:pointer;
-  color:grey;
+  color:$cardColor;
+  -webkit-user-select: none;//prevents highlighting from double click
+  z-index:99999;
+  &:hover{
+    cursor:pointer;
+    transform:scale(1.1);
+  }
 }
 .fa.fa-5x.fa-caret-left{
   left:5px;
