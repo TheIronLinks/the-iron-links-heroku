@@ -5,7 +5,7 @@ $bgCardThree:#d3b42b;
 $bgCardFour:#35a0ad;
 
 //===============marked for deletion
-span{
+.cardID{
   font-size:100px;
   line-height:400px;
   color:lightgrey;
@@ -65,6 +65,13 @@ span{
 }
 [data-trait='4']{
   background-color:$bgCardFour;
+}
+.cardLabel{
+  color:$cardColor;
+  font-size:18px;
+  position:absolute;
+  top:10px;
+  font-weight:bold;
 }
 .fa.fa-2x.fa-ellipsis-v{
   position:absolute;
