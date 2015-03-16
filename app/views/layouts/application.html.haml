@@ -38,32 +38,7 @@
               %button submit
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
-            %li
-              %label Search
-            %li
-              %a{:href => "#"} Hari Seldon
-            %li.has-submenu
-              %a{:href => "#"} R. Giskard Reventlov
-              %ul.right-submenu
-                %li.back
-                  %a{:href => "#"} Back
-                %li
-                  %label Level 1
-                %li
-                  %a{:href => "#"} Link 1
-                %li.has-submenu
-                  %a{:href => "#"} Link 2 w/ submenu
-                  %ul.right-submenu
-                    %li.back
-                      %a{:href => "#"} Back
-                    %li
-                      %label Level 2
-                    %li
-                      %a{:href => "#"} ...
-                %li
-                  %a{:href => "#"} ...
-            %li
-              %a{:href => "#"} ...
+            = render "layouts/searchSidebar"
         %section.main-section
           .row
             .large-12.small-12.columns
