@@ -4,8 +4,7 @@
 <h1>{{error_message.data.error}}</h1>
 
     <div class="mainForm">
-    <div class='homeForm'>
-      <div class="logoBlue"><img src="assets/logoblue.gif" alt=""></div>
+    <div ng-controller='userCtrl as user' class='homeForm'>
       <div ng-hide='loggedIn()' class='login-container'>
        <form ng-submit='submitLogin()'>
          <input placeholder='Email' type='text' ng-model='loginCredentials.email'>
