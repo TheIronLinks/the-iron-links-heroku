@@ -13,9 +13,10 @@
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
         %nav.tab-bar
-          %section.left-small
-            %a.left-off-canvas-toggle
-              %i.fa.fa-user
+          - if current_user
+            %section.left-small
+              %a.left-off-canvas-toggle
+                %i.fa.fa-user
           %section.middle.tab-bar-section
             %h1.title The Iron Links
           %section.right-small
