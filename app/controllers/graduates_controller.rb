@@ -19,10 +19,10 @@ class GraduatesController < ApplicationController
     @graduate = Graduate.create graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
-      format.json{
+      format.json do
         @graduate.user = current_user
         render nothing: true
-      }  
+      end
     end
   end
 
