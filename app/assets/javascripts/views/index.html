@@ -9,7 +9,7 @@
        <form ng-submit='submitLogin()'>
          <input placeholder='Email' type='text' ng-model='loginCredentials.email'>
          <input placeholder='Password' type='password' ng-model="loginCredentials.password" class="logpass">
-         <input type='submit'>
+         <input type='submit' ng-click='setUser()'>
         </form>
       </div>
       <div ng-hide='loggedIn()' class='signUp-container'>
@@ -18,7 +18,7 @@
          <input placeholder='Email'type='text' ng-model='signUpCredentials.email'>
          <input placeholder='Password'type='password' ng-model="signUpCredentials.password">
          <input placeholder='Confirm Password'type='password' ng-model="signUpCredentials.password_confirmation">
-         <input type='submit'>
+         <input type='submit' ng-click='setUser()'>
        </form>
       </div>
       <a ng-click='submitLogout()' ng-show='loggedIn()'>

@@ -61,10 +61,19 @@
           });
         };
 
+
+
+
+
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
-            $scope.setUser();
+            $scope.currentUser = user;
           });
+          $scope.setUser();
+        };
+
+        $scope.goToHome = function(){
+          $location.path('/');
         };
         $scope.setUser();
       }])
