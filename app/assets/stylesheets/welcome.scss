@@ -4,6 +4,12 @@
 
 //general settings
 //general settings
+h3 {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  color: #39474E;
+}
 img.logoBar {
   height: 200%;
 }
@@ -12,31 +18,29 @@ img.logoBar {
 * {
 font-family: 'Playfair Display', serif;
 }
+
 .main-section {
   padding: 0px;
 }
+
 .inner-wrap {
   min-height: 100vh;
-
-//testing bg animation
-//testing bg animation
   .photo {
     position:fixed;
     margin-top: -80px;
     opacity:0;
   }
 }
+
 @-webkit-keyframes round{
-  50%{opacity:1;}
+  60%{opacity:1;}
   100%{opacity:0;}
 }
-.bgSlider img:nth-child(1){-webkit-animation: round 0s infinite;}
-.bgSlider img:nth-child(2){-webkit-animation: round 5s infinite;}
-.bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
-.bgSlider img:nth-child(4){-webkit-animation: round 15s infinite;}
-//end testing bg animation
-//end testing bg animation
 
+.bgSlider img:nth-child(4){-webkit-animation: round 0s infinite;}
+.bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
+.bgSlider img:nth-child(2){-webkit-animation: round 20s infinite;}
+.bgSlider img:nth-child(1){-webkit-animation: round 30s infinite;}
 
 .off-canvas-wrap {
   min-height: 100%;
@@ -55,6 +59,15 @@ font-family: 'Playfair Display', serif;
 
 //home page login form
 //home page login form
+.newProfile {
+  background: white;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 0px;
+  border-radius: 1%;
+  box-shadow: 6px 6px 5px #454545;
+
+}
 .mainForm {
   margin: 0px;
   padding-top: 10%;
@@ -71,7 +84,7 @@ font-family: 'Playfair Display', serif;
   width: 290px;
   margin: auto;
   padding: 8px;
-  box-shadow: 6px 6px 5px #9C9C9C;
+  box-shadow: 6px 6px 5px #454545;
 }
 .login-container, .signUp-container {
    margin: auto;
