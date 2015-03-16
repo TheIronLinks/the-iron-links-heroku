@@ -5,6 +5,15 @@ class EmployersController < ApplicationController
     @employers = Employer.all
   end
 
+  def search_employers
+    employer_search_check
+    @employers = employer_search_results
+    respond_to do |format|
+      format.json
+      format.html
+    end
+  end
+
   def show
   end
 
