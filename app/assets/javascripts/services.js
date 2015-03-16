@@ -23,7 +23,7 @@
 
     .factory('ProfileService', function ($location,$http) {
 
-      var url = 'http://localhost:3000/graduates.josn';
+      var url = 'http://localhost:3000/graduates.json';
 
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
@@ -35,7 +35,6 @@
       };
 
       return {
-        getCards: getCards,
         addProfile: addProfile
       };
     });
