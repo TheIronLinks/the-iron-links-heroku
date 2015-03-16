@@ -79,7 +79,7 @@
           ProfileService.addProfile(newProfile);
           $scope.newProfile = {};
         };
-
+        
         profileCtrl.routeTo = function (path) {
           $location.path(path);
         };
