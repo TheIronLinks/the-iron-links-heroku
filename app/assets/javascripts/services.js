@@ -4,7 +4,7 @@
 
 //==========================CARD SERVICE==========================
 
-    .factory('CardService', function ($location,$http) {
+    .factory('CardService',['$location', '$http', function ($location,$http) {
 
       var url = 'http://localhost:3000/employers.json';
 
@@ -17,11 +17,11 @@
       return {
         getCards: getCards
       };
-    })
+    }])
 
 //==========================PROFILE SERVICE==========================
 
-    .factory('ProfileService', function ($location,$http) {
+    .factory('ProfileService',['$location', '$http', function ($location,$http) {
 
       var url = 'http://localhost:3000/graduates.json';
 
@@ -37,5 +37,5 @@
       return {
         addProfile: addProfile
       };
-    });
+    }]);
 })();

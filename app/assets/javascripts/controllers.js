@@ -4,7 +4,7 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', function (CardService) {
+      .controller('CardController',['CardService', function (CardService) {
 
         var cardCtrl = this;
 
@@ -16,7 +16,7 @@
         .error(function(){
           console.log('cardCtrl.stack error')
         });
-      })
+      }])
 
 //==========================USER CTRL==========================
 
@@ -71,7 +71,7 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', function (ProfileService,$location) {
+      .controller('ProfileController',['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
 
@@ -84,11 +84,11 @@
           $location.path(path);
         };
 
-      })
+      }])
 
 //==========================AUTHENTICATION CTRL==========================
 
-      .controller('AuthenticationController', function (ProfileService,$location,Auth) {
+      .controller('AuthenticationController',['ProfileService', '$location', 'Auth', function (ProfileService,$location,Auth) {
 
         var authCtrl = this;
 
@@ -131,6 +131,6 @@
           });
         };
 
-      });
+      }]);
 
 })();
