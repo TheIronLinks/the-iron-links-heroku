@@ -1,13 +1,16 @@
 (function () {
     'use strict';
     angular.module('tilAPP')
+
+//=====================CARD DIRECTIVE=====================
+
       .directive('cardDirective', function() {
         return {
           restrict: 'E',
           scope: {
             data: '='
           },
-          templateUrl: 'assets/cardStack.directive.html',
+          templateUrl: 'assets/directiveTemplates/cardStack.directive.html',
           link: function(scope, element, attrs) {
 
             //=====================CARD SLIDER=====================
@@ -93,6 +96,34 @@
 
           }
         };
-    });
+    })
+
+//=====================SEARCH DIRECTIVE=====================
+
+    .directive('searchDirective', function(Auth) {
+      var returnObject = {
+        restrict: 'E',
+        scope: {
+          data: '='
+        },
+        templateUrl: '',
+        link: function(scope, element, attrs) {
+
+
+        }
+      };
+
+      //=====================CONDITIONALLY LOADING TEMPLATES FOR SEARCH DIRECTIVE=====================
+
+      if(Auth._currentUser.account_type === 'student'){
+
+      }else if(Auth._currentUser.account_type === 'employer'){
+        returnObject.templateUrl = 'assets/cardStack.directive.html'
+      }
+      return returnObject;
+  });
+
+
+
 
 })();
