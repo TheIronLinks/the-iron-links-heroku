@@ -1,4 +1,4 @@
-<h1>Welcome to The Iron Links</h1>
+<div class="newProfile">
 <h3>Create your new profile.</h3>
 <form>
   <div class="row">
@@ -110,24 +110,15 @@
     <div class="large-4 columns">
       <label for="">Concentration</label>
         <input type="text" placeholder="" />
-      </label>
-    </div>
-
-        </label>
-      </div>
-    </div>
-
-      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 columns">
-      <label>Email Visibility Settings:</label>
-      <input type="radio" name="private" value="private" id="private"><label for="private">Only Myself</label>
-      <input type="radio" name="partial" value="partial" id="partial"><label for="partial">Other Alumni</label>
-      <input type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
-    </div>
-
+    <div class="row">
+      <div class="large-6 columns">
+        <label>Email Visibility Settings:</label>
+        <input type="radio" name="private" value="private" id="private"><label for="private">Only Myself</label>
+        <input type="radio" name="partial" value="partial" id="partial"><label for="partial">Other Alumni</label>
+        <input type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
+      </div>
   </div>
   <div class="row">
     <div class="large-12 columns">
@@ -139,3 +130,4 @@
   <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
 
 </form>
+</div>
