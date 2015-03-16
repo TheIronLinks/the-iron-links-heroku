@@ -12,30 +12,28 @@ img.logoBar {
 * {
 font-family: 'Playfair Display', serif;
 }
+
 .main-section {
   padding: 0px;
 }
-.inner-wrap {
-  height: 100vh;
 
-//testing bg animation
-//testing bg animation
+.inner-wrap {
+  min-height: 100vh;
   .photo {
     position:fixed;
     margin-top: -80px;
     opacity:0;
   }
 }
+
 @-webkit-keyframes round{
   50%{opacity:1;}
   100%{opacity:0;}
 }
-.bgSlider img:nth-child(1){-webkit-animation: round 0s infinite;}
-.bgSlider img:nth-child(2){-webkit-animation: round 5s infinite;}
+.bgSlider img:nth-child(4){-webkit-animation: round 0s infinite;}
 .bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
-.bgSlider img:nth-child(4){-webkit-animation: round 15s infinite;}
-//end testing bg animation
-//end testing bg animation
+.bgSlider img:nth-child(2){-webkit-animation: round 20s infinite;}
+.bgSlider img:nth-child(1){-webkit-animation: round 30s infinite;}
 
 
 .off-canvas-wrap {
