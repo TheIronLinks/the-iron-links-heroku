@@ -19,7 +19,6 @@
 //= require devise
 //= require foundation
 //= require jquery_nested_form
-//= require cardStackModule
 //= require welcome
 //= require_tree .
 

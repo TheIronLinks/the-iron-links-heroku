@@ -1,10 +1,6 @@
 class GraduatesController < ApplicationController
   def index
     @graduates = Graduate.all
-    respond_to do |format|
-      format.html
-      format.json{render @graduates.as_json}  
-    end
   end
 
   def show
@@ -20,7 +16,6 @@ class GraduatesController < ApplicationController
   end
 
   def create
-    current_user
     @graduate = Graduate.create graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
