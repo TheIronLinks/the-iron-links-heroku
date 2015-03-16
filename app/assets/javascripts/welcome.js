@@ -1,6 +1,6 @@
 // This is your app.js file.
 (function () {
-  'use strict';
+ 'use strict';
 
   angular.module('tilAPP', [
     'ngRoute',
@@ -10,7 +10,7 @@
   .config(['$httpProvider', function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
    }])
-   
+
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {

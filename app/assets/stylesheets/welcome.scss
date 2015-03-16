@@ -1,60 +1,100 @@
-
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+//general settings
+//general settings
+img.logoBar {
+  height: 200%;
+}
 //setting home view
 //setting home view
+* {
+font-family: 'Playfair Display', serif;
+}
 
 
 .main-section {
-  background: url('/assets/bgtest11.png');
-  height: 100vh;
   padding: 0px;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
+.inner-wrap {
+  height: 100vh;
+
+//testing bg animation
+//testing bg animation
+  .photo {
+    position:fixed;
+    margin-top: -80px;
+    opacity:0;
+  }
+}
+@-webkit-keyframes round{
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+.bgSlider img:nth-child(1){-webkit-animation: round 0s infinite;}
+.bgSlider img:nth-child(2){-webkit-animation: round 5s infinite;}
+.bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
+.bgSlider img:nth-child(4){-webkit-animation: round 15s infinite;}
+//end testing bg animation
+//end testing bg animation
+
+
 .off-canvas-wrap {
   min-height: 100%;
 }
-.inner-wrap {
-  min-height: 100%;
+//end setting home view
+//end setting home view
+
+//settting top nav
+//settting top nav
+.tab-bar {
+  background-color: #39474E;
 }
-//end setting home view
-//end setting home view
+//end settting top nav
+//end settting top nav
 
 
 //home page login form
 //home page login form
 .mainForm {
   margin: 0px;
-  padding: 0px;
+  padding-top: 10%;
 }
-
+.logoBlue {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  padding: 5px;
+}
 .homeForm {
   background: white;
   border-radius: 2%;
-  width: 300px;
-  margin-top: 150px;
-  margin-left: 80%;
+  width: 290px;
+  margin: auto;
   padding: 8px;
-  box-shadow: 2px 4px 4px #9C9C9C;
+  box-shadow: 6px 6px 5px #9C9C9C;
 }
 .login-container, .signUp-container {
    margin: auto;
    padding: 0px;
 }
-.ng-untouched.ng-valid {
+.ng-valid {
   margin: 0px;
   padding: 0px;
   width: 90%;
   margin-left: 5%;
 }
-.ng-pristine.ng-untouched.ng-valid {
-  border: 1px solid lightgray;
-}
 
+input {
+  background-color: #39474E;
+  border: 0px;
+  margin: 4px;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  margin-left: 77%;
+}
 //end home page login form
 //end home page login form
 
@@ -70,20 +110,11 @@
 .off-canvas-list {
   color: white;
 }
-.right-small {
-  margin: auto;
-  padding: auto;
-}
-.right-small a {
+.fa-search {
   margin-left: 15px;
   color: white;
 }
-.left-small {
-  margin: auto;
-  padding: auto;
-  color: white;
-}
-.left-small a {
+.fa-user {
   margin-left: 15px;
   color: white;
 }

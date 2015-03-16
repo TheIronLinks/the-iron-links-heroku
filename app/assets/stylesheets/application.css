@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require cardStyle
  *= require font-awesome
  *= require foundation_and_overrides
 

@@ -3,9 +3,6 @@ class Graduate < ActiveRecord::Base
   has_many :links
   has_many :experiences
   has_many :educations
-  accepts_nested_attributes_for :links, allow_destroy: true
-  accepts_nested_attributes_for :educations, allow_destroy: true
-  accepts_nested_attributes_for :experiences, allow_destroy: true
 
   include Workflow
 
