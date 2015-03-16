@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :graduates
   resources :employers do
+    collection do
+      get 'advanced_employer_search'
+      get 'simple_employer_search'
+    end
     resources 'locations' do
       resources 'job_listings'
     end
