@@ -1,0 +1,61 @@
+
+$bgGrad:#35a0ad;
+$bgGradDark:#038B95;
+$bgEmpl:#ce832d;
+$bgEmplDark:#C07209;
+$bgJob:#b8584c;
+$bgJobDark:#A73E34;
+
+.invis{
+  display:none;
+}
+
+.search-accordion{
+  margin:0;
+  list-style-type:none;
+}
+.search-graduates-header,.search-employers-header,.search-jobs-header{
+  width:100%;
+  height:45px;
+  margin:0;
+}
+.search-graduates-header{
+  background-color:$bgGrad;
+  &:hover,&:focus{
+    background-color:$bgGradDark;
+  }
+}
+.search-employers-header{
+  background-color:$bgEmpl;
+  &:hover,&:focus{
+    background-color:$bgEmplDark;
+  }
+}
+.search-jobs-header{
+  background-color:$bgJob;
+  &:hover,&:focus{
+    background-color:$bgJobDark;
+  }
+}
+.search-input-wrapper{
+  text-align:right;
+  margin-top:10px;
+  input[type='text']{
+    width:100%;
+    margin-bottom:3px;
+  }
+  span{
+    color:white;
+    font-size:14px;
+    &:hover{
+      transform:scale(1.1,1.1);
+      cursor:pointer;
+      font-size:15px;
+    }
+  }
+}
+.search-filter-wrapper{
+  select{
+    margin-bottom:10px;
+  }
+}
