@@ -38,7 +38,7 @@ Rails.application.configure do
 
   config.middleware.use Rack::Cors do
     allow do
-      origins '*', headers: :any, methods: [:get, :post, :put, :patch, :delete]
+      origins '*'
       resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete]
     end
   end
