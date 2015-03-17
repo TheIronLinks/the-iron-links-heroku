@@ -90,12 +90,18 @@
       .controller('SearchController', function (SearchService) {
 
         var searchCtrl = this;
+        searchCtrl.gradResults = SearchService.searchResults;
+
+        // <li ng-repeat="card in gradResults.data">
+        //   {{thing.name}}
+        // </li>
 
         searchCtrl.queryGrad = function (graduate_search) {
-          console.log(graduate_search);
-          //var searchResults = SearchService.queryGrad(graduate_search);
+          //console.log(graduate_search);
+          SearchService.queryGrad(graduate_search);
+
           //console.log(searchResults);
-        };
+        }
 
         searchCtrl.queryEmpl = function (employer_search) {
           console.log(employer_search);
@@ -110,53 +116,5 @@
         };
 
       })
-
-
-//==========================AUTHENTICATION CTRL==========================
-
-      .controller('AuthenticationController', function (ProfileService,$location,Auth) {
-
-        var authCtrl = this;
-
-        authCtrl.adminCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'admin'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
-        };
-
-        authCtrl.emplCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'employee'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
-        };
-
-        authCtrl.gradCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'graduate'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
-        };
-
-      });
 
 })();

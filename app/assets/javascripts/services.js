@@ -43,14 +43,20 @@
 
     .factory('SearchService', function ($http) {
 
-      var url = 'http://localhost:3000/employers/advanced_employer_search.json';
+      var searchResults = {
+        data: []
+      };
+
+      var url = 'http://10.0.10.95:3000/employers/simple_employer_search.json';
 
       var queryGrad = function (graduate_search) {
 
-        return $http({
+        $http({
           'url': url,
-          'method': "GET",
+          'method': 'GET',
           'params': graduate_search
+        }).success(function(data){
+          searchResults.data = data;
         });
       };
 
@@ -75,7 +81,8 @@
       return {
         queryGrad: queryGrad,
         queryEmpl: queryEmpl,
-        queryJob: queryJob
+        queryJob: queryJob,
+        searchResults: searchResults
       };
     });
 
