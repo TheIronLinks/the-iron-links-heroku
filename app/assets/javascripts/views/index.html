@@ -1,29 +1,27 @@
-
-
-<h1>{{currentUser.email}}</h1>
 <h1>{{error_message.data.error}}</h1>
 
-    <div class="mainForm">
-    <div ng-controller='userCtrl as user' class='homeForm'>
-      <div ng-hide='loggedIn()' class='login-container'>
-       <form ng-submit='submitLogin()'>
-         <input placeholder='Email' type='text' ng-model='loginCredentials.email'>
-         <input placeholder='Password' type='password' ng-model="loginCredentials.password" class="logpass">
-         <input type='submit'>
-        </form>
-      </div>
-      <div ng-hide='loggedIn()' class='signUp-container'>
-         Sign Up:
-        <form ng-submit='submitSignUp()'>
-         <input placeholder='Email'type='text' ng-model='signUpCredentials.email'>
-         <input placeholder='Password'type='password' ng-model="signUpCredentials.password">
-         <input placeholder='Confirm Password'type='password' ng-model="signUpCredentials.password_confirmation">
-         <input type='submit'>
-       </form>
-      </div>
-      <a ng-click='submitLogout()' ng-show='loggedIn()'>
-       Logout
-      </a>
-      </div>
+<div class="mainForm">
+  <div class='homeForm'>
+    <div ng-hide='loggedIn()' class='login-container'>
+     <form ng-submit='submitLogin()'>
+       <input placeholder='Email' type='text' ng-model='user.loginCredentials.email'>
+       <input placeholder='Password' type='password' ng-model="user.loginCredentials.password" class="logpass">
+       <input type='submit'>
+      </form>
     </div>
+  <div ng-hide='loggedIn()' class='signUp-container'>
+    Sign Up:
+      <form ng-submit='submitSignUp()'>
+       <input placeholder='Email'type='text' ng-model='user.signUpCredentials.email'>
+       <input placeholder='Password'type='password' ng-model="user.signUpCredentials.password">
+       <input placeholder='Confirm Password'type='password' ng-model="user.signUpCredentials.password_confirmation">
+       <input type='submit'>
+     </form>
+  </div>
+    <a ng-click='submitLogout()' ng-show='loggedIn()'>
+     Logout
+
+      </a>
+    </div>
+  </div>
 </div>

@@ -21,51 +21,66 @@
 
       .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams, $location, $scope, _, Auth){
 
+        var userCtrl = this;
+
         $scope.setUser = function() {
           Auth.currentUser().then(function(user) {
-            $scope.currentUser = user;
-            $scope.error_message = '';
+            userCtrl.currentUser = user;
+            userCtrl.error_message = '';
           },function(error){
-            $scope.currentUser = '';
-            $scope.error_message = error;
-            console.log(error);
+            userCtrl.currentUser = '';
+            userCtrl.error_message = error;
           });
         };
 
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
+          $scope.url('/welcomeView');
+
         };
 
         $scope.submitSignUp = function() {
-          var credentials = $scope.signUpCredentials;
+<<<<<<< HEAD
+          var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
+=======
+          console.log(userCtrl.signUpCredentials);
+          Auth.register(userCtrl.signUpCredentials).then(function(user) {
+>>>>>>> 0238d0754f85f7d1c6c14fcbd65d6ac7b775da0d
             $scope.setUser();
             $scope.signUpCredentials='';
-            $location.path('/newGrad');
+            $location.url('/newGrad');
           },function(error){
-            $scope.error_message = error;
+            userCtrl.error_message = error;
+<<<<<<< HEAD
             console.log(error);
+=======
+>>>>>>> 0238d0754f85f7d1c6c14fcbd65d6ac7b775da0d
           });
         };
 
         $scope.submitLogin = function() {
-          var credentials = $scope.loginCredentials;
+          var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
             $scope.setUser();
             $scope.loginCredentials='';
           }, function(error) {
-            $scope.error_message = error;
+            userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
+            $scope.currentUser = user;
             $scope.setUser();
           });
         };
-        $scope.setUser();
+
+        $scope.goToHome = function(){
+          $location.path('/');
+        };
       }])
 
 //==========================PROFILE CTRL==========================
@@ -76,7 +91,6 @@
 
         profileCtrl.addProfile = function (newProfile) {
           ProfileService.addProfile(newProfile);
-          $scope.newProfile = {};
         };
 
         profileCtrl.routeTo = function (path) {
