@@ -20,6 +20,9 @@ class GraduatesController < ApplicationController
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
       format.json do
+        the_link = Link.new
+        the_link.url = params[:link][:url]
+        @graduate.link = the_link
         @graduate.user = current_user
         render nothing: true
       end
@@ -71,6 +74,7 @@ class GraduatesController < ApplicationController
       :workflow_state,
       :additional_info,
       :image_url,
+      :link,
       links_attributes: [:id, :url, :description, :graduate_id, :_destroy],
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]

@@ -40,22 +40,13 @@
         };
 
         $scope.submitSignUp = function() {
-<<<<<<< HEAD
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
-=======
-          console.log(userCtrl.signUpCredentials);
-          Auth.register(userCtrl.signUpCredentials).then(function(user) {
->>>>>>> 0238d0754f85f7d1c6c14fcbd65d6ac7b775da0d
             $scope.setUser();
             $scope.signUpCredentials='';
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
-<<<<<<< HEAD
-            console.log(error);
-=======
->>>>>>> 0238d0754f85f7d1c6c14fcbd65d6ac7b775da0d
           });
         };
 
