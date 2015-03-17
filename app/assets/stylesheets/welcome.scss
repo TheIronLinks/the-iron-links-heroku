@@ -32,8 +32,8 @@ font-family: 'Playfair Display', serif;
   }
 }
 
-@-webkit-keyframes round{
-  60%{opacity:1;}
+@-webkit-keyframes round {
+  90%{opacity:1;}
   100%{opacity:0;}
 }
 
@@ -109,7 +109,39 @@ input {
 //end form styling
 //end form styling
 
+//login home view
+//login home view
+.welcomeView {
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 40px;
+  background: white;
+  color: #39474E;
+  border-radius: 1%;
+  box-shadow: 6px 6px 5px #454545;
+  text-align: center;
+  width: 300px;
+}
+.welcomeView h1 {
+  color: #39474E;
+  font-size: 25px;
+  margin: 10px;
+  padding: 15px;
 
+}
+.welcomeView h3 {
+  font-size: 18px;
+  margin: 10px;
+  padding: 15px;
+  color: #39474E;
+}
+.welcomeView i {
+  color: #39474E;
+}
+.welcomeView a {
+  color: #39474E;
+  font-size: 18px;
+}
 //left sidebar
 //left sidebar
 #searchWrapper{

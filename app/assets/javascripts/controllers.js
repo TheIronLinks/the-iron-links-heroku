@@ -22,6 +22,8 @@
 
       .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams, $location, $scope, _, Auth){
 
+        var userCtrl = this;
+
         $scope.setUser = function() {
           Auth.currentUser().then(function(user) {
             $scope.currentUser = user;
@@ -35,22 +37,24 @@
 
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
+          $scope.url('/welcomeView');
+
         };
 
         $scope.submitSignUp = function() {
-          var credentials = $scope.signUpCredentials;
+          var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             $scope.setUser();
             $scope.signUpCredentials='';
-            $location.path('/newGrad');
+            $location.url('/newGrad');
           },function(error){
-            $scope.error_message = error;
+            userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.submitLogin = function() {
-          var credentials = $scope.loginCredentials;
+          var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
             $scope.setUser();
@@ -77,7 +81,6 @@
 
         profileCtrl.addProfile = function (newProfile) {
           ProfileService.addProfile(newProfile);
-          $scope.newProfile = {};
         };
 
         profileCtrl.routeTo = function (path) {
