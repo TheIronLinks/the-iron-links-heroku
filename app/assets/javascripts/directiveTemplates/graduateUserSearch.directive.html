@@ -3,7 +3,7 @@
   <!-- =====================GRAD SEARCH===================== -->
 
   <li>
-    <button class='search-graduates-header'>Search Graduates</button>
+    <button class='search-graduates-header' ng-click="searchCtrl.routeTo('/graduates')">Search Graduates</button>
     <form class='search-form search-graduates-form' ng-submit='searchCtrl.queryGrad(graduate_search)'>
       <div class='search-input-wrapper'>
         <input type='text' placeholder='Search Graduates' data-ng-model='graduate_search.input'>
@@ -11,7 +11,7 @@
       </div>
       <div class='search-filter-wrapper' ng-show='toggleGradFilters'>
 
-        <select data-ng-model='graduate_search.type'>
+        <select data-ng-model='graduate_search.filters.type'>
           <option value=''>Graduate Type:</option>
           <option value='Front End Engineering'>Front End Engineering</option>
           <option value='Mobile Engineering'>Mobile Engineering</option>
@@ -20,7 +20,7 @@
           <option value='User Interface Design'>User Interface Design</option>
         </select>
 
-        <select data-ng-model='graduate_search.tiy_year'>
+        <select data-ng-model='graduate_search.filters.tiy_year'>
           <option value=''>Year Attended:</option>
           <option value='2015'>2015</option>
           <option value='2014'>2014</option>
@@ -28,7 +28,7 @@
           <option value='2012'>2012</option>
         </select>
 
-        <select data-ng-model='graduate_search.tiy_location'>
+        <select data-ng-model='graduate_search.filters.tiy_location'>
           <option value=''>Location Attended:</option>
           <option value='Atlanta'>Atlanta</option>
           <option value='Austin'>Austin</option>
@@ -47,7 +47,7 @@
           <option value='Washington, D.C.'>Washington, D.C.</option>
         </select>
 
-        <select data-ng-model='graduate_search.current_location'>
+        <select data-ng-model='graduate_search.filters.current_location'>
           <option value=''>Current Location:</option>
           <option value='Northeast'>Northeast</option>
           <option value='Southeast'>Southeast</option>
@@ -56,7 +56,7 @@
           <option value='West'>West</option>
         </select>
 
-        <select data-ng-model='graduate_search.education_level'>
+        <select data-ng-model='graduate_search.filters.education_level'>
           <option value=''>Education Level:</option>
           <option value='HS/GED'>HS/GED</option>
           <option value='Attended College'>Attended College</option>
@@ -75,25 +75,25 @@
   <!-- =====================EMPL SEARCH===================== -->
 
   <li>
-    <button class='search-employers-header'>Search Employers</button>
-    <form class='search-form search-employers-form invis' ng-submit=''>
+    <button class='search-employers-header' ng-click="searchCtrl.routeTo('/employers')">Search Employers</button>
+    <form class='search-form search-employers-form invis' ng-submit='searchCtrl.queryEmpl(employer_search)'>
       <div class='search-input-wrapper'>
         <input type='text' placeholder='Search Employers' data-ng-model='employer_search.input'>
         <span ng-click='toggleEmplFilters = !toggleEmplFilters'>Advanced</span>
       </div>
       <div class='search-filter-wrapper' ng-show='toggleEmplFilters'>
 
-        <select data-ng-model='employer_search.industry'>
-          <option value=''>Employer Industry:</option>
+        <select data-ng-model='employer_search.filter.industry'>
+          <option value=''>Industry:</option>
           <option value='Business-to-consumer'>Business-to-consumer</option>
           <option value='Business-to-business'>Business-to-business</option>
           <option value='Consulting'>Consulting</option>
-          <option value='Design'>Design</option>
           <option value='Defense'>Defense</option>
+          <option value='Design'>Design</option>
         </select>
 
-        <select data-ng-model='employer_search.location'>
-          <option value=''>Employer Location:</option>
+        <select data-ng-model='employer_search.filter.location'>
+          <option value=''>Location:</option>
           <option value='Northeast'>Northeast</option>
           <option value='Southeast'>Southeast</option>
           <option value='Midwest'>Midwest</option>
@@ -108,16 +108,16 @@
   <!-- =====================JOB SEARCH===================== -->
 
   <li>
-    <button class='search-jobs-header'>Search Jobs</button>
-    <form class='search-form search-jobs-form invis' ng-submit=''>
+    <button class='search-jobs-header'  ng-click="searchCtrl.routeTo('/jobs')">Search Jobs</button>
+    <form class='search-form search-jobs-form invis' ng-submit='searchCtrl.queryJob(job_search)'>
       <div class='search-input-wrapper'>
         <input type='text' placeholder='Search Jobs' data-ng-model='job_search.input'>
         <span ng-click='toggleJobFilters = !toggleJobFilters'>Advanced</span>
       </div>
       <div class='search-filter-wrapper' ng-show='toggleJobFilters'>
 
-        <select data-ng-model='job_search.type'>
-          <option value=''>Job Type:</option>
+        <select data-ng-model='job_search.filter.type'>
+          <option value=''>Type:</option>
           <option value='Front End Engineering'>Front End Engineering</option>
           <option value='Mobile Engineering'>Mobile Engineering</option>
           <option value='Python Engineering'>Python Engineering</option>
@@ -125,8 +125,17 @@
           <option value='User Interface Design'>User Interface Design</option>
         </select>
 
-        <select data-ng-model='job_search.location'>
-          <option value=''>Job Location:</option>
+        <select data-ng-model='job_search.filter.industry'>
+          <option value=''>Industry:</option>
+          <option value='Business-to-consumer'>Business-to-consumer</option>
+          <option value='Business-to-business'>Business-to-business</option>
+          <option value='Consulting'>Consulting</option>
+          <option value='Defense'>Defense</option>
+          <option value='Design'>Design</option>
+        </select>
+
+        <select data-ng-model='job_search.filter.location'>
+          <option value=''>Location:</option>
           <option value='Northeast'>Northeast</option>
           <option value='Southeast'>Southeast</option>
           <option value='Midwest'>Midwest</option>

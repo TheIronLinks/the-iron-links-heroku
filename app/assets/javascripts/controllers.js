@@ -4,7 +4,7 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', function (CardService) {
+      .controller('CardController', ['CardService', function (CardService) {
 
         var cardCtrl = this;
 
@@ -15,7 +15,7 @@
           console.log('cardCtrl.stack error')
         });
 
-      })
+      }])
 
 //==========================USER CTRL==========================
 
@@ -42,11 +42,11 @@
         $scope.submitSignUp = function() {
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
-          $scope.setUser();
-          $scope.signUpCredentials='';
-          $location.url('/newGrad');
-        },function(error){
-          userCtrl.error_message = error;
+            $scope.setUser();
+            $scope.signUpCredentials='';
+            $location.url('/newGrad');
+          },function(error){
+            userCtrl.error_message = error;
           });
         };
 
@@ -76,7 +76,7 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', function (ProfileService,$location) {
+      .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
 
@@ -88,38 +88,36 @@
           $location.path(path);
         };
 
-      })
+      }])
 
 //==========================SEARCH CTRL==========================
 
-      .controller('SearchController', function (SearchService) {
+      .controller('SearchController', ['SearchService', '$location', '$scope', function (SearchService,$location,$scope) {
 
         var searchCtrl = this;
-        searchCtrl.gradResults = SearchService.searchResults;
-
-        // <li ng-repeat="card in gradResults.data">
-        //   {{thing.name}}
-        // </li>
+        searchCtrl.gradResults = SearchService.gradResults;
+        searchCtrl.emplResults = SearchService.emplResults;
+        searchCtrl.jobResults = SearchService.jobResults;
 
         searchCtrl.queryGrad = function (graduate_search) {
-          //console.log(graduate_search);
           SearchService.queryGrad(graduate_search);
-
-          //console.log(searchResults);
-        }
+          $scope.graduate_search = {};
+        };
 
         searchCtrl.queryEmpl = function (employer_search) {
-          console.log(employer_search);
-          //var searchResults = SearchService.queryEmpl(employer_search);
-          //console.log(searchResults);
+          SearchService.queryEmpl(employer_search);
+          $scope.employer_search = {};
         };
 
         searchCtrl.queryJob = function (job_search) {
-          console.log(job_search);
-          //var searchResults = SearchService.queryJob(job_search);
-          //console.log(searchResults);
+          SearchService.queryJob(job_search);
+          $scope.job_search = {};
         };
 
-      })
+        searchCtrl.routeTo = function (path) {
+          $location.path(path);
+        };
+
+      }]);
 
 })();

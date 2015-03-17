@@ -26,6 +26,9 @@ class GraduatesController < ApplicationController
         the_link.description = 'Portfolio'
         the_link.graduate = @graduate
         the_link.save
+        top_education = Education.new
+        top_education.school_name = params[:education][:school_name]
+        top_education.school_name = params[:education][:concentration]
         @graduate.user = current_user
         render nothing: true
       end
@@ -77,6 +80,7 @@ class GraduatesController < ApplicationController
       :workflow_state,
       :additional_info,
       :image_url,
+      :email,
       links_attributes: [:id, :url, :description, :graduate_id, :_destroy],
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]

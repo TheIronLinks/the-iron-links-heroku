@@ -61,8 +61,8 @@
   </div>
   <div class="row">
   <div class="small-6 columns">
-    <label ng-model="profileCtrl.gradProfile.graduate.grad_date">Year Completed:</label>
-      <select>
+    <label>Year Completed:</label>
+      <select ng-model="profileCtrl.gradProfile.graduate.grad_date">
         <option value="2015">2015</option>
         <option value="2014">2014</option>
         <option value="2013">2013</option>
@@ -110,12 +110,12 @@
     </div>
     <div class="small-4 columns">
       <label for="">School Attended</label>
-        <input ng-model="profileCtrl.gradProfile.graduate.educations_attributes.school_name"type="text" placeholder="" />
+        <input ng-model="profileCtrl.gradProfile.education.school_name"type="text" placeholder="" />
       </label>
     </div>
     <div class="small-4 columns">
       <label for="">Concentration</label>
-        <input ng-model="profileCtrl.gradProfile.concentration.graduate.educations_attributes.concentration"type="text" placeholder="" />
+        <input ng-model="profileCtrl.gradProfile.concentration.education.concentration"type="text" placeholder="" />
     </div>
   </div>
     <div class="row">
