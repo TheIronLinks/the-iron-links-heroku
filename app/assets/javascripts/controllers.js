@@ -10,12 +10,11 @@
 
         CardService.getCards().success(function(data){
           cardCtrl.stack = data;
-          console.log(data);
-
         })
         .error(function(){
           console.log('cardCtrl.stack error')
         });
+
       })
 
 //==========================USER CTRL==========================
@@ -100,51 +99,36 @@
 
       })
 
-//==========================AUTHENTICATION CTRL==========================
+//==========================SEARCH CTRL==========================
 
-      .controller('AuthenticationController', function (ProfileService,$location,Auth) {
+      .controller('SearchController', function (SearchService) {
 
-        var authCtrl = this;
+        var searchCtrl = this;
+        searchCtrl.gradResults = SearchService.searchResults;
 
-        authCtrl.adminCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'admin'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
+        // <li ng-repeat="card in gradResults.data">
+        //   {{thing.name}}
+        // </li>
+
+        searchCtrl.queryGrad = function (graduate_search) {
+          //console.log(graduate_search);
+          SearchService.queryGrad(graduate_search);
+
+          //console.log(searchResults);
+        }
+
+        searchCtrl.queryEmpl = function (employer_search) {
+          console.log(employer_search);
+          //var searchResults = SearchService.queryEmpl(employer_search);
+          //console.log(searchResults);
         };
 
-        authCtrl.emplCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'employee'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
+        searchCtrl.queryJob = function (job_search) {
+          console.log(job_search);
+          //var searchResults = SearchService.queryJob(job_search);
+          //console.log(searchResults);
         };
 
-        authCtrl.gradCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'graduate'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
-        };
-
-      });
+      })
 
 })();
