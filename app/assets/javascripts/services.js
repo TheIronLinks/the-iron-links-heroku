@@ -27,10 +27,9 @@
 
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
-          $location.path("/graduates");
         })
         .error(function(){
-          console.log('service/addProduct error');
+          console.log('service/add profile error');
         });
       };
 
@@ -47,7 +46,7 @@
         data: []
       };
 
-      var url = 'http://10.0.10.95:3000/employers/simple_employer_search.json';
+      var url = '/employers/simple_employer_search.json';
 
       var queryGrad = function (graduate_search) {
 

@@ -7,7 +7,7 @@ class GraduatesController < ApplicationController
     set_graduate
     respond_to do |format|
       format.html
-      format.json{render @graduate.as_json}  
+      format.json{render @graduate.as_json}
     end
   end
 
@@ -16,10 +16,16 @@ class GraduatesController < ApplicationController
   end
 
   def create
+    p params
     @graduate = Graduate.create graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
       format.json do
+        the_link = Link.new
+        the_link.url = params[:link][:url]
+        the_link.description = 'Portfolio'
+        the_link.graduate = @graduate
+        the_link.save
         @graduate.user = current_user
         render nothing: true
       end
@@ -35,7 +41,7 @@ class GraduatesController < ApplicationController
     @graduate.update_attribute graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
-      format.json{render nothing: true}  
+      format.json{render nothing: true}
     end
   end
 
@@ -51,7 +57,7 @@ class GraduatesController < ApplicationController
     @graduate.destroy
     respond_to do |format|
       format.html{redirect_to graduates_path}
-      format.json{render nothing: true}  
+      format.json{render nothing: true}
     end
   end
 

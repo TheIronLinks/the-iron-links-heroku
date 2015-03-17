@@ -3,6 +3,9 @@ class Graduate < ActiveRecord::Base
   has_many :links
   has_many :experiences
   has_many :educations
+  accepts_nested_attributes_for :links
+  accepts_nested_attributes_for :educations
+  accepts_nested_attributes_for :experiences
 
   include Workflow
 
