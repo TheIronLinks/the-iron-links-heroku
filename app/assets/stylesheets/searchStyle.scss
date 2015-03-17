@@ -18,6 +18,9 @@ $bgJobDark:#A73E34;
   width:100%;
   height:45px;
   margin:0;
+  &:focus{
+    outline: 0;
+  }
 }
 .search-graduates-header{
   background-color:$bgGrad;

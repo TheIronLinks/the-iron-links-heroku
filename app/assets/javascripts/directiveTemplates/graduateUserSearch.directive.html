@@ -1,10 +1,10 @@
-<ul class='search-accordion'>
+<ul class='search-accordion' ng-controller="SearchController as searchCtrl">
 
   <!-- =====================GRAD SEARCH===================== -->
 
   <li>
     <button class='search-graduates-header'>Search Graduates</button>
-    <form class='search-form search-graduates-form' ng-submit=''>
+    <form class='search-form search-graduates-form' ng-submit='searchCtrl.queryGrad(graduate_search)'>
       <div class='search-input-wrapper'>
         <input type='text' placeholder='Search Graduates' data-ng-model='graduate_search.input'>
         <span ng-click='toggleGradFilters = !toggleGradFilters'>Advanced</span>

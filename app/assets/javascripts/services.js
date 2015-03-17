@@ -37,5 +37,46 @@
       return {
         addProfile: addProfile
       };
+    })
+
+//==========================SEARCH SERVICE==========================
+
+    .factory('SearchService', function ($http) {
+
+      var url = 'http://localhost:3000/employers/advanced_employer_search.json';
+
+      var queryGrad = function (graduate_search) {
+
+        return $http({
+          'url': url,
+          'method': "GET",
+          'params': graduate_search
+        });
+      };
+
+      var queryEmpl = function (employer_search) {
+
+        return $http({
+          'url': url,
+          'method': "GET",
+          'params': employer_search
+        });
+      };
+
+      var queryJob = function (job_search) {
+
+        return $http({
+          'url': url,
+          'method': "GET",
+          'params': job_search
+        });
+      };
+
+      return {
+        queryGrad: queryGrad,
+        queryEmpl: queryEmpl,
+        queryJob: queryJob
+      };
     });
+
 })();

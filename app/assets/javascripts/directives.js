@@ -100,7 +100,7 @@
 
 //=====================SEARCH DIRECTIVE=====================
 
-    .directive('searchDirective', function(Auth) {
+    .directive('searchDirective', function() {
       var returnObject = {
         restrict: 'E',
         scope: {

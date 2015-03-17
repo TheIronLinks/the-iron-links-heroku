@@ -10,12 +10,11 @@
 
         CardService.getCards().success(function(data){
           cardCtrl.stack = data;
-          console.log(data);
-
         })
         .error(function(){
           console.log('cardCtrl.stack error')
         });
+
       })
 
 //==========================USER CTRL==========================
@@ -79,12 +78,39 @@
           ProfileService.addProfile(newProfile);
           $scope.newProfile = {};
         };
-        
+
         profileCtrl.routeTo = function (path) {
           $location.path(path);
         };
 
       })
+
+//==========================SEARCH CTRL==========================
+
+      .controller('SearchController', function (SearchService) {
+
+        var searchCtrl = this;
+
+        searchCtrl.queryGrad = function (graduate_search) {
+          console.log(graduate_search);
+          //var searchResults = SearchService.queryGrad(graduate_search);
+          //console.log(searchResults);
+        };
+
+        searchCtrl.queryEmpl = function (employer_search) {
+          console.log(employer_search);
+          //var searchResults = SearchService.queryEmpl(employer_search);
+          //console.log(searchResults);
+        };
+
+        searchCtrl.queryJob = function (job_search) {
+          console.log(job_search);
+          //var searchResults = SearchService.queryJob(job_search);
+          //console.log(searchResults);
+        };
+
+      })
+
 
 //==========================AUTHENTICATION CTRL==========================
 
