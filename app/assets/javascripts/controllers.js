@@ -26,12 +26,11 @@
 
         $scope.setUser = function() {
           Auth.currentUser().then(function(user) {
-            $scope.currentUser = user;
-            $scope.error_message = '';
+            userCtrl.currentUser = user;
+            userCtrl.error_message = '';
           },function(error){
-            $scope.currentUser = '';
-            $scope.error_message = error;
-            console.log(error);
+            userCtrl.currentUser = '';
+            userCtrl.error_message = error;
           });
         };
 
@@ -42,14 +41,22 @@
         };
 
         $scope.submitSignUp = function() {
+<<<<<<< HEAD
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
+=======
+          console.log(userCtrl.signUpCredentials);
+          Auth.register(userCtrl.signUpCredentials).then(function(user) {
+>>>>>>> 0238d0754f85f7d1c6c14fcbd65d6ac7b775da0d
             $scope.setUser();
             $scope.signUpCredentials='';
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
+<<<<<<< HEAD
             console.log(error);
+=======
+>>>>>>> 0238d0754f85f7d1c6c14fcbd65d6ac7b775da0d
           });
         };
 
@@ -60,17 +67,21 @@
             $scope.setUser();
             $scope.loginCredentials='';
           }, function(error) {
-            $scope.error_message = error;
+            userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
+            $scope.currentUser = user;
             $scope.setUser();
           });
         };
-        $scope.setUser();
+
+        $scope.goToHome = function(){
+          $location.path('/');
+        };
       }])
 
 //==========================PROFILE CTRL==========================
