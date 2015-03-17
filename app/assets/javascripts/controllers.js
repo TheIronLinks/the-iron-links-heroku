@@ -22,14 +22,15 @@
 
       .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams, $location, $scope, _, Auth){
 
+        var userCtrl = this;
+
         $scope.setUser = function() {
           Auth.currentUser().then(function(user) {
-            $scope.currentUser = user;
-            $scope.error_message = '';
+            userCtrl.currentUser = user;
+            userCtrl.error_message = '';
           },function(error){
-            $scope.currentUser = '';
-            $scope.error_message = error;
-            console.log(error);
+            userCtrl.currentUser = '';
+            userCtrl.error_message = error;
           });
         };
 
@@ -38,44 +39,38 @@
         };
 
         $scope.submitSignUp = function() {
-          var credentials = $scope.signUpCredentials;
-          Auth.register(credentials).then(function(user) {
+          console.log(userCtrl.signUpCredentials);
+          Auth.register(userCtrl.signUpCredentials).then(function(user) {
             $scope.setUser();
             $scope.signUpCredentials='';
             $location.path('/newGrad');
           },function(error){
-            $scope.error_message = error;
-            console.log(error);
+            userCtrl.error_message = error;
           });
         };
 
         $scope.submitLogin = function() {
-          var credentials = $scope.loginCredentials;
+          var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
             $scope.setUser();
             $scope.loginCredentials='';
           }, function(error) {
-            $scope.error_message = error;
+            userCtrl.error_message = error;
             console.log(error);
           });
         };
 
-
-
-
-
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
             $scope.currentUser = user;
+            $scope.setUser();
           });
-          $scope.setUser();
         };
 
         $scope.goToHome = function(){
           $location.path('/');
         };
-        $scope.setUser();
       }])
 
 //==========================PROFILE CTRL==========================

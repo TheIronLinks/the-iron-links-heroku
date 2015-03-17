@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-
+gem 'rack-cors'
 gem 'rabl'
 gem 'oj'
 ruby '2.2.0'

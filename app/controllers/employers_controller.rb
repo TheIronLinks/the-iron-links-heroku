@@ -15,8 +15,10 @@ class EmployersController < ApplicationController
   end
 
   def simple_employer_search
+    p params
     employer_search_check
     @employers = simple_employer_search_results
+    p @employers.length
     respond_to do |format|
       format.json
       format.html
@@ -89,12 +91,12 @@ private
   end
 
   def simple_employer_search_results
-    p params[:name]
-    return Employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%" "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    p params[:input]
+    return Employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%")
   end
 
   def advanced_employer_search_results
-    return Employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ? AND city LIKE ? AND state LIKE ? AND zip LIKE ?", "%#{params[:name]}%", "%#{params[:industry]}%" "%#{params[:size]}%", "%#{params[:city]}%", "%#{params[:state]}%", "%#{params[:zip]}%")
+    return Employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ?", "%#{params[:name]}%", "%#{params[:industry]}%", "%#{params[:size]}%")
   end
 
 end
