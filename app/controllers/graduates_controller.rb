@@ -39,6 +39,13 @@ class GraduatesController < ApplicationController
     end
   end
 
+  def cancel_registration
+    current_user.destroy
+    respond_to do |format|
+      format.json{render nothing: true}
+    end
+  end
+
   def destroy
     set_graduate
     @graduate.destroy

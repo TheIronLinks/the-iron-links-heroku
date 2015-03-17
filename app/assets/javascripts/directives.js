@@ -13,7 +13,7 @@
           templateUrl: 'assets/directiveTemplates/cardStack.directive.html',
           link: function(scope, element, attrs) {
 
-            //=====================CARD SLIDER=====================
+            //=====================CARD SLIDER FUNCTIONALITY=====================
 
             element.find('li[data-trait=\'1\']').attr('data-state', 'selected');
 
@@ -41,7 +41,7 @@
               element.find('li[data-trait='+goingTo+']').attr('data-state', 'selected');
             });
 
-            //=====================CARD SPREAD=====================
+            //=====================CARD SPREAD FUNCTIONALITY=====================
 
             element.find('.fa.fa-2x.fa-ellipsis-v').on('click',function(){
               //var firstCard = element.find('li[data-state=\'selected\']').data('trait');
@@ -83,7 +83,7 @@
                 });
             });
 
-            //=====================CARD DETAIL=====================
+            //=====================CARD DETAIL FUNCTIONALITY=====================
 
             element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
               element.find('ul')
@@ -100,7 +100,7 @@
 
 //=====================SEARCH DIRECTIVE=====================
 
-    .directive('searchDirective', function(Auth) {
+    .directive('searchDirective', function() {
       var returnObject = {
         restrict: 'E',
         scope: {
@@ -109,17 +109,24 @@
         templateUrl: '',
         link: function(scope, element, attrs) {
 
+          //=====================TOGGLE SEARCH FUNCTIONALITY=====================
+
+          element.find('li').on('click',function(){
+            element.find('.search-form').addClass('invis');
+            $(this).find('.search-form').removeClass('invis');
+          });
 
         }
       };
 
       //=====================CONDITIONALLY LOADING TEMPLATES FOR SEARCH DIRECTIVE=====================
 
-      if(Auth._currentUser.account_type === 'student'){
-
-      }else if(Auth._currentUser.account_type === 'employer'){
-        returnObject.templateUrl = 'assets/cardStack.directive.html'
-      }
+      // if(Auth._currentUser.account_type === 'student'){
+      //   returnObject.templateUrl = 'assets/views/offCanvasSearch/graduateUserSearch.html'
+      // }else if(Auth._currentUser.account_type === 'employer'){
+      //
+      // }
+      returnObject.templateUrl = 'assets/directiveTemplates/graduateUserSearch.directive.html'
       return returnObject;
   });
 

@@ -10,8 +10,6 @@
 
         CardService.getCards().success(function(data){
           cardCtrl.stack = data;
-          console.log(data);
-
         })
         .error(function(){
           console.log('cardCtrl.stack error')
@@ -22,51 +20,58 @@
 
       .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams, $location, $scope, _, Auth){
 
+        var userCtrl = this;
+
         $scope.setUser = function() {
           Auth.currentUser().then(function(user) {
-            $scope.currentUser = user;
-            $scope.error_message = '';
+            userCtrl.currentUser = user;
+            userCtrl.error_message = '';
           },function(error){
-            $scope.currentUser = '';
-            $scope.error_message = error;
-            console.log(error);
+            userCtrl.currentUser = '';
+            userCtrl.error_message = error;
           });
         };
 
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
+          $scope.url('/welcomeView');
+
         };
 
         $scope.submitSignUp = function() {
-          var credentials = $scope.signUpCredentials;
-          Auth.register(credentials).then(function(user) {
+          var credentials = userCtrl.signUpCredentials;
+          Auth.register(userCtrl.signUpCredentials).then(function(user) {
             $scope.setUser();
             $scope.signUpCredentials='';
-            $location.path('/newGrad');
+            $location.url('/newGrad');
           },function(error){
-            $scope.error_message = error;
+            userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.submitLogin = function() {
-          var credentials = $scope.loginCredentials;
+          var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
             $scope.setUser();
             $scope.loginCredentials='';
           }, function(error) {
-            $scope.error_message = error;
+            userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
+            $scope.currentUser = user;
             $scope.setUser();
           });
         };
-        $scope.setUser();
+
+        $scope.goToHome = function(){
+          $location.path('/');
+        };
       }])
 
 //==========================PROFILE CTRL==========================
@@ -77,7 +82,6 @@
 
         profileCtrl.addProfile = function (newProfile) {
           ProfileService.addProfile(newProfile);
-          $scope.newProfile = {};
         };
 
         profileCtrl.routeTo = function (path) {
@@ -86,51 +90,36 @@
 
       }])
 
-//==========================AUTHENTICATION CTRL==========================
+//==========================SEARCH CTRL==========================
 
-      .controller('AuthenticationController',['ProfileService', '$location', 'Auth', function (ProfileService,$location,Auth) {
+      .controller('SearchController',['SerachService', function (SearchService) {
 
-        var authCtrl = this;
+        var searchCtrl = this;
+        searchCtrl.gradResults = SearchService.searchResults;
 
-        authCtrl.adminCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'admin'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
+        // <li ng-repeat="card in gradResults.data">
+        //   {{thing.name}}
+        // </li>
+
+        searchCtrl.queryGrad = function (graduate_search) {
+          //console.log(graduate_search);
+          SearchService.queryGrad(graduate_search);
+
+          //console.log(searchResults);
+        }
+
+        searchCtrl.queryEmpl = function (employer_search) {
+          console.log(employer_search);
+          //var searchResults = SearchService.queryEmpl(employer_search);
+          //console.log(searchResults);
         };
 
-        authCtrl.emplCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'employee'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
+        searchCtrl.queryJob = function (job_search) {
+          console.log(job_search);
+          //var searchResults = SearchService.queryJob(job_search);
+          //console.log(searchResults);
         };
 
-        authCtrl.gradCheck = function () {
-          Auth.currentUser().then(function(user) {
-            if(user.accountType === 'graduate'){
-              return true;
-            }else{
-              return false;
-            }
-          },function(error){
-            return false;
-            console.log('ERROR: authCtrl.adminCheck')
-          });
-        };
-
-      }]);
+      }])
 
 })();
