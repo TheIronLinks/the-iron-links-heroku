@@ -28,7 +28,7 @@
         templateUrl: 'assets/views/cardStackViews/employersCardView.html',
         controller: 'CardController as cardCtrl'
       })
-      .when('/jobListings', {
+      .when('/jobs', {
         templateUrl: 'assets/views/cardStackViews/jobsCardView.html',
         controller: 'CardController as cardCtrl'
       })
