@@ -109,7 +109,7 @@
         templateUrl: '',
         link: function(scope, element, attrs) {
 
-          //=====================TOGGLE SEARCH FUNCTIONALITY=====================
+          //=====================TOGGLE SEARCH MODE=====================
 
           element.find('li').on('click',function(){
             element.find('.search-form').addClass('invis');
