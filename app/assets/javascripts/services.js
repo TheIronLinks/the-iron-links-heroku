@@ -12,8 +12,6 @@
         return $http.get(url);
       };
 
-
-
       return {
         getCards: getCards
       };
@@ -43,46 +41,65 @@
 
     .factory('SearchService', function ($http) {
 
-      var searchResults = {
+      var gradResults = {
         data: []
       };
 
-      var url = '/employers/simple_employer_search.json';
+      var emplResults = {
+        data: []
+      };
+
+      var jobResults = {
+        data: []
+      };
+
+      var grad_url = '';
+      var empl_url = '/employers/simple_employer_search.json';
+      var job_url = '';
 
       var queryGrad = function (graduate_search) {
 
         $http({
-          'url': url,
+          'url': grad_url,
           'method': 'GET',
           'params': graduate_search
         }).success(function(data){
-          searchResults.data = data;
+          gradResults.data = data;
         });
+
       };
 
       var queryEmpl = function (employer_search) {
 
-        return $http({
-          'url': url,
-          'method': "GET",
+        $http({
+          'url': empl_url,
+          'method': 'GET',
           'params': employer_search
+        }).success(function(data){
+          emplResults.data = data;
         });
+
       };
 
       var queryJob = function (job_search) {
 
-        return $http({
-          'url': url,
-          'method': "GET",
+        $http({
+          'url': job_url,
+          'method': 'GET',
           'params': job_search
+        }).success(function(data){
+          jobResults.data = data;
         });
+
       };
 
       return {
         queryGrad: queryGrad,
         queryEmpl: queryEmpl,
         queryJob: queryJob,
-        searchResults: searchResults
+        gradResults: gradResults,
+        emplResults: emplResults,
+        jobResults: jobResults,
       };
     });
 
