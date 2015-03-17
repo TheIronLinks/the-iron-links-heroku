@@ -3,6 +3,10 @@ class GraduatesController < ApplicationController
     @graduates = Graduate.all
   end
 
+  def get_grad
+    @graduate = Graduate.find current_user.userable_id
+  end
+
   def show
     set_graduate
     respond_to do |format|
