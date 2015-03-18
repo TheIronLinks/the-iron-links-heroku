@@ -91,7 +91,7 @@
 
         profileCtrl.getProfile = function() {
           profileCtrl.profile = ProfileService.getPanel()
-        }
+        };
 
       }])
 
