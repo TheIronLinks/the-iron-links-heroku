@@ -4,13 +4,13 @@
 
 //=====================CARD DIRECTIVE=====================
 
-      .directive('cardDirective', function() {
-        return {
+      .directive('cardDirective', function($location, $rootScope) {
+        var returnObject = {
           restrict: 'E',
           scope: {
             data: '='
           },
-          templateUrl: 'assets/directiveTemplates/cardStack.directive.html',
+          templateUrl: '',
           link: function(scope, element, attrs) {
 
             //=====================CARD SLIDER FUNCTIONALITY=====================
@@ -96,6 +96,22 @@
 
           }
         };
+
+        //=====================CONDITIONALLY LOADING SEARCH TEMPLATE BASED ON ROUTE=====================
+
+        $rootScope.$on("$routeChangeStart", function(){
+          if($location.path() === '/graduates'){
+            returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
+            console.log('grad');
+          }else if($location.path() === '/employers'){
+            returnObject.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
+            console.log('empl');
+          }else if($location.path() === '/jobs'){
+            returnObject.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
+            console.log('job');
+          }
+        });
+        return returnObject;
     })
 
 //=====================SEARCH DIRECTIVE=====================
@@ -119,7 +135,7 @@
         }
       };
 
-      //=====================CONDITIONALLY LOADING TEMPLATES FOR SEARCH DIRECTIVE=====================
+      //=====================CONDITIONALLY LOADING SEARCH TEMPLATE BASED ON USER TYPE=====================
 
       // if(Auth._currentUser.account_type === 'student'){
       //   returnObject.templateUrl = 'assets/views/offCanvasSearch/graduateUserSearch.html'
