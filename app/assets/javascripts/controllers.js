@@ -77,7 +77,7 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', ['ProfileService', '$scope', '$location', function (ProfileService,$location, $scope) {
+      .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
 
@@ -91,9 +91,6 @@
 
         profileCtrl.getProfile = function() {
           profileCtrl.profile = ProfileService.getPanel()
-        }
-        profileCtrl.date = function() {
-          $scope.date = new Date();
         }
 
       }])
