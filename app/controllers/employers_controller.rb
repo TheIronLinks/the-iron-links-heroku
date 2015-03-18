@@ -5,20 +5,8 @@ class EmployersController < ApplicationController
     @employers = Employer.all
   end
 
-  def advanced_employer_search
-    employer_search_check
-    @employers = advanced_employer_search_results
-    respond_to do |format|
-      format.json
-      format.html
-    end
-  end
-
-  def simple_employer_search
-    p params
-    employer_search_check
-    @employers = simple_employer_search_results
-    p @employers.length
+  def employer_search
+    @employers = employer_search_check
     respond_to do |format|
       format.json
       format.html
@@ -82,21 +70,21 @@ private
   end
 
   def employer_search_check
-    params[:name] = '' if params[:name] == "allLocations"
-    params[:industry] = '' if params[:industry] == "allIndustries"
-    params[:size] = '' if params[:size] == "allSizes"
-    params[:city] = '' if params[:city] == "allCities"
-    params[:state] = '' if params[:state] == "allStates"
-    params[:zip] = '' if params[:zip] == "allZips"
+    if params[:filters]
+      @employers = simple_employer_search_results(Employer)
+      @employers = advanced_employer_search_results(@employers)
+    else
+      simple_employer_search_results(Employer)
+    end
   end
 
-  def simple_employer_search_results
+  def simple_employer_search_results(employer)
     p params[:input]
-    return Employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%")
+    return employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%")
   end
 
-  def advanced_employer_search_results
-    return Employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ?", "%#{params[:name]}%", "%#{params[:industry]}%", "%#{params[:size]}%")
+  def advanced_employer_search_results(employer)
+    return employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ?", "%#{params[:name]}%", "%#{params[:industry]}%", "%#{params[:size]}%")
   end
 
 end
