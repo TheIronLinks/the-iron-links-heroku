@@ -15,6 +15,8 @@ class GraduatesController < ApplicationController
     end
   end
 
+  
+
   def new
     @graduate = Graduate.new
   end
@@ -24,10 +26,7 @@ class GraduatesController < ApplicationController
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
       format.json do
-        the_link = Link.new
-        the_link.url = params[:link][:url]
-        @graduate.link = the_link
-        @graduate.user = current_user
+        handle_side_objects
         render nothing: true
       end
     end
@@ -83,6 +82,18 @@ class GraduatesController < ApplicationController
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]
       )
+  end
+  def handle_side_objects
+    the_link = Link.new
+    the_link.url = params[:link][:url]
+    @graduate.link = the_link
+    @graduate.user = current_user
+    top_education = Education.new
+    top_education.school_name = params[:education][:school_name]
+    top_education.concentration = params[:education][:concentration]
+    top_education.level = params[:education][:level]
+    @graduate.education = top_education
+    top_education.save
   end
   def set_graduate
     @graduate = Graduate.find params[:id]
