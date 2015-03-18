@@ -4,7 +4,7 @@
 
   <li>
     <button class='search-graduates-header' ng-click="searchCtrl.routeTo('/graduates')">Search Graduates</button>
-    <form class='search-form search-graduates-form' ng-submit='searchCtrl.queryGrad(graduate_search)'>
+    <form class='search-form search-graduates-form invis' ng-submit='searchCtrl.queryGrad(graduate_search)'>
       <div class='search-input-wrapper'>
         <input type='text' placeholder='Search Graduates' data-ng-model='graduate_search.input'>
         <span ng-click='toggleGradFilters = !toggleGradFilters'>Advanced</span>

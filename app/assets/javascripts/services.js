@@ -57,7 +57,7 @@
       };
 
       var grad_url = '';
-      var empl_url = '/employers/simple_employer_search.json';
+      var empl_url = '/employers/employer_search.json';
       var job_url = '';
 
       var queryGrad = function (graduate_search) {
