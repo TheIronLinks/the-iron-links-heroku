@@ -97,7 +97,7 @@
           }
         };
 
-        //=====================CONDITIONALLY LOADING SEARCH TEMPLATE BASED ON ROUTE=====================
+        //=====================LOADING TEMPLATEURL BASED ON ROUTE=====================
 
         $rootScope.$on("$routeChangeStart", function(){
           if($location.path() === '/graduates'){
@@ -116,7 +116,7 @@
 
 //=====================SEARCH DIRECTIVE=====================
 
-    .directive('searchDirective', function() {
+    .directive('searchDirective', function($location, $rootScope) {
       var returnObject = {
         restrict: 'E',
         scope: {
@@ -125,17 +125,23 @@
         templateUrl: '',
         link: function(scope, element, attrs) {
 
-          //=====================TOGGLE SEARCH MODE=====================
+          //=====================TOGGLE SEARCH FORMS TO MATCH ROUTE=====================
 
-          element.find('li').on('click',function(){
+          $rootScope.$on("$routeChangeStart", function(){
             element.find('.search-form').addClass('invis');
-            $(this).find('.search-form').removeClass('invis');
+            if($location.path() === '/graduates'){
+              element.find('.search-graduates-form').removeClass('invis');
+            }else if($location.path() === '/employers'){
+              element.find('.search-employers-form').removeClass('invis');
+            }else if($location.path() === '/jobs'){
+              element.find('.search-jobs-form').removeClass('invis');
+            }
           });
 
         }
       };
 
-      //=====================CONDITIONALLY LOADING SEARCH TEMPLATE BASED ON USER TYPE=====================
+      //=====================LOADING TEMPLATEURL BASED ON USER TYPE=====================
 
       // if(Auth._currentUser.account_type === 'student'){
       //   returnObject.templateUrl = 'assets/views/offCanvasSearch/graduateUserSearch.html'
