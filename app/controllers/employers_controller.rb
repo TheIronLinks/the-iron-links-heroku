@@ -25,7 +25,6 @@ class EmployersController < ApplicationController
     respond_to do |format|
       format.html{redirect_to employers_path}
       format.json{
-        
         render nothing: true
       }
     end 
@@ -84,7 +83,7 @@ private
   end
 
   def advanced_employer_search_results(employer)
-    return employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ?", "%#{params[:name]}%", "%#{params[:industry]}%", "%#{params[:size]}%")
+    return employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ?", "%#{params[:filters][:name]}%", "%#{params[:filters][:industry]}%", "%#{params[:filters][:size]}%")
   end
 
 end

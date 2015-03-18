@@ -110,6 +110,7 @@
           $scope.graduate_search = {};
         };
 
+
         searchCtrl.queryEmpl = function (employer_search) {
           SearchService.queryEmpl(employer_search);
           $scope.employer_search = {};
@@ -123,6 +124,10 @@
         searchCtrl.routeTo = function (path) {
           $location.path(path);
         };
+
+        searchCtrl.queryEmpl();
+        searchCtrl.queryGrad();
+        searchCtrl.queryJob();
 
       }]);
 
