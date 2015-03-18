@@ -32,15 +32,15 @@ font-family: 'Playfair Display', serif;
   }
 }
 
-// @-webkit-keyframes round {
-//   90%{opacity:1;}
-//   100%{opacity:0;}
-// }
+@-webkit-keyframes round {
+   90%{opacity:1;}
+   100%{opacity:0;}
+ }
 
-//  .bgSlider img:nth-child(4){-webkit-animation: round 0s infinite;}
-//  .bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
-//  .bgSlider img:nth-child(2){-webkit-animation: round 20s infinite;}
-//  .bgSlider img:nth-child(1){-webkit-animation: round 30s infinite;}
+  .bgSlider img:nth-child(4){-webkit-animation: round 0s infinite;}
+  .bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
+  .bgSlider img:nth-child(2){-webkit-animation: round 20s infinite;}
+  .bgSlider img:nth-child(1){-webkit-animation: round 30s infinite;}
 
 .off-canvas-wrap {
   min-height: 100%;
@@ -109,6 +109,10 @@ input {
   padding: 5px;
   font-size: 14px;
   margin-left: 77%;
+}
+label {
+  margin-top: 5px;
+  margin-top: 5px;
 }
 //end form styling
 //end form styling

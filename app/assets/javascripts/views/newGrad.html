@@ -2,15 +2,15 @@
 <h3>Create your new profile.</h3>
 <form ng-submit='profileCtrl.addProfile(profileCtrl.gradProfile)'>
   <div class="row">
-    <div class="large-4 columns">
+    <div class="small-4 columns">
         <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
       </label>
     </div>
-    <div class="large-4 columns">
+    <div class="small-4 columns">
         <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
       </label>
     </div>
-    <div class="large-4 columns">
+    <div class="small-4 columns">
       <div class="row collapse">
         <div class="small-9 columns">
           <input ng-model='profileCtrl.gradProfile.graduate.email' type="text" placeholder="Email" />
@@ -22,13 +22,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="small-4 columns">
-        <label>Current Location:</label>
-        <select>
-          <option value=""></option>
-        </select>
-    </div>
-    <div class="small-4 columns">
+<!--     <div class="small-4 columns">
+    <label>Current Location:</label>
+    <select>
+      <option value=""></option>
+    </select>
+</div> -->
+<div class="row">
+    <div class="large-6 columns">
         <label>Iron Yard Attended:</label>
         <select ng-model="profileCtrl.gradProfile.graduate.grad_city">
           <option value="Atlanta">Atlanta</option>
@@ -48,7 +49,7 @@
           <option value="Washington, D.C.">Washington, D.C.</option>
         </select>
     </div>
-    <div class="small-4 columns">
+    <div class="large-6 columns">
         <label>Program Completed:</label>
         <select ng-model="profileCtrl.gradProfile.graduate.grad_focus">
           <option value="Front End Engineering">Front End Engineering</option>
@@ -60,7 +61,7 @@
     </div>
   </div>
   <div class="row">
-  <div class="small-6 columns">
+  <div class="large-6 columns">
     <label>Year Completed:</label>
       <select ng-model="profileCtrl.gradProfile.graduate.grad_date">
         <option value="2015">2015</option>
@@ -69,22 +70,22 @@
         <option value="2012">2012</option>
       </select>
     </div>
-      <div class="small-6 columns">
-        <label>Term Completed:</label>
-          <select>
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
+    <div class="large-6 columns">
+      <label>Term Completed:</label>
+        <select>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
       </div>
   </div>
     <div class="row collapse">
