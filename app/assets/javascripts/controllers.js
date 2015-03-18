@@ -85,13 +85,13 @@
           ProfileService.addProfile(newProfile);
         };
 
-        profileCtrl.routeTo = function (path) {
-          $location.path(path);
+        profileCtrl.routeTo = function (path){
+          $location.url(path);
         };
 
         profileCtrl.getProfile = function() {
-          profileCtrl.profile = ProfileService.getPanel()
-        }
+          profileCtrl.profile = ProfileService.getPanel();
+        };
 
       }])
 
