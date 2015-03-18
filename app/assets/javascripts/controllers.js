@@ -90,7 +90,8 @@
         };
 
         profileCtrl.getProfile = function() {
-          profileCtrl.profile = ProfileService.getPanel();
+          profileCtrl.profile = ProfileService.getPanel()
+
         };
 
       }])
