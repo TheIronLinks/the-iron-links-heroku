@@ -119,7 +119,7 @@
           SearchService.queryJob(job_search);
           $scope.job_search = {};
         };
-
+        searchCtrl.queryEmpl();
         searchCtrl.routeTo = function (path) {
           $location.path(path);
         };
