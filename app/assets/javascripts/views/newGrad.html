@@ -95,11 +95,20 @@
       <div class="small-10 large-10 columns">
         <input ng-model="profileCtrl.gradProfile.link.url"type="text" placeholder="Enter your URL...">
       </div>
-  </div>
+    </div>
+    <div class="row collapse">
+      <label>Upload your photo:</label>
+      <div class="small-2 large-2 columns">
+        <span class="prefix">http://</span>
+      </div>
+      <div class="small-10 large-10 columns">
+        <input ng-model="profileCtrl.gradProfile.graduate.image_url"type="text" placeholder="Enter your image URL...">
+      </div>
+    </div>
   <div class="row">
     <div class="small-4 columns">
       <label for="">Highest Level of Education</label>
-      <select>
+      <select ng-model="profileCtrl.gradProfile.education.level">
         <option value="HS/GED">HS/GED</option>
         <option value="Attended College">Attended College</option>
         <option value="Associates Degree">Associates Degree</option>

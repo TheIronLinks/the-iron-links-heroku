@@ -28,7 +28,7 @@ class GraduatesController < ApplicationController
         the_link.save
         top_education = Education.new
         top_education.school_name = params[:education][:school_name]
-        top_education.school_name = params[:education][:concentration]
+        top_education.concentration = params[:education][:concentration]
         @graduate.user = current_user
         render nothing: true
       end
