@@ -85,18 +85,20 @@ class GraduatesController < ApplicationController
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]
       )
   end
+  
   def handle_side_objects
     the_link = Link.new
     the_link.url = params[:link][:url]
-    @graduate.link = the_link
+    @graduate.links = [the_link]
     @graduate.user = current_user
     top_education = Education.new
     top_education.school_name = params[:education][:school_name]
     top_education.concentration = params[:education][:concentration]
     top_education.level = params[:education][:level]
-    @graduate.education = top_education
+    @graduate.educations = [top_education]
     top_education.save
   end
+
   def set_graduate
     @graduate = Graduate.find params[:id]
   end
