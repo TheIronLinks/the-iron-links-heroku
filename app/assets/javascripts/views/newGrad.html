@@ -1,19 +1,19 @@
 <div class="newProfile">
 <h3>Create your new profile.</h3>
-<form ng-submit='profileCtrl.addProfile(GradProfile)'>
+<form ng-submit='profileCtrl.addProfile(profileCtrl.gradProfile)'>
   <div class="row">
     <div class="large-4 columns">
-        <input ng-model='profileCtrl.gradProfile.firstName' type="text" placeholder="First Name" />
+        <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
       </label>
     </div>
     <div class="large-4 columns">
-        <input ng-model='profileCtrl.gradProfile.lastName' type="text" placeholder="Last Name" />
+        <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
       </label>
     </div>
     <div class="large-4 columns">
       <div class="row collapse">
         <div class="small-9 columns">
-          <input ng-model='profileCtrl.gradProfile.email' type="text" placeholder="Email" />
+          <input ng-model='profileCtrl.gradProfile.graduate.email' type="text" placeholder="Email" />
         </div>
         <div class="small-3 columns">
           <span class="postfix">.com</span>
@@ -30,7 +30,7 @@
     </div>
     <div class="small-4 columns">
         <label>Iron Yard Attended:</label>
-        <select ng-model="profileCtrl.gradProfile.tiyLocation">
+        <select ng-model="profileCtrl.gradProfile.graduate.grad_city">
           <option value="Atlanta">Atlanta</option>
           <option value="Austin">Austin</option>
           <option value="Charleston">Charleston</option>
@@ -50,7 +50,7 @@
     </div>
     <div class="small-4 columns">
         <label>Program Completed:</label>
-        <select ng-model="profileCtrl.gradProfile.tiyProgram">
+        <select ng-model="profileCtrl.gradProfile.graduate.grad_focus">
           <option value="Front End Engineering">Front End Engineering</option>
           <option value="Mobile Engineering">Mobile Engineering</option>
           <option value="Python Engineering">Python Engineering</option>
@@ -61,8 +61,8 @@
   </div>
   <div class="row">
   <div class="small-6 columns">
-    <label ng-model="profileCtrl.gradProfile.yearCompleted">Year Completed:</label>
-      <select>
+    <label>Year Completed:</label>
+      <select ng-model="profileCtrl.gradProfile.graduate.grad_date">
         <option value="2015">2015</option>
         <option value="2014">2014</option>
         <option value="2013">2013</option>
@@ -71,7 +71,7 @@
     </div>
       <div class="small-6 columns">
         <label>Term Completed:</label>
-          <select ng-model="profileCtrl.gradProfile.termCompleted">
+          <select>
             <option value="January">January</option>
             <option value="February">February</option>
             <option value="March">March</option>
@@ -93,13 +93,22 @@
         <span class="prefix">http://</span>
       </div>
       <div class="small-10 large-10 columns">
-        <input ng-model="profileCtrl.gradProfile.portfolioUrl"type="text" placeholder="Enter your URL...">
+        <input ng-model="profileCtrl.gradProfile.link.url"type="text" placeholder="Enter your URL...">
       </div>
-  </div>
+    </div>
+    <div class="row collapse">
+      <label>Upload your photo:</label>
+      <div class="small-2 large-2 columns">
+        <span class="prefix">http://</span>
+      </div>
+      <div class="small-10 large-10 columns">
+        <input ng-model="profileCtrl.gradProfile.graduate.image_url"type="text" placeholder="Enter your image URL...">
+      </div>
+    </div>
   <div class="row">
     <div class="small-4 columns">
       <label for="">Highest Level of Education</label>
-      <select ng-model"profileCtrl.gradProfile.education">
+      <select ng-model="profileCtrl.gradProfile.education.level">
         <option value="HS/GED">HS/GED</option>
         <option value="Attended College">Attended College</option>
         <option value="Associates Degree">Associates Degree</option>
@@ -110,26 +119,26 @@
     </div>
     <div class="small-4 columns">
       <label for="">School Attended</label>
-        <input ng-model="profileCtrl.gradProfile.schoolAttended"type="text" placeholder="" />
+        <input ng-model="profileCtrl.gradProfile.education.school_name"type="text" placeholder="" />
       </label>
     </div>
     <div class="small-4 columns">
       <label for="">Concentration</label>
-        <input ng-model="profileCtrl.gradProfile.concentration"type="text" placeholder="" />
+        <input ng-model="profileCtrl.gradProfile.concentration.education.concentration"type="text" placeholder="" />
     </div>
   </div>
     <div class="row">
       <div class="small-6 columns">
         <label>Email Visibility Settings:</label>
-        <input ng-model="profileCtrl.gradProfile.private" type="radio" name="private" value="private" id="private"><label for="private">Only Myself</label>
-        <input ng-model="profileCtrl.gradProfile.partial" type="radio" name="partial" value="partial" id="partial"><label for="partial">Other Alumni</label>
-        <input ng-model="profileCtrl.gradProfile.public" type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
+        <input type="radio" name="private" value="private" id="private"><label for="private">Only Myself</label>
+        <input type="radio" name="partial" value="partial" id="partial"><label for="partial">Other Alumni</label>
+        <input type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
       </div>
   </div>
   <div class="row">
     <div class="small-12 columns">
       <label>Additional Information
-        <textarea ng-model="profileCtrl.gradProfile.additionalInfo" placeholder=""></textarea>
+        <textarea ng-model="profileCtrl.gradProfile.graduate.additional_info" placeholder=""></textarea>
       </label>
     </div>
   </div>

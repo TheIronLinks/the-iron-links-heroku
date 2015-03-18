@@ -25,13 +25,15 @@
 
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
-          $location.path("/graduates");
         })
         .error(function(){
-          console.log('service/addProduct error');
+          console.log('service/add profile error');
         });
       };
 
+      var getPanel = function() {
+        return $http.get('/graduates/get_grad');
+      }
       return {
         addProfile: addProfile
       };

@@ -55,7 +55,7 @@
           Auth.login(credentials).then(function(user) {
             console.log(user);
             $scope.setUser();
-            $scope.loginCredentials='';
+            $location.url('/graduatePanel')
           }, function(error) {
             userCtrl.error_message = error;
             console.log(error);
@@ -66,6 +66,7 @@
           Auth.logout().then(function(user) {
             $scope.currentUser = user;
             $scope.setUser();
+            $scope.goToHome();
           });
         };
 
@@ -76,7 +77,7 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
+      .controller('ProfileController', ['ProfileService', '$scope', '$location', function (ProfileService,$location, $scope) {
 
         var profileCtrl = this;
 
@@ -87,6 +88,13 @@
         profileCtrl.routeTo = function (path) {
           $location.path(path);
         };
+
+        profileCtrl.getProfile = function() {
+          profileCtrl.profile = ProfileService.getPanel()
+        }
+        profileCtrl.date = function() {
+          $scope.date = new Date();
+        }
 
       }])
 

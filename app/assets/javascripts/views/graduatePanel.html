@@ -1,0 +1,25 @@
+<div class="userPanel">
+    <div class="left">
+      <h1>Welcome {{currentUser.first_name}}</h1>
+      <img src="http://placehold.it/200x200" alt="">
+      <p>Your Name</p>
+      <p>Your Email</p>
+      <p>Random Info</p>
+    </div>
+  <div class="right">
+    <span>{{date.now() | date:'yyyy-MM-dd'}}</span>
+    <div class="favorites">
+      <p>Favorited</p>
+      <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+    </div>
+    <div class="notications">
+      <p>Notifications</p>
+      <p><i class="fa fa-flag"></i></p>
+    </div>
+    <div class="messages">
+      <p>Messages</p>
+      <p><i class="fa fa-envelope"></i></p>
+    </div>
+  <a ng-click='submitLogout()' ng-show='loggedIn()'>Logout</a>
+</div>
+</div>

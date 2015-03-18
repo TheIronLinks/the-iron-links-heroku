@@ -16,6 +16,10 @@
       .when('/', {
         templateUrl: 'assets/views/index.html'
       })
+      .when('/graduatePanel', {
+        templateUrl: 'assets/views/graduatePanel.html',
+        controller: 'ProfileController as profileCtrl'
+      })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html',
         controller: 'ProfileController as profileCtrl'

@@ -115,37 +115,78 @@ input {
 
 //login home view
 //login home view
-.welcomeView {
+.userPanel {
   margin: auto;
   margin-top: 100px;
-  padding-bottom: 40px;
+  padding: 20px;
   background: white;
   color: #39474E;
   border-radius: 1%;
   box-shadow: 6px 6px 5px #454545;
   text-align: center;
-  width: 300px;
+  width: 500px;
+  height: 410px;
 }
-.welcomeView h1 {
+.userPanel h1 {
   color: #39474E;
   font-size: 25px;
-  margin: 10px;
-  padding: 15px;
+  margin: 5px;
+  padding: 5px;
 
 }
-.welcomeView h3 {
+.userPanel h3 {
   font-size: 18px;
   margin: 10px;
   padding: 15px;
   color: #39474E;
 }
-.welcomeView i {
+.userPanel i {
   color: #39474E;
 }
-.welcomeView a {
+.userPanel a {
   color: #39474E;
   font-size: 18px;
 }
+.userPanel.left {
+  border: 2px dotted red;
+  margin: 0px;
+  padding: 0px;
+}
+.userPanel.left img {
+  border: 2px dotted red;
+  margin: 0px;
+  padding: 10px;
+}
+.userPanel p {
+  margin: 5px;
+  padding: 5px;
+}
+.userPanel.right {
+  border: 2px dotted blue;
+  margin: 0px;
+  padding: 0px;
+}
+.userPanel.right.favorites {
+  border: 2px dotted yellow;
+  margin: 0px;
+  padding: 0px;
+  width: 298px;
+}.userPanel.right.notifications {
+  border: 2px dotted yellow;
+  margin: 0px;
+  padding: 0px;
+  width: 298px;
+}.userPanel.right.messages {
+  border: 2px dotted yellow;
+  margin: 0px;
+  padding: 0px;
+  width: 298px;
+}
+
+//end login home view
+//end login home view
+
+
 //left sidebar
 //left sidebar
 #searchWrapper{
