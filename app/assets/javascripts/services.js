@@ -12,8 +12,6 @@
         return $http.get(url);
       };
 
-
-
       return {
         getCards: getCards
       };

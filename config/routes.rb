@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   # get 'welcome/index'
 
-  resources :graduates
+  resources :graduates do
+    collection do
+      get 'get_grad'
+    end
+  end
   resources :employers do
     collection do
-      get 'advanced_employer_search'
-      get 'simple_employer_search'
+      get 'employer_search'
     end
     resources 'locations' do
       resources 'job_listings'
