@@ -34,7 +34,7 @@
 
       var getPanel = function() {
         return $http.get('/graduates/get_grad');
-      }
+      };
       return {
         addProfile: addProfile
       };
