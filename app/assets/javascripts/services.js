@@ -25,9 +25,9 @@
 
       var userData = {
         profileData: {
-          graduate:
-            }
-      };
+          graduate: {}
+          }
+        };
 
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
