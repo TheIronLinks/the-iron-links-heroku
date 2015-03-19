@@ -20,12 +20,6 @@ $bgCardFour:#35a0ad;
   max-width:1250px;
   margin:55px auto;
   position:relative;
-/*   @media only screen and (max-width : 1150px){
-  max-width:66%;
-}
-@media only screen and (max-width : 500px){
-  max-width:100%;
-} */
 }
 .card-outer-wrapper{
   //border:1px solid red;
@@ -43,7 +37,7 @@ $bgCardFour:#35a0ad;
 }
 .card-inner-wrapper{
   //border:1px solid blue;
-  background-color:white;
+  background-color:lightgrey;
   border-radius:5px;
   text-align:center;
   display:inline-block;
@@ -54,23 +48,34 @@ $bgCardFour:#35a0ad;
   right:0;
 }
 [data-trait='1']{
-  background-color:$bgCardOne;
+  .cardLabel{
+    background-color:$bgCardOne;
+  }
 }
 [data-trait='2']{
-  background-color:$bgCardTwo;
+  .cardLabel{
+    background-color:$bgCardTwo;
+  }
 }
 [data-trait='3']{
-  background-color:$bgCardThree;
+  .cardLabel{
+    background-color:$bgCardThree;
+  }
 }
 [data-trait='4']{
-  background-color:$bgCardFour;
+  .cardLabel{
+    background-color:$bgCardFour;
+  }
 }
 .cardLabel{
   color:$cardColor;
   font-size:18px;
   width:100%;
+  height:40px;
   font-weight:bold;
   display:block;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
 }
 .fa.fa-2x.fa-ellipsis-v{
   position:absolute;
@@ -81,6 +86,7 @@ $bgCardFour:#35a0ad;
     transform:scale(1.1);
     cursor:pointer;
   }
+  z-index:99999;
 }
 .fa.fa-lg.fa-flip-horizontal.fa-expand{
   position:absolute;
@@ -92,6 +98,7 @@ $bgCardFour:#35a0ad;
     transform:scale(1.1) rotate(90deg);;
     cursor:pointer;
   }
+  z-index:99999;
 }
 .fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
   visibility:hidden;
@@ -111,4 +118,37 @@ $bgCardFour:#35a0ad;
 }
 .fa.fa-5x.fa-caret-right{
   right:5px;
+}
+.cardSpreadOne{
+  z-index:4;
+  top:120px;
+  &:hover{
+    top:115px;
+  }
+}
+.cardSpreadTwo{
+  z-index:3;
+  top:80px;
+  display:inline-block;
+  &:hover{
+    top:75px;
+  }
+}
+.cardSpreadThree{
+  z-index:2;
+  top:40px;
+  display:inline-block;
+  &:hover{
+    top:35px;
+  }
+}
+.cardSpreadFour{
+  z-index:1;
+  display:inline-block;
+  &:hover{
+    top:-5px;
+  }
+}
+.cardSpreadStack{
+  height:520px;
 }

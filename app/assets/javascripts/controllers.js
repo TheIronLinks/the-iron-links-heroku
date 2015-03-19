@@ -8,6 +8,7 @@
 
         var cardCtrl = this;
 
+
         CardService.getCards().success(function(data){
           cardCtrl.stack = data;
         })
