@@ -114,6 +114,12 @@ label {
   margin-top: 5px;
   margin-top: 5px;
 }
+button {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 //end form styling
 //end form styling
 
@@ -128,8 +134,9 @@ label {
   border-radius: 1%;
   box-shadow: 6px 6px 5px #454545;
   text-align: center;
-  width: 500px;
-  height: 410px;
+  width: 70%;
+  min-height: auto;
+  border: 2px dotted red;
 }
 .userPanel h1 {
   color: #39474E;
@@ -144,6 +151,10 @@ label {
   padding: 15px;
   color: #39474E;
 }
+.userPanel p {
+  margin: 5px;
+  padding: 5px;
+}
 .userPanel i {
   color: #39474E;
 }
@@ -151,42 +162,25 @@ label {
   color: #39474E;
   font-size: 18px;
 }
-.userPanel.left {
-  border: 2px dotted red;
+.left {
+  border: 2px dotted blue;
+  width: 50%;
   margin: 0px;
   padding: 0px;
+  display: inline-table;
 }
-.userPanel.left img {
-  border: 2px dotted red;
+.left img {
+  border: 2px dotted purple;
   margin: 0px;
   padding: 10px;
 }
-.userPanel p {
-  margin: 5px;
-  padding: 5px;
-}
-.userPanel.right {
-  border: 2px dotted blue;
-  margin: 0px;
-  padding: 0px;
-}
-.userPanel.right.favorites {
+.right {
   border: 2px dotted yellow;
+  width: 50%;
   margin: 0px;
   padding: 0px;
-  width: 298px;
-}.userPanel.right.notifications {
-  border: 2px dotted yellow;
-  margin: 0px;
-  padding: 0px;
-  width: 298px;
-}.userPanel.right.messages {
-  border: 2px dotted yellow;
-  margin: 0px;
-  padding: 0px;
-  width: 298px;
+  display: inline-table;
 }
-
 //end login home view
 //end login home view
 
@@ -212,3 +206,43 @@ label {
 }
 //end left sidebar
 //end left sidebar
+
+//testing
+.welcomePanel {
+  margin-top: 75px;
+  padding: 0px;
+}
+.welcomePanel li {
+  margin: 0px;
+  padding: 0px;
+  width: 300px;
+  height: 300px;
+  background: white;
+}
+.welcomePanel i {
+  margin-left: 35%;
+  padding: 0px;
+  color: white;
+}
+li.one {
+  background-color: gray;
+}
+li.two{
+  background-color: #5B9D99;
+}
+li.three{
+  background-color: #7c423c;
+}li.four{
+  background-color: #cfb12b;
+}li.five{
+  background-color: #39474E;
+}li.six{
+  background-color: #bb772b;
+}
+li h2 {
+  margin-top: 25%;
+  margin-bottom: 20px;
+  padding: 0px;
+  text-align: center;
+  color: white;
+}
