@@ -7,6 +7,10 @@ class GraduatesController < ApplicationController
     @graduate = Graduate.find current_user.userable_id
   end
 
+  def search_grads
+    @graduates = graduate_search
+  end
+
   def show
     set_graduate
     respond_to do |format|
@@ -24,6 +28,9 @@ class GraduatesController < ApplicationController
   def create
     p params
     @graduate = Graduate.create graduate_params
+    @graduate.email = current_user.email
+    @graduate.assign_region
+    @graduate.save
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
       format.json do
@@ -39,7 +46,7 @@ class GraduatesController < ApplicationController
 
   def update
     set_graduate
-    @graduate.update_attribute graduate_params
+    @graduate.update_attributes graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
       format.json{render nothing: true}
@@ -67,10 +74,9 @@ class GraduatesController < ApplicationController
     params.require(:graduate).permit(
       :first_name,
       :last_name,
-      :grad_city,
-      :grad_state,
+      :grad_location,
       :grad_zip,
-      :grad_date,
+      :grad_session,
       :grad_focus,
       :current_city,
       :current_state,
@@ -84,6 +90,36 @@ class GraduatesController < ApplicationController
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]
       )
+  end
+
+  def simple_graduate_search(graduate)
+    return graduate.where("first_name LIKE ? OR last_name LIKE ? OR grad_focus LIKE ? OR grad_session LIKE ? OR grad_year LIKE ? OR grad_location LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+  end
+
+  def advanced_graduate_search(graduates)
+    results = []
+    graduates.each do |graduate|
+      if graduate.grad_year == params[:filters][:grad_year] || !params[:filters][:grad_year]
+        if graduate.grad_year == params[:filters][:grad_focus] || !params[:filters][:grad_focus]
+          if graduate.grad_year == params[:filters][:grad_location] || !params[:filters][:grad_location]
+            if graduate.grad_year == params[:filters][:present_region] || !params[:filters][:present_region]
+              results.push(graduate)
+            end
+          end
+        end
+      end
+      return results
+    end
+
+
+  end
+
+  def graduate_search
+    g = simple_graduate_search
+    if params[:filters]
+      g = advanced_graduate_search(g)
+    end
+    return g
   end
   
   def handle_side_objects
