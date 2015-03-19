@@ -67,6 +67,11 @@ $bgCardFour:#35a0ad;
     background-color:$bgCardFour;
   }
 }
+.search-graduates-header,.search-employers-header,.search-jobs-header{
+  &:hover{
+    transform:scale(1.05);
+  }
+}
 .cardLabel{
   color:$cardColor;
   font-size:18px;

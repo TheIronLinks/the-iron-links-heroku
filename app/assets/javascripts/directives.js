@@ -42,65 +42,55 @@
               element.find('li[data-trait='+goingTo+']').attr('data-state', 'selected');
             });
 
+            //=====================UNSPREAD CARD=====================
 
+            element.find('li').on('click',function(){
+              var comingFrom = element.find('li[data-state=\'selected\']').data('trait');
+              var goingTo = $(this).closest('li').data('trait');
+              element.find('li').addClass('invis');
+              element.find('li[data-state=\'selected\']').attr('data-state', comingFrom);
+              element.find('li[data-trait='+goingTo+']').attr('data-state', 'selected');
+              element.find('li[data-trait='+goingTo+']').removeClass('invis');
 
-              //=====================UNSPREAD CARD=====================
-                element.find('li').on('click',function(){
+              element.find('li').removeClass('cardSpreadOne cardSpreadTwo cardSpreadThree cardSpreadFour');
+              element.find('ul').removeClass('cardSpreadStack');
+              element.find('li').css({'cursor':'auto'});
+              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'inline-block'});
+            });
 
-                    console.log('firing unspread');
-                    var comingFrom = element.find('li[data-state=\'selected\']').data('trait');
-                    var goingTo = $(this).closest('li').data('trait');
-                    element.find('li').addClass('invis');
-                    element.find('li[data-state=\'selected\']').attr('data-state', comingFrom);
-                    element.find('li[data-trait='+goingTo+']').attr('data-state', 'selected');
-                    element.find('li[data-trait='+goingTo+']').removeClass('invis');
+            //=====================SPREAD CARD=====================
 
-                    element.find('li').removeClass('cardSpreadOne cardSpreadTwo cardSpreadThree cardSpreadFour');
-                    element.find('ul').removeClass('cardSpreadStack');
-                    element.find('li').css({'cursor':'auto'});
-                    element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'inline-block'});
+            element.find('.fa.fa-2x.fa-ellipsis-v').on('click',function(event){
+              event.stopPropagation();
+              console.log('firing spread');
+              var firstCard = $(this).parent().data('trait');
+              if(firstCard === 1){
+                var secondCard = 2;
+                var thirdCard = 3;
+                var fourthCard = 4;
+              }else if(firstCard === 2){
+                var secondCard = 3;
+                var thirdCard = 4;
+                var fourthCard = 1;
+              }else if(firstCard === 3){
+                var secondCard = 4;
+                var thirdCard = 1;
+                var fourthCard = 2;
+              }else if(firstCard === 4){
+                var secondCard = 1;
+                var thirdCard = 2;
+                var fourthCard = 3;
+              }
+              element.find('li[data-trait='+firstCard+']').addClass('cardSpreadOne');
+              element.find('li[data-trait='+secondCard+']').addClass('cardSpreadTwo');
+              element.find('li[data-trait='+thirdCard+']').addClass('cardSpreadThree');
+              element.find('li[data-trait='+fourthCard+']').addClass('cardSpreadFour');
+              element.find('ul').addClass('cardSpreadStack');
+              element.find('li').removeClass('invis');
+              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'none'});
+              element.find('li').css({'cursor':'pointer'});
 
-
-                });
-
-              //=====================SPREAD CARD=====================
-              element.find('.fa.fa-2x.fa-ellipsis-v').on('click',function(event){
-                event.stopPropagation();
-                console.log('firing spread');
-                var firstCard = $(this).parent().data('trait');
-                if(firstCard === 1){
-                  var secondCard = 2;
-                  var thirdCard = 3;
-                  var fourthCard = 4;
-                }else if(firstCard === 2){
-                  var secondCard = 3;
-                  var thirdCard = 4;
-                  var fourthCard = 1;
-                }else if(firstCard === 3){
-                  var secondCard = 4;
-                  var thirdCard = 1;
-                  var fourthCard = 2;
-                }else if(firstCard === 4){
-                  var secondCard = 1;
-                  var thirdCard = 2;
-                  var fourthCard = 3;
-                }
-                element.find('li[data-trait='+firstCard+']').addClass('cardSpreadOne');
-                element.find('li[data-trait='+secondCard+']').addClass('cardSpreadTwo');
-                element.find('li[data-trait='+thirdCard+']').addClass('cardSpreadThree');
-                element.find('li[data-trait='+fourthCard+']').addClass('cardSpreadFour');
-                element.find('ul').addClass('cardSpreadStack');
-                element.find('li').removeClass('invis');
-                element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'none'});
-                element.find('li').css({'cursor':'pointer'});
-
-              });
-
-
-
-
-
-
+            });
 
             //=====================CARD DETAIL FUNCTIONALITY=====================
 
@@ -111,10 +101,10 @@
                   'top':'50px',
                   'height':'60vh'
                 });
-            });
+              });
 
-          }
-        };
+            }
+          };
 
         //=====================LOADING TEMPLATEURL BASED ON ROUTE=====================
 
@@ -156,6 +146,16 @@
               element.find('.search-jobs-form').removeClass('invis');
             }
           });
+          $rootScope.$on('$viewContentLoaded', function(){
+            element.find('.search-form').addClass('invis');
+            if($location.path() === '/graduates'){
+              element.find('.search-graduates-form').removeClass('invis');
+            }else if($location.path() === '/employers'){
+              element.find('.search-employers-form').removeClass('invis');
+            }else if($location.path() === '/jobs'){
+              element.find('.search-jobs-form').removeClass('invis');
+            }
+  });
 
         }
       };
