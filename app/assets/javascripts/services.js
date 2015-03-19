@@ -23,6 +23,12 @@
 
       var url = 'http://localhost:3000/graduates.json';
 
+      var userData = {
+        profileData: {
+          graduate:
+            }
+      };
+
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
           $location.url('/graduatePanel');
@@ -33,10 +39,15 @@
       };
 
       var getPanel = function() {
-        return $http.get('/graduates/get_grad');
+        $http.get('/graduates/get_grad.json')
+        .success(function(data){
+          userData.profileData = data;
+        });
       };
       return {
-        addProfile: addProfile
+        addProfile: addProfile,
+        userData: userData,
+        getPanel: getPanel
       };
     })
 
