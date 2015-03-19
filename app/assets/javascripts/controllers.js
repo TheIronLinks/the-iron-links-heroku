@@ -81,6 +81,7 @@
       .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
+        profileCtrl.userData = ProfileService.userData;
 
         profileCtrl.addProfile = function (newProfile) {
           ProfileService.addProfile(newProfile);
@@ -91,9 +92,10 @@
         };
 
         profileCtrl.getProfile = function() {
-          profileCtrl.profile = ProfileService.getPanel()
-
+          profileCtrl.panel = ProfileService.getPanel;
+          console.log('hello');
         };
+
 
       }])
 
