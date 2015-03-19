@@ -25,8 +25,9 @@
 
       var userData = {
         profileData: {
-          graduate:
+          graduate:{
             }
+          }
       };
 
       var addProfile = function (newProfile) {
