@@ -1,4 +1,3 @@
-// This is your app.js file.
 (function () {
  'use strict';
 
