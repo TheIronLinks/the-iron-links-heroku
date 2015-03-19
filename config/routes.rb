@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :graduates do
     collection do
       get 'get_grad'
+      get 'search_graduates'
     end
   end
   resources :employers do

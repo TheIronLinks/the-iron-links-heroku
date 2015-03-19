@@ -7,7 +7,7 @@ class GraduatesController < ApplicationController
     @graduate = Graduate.find current_user.userable_id
   end
 
-  def search_grads
+  def search_graduates
     @graduates = graduate_search
   end
 
@@ -115,7 +115,7 @@ class GraduatesController < ApplicationController
   end
 
   def graduate_search
-    g = simple_graduate_search
+    g = simple_graduate_search(Graduate)
     if params[:filters]
       g = advanced_graduate_search(g)
     end

@@ -25,7 +25,7 @@
 
       var userData = {
         profileData: {
-          graduate: {}
+          graduate:{}
         }
       };
 
