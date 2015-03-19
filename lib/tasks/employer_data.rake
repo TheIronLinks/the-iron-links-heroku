@@ -2,6 +2,7 @@ task create_real_employers: :environment do
   Employer.all.each do |employer|
     employer.destroy
   end
+  
     Employer.create!({
       name: 'BenefitFocus',
       image_url: 'http://www.mitcio.com/sites/default/files/imagecache/gold_sponsor/benefitfocus.jpg',
