@@ -67,7 +67,7 @@
         data: []
       };
 
-      var grad_url = '';
+      var grad_url = '10.0.10.95:3000/graduates/search_graduates.json';
       var empl_url = '/employers/employer_search.json';
       var job_url = '';
 
