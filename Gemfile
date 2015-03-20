@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'rspec-rails'
 gem 'whenever', :require => false
 gem 'rack-cors'
 gem 'rabl'

@@ -110,7 +110,6 @@
         searchCtrl.jobResults = SearchService.jobResults;
 
         searchCtrl.queryGrad = function (graduate_search) {
-          console.log(graduate_search);
           SearchService.queryGrad(graduate_search);
           $scope.graduate_search = {};
         };
