@@ -2,6 +2,8 @@
     'use strict';
     angular.module('tilAPP')
 
+//=====================STORING CARD DIRECTIVE IN ROOTSCOPE=====================
+
       .run(['$rootScope', function($rootScope){
 
         $rootScope.card_directive_tmpl = {

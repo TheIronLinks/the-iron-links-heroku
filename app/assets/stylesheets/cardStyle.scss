@@ -91,7 +91,7 @@ $bgCardFour:#35a0ad;
     transform:scale(1.1);
     cursor:pointer;
   }
-  z-index:99999;
+  z-index:1001;
 }
 .fa.fa-lg.fa-flip-horizontal.fa-expand{
   position:absolute;
@@ -103,7 +103,7 @@ $bgCardFour:#35a0ad;
     transform:scale(1.1) rotate(90deg);;
     cursor:pointer;
   }
-  z-index:99999;
+  z-index:1001;
 }
 .fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
   visibility:hidden;
@@ -112,7 +112,7 @@ $bgCardFour:#35a0ad;
   letter-spacing: 0px;
   color:$cardColor;
   -webkit-user-select: none;//prevents highlighting from double click
-  z-index:99999;
+  z-index:1001;
   &:hover{
     cursor:pointer;
     transform:scale(1.1);
