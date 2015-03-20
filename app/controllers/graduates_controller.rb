@@ -99,10 +99,10 @@ class GraduatesController < ApplicationController
   def advanced_graduate_search(graduates)
     results = []
     graduates.each do |graduate|
-      if graduate.grad_year == params[:filters][:grad_year] || !params[:filters][:grad_year]
-        if graduate.grad_year == params[:filters][:grad_focus] || !params[:filters][:grad_focus]
-          if graduate.grad_year == params[:filters][:grad_location] || !params[:filters][:grad_location]
-            if graduate.grad_year == params[:filters][:present_region] || !params[:filters][:present_region]
+      if graduate.grad_year == params[:grad_year] || !params[:grad_year]
+        if graduate.grad_year == params[:grad_focus] || !params[:grad_focus]
+          if graduate.grad_year == params[:grad_location] || !params[:grad_location]
+            if graduate.grad_year == params[:present_region] || !params[:present_region]
               results.push(graduate)
             end
           end
@@ -116,7 +116,7 @@ class GraduatesController < ApplicationController
 
   def graduate_search
     g = simple_graduate_search(Graduate)
-    if params[:filters]
+    if params[:grad_year] || params[:grad_focus] || params[:grad_location] || params[:present_region]
       g = advanced_graduate_search(g)
     end
     return g
