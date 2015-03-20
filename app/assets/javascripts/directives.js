@@ -2,10 +2,9 @@
     'use strict';
     angular.module('tilAPP')
 
-//=====================CARD DIRECTIVE=====================
+      .run(['$rootScope', function($rootScope){
 
-      .directive('cardDirective', function($location, $rootScope) {
-        var returnObject = {
+        $rootScope.card_directive_tmpl = {
           restrict: 'E',
           scope: {
             data: '=',
@@ -101,27 +100,64 @@
                   'top':'50px',
                   'height':'60vh'
                 });
-              });
+            });
 
             }
           };
+      }])
+
+//=====================GRAD CARD DIRECTIVE=====================
+
+      .directive('gradCardDirective', function($location, $rootScope) {
+        var return_object = $rootScope.card_directive_tmpl;
+        return_object.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
+        return return_object;
+      })
+//=====================EMPL CARD DIRECTIVE=====================
+
+      .directive('emplCardDirective', function($location, $rootScope) {
+        var return_object = $rootScope.card_directive_tmpl;
+        return_object.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
+        return return_object;
+      })
+//=====================JOB CARD DIRECTIVE=====================
+
+      .directive('jobCardDirective', function($location, $rootScope) {
+        var return_object = $rootScope.card_directive_tmpl;
+        return_object.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
+        return return_object;
+      })
+
+
 
         //=====================LOADING TEMPLATEURL BASED ON ROUTE=====================
 
-        $rootScope.$on("$routeChangeStart", function(){
-          if($location.path() === '/graduates'){
-            returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
-            console.log('grad');
-          }else if($location.path() === '/employers'){
-            returnObject.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
-            console.log('empl');
-          }else if($location.path() === '/jobs'){
-            returnObject.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
-            console.log('job');
-          }
-        });
-        return returnObject;
-    })
+        // $rootScope.$on("$routeChangeStart", function(){
+        //   if($location.path() === '/graduates'){
+        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
+        //     console.log('gradroute');
+        //   }else if($location.path() === '/employers'){
+        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
+        //     console.log('emplroute');
+        //   }else if($location.path() === '/jobs'){
+        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
+        //     console.log('jobroute');
+        //   }
+        // });
+        // $rootScope.$on("$viewContentLoaded", function(){
+        //   if($location.path() === '/graduates'){
+        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
+        //     console.log('gradload');
+        //   }else if($location.path() === '/employers'){
+        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
+        //     console.log('emplload');
+        //   }else if($location.path() === '/jobs'){
+        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
+        //     console.log('jobload');
+        //   }
+        // });
+        // return returnObject;
+    //})
 
 //=====================SEARCH DIRECTIVE=====================
 
@@ -136,26 +172,26 @@
 
           //=====================TOGGLE SEARCH FORMS TO MATCH ROUTE=====================
 
-          $rootScope.$on("$routeChangeStart", function(){
-            element.find('.search-form').addClass('invis');
-            if($location.path() === '/graduates'){
-              element.find('.search-graduates-form').removeClass('invis');
-            }else if($location.path() === '/employers'){
-              element.find('.search-employers-form').removeClass('invis');
-            }else if($location.path() === '/jobs'){
-              element.find('.search-jobs-form').removeClass('invis');
-            }
-          });
-          $rootScope.$on('$viewContentLoaded', function(){
-            element.find('.search-form').addClass('invis');
-            if($location.path() === '/graduates'){
-              element.find('.search-graduates-form').removeClass('invis');
-            }else if($location.path() === '/employers'){
-              element.find('.search-employers-form').removeClass('invis');
-            }else if($location.path() === '/jobs'){
-              element.find('.search-jobs-form').removeClass('invis');
-            }
-  });
+  //         $rootScope.$on("$routeChangeStart", function(){
+  //           element.find('.search-form').addClass('invis');
+  //           if($location.path() === '/graduates'){
+  //             element.find('.search-graduates-form').removeClass('invis');
+  //           }else if($location.path() === '/employers'){
+  //             element.find('.search-employers-form').removeClass('invis');
+  //           }else if($location.path() === '/jobs'){
+  //             element.find('.search-jobs-form').removeClass('invis');
+  //           }
+  //         });
+  //         $rootScope.$on('$viewContentLoaded', function(){
+  //           element.find('.search-form').addClass('invis');
+  //           if($location.path() === '/graduates'){
+  //             element.find('.search-graduates-form').removeClass('invis');
+  //           }else if($location.path() === '/employers'){
+  //             element.find('.search-employers-form').removeClass('invis');
+  //           }else if($location.path() === '/jobs'){
+  //             element.find('.search-jobs-form').removeClass('invis');
+  //           }
+  // });
 
         }
       };
