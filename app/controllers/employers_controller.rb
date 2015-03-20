@@ -13,13 +13,6 @@ class EmployersController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def new
-    @employer = Employer.new
-  end
-
   def create
     @employer = Employer.create employer_params
     respond_to do |format|
