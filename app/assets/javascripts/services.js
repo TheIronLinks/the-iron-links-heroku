@@ -25,7 +25,17 @@
 
       var userData = {
         profileData: {
-          graduate: {}
+          graduate: {
+            first_name: "",
+            last_name: "",
+            grad_city: "",
+            grad_state: "",
+            grad_date: "",
+            grad_focus: "",
+            current_location: "",
+            additional_info: "",
+            image_url: ""
+            }
           }
         };
 
@@ -42,7 +52,9 @@
       var getPanel = function() {
         $http.get('/graduates/get_grad.json')
         .success(function(data){
+          console.log(data)
           userData.profileData = data;
+          console.log(userData.profileData)
         });
       };
       return {

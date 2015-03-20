@@ -83,6 +83,7 @@
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
 
+
         profileCtrl.addProfile = function (newProfile) {
           ProfileService.addProfile(newProfile);
         };
@@ -92,9 +93,8 @@
         };
 
         profileCtrl.getProfile = function() {
-          profileCtrl.panel = ProfileService.getPanel;
-          console.log('hello');
-        };
+          ProfileService.getPanel();
+        }();
 
 
       }])
