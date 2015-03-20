@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319162112) do
+ActiveRecord::Schema.define(version: 20150319233707) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -91,6 +91,17 @@ ActiveRecord::Schema.define(version: 20150319162112) do
     t.datetime "updated_at",  null: false
     t.text     "description"
     t.string   "region"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "viewed",       default: false
+    t.string   "message_type"
   end
 
   create_table "skill_graduates", force: :cascade do |t|

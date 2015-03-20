@@ -39,7 +39,6 @@
           }
         };
 
-
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
           $location.url('/graduatePanel');
