@@ -100,16 +100,41 @@
 
       }])
 
+//==========================EMPLOYER CTRL==========================
+
+      .controller('EmployerController', ['EmployerService', '$location', function (EmployerService,$location) {
+
+        var employerCtrl = this;
+        employerCtrl.userData = EmployerService.userData;
+
+
+        employerCtrl.addEmployer = function (newEmployer) {
+          EmployerService.addEmployer(newEmployer);
+        };
+
+        employerCtrl.routeTo = function (path){
+          $location.url(path);
+        };
+
+        employerCtrl.getEmployer = function() {
+          EmployerService.getPanel();
+        }();
+
+
+      }])
+
 //==========================SEARCH CTRL==========================
 
       .controller('SearchController', ['SearchService', '$location', '$scope', function (SearchService,$location,$scope) {
 
         var searchCtrl = this;
+
         searchCtrl.gradResults = SearchService.gradResults;
         searchCtrl.emplResults = SearchService.emplResults;
         searchCtrl.jobResults = SearchService.jobResults;
 
         searchCtrl.queryGrad = function (graduate_search) {
+          console.log(graduate_search);
           SearchService.queryGrad(graduate_search);
           $scope.graduate_search = {};
         };
@@ -124,14 +149,10 @@
           SearchService.queryJob(job_search);
           $scope.job_search = {};
         };
-        searchCtrl.queryEmpl();
+
         searchCtrl.routeTo = function (path) {
           $location.path(path);
         };
-
-        searchCtrl.queryEmpl();
-        searchCtrl.queryGrad();
-        searchCtrl.queryJob();
 
       }]);
 

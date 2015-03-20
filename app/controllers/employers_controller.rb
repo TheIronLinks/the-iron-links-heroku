@@ -6,7 +6,7 @@ class EmployersController < ApplicationController
   end
 
   def employer_search
-    @employers = employer_search(params)
+    @employers = the_employer_search(params)
     respond_to do |format|
       format.json
       format.html
@@ -27,7 +27,7 @@ class EmployersController < ApplicationController
       format.json{
         render nothing: true
       }
-    end 
+    end
   end
 
   def edit
@@ -38,7 +38,7 @@ class EmployersController < ApplicationController
     respond_to do |format|
       format.html{redirect_to employers_path}
       format.json{render nothing: true}
-    end 
+    end
   end
 
   def destroy
@@ -68,7 +68,7 @@ private
     )
   end
 
-  def employer_search(input)
+  def the_employer_search(input)
     e = simple_employer_search(input)
     if input[:location] || input[:industry]
       e = advanced_employer_search(e, input)
@@ -98,6 +98,6 @@ private
     employer.locations.each do |location|
       return true if location.region == region
     end
+    return false
   end
 end
-
