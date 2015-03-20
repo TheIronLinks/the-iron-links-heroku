@@ -16,7 +16,11 @@ Rails.application.routes.draw do
       resources 'job_listings'
     end
   end
-  resources 'job_listings'
+  resources 'job_listings' do
+    collection do
+      get 'search_job_listings'
+    end
+  end
   resources 'messages' do 
     collection do
       get 'unread_messages'

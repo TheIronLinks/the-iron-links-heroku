@@ -27,7 +27,7 @@ class JobListingsController < ApplicationController
   end
 
   def search_job_listings
-    @graduates = job_search(params)
+    @job_listings = job_search(params)
     respond_to do |format|
       format.json
       format.html
@@ -83,21 +83,28 @@ class JobListingsController < ApplicationController
   def employer_check(input)
     r = []
     e = Employer.where('industry LIKE ?', "%#{input}%")
-    e.locations.each do |location|
-      r.push(location.job_listings)
+    e.each do |employer|
+      employer.locations.each do |location|
+        r.push(location.job_listings)
+      end
     end
     return r.flatten
   end
 
   def advanced_job_search(jobs, input)
     r = []
-
     jobs.each do |job|
-
-      r.push(job)
-
+      if job.location.employer.industry == input[:industry] || !input[:industry]
+        print 'industry'
+        p input[:industry]
+          if job.location.region == input[:location] || !input[:location]
+            print 'location'
+            p input[:location]
+              r.push(job)
+          end
+      end
     end
-    
+    return r
   end
 
   # input
