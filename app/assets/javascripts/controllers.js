@@ -24,7 +24,7 @@
 
         var userCtrl = this;
 
-        $scope.setUser = function() {
+        userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
@@ -34,16 +34,16 @@
           });
         };
 
+        userCtrl.setUser();
+
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
-          $scope.url('/welcomeView');
-
         };
 
         $scope.submitSignUp = function() {
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
-            $scope.setUser();
+            userCtrl.setUser();
             $scope.signUpCredentials='';
             $location.url('/newGrad');
           },function(error){
@@ -55,7 +55,7 @@
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
-            $scope.setUser();
+            userCtrl.setUser();
             $location.url('/graduatePanel')
           }, function(error) {
             userCtrl.error_message = error;
@@ -66,7 +66,7 @@
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
             $scope.currentUser = user;
-            $scope.setUser();
+            userCtrl.setUser();
             $scope.goToHome();
           });
         };
@@ -74,6 +74,7 @@
         $scope.goToHome = function(){
           $location.path('/');
         };
+
       }])
 
 //==========================PROFILE CTRL==========================
