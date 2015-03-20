@@ -108,7 +108,7 @@
 
         //=====================LOADING TEMPLATEURL BASED ON ROUTE=====================
 
-        $rootScope.$on("$routeChangeStart", function(){
+        $rootScope.$on("$viewContentLoaded", function(){
           if($location.path() === '/graduates'){
             returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
             console.log('grad');

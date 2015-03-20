@@ -1,3 +1,5 @@
 <div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
-  <card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card'></card-directive>
+  <div ng-init='searchCtrl.queryEmpl()'>
+    <card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card'></card-directive>
+  </div>
 </div>
