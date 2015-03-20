@@ -6,7 +6,7 @@ class EmployersController < ApplicationController
   end
 
   def employer_search
-    @employers = employer_search_check
+    @employers = the_employer_search(params)
     respond_to do |format|
       format.json
       format.html
@@ -27,7 +27,7 @@ class EmployersController < ApplicationController
       format.json{
         render nothing: true
       }
-    end 
+    end
   end
 
   def edit
@@ -38,7 +38,7 @@ class EmployersController < ApplicationController
     respond_to do |format|
       format.html{redirect_to employers_path}
       format.json{render nothing: true}
-    end 
+    end
   end
 
   def destroy
@@ -68,22 +68,36 @@ private
     )
   end
 
-  def employer_search_check
-    if params[:filters]
-      @employers = simple_employer_search_results(Employer)
-      @employers = advanced_employer_search_results(@employers)
-    else
-      simple_employer_search_results(Employer)
+  def the_employer_search(input)
+    e = simple_employer_search(input)
+    if input[:location] || input[:industry]
+      e = advanced_employer_search(e, input)
     end
+    return e
   end
 
-  def simple_employer_search_results(employer)
-    p params[:input]
-    return employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%", "%#{params[:input]}%")
+
+  def simple_employer_search(input)
+    return Employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%")
   end
 
-  def advanced_employer_search_results(employer)
-    return employer.where("name LIKE ? AND industry LIKE ? AND size LIKE ?", "%#{params[:filters][:name]}%", "%#{params[:filters][:industry]}%", "%#{params[:filters][:size]}%")
+
+  def advanced_employer_search(employers, input)
+    results = []
+    employers.each do |employer|
+      if employer_location_check(employer, input[:location]) || !input[:location]
+        if employer.industry == input[:industry] || !input[:industry]
+          results.push(employer)
+        end
+      end
+    end
+    return results
   end
 
+  def employer_location_check(employer, region)
+    employer.locations.each do |location|
+      return true if location.region == region
+    end
+    return false
+  end
 end
