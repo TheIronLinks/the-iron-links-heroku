@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'whenever', :require => false
 gem 'rack-cors'
 gem 'rabl'
 gem 'oj'
