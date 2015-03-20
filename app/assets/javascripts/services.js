@@ -67,18 +67,19 @@
         data: []
       };
 
-      var grad_url = '10.0.10.95:3000/graduates/search_graduates.json';
+      var grad_url = '/graduates/search_graduates.json';
       var empl_url = '/employers/employer_search.json';
       var job_url = '';
 
       var queryGrad = function (graduate_search) {
 
         $http({
-          'url': grad_url,
-          'method': 'GET',
-          'params': graduate_search
+          url: grad_url,
+          method: 'GET',
+          params: graduate_search
         }).success(function(data){
           gradResults.data = data;
+          console.log(gradResults.data);
         });
 
       };
@@ -86,11 +87,12 @@
       var queryEmpl = function (employer_search) {
 
         $http({
-          'url': empl_url,
-          'method': 'GET',
-          'params': employer_search
+          url: empl_url,
+          method: 'GET',
+          params: employer_search
         }).success(function(data){
           emplResults.data = data;
+          console.log(emplResults.data);
         });
 
       };
@@ -98,11 +100,12 @@
       var queryJob = function (job_search) {
 
         $http({
-          'url': job_url,
-          'method': 'GET',
-          'params': job_search
+          url: job_url,
+          method: 'GET',
+          params: job_search
         }).success(function(data){
           jobResults.data = data;
+          console.log(jobResults.data);
         });
 
       };
