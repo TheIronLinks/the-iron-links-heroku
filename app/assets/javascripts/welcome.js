@@ -3,7 +3,8 @@
 
   angular.module('tilAPP', [
     'ngRoute',
-    'Devise'
+    'Devise',
+    'twitter.timeline'
   ])
 
   .config(['$httpProvider', function($httpProvider) {

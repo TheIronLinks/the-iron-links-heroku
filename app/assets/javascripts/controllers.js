@@ -84,18 +84,21 @@
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
 
-
-        profileCtrl.addProfile = function (newProfile) {
-          ProfileService.addProfile(newProfile);
-        };
+        profileCtrl.getProfile = function() {
+          ProfileService.getPanel();
+        }();
 
         profileCtrl.routeTo = function (path){
           $location.url(path);
         };
 
-        profileCtrl.getProfile = function() {
-          ProfileService.getPanel();
-        }();
+        profileCtrl.addProfile = function (newProfile) {
+          ProfileService.addProfile(newProfile);
+        };
+
+
+
+
 
 
       }])
