@@ -62,5 +62,11 @@ RSpec.describe EmployersController, :type => :controller do
 
       expect(assigns(:employers)).to match_array([])
     end
+
+    it "returns all results if all match input" do
+      get :employer_search, :input => 'test'
+
+      expect(assigns(:employers)).to match_array([employer1, employer2, employer3])
+    end
   end
 end
