@@ -23,9 +23,41 @@
       <label class="modal__bg" for="modal-1"></label>
       <div class="modal__inner">
         <label class="modal__close" for="modal-1"></label>
-          <h2>Welcome {{profileCtrl.userData.profileData.graduate.first_name}}</h2>
-          <h3>Messages will be displayed here</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint maxime deleniti error nemo aperiam in reprehenderit qui enim, suscipit iusto ducimus debitis beatae odio earum ipsum molestiae maiores illum voluptatibus.</p>
+          <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Inbox</h2>
+          <p>
+            <form class="custom">
+              <div class="row">
+                <div class="large-6 columns">
+                  <div class="row collapse">
+                    <div class="large-3 small-3 columns">
+                      <select>
+                        <option>Mr.</option>
+                        <option>Mrs.</option>
+                        <option>Miss.</option>
+                        <option>Ms.</option>
+                        <option>Dr.</option>
+                      </select>
+                    </div>
+                    <div class="large-9 small-9 columns">
+                      <input type="text" placeholder="Name" />
+                    </div>
+                  </div>
+                  <input type="email" placeholder="Email" />
+                  <textarea placeholder="Message"></textarea>
+                </div>
+                <div class="large-6 columns">
+                  <textarea placeholder="Message"></textarea>
+                    <div class="row">
+                      <div class="large-3 small-3 columns end">
+                        <input id="checkbox1" type="checkbox"><label for="checkbox1">CC Me??</label>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="button small large-12" type="submit" value="Send Message" />
+                </div>
+              </div>
+            </form>
+          </p>
       </div>
     </div>
     <input class="modal-state" id="modal-2" type="checkbox" />
