@@ -238,6 +238,7 @@ button {
   padding: 0px;
   width: auto;
   text-align: center;
+  background: transparent;
 }
 
 .welcomePanel ul {
@@ -245,11 +246,13 @@ button {
   margin: 0px;
   padding: 0px;
   display: grid;
+  background: transparent;
 }
 
 .welcomePanel li {
   display: inline-flex;
   border: 1px solid white;
+  background: transparent;
 }
 
 .small-4.columns.panel {
@@ -284,12 +287,12 @@ button {
 /////////////////////////////////TWITTER FEATURE FOR PANEL
 /////////////////////////////////TWITTER FEATURE FOR PANEL
 .twitterRow {
-  width: 226px;
-  height: 454px;
-  display: flex;
+  width: 250px;
+  display: inline;
   border-radius: 0px;
-  margin: 0px;
+  margin: auto;
   background: white;
+  overflow: scroll;
 }
 
 
@@ -400,7 +403,7 @@ button {
 
 .btn2 {
   cursor: pointer;
-  background: #78413B;
+  background: #B69C2A;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
@@ -431,6 +434,27 @@ button {
   margin: 0px;
 }
 
+.btn5 {
+  cursor: pointer;
+  background: #39474E;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+
+.btn6 {
+  cursor: pointer;
+  background: #78413B;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
 .btn:hover,
 .btn:focus {
   background: #2ecc71;
