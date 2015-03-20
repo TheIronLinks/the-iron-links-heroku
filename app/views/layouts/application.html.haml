@@ -16,6 +16,7 @@
           %section.middle.tab-bar-section
             %a.logoBar
               %img.logoBar{:src => "assets/finalLogo7.png", 'ng-click': 'goToHome()'}
+          %a{"ng-click" => "submitLogout()", "ng-show" => "loggedIn()"} Logout
           %a.right-off-canvas-toggle
             %section.right-small
               %i.fa.fa-search

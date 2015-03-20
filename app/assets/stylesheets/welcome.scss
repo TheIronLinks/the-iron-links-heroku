@@ -39,6 +39,11 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.ng-hide:not(.ng-hide-animate) {
+  display: inline;
+}
+
 /////////////////////////////////SETTING HOME VIEW
 /////////////////////////////////SETTING HOME VIEW
 * {
@@ -268,6 +273,13 @@ button {
 
 .small-4.columns.panelLeft img {
   margin: 2%;
+}
+
+.a.panelBtn.ng-hide {
+  border: 2px solid red;
+  display: inline-block;
+  width: 50px;
+  display: inline;
 }
 /////////////////////////////////TWITTER FEATURE FOR PANEL
 /////////////////////////////////TWITTER FEATURE FOR PANEL
