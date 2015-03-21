@@ -8,13 +8,16 @@
 
         var cardCtrl = this;
 
+        cardCtrl.selectedCard =function(passedProfile) {
+          console.log(passedProfile);
+        };
 
-        CardService.getCards().success(function(data){
-          cardCtrl.stack = data;
-        })
-        .error(function(){
-          console.log('cardCtrl.stack error')
-        });
+        // CardService.getCards().success(function(data){
+        //   cardCtrl.stack = data;
+        // })
+        // .error(function(){
+        //   console.log('cardCtrl.stack error')
+        // });
 
       }])
 

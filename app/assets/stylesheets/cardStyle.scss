@@ -104,11 +104,11 @@ $bgCardFour:#35a0ad;
   right:8px;
   color:$cardColor;
   font-weight:bold;
+  z-index:1001;
   &:hover{
     transform:scale(1.1) rotate(90deg);;
     cursor:pointer;
   }
-  z-index:1001;
 }
 .fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
   visibility:hidden;

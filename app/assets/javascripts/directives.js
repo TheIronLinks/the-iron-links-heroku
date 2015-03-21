@@ -2,7 +2,7 @@
     'use strict';
     angular.module('tilAPP')
 
-//=====================STORING CARD DIRECTIVE IN ROOTSCOPE=====================
+//=====================STORING CARD DIRECTIVE IN ROOTSCOPE (minus templateURL)=====================
 
       .run(['$rootScope', function($rootScope){
 
@@ -95,14 +95,14 @@
 
             //=====================CARD DETAIL FUNCTIONALITY=====================
 
-            element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
-              element.find('ul')
-                .css({
-                  'position':'static',
-                  'top':'50px',
-                  'height':'60vh'
-                });
-            });
+            // element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
+            //   element.find('ul')
+            //     .css({
+            //       'position':'static',
+            //       'top':'50px',
+            //       'height':'60vh'
+            //     });
+            // });
 
             }
           };
@@ -115,6 +115,7 @@
         return_object.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
         return return_object;
       })
+
 //=====================EMPL CARD DIRECTIVE=====================
 
       .directive('emplCardDirective', function($location, $rootScope) {
@@ -122,6 +123,7 @@
         return_object.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
         return return_object;
       })
+
 //=====================JOB CARD DIRECTIVE=====================
 
       .directive('jobCardDirective', function($location, $rootScope) {
@@ -130,36 +132,33 @@
         return return_object;
       })
 
+//=====================GRAD DETAIL DIRECTIVE=====================
 
+      .directive('gradDetailDirective', function() {
 
-        //=====================LOADING TEMPLATEURL BASED ON ROUTE=====================
+      })
 
-        // $rootScope.$on("$routeChangeStart", function(){
-        //   if($location.path() === '/graduates'){
-        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
-        //     console.log('gradroute');
-        //   }else if($location.path() === '/employers'){
-        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
-        //     console.log('emplroute');
-        //   }else if($location.path() === '/jobs'){
-        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
-        //     console.log('jobroute');
-        //   }
-        // });
-        // $rootScope.$on("$viewContentLoaded", function(){
-        //   if($location.path() === '/graduates'){
-        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.graduate.directive.html';
-        //     console.log('gradload');
-        //   }else if($location.path() === '/employers'){
-        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.employer.directive.html';
-        //     console.log('emplload');
-        //   }else if($location.path() === '/jobs'){
-        //     returnObject.templateUrl = 'assets/directiveTemplates/cardStack.job.directive.html';
-        //     console.log('jobload');
-        //   }
-        // });
-        // return returnObject;
-    //})
+//=====================EMPL DETAIL DIRECTIVE=====================
+
+      .directive('emplDetailDirective', function() {
+        return {
+          restrict: 'E',
+          scope: {
+            product: '='
+          },
+          templateUrl: 'assets/directiveTemplates/cardDetail.employer.directive.html',
+          link: function(scope, element, attrs) {
+
+          }
+
+        };
+      })
+
+//=====================JOB DETAIL DIRECTIVE=====================
+
+      .directive('jobDetailDirective', function() {
+
+      })
 
 //=====================SEARCH DIRECTIVE=====================
 
