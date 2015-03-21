@@ -15,9 +15,8 @@ $bgCardFour:#35a0ad;
 
 .cards-wrapper{
   display:flex;
-  justify-content:space-around;
   flex-wrap:wrap;
-  max-width:1250px;
+  max-width:960px;
   margin:55px auto;
   position:relative;
 }
