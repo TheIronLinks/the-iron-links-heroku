@@ -3,7 +3,7 @@
   <!-- =====================GRAD SEARCH===================== -->
 
   <li>
-    <button class='search-graduates-header' ng-click='toggleGradForm = !toggleGradForm; toggleEmplForm = undefined; toggleJobForm = undefined'>Search Graduates</button>
+    <button class='search-graduates-header' ng-click='toggleGradForm = !toggleGradForm; toggleEmplForm = undefined; toggleJobForm = undefined'><i class="fa fa-chevron-right" ng-hide='toggleGradForm'></i><i class="fa fa-chevron-down" ng-show='toggleGradForm'></i>Search Graduates</button>
     <form class='search-form search-graduates-form' ng-submit="searchCtrl.queryGrad(graduate_search); searchCtrl.routeTo('/graduates')" ng-show='toggleGradForm'>
       <div class='search-input-wrapper'>
         <div class='search-input-button-combined'>
@@ -85,7 +85,7 @@
   <!-- =====================EMPL SEARCH===================== -->
 
   <li>
-    <button class='search-employers-header' ng-click='toggleEmplForm = !toggleEmplForm; toggleGradForm = undefined; toggleJobForm = undefined'>Search Employers</button>
+    <button class='search-employers-header' ng-click='toggleEmplForm = !toggleEmplForm; toggleGradForm = undefined; toggleJobForm = undefined'><i class="fa fa-chevron-right" ng-hide='toggleEmplForm'></i><i class="fa fa-chevron-down" ng-show='toggleEmplForm'></i>Search Employers</button>
     <form class='search-form search-employers-form' ng-submit="searchCtrl.queryEmpl(employer_search); searchCtrl.routeTo('/employers')" ng-show='toggleEmplForm'>
       <div class='search-input-wrapper'>
         <div class='search-input-button-combined'>
@@ -121,7 +121,7 @@
   <!-- =====================JOB SEARCH===================== -->
 
   <li>
-    <button class='search-jobs-header' ng-click='toggleJobForm = !toggleJobForm; toggleGradForm = undefined; toggleEmplForm = undefined'>Search Jobs</button>
+    <button class='search-jobs-header' ng-click='toggleJobForm = !toggleJobForm; toggleGradForm = undefined; toggleEmplForm = undefined'><i class="fa fa-chevron-right" ng-hide='toggleJobForm'></i><i class="fa fa-chevron-down" ng-show='toggleJobForm'></i>Search Jobs</button>
     <form class='search-form search-jobs-form' ng-submit="searchCtrl.queryJob(job_search); searchCtrl.routeTo('/jobs')" ng-show='toggleJobForm'>
       <div class='search-input-wrapper'>
         <div class='search-input-button-combined'>
