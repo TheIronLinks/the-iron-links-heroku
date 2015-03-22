@@ -92,7 +92,7 @@ class GraduatesController < ApplicationController
 
   def graduate_search
     g = simple_graduate_search(Graduate)
-    if params[:tiy_year] || params[:type] || params[:tiy_location] || params[current_location]
+    if params[:tiy_year] || params[:type] || params[:tiy_location] || params[:current_location]
       g = advanced_graduate_search(g)
     end
     return g

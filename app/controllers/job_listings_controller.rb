@@ -3,19 +3,7 @@ class JobListingsController < ApplicationController
   before_action :set_location
   before_action :set_job_listing, only: [:show, :update, :edit, :destroy]
   def index
-    if params[:location_id]
-      @job_listings = @location.job_listings
-    else
-      @job_listings = JobListing.all
-    end
-  end
-
-  def show
-  end
-
-  def new
-    @location = Location.find params[:location_id]
-    @job_listing = JobListing.new
+    @job_listings = JobListing.all
   end
 
   def create
@@ -32,10 +20,6 @@ class JobListingsController < ApplicationController
       format.json
       format.html
     end
-  end
-
-
-  def edit
   end
 
   def update
@@ -94,7 +78,6 @@ class JobListingsController < ApplicationController
   def advanced_job_search(jobs, input)
     r = []
     jobs.each do |job|
-      p job.location
       if job.location.employer.industry == input[:industry] || !input[:industry]
         if job.location.region == input[:location] || !input[:location]
           r.push(job)
