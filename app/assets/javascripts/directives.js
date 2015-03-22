@@ -45,7 +45,8 @@
 
             //=====================UNSPREAD CARD=====================
 
-            element.find('li').on('click',function(){
+            element.find('li').on('click',function(event){
+              event.stopPropagation();
               var comingFrom = element.find('li[data-state=\'selected\']').data('trait');
               var goingTo = $(this).closest('li').data('trait');
               element.find('li').addClass('invis');
@@ -95,14 +96,10 @@
 
             //=====================CARD DETAIL FUNCTIONALITY=====================
 
-            // element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
-            //   element.find('ul')
-            //     .css({
-            //       'position':'static',
-            //       'top':'50px',
-            //       'height':'60vh'
-            //     });
-            // });
+            element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
+              //event.stopPropagation();
+
+            });
 
             }
           };
@@ -144,10 +141,22 @@
         return {
           restrict: 'E',
           scope: {
-            product: '='
+            data: '=',
+            return: '&',
+            close: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardDetail.employer.directive.html',
           link: function(scope, element, attrs) {
+
+            element.find('.card-detail-wrapper').on('click',function(event){
+              event.stopPropagation();
+            });
+
+            element.find('.card-detail-surround').on('click',function(event){
+              event.stopPropagation();
+              console.log('clicking surround');
+
+            });
 
           }
 

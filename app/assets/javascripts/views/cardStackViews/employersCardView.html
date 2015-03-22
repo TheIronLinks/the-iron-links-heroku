@@ -1,4 +1,4 @@
-<empl-detail-directive data='cardCtrl.selectedCard()'></empl-detail-directive>
+<empl-detail-directive ng-repeat='card in cardCtrl.activeCard' data='card' return='cardCtrl.clearActiveCard()'></empl-detail-directive>
 <div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
   <empl-card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card' action='cardCtrl.selectedCard(card)'></empl-card-directive>
 </div>

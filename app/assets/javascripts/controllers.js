@@ -9,8 +9,21 @@
         var cardCtrl = this;
 
         cardCtrl.selectedCard =function(passedProfile) {
-          console.log(passedProfile);
+
+          cardCtrl.activeCard = [passedProfile];
+          console.log('active card loaded');
+          console.log(cardCtrl.activeCard);
+
         };
+
+        cardCtrl.clearActiveCard = function () {
+
+          cardCtrl.activeCard = [];
+          console.log('active card cleared');
+          console.log(cardCtrl.activeCard);
+
+        };
+
 
         // CardService.getCards().success(function(data){
         //   cardCtrl.stack = data;
@@ -116,7 +129,6 @@
           SearchService.queryGrad(graduate_search);
           $scope.graduate_search = {};
         };
-
 
         searchCtrl.queryEmpl = function (employer_search) {
           SearchService.queryEmpl(employer_search);

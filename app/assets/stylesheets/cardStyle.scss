@@ -3,12 +3,14 @@ $bgCardOne:#b8584c;
 $bgCardTwo:#ce832d;
 $bgCardThree:#d3b42b;
 $bgCardFour:#35a0ad;
+$bgCover:rgba(227, 231, 233, 0.95);
+$bgCards:lightgrey;
 
 //===============marked for deletion
 .cardID{
   font-size:100px;
   line-height:400px;
-  color:lightgrey;
+  color:black;
 }
 //===============
 
@@ -42,7 +44,7 @@ $bgCardFour:#35a0ad;
 }
 .card-inner-wrapper{
   //border:1px solid blue;
-  background-color:lightgrey;
+  background-color:$bgCards;
   border-radius:5px;
   text-align:center;
   display:inline-block;
@@ -96,7 +98,7 @@ $bgCardFour:#35a0ad;
     transform:scale(1.1);
     cursor:pointer;
   }
-  z-index:1001;
+  z-index:999;
 }
 .fa.fa-lg.fa-flip-horizontal.fa-expand{
   position:absolute;
@@ -104,7 +106,7 @@ $bgCardFour:#35a0ad;
   right:8px;
   color:$cardColor;
   font-weight:bold;
-  z-index:1001;
+  z-index:999;
   &:hover{
     transform:scale(1.1) rotate(90deg);;
     cursor:pointer;
@@ -117,7 +119,7 @@ $bgCardFour:#35a0ad;
   letter-spacing: 0px;
   color:$cardColor;
   -webkit-user-select: none;//prevents highlighting from double click
-  z-index:1001;
+  z-index:999;
   &:hover{
     cursor:pointer;
     transform:scale(1.1);
@@ -161,4 +163,22 @@ $bgCardFour:#35a0ad;
 }
 .cardSpreadStack{
   height:520px;
+}
+.card-detail-surround{
+  width:100%;
+  height:100vh;
+  background-color:$bgCover;
+  position:absolute;
+  top:45px;
+  z-index:1000;
+}
+.card-detail-wrapper{
+  width:80%;
+  //min-width:320px;
+  height:500px;
+  border:1px solid red;
+  color:blue;
+  margin:80px auto;
+  background-color:$bgCards;
+  z-index:1001;
 }
