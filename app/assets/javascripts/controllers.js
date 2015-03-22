@@ -64,6 +64,10 @@
           });
         };
 
+        $scope.gotoSignup = function(){
+          $location.url('/newGrad');
+        };
+
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
             $scope.currentUser = user;

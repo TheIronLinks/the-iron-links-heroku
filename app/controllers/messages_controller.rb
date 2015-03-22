@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
   end
 
   def unread_messages
-    @messages = Message.where('sender_id = ? AND viewed = false', '#{@id}')
+    @messages = Message.where('sender_id = ? AND viewed = ?', '#{@id}', 'false')
   end
 
   def delete

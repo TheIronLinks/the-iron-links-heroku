@@ -4,8 +4,9 @@ class GraduatesController < ApplicationController
   end
 
   def get_grad
-    if current_user
+    if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
+      @messages = Message.where('receiver_id = ?', '#{@graduate.id}')
     else
       @graduate = []
     end
@@ -76,36 +77,34 @@ class GraduatesController < ApplicationController
   def advanced_graduate_search(graduates)
      results = []
      graduates.each do |graduate|
-       if graduate.grad_year == params[:tiy_year] || !params[:tiy_year]
-         p 'year'
-         if graduate.grad_focus == params[:type] || !params[:type]
-           p 'type'
-           if graduate.grad_location == params[:tiy_location] || !params[:tiy_location]
-             p 'location'
-             if graduate.present_region == params[:current_location] || !params[:current_location]
-               p 'region'
+      if graduate.grad_year == params[:tiy_year] || !params[:tiy_year]
+        if graduate.grad_focus == params[:type] || !params[:type]
+          if graduate.grad_location == params[:tiy_location] || !params[:tiy_location]
+            if graduate.present_region == params[:current_location] || !params[:current_location]
                results.push(graduate)
-             end
-           end
-         end
-       end
-     end
-     return results
-   end
+            end
+          end
+        end
+      end
+    end
+    return results
+  end
 
-   def graduate_search
-     g = simple_graduate_search(Graduate)
-     if params[:tiy_year] || params[:type] || params[:tiy_location] || params[:current_location]
-       g = advanced_graduate_search(g)
-     end
-     return g
-   end
+  def graduate_search
+    g = simple_graduate_search(Graduate)
+    if params[:tiy_year] || params[:type] || params[:tiy_location] || params[:current_location]
+      g = advanced_graduate_search(g)
+    end
+    return g
+  end
 
   def handle_side_objects
     the_link = Link.new
     the_link.url = params[:link][:url]
     @graduate.links = [the_link]
-    @graduate.user = current_user
+    if user_signed_in?
+      @graduate.user = current_user
+    end
     top_education = Education.new
     top_education.school_name = params[:education][:school_name]
     top_education.concentration = params[:education][:concentration]
