@@ -2,10 +2,12 @@
 
 <div class="welcomePanel">
   <div class="small-4 columns panelLeft">
-    <p><img src="http://placehold.it/200x200"alt=""></p>
+    <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
     <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
     <p>{{profileCtrl.userData.profileData.graduate.grad_focus}}{{profileCtrl.userData.profileData.graduate.grad_year}}</p>
     <p>Current State: {{profileCtrl.userData.profileData.graduate.present_state}}</p>
+    <p>Education: {{profileCtrl.userData.profileData.graduate.education.level}}</p>
+
   </div>
   <div class="small-4 columns panel">
   <ul>
@@ -19,11 +21,9 @@
     <li><label class="btn4" for="modal-4"><h4>Following</h4><i class="fa fa-newspaper-o fa-5x"></i></label></li>
   </ul>
 </div>
-<div class="small-4 columns panel">
-<ul>
-  <li><label class="btn5" for="modal-5"><h4>Twitter</h4><i class="fa fa-twitter fa-5x"></i></label></li>
-  <li><label class="btn6" for="modal-6"><h4>Settings</h4><i class="fa fa-cog fa-5x"></i></label></li>
-</ul>
+<div class="small-4 columns twitterRow">
+  <h5>Follow The Iron Yard <i class="fa fa-twitter"></i></h5>
+  <div twitter-timeline="578846099118632960" auto-resize="true" css-url="assets/welcome.css" data-tweet-limit="15">Loading tweets...</div>
 </div>
 
 <!----------------------------------MODAL 1---------------------------------->
@@ -34,38 +34,7 @@
         <label class="modal__close" for="modal-1"></label>
           <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Inbox</h2>
           <p>
-            <form class="custom">
-              <div class="row">
-                <div class="large-6 columns">
-                  <div class="row collapse">
-                    <div class="large-3 small-3 columns">
-                      <select>
-                        <option>Mr.</option>
-                        <option>Mrs.</option>
-                        <option>Miss.</option>
-                        <option>Ms.</option>
-                        <option>Dr.</option>
-                      </select>
-                    </div>
-                    <div class="large-9 small-9 columns">
-                      <input type="text" placeholder="Name" />
-                    </div>
-                  </div>
-                  <input type="email" placeholder="Email" />
-                  <textarea placeholder="Message"></textarea>
-                </div>
-                <div class="large-6 columns">
-                  <textarea placeholder="Message"></textarea>
-                    <div class="row">
-                      <div class="large-3 small-3 columns end">
-                        <input id="checkbox1" type="checkbox"><label for="checkbox1">CC Me??</label>
-                        </div>
-                      </div>
-                    </div>
-                    <input class="button small large-12" type="submit" value="Send Message" />
-                </div>
-              </div>
-            </form>
+
           </p>
       </div>
     </div>
@@ -100,23 +69,3 @@
       </div>
     </div>
 <!----------------------------------MODAL 5---------------------------------->
-<input class="modal-state" id="modal-5" type="checkbox" />
-<div class="modal">
-  <label class="modal__bg" for="modal-5"></label>
-  <div class="modal__inner">
-    <label class="modal__close" for="modal-5"></label>
-      <h2>Follow The Iron Yard</h2>
-  </div>
-
-  </div>
-</div>
-<!----------------------------------MODAL 6---------------------------------->
-<input class="modal-state" id="modal-6" type="checkbox" />
-<div class="modal">
-  <label class="modal__bg" for="modal-6"></label>
-  <div class="modal__inner">
-    <label class="modal__close" for="modal-6"></label>
-      <h2>Settings</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium molestiae adipisci aut rerum nisi, facere est id dolore soluta. Delectus mollitia fugit alias doloremque molestiae, ullam similique architecto quod veniam.</p>
-  </div>
-</div>

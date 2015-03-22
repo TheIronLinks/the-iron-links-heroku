@@ -220,12 +220,12 @@ button {
 }
 
 .fa-search {
-  padding: 7px;
+  padding: 15px;
   color: white;
 }
 
-.fa-home {
-  padding: 7px;
+.fa-user {
+  padding: 15px;
   color: white;
 }
 
@@ -269,7 +269,7 @@ button {
   height: 454px;
   padding: 5px;
   margin: 0px;
-  background-color: dimgray;
+  background-color: white;
   text-align: center;
   border: 1px solid white;
 }
@@ -289,11 +289,20 @@ button {
 .twitterRow {
   display: flex;
   border-radius: 0px;
-  margin: auto;
-  background: white;
+  background-color: white;
   overflow: scroll;
+  width: 225px;
+  height: 454px;
+  padding-top: 3%;
+  text-align: center;
+  border: 1px solid white;
 }
-
+.twitterRow h5 {
+  display: inline;
+  margin-top: -8%;
+  font-size: 18px;
+  position: absolute;
+}
 
 /////////////////////////////////MODAL EVENT FOR PANEL
 /////////////////////////////////MODAL EVENT FOR PANEL
