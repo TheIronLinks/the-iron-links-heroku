@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe GraduatesController do
+  include Devise::TestHelpers
   let(:graduate1){
     Graduate.create({
       first_name: 'test',
@@ -138,21 +139,31 @@ describe GraduatesController do
     end
 
     it "handles side objects" do
-      post :create, :graduate => {
-      first_name: 'test',
-      last_name: 'test',
-      grad_focus: 'test',
-      additional_info: 'test',
-      email: 'test',
-      present_city: 'test',
-      present_state: 'SC',
-      grad_location: 'test',
-      grad_session: 'test',
-      grad_year: 'test',
-      image_url: 'test'
-    }, :link => {url: 'test'}, :format => :json
+      post :create, 
+      :graduate => {
+        first_name: 'test',
+        last_name: 'test',
+        grad_focus: 'test',
+        additional_info: 'test',
+        email: 'test',
+        present_city: 'test',
+        present_state: 'SC',
+        grad_location: 'test',
+        grad_session: 'test',
+        grad_year: 'test',
+        image_url: 'test'
+      }, 
+      :link => {
+        url: 'test'
+      }, 
+      :education => {
+        school_name: 'test',
+        concentration: 'test',
+        level: 'test'
+      },
+      :format => :json
 
-      expect(assigns(:graduate).links).to eq nil
+      expect(assigns(:graduate).links[0].url).to eq 'test'
     end
   end
 

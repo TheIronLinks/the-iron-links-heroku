@@ -60,7 +60,7 @@ class JobListingsController < ApplicationController
     if input[:type] || input[:industry] || input[:location]
       j = advanced_job_search(j, input)
     end
-    return j
+    return j.uniq
   end
 
   def simple_job_search(input)
@@ -94,14 +94,11 @@ class JobListingsController < ApplicationController
   def advanced_job_search(jobs, input)
     r = []
     jobs.each do |job|
+      p job.location
       if job.location.employer.industry == input[:industry] || !input[:industry]
-        print 'industry'
-        p input[:industry]
-          if job.location.region == input[:location] || !input[:location]
-            print 'location'
-            p input[:location]
-              r.push(job)
-          end
+        if job.location.region == input[:location] || !input[:location]
+          r.push(job)
+        end
       end
     end
     return r
