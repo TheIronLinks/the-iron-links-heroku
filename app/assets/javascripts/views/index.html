@@ -11,11 +11,17 @@
     </div>
   <div ng-hide='loggedIn()' class='signUp-container'>
     Create a new Profile
-    <button ng-click="profileCtrl.routeTo('/newGrad')">Sign Up</button>
+    <form ng-submit='submitSignUp()'>
+      <input placeholder='Email' type='text' ng-model='user.signUpCredentials.email'>
+      <input placeholder='Password' type='password' ng-model="user.signUpCredentials.password" class="logpass">
+      <input placeholder='Password Confirmation' type='password' ng-model="user.signUpCredentials.password_confirmation" class="logpass">
+      <input type='submit'>
+      </form>
+    <button ng-click="gotoSignup()">Sign Up</button>
     </div>
     <a ng-click='submitLogout()' ng-show='loggedIn()'>
-     Logout
-      </a>
+      Logout
+    </a>
     </div>
   </div>
 </div>
