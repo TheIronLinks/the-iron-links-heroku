@@ -2,19 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//general settings
-//general settings
+/////////////////////////////////THEME COLORS
+/////////////////////////////////THEME COLORS
+//Orange Shade: #B7752A
+//Main Dark Blue: #39474E
+//Red Shade: #78413B
+//Teal/Blue Shade: #5B9D99
+//Darkest TIY blue = #221F20
+
+/////////////////////////////////GENERAL SETTINGS
+/////////////////////////////////GENERAL SETTINGS
+
 h3 {
   text-align: center;
   margin: 10px;
   padding: 10px;
   color: #39474E;
 }
+
 img.logoBar {
   height: 200%;
 }
-//setting home view
-//setting home view
+
+.panel h4 {
+  color: white;
+  padding: 10px;
+  margin-top: -10px;
+}
+
+p {
+  z-index: -100;
+}
+
+.inner-wrap {
+  background-image: url("bwbackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ng-hide:not(.ng-hide-animate) {
+  display: inline;
+}
+
+/////////////////////////////////SETTING HOME VIEW
+/////////////////////////////////SETTING HOME VIEW
 * {
 font-family: 'Playfair Display', serif;
 }
@@ -32,37 +63,15 @@ font-family: 'Playfair Display', serif;
   }
 }
 
-
-/* @-webkit-keyframes round {
-   90%{opacity:1;}
-   100%{opacity:0;}
- }
-
-  .bgSlider img:nth-child(4){-webkit-animation: round 0s infinite;}
-  .bgSlider img:nth-child(3){-webkit-animation: round 10s infinite;}
-  .bgSlider img:nth-child(2){-webkit-animation: round 20s infinite;}
-  .bgSlider img:nth-child(1){-webkit-animation: round 30s infinite;}
-
-
-.off-canvas-wrap {
-  min-height: 100%;
-} */
-
-
-//end setting home view
-//end setting home view
-
-//settting top nav
-//settting top nav
+/////////////////////////////////SETTING TOP NAV
+/////////////////////////////////SETTING TOP NAV
 .tab-bar {
   background-color: #39474E;
 }
-//end settting top nav
-//end settting top nav
 
 
-//form styling
-//form styling
+/////////////////////////////////FORM STYLING
+/////////////////////////////////FORM STYLING
 .newProfile {
   background: white;
   margin-top: 10%;
@@ -70,18 +79,20 @@ font-family: 'Playfair Display', serif;
   padding: 0px;
   border-radius: 1%;
   box-shadow: 6px 6px 5px #454545;
-
 }
+
 .mainForm {
   margin: 0px;
   padding-top: 10%;
 }
+
 .logoBlue {
   width: 100px;
   height: 100px;
   margin: auto;
   padding: 5px;
 }
+
 .homeForm {
   background: white;
   border-radius: 2%;
@@ -90,19 +101,23 @@ font-family: 'Playfair Display', serif;
   padding: 8px;
   box-shadow: 6px 6px 5px #454545;
 }
+
 .login-container, .signUp-container {
    margin: auto;
    padding: 0px;
 }
+
 .ng-valid {
   margin: 0px;
   padding: 0px;
   width: 90%;
   margin-left: 5%;
 }
+
 .logoBar a{
   height: 100px;
 }
+
 input {
   background-color: #39474E;
   border: 0px;
@@ -112,21 +127,21 @@ input {
   font-size: 14px;
   margin-left: 77%;
 }
+
 label {
   margin-top: 5px;
   margin-top: 5px;
 }
+
 button {
   padding: 10px;
   margin: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-//end form styling
-//end form styling
 
-//login home view
-//login home view
+/////////////////////////////////LOGIN HOME VIEW
+/////////////////////////////////LOGIN HOME VIEW
 .userPanel {
   margin: auto;
   margin-top: 100px;
@@ -140,30 +155,35 @@ button {
   min-height: auto;
   border: 2px dotted red;
 }
+
 .userPanel h1 {
   color: #39474E;
   font-size: 25px;
   margin: 5px;
   padding: 5px;
-
 }
+
 .userPanel h3 {
   font-size: 18px;
   margin: 10px;
   padding: 15px;
   color: #39474E;
 }
+
 .userPanel p {
   margin: 5px;
   padding: 5px;
 }
+
 .userPanel i {
   color: #39474E;
 }
+
 .userPanel a {
   color: #39474E;
   font-size: 18px;
 }
+
 .left {
   border: 2px dotted blue;
   width: 50%;
@@ -171,11 +191,13 @@ button {
   padding: 0px;
   display: inline-table;
 }
+
 .left img {
   border: 2px dotted purple;
   margin: 0px;
   padding: 10px;
 }
+
 .right {
   border: 2px dotted yellow;
   width: 50%;
@@ -183,68 +205,277 @@ button {
   padding: 0px;
   display: inline-table;
 }
-//end login home view
-//end login home view
 
-
-//left sidebar
-//left sidebar
-#searchWrapper{
+/////////////////////////////////LEFT SIDEBAR
+/////////////////////////////////LEFT SIDEBAR
+#searchWrapper {
   width:100%;
   position:fixed;
   top:0;
   z-index:99999;
 }
+
 .off-canvas-list {
   color: white;
 }
-.fa-search {
-  margin-left: 15px;
-  color: white;
-}
-.fa-user {
-  margin-left: 15px;
-  color: white;
-}
-//end left sidebar
-//end left sidebar
 
-//testing
-.welcomePanel {
-  margin-top: 75px;
-  padding: 0px;
+.fa-search {
+  padding: 7px;
+  color: white;
 }
-.welcomePanel li {
+
+.fa-home {
+  padding: 7px;
+  color: white;
+}
+
+/////////////////////////////////PANEL VIEW
+/////////////////////////////////PANEL VIEW
+.welcomePanel {
+  margin-top: 15%;
+  margin-left: 5%;
+  margin-right: 1.9%;
+  padding: 0px;
+  width: auto;
+  text-align: center;
+  background: transparent;
+}
+
+.welcomePanel ul {
+  list-style-type: none;
   margin: 0px;
   padding: 0px;
-  width: 300px;
-  height: 300px;
-  background: white;
+  display: grid;
+  background: transparent;
 }
-.welcomePanel i {
-  margin-left: 35%;
+
+.welcomePanel li {
+  display: inline-flex;
+  border: 1px solid white;
+  background: transparent;
+}
+
+.small-4.columns.panel {
+  height: 500px;
+  width: 225px;
+  height: 450px;
   padding: 0px;
-  color: white;
+  margin: 0px;
+  border: 0px;
 }
-li.one {
-  background-color: gray;
-}
-li.two{
-  background-color: #5B9D99;
-}
-li.three{
-  background-color: #7c423c;
-}li.four{
-  background-color: #cfb12b;
-}li.five{
-  background-color: #39474E;
-}li.six{
-  background-color: #bb772b;
-}
-li h2 {
-  margin-top: 25%;
-  margin-bottom: 20px;
-  padding: 0px;
+
+.small-4.columns.panelLeft {
+  width: 225px;
+  height: 454px;
+  padding: 5px;
+  margin: 0px;
+  background-color: dimgray;
   text-align: center;
-  color: white;
+  border: 1px solid white;
+}
+
+.small-4.columns.panelLeft img {
+  margin: 2%;
+}
+
+.a.panelBtn.ng-hide {
+  border: 2px solid red;
+  display: inline-block;
+  width: 50px;
+  display: inline;
+}
+/////////////////////////////////TWITTER FEATURE FOR PANEL
+/////////////////////////////////TWITTER FEATURE FOR PANEL
+.twitterRow {
+  display: flex;
+  border-radius: 0px;
+  margin: auto;
+  background: white;
+  overflow: scroll;
+}
+
+
+/////////////////////////////////MODAL EVENT FOR PANEL
+/////////////////////////////////MODAL EVENT FOR PANEL
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0,0,0, .9);
+  transition: opacity .25s ease;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal-state:checked + .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked + .modal .modal__inner {
+  top: 0;
+}
+
+.modal__inner {
+  transition: top .25s ease;
+  position: absolute;
+  top: -20%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  margin: auto;
+  overflow: auto;
+  background: #fff;
+  border-radius: 0px;
+  padding: 1em 2em;
+  height: 50%;
+}
+
+.modal__close {
+  position: absolute;
+  right: 1em;
+  top: .5em;
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+}
+
+.modal__close:after,
+.modal__close:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 1.5em;
+  background: #ccc;
+  display: block;
+  transform: rotate(45deg);
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  top: 0;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+  background: #aaa;
+}
+
+.modal__close:before {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+
+  .modal__inner {
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+  }
+}
+
+.btn1 {
+  cursor: pointer;
+  background: #221F20;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+
+.btn2 {
+  cursor: pointer;
+  background: #B69C2A;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+
+.btn3 {
+  cursor: pointer;
+  background: #9C6527;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+
+.btn4 {
+  cursor: pointer;
+  background: #5B9D99;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+
+.btn5 {
+  cursor: pointer;
+  background: #39474E;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+
+.btn6 {
+  cursor: pointer;
+  background: #78413B;
+  display: inline-block;
+  padding: 5em 3em;
+  color: #fff;
+  width: 225px;
+  height: 225px;
+  margin: 0px;
+}
+.btn:hover,
+.btn:focus {
+  background: #2ecc71;
+}
+
+.btn:active {
+  background: #27ae60;
+  box-shadow: 0 1px 2px rgba(0,0,0, .2) inset;
+}
+
+.btn--blue:hover,
+.btn--blue:focus {
+  background: #3498db;
+}
+
+.btn--blue:active {
+  background: #2980b9;
+}
+
+p img {
+  max-width: 200px;
+  height: auto;
+  float: left;
+  margin: 0 1em 1em 0;
 }

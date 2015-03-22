@@ -25,9 +25,19 @@
 
       var userData = {
         profileData: {
-          graduate:{}
-        }
-      };
+          graduate: {
+            first_name: "",
+            last_name: "",
+            grad_city: "",
+            grad_state: "",
+            grad_date: "",
+            grad_focus: "",
+            current_location: "",
+            additional_info: "",
+            image_url: ""
+            }
+          }
+        };
 
       var addProfile = function (newProfile) {
         $http.post(url, newProfile).success(function(){
@@ -41,7 +51,9 @@
       var getPanel = function() {
         $http.get('/graduates/get_grad.json')
         .success(function(data){
+          console.log(data)
           userData.profileData = data;
+          console.log(userData.profileData)
         });
       };
       return {
@@ -51,6 +63,50 @@
       };
     })
 
+//==========================EMPLOYER SERVICE==========================
+
+    .factory('EmployerService', function ($location,$http) {
+
+      var url = 'http://localhost:3000/employers.json';
+
+      var employerData = {
+        empData: {
+          employer: {
+            name: "",
+            industry: "",
+            founded: "",
+            size: "",
+            city: "",
+            state: "",
+            zip: "",
+            image_url: "",
+            }
+          }
+        };
+
+      var addProfile = function (newEmployer) {
+        $http.post(url, newEmployer).success(function(){
+          $location.url('/graduatePanel');
+        })
+        .error(function(){
+          console.log('service/add employer error');
+        });
+      };
+
+      var getPanel = function() {
+        $http.get('/employers/get_employer.json')
+        .success(function(data){
+          console.log(data)
+          userData.employerData = data;
+          console.log(userData.employerData)
+        });
+      };
+      return {
+        addEmployer: addEmployer,
+        userData: userData,
+        getPanel: getPanel
+      };
+        })
 //==========================SEARCH SERVICE==========================
 
     .factory('SearchService', function ($http) {
