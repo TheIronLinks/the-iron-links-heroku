@@ -48,6 +48,7 @@
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
+
           });
         };
 

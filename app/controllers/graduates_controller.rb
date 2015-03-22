@@ -105,7 +105,7 @@ class GraduatesController < ApplicationController
     the_link = Link.new
     the_link.url = params[:link][:url]
     @graduate.links = [the_link]
-    # @graduate.user = current_user
+    @graduate.user = current_user
     top_education = Education.new
     top_education.school_name = params[:education][:school_name]
     top_education.concentration = params[:education][:concentration]

@@ -10,9 +10,14 @@
       </form>
     </div>
   <div ng-hide='loggedIn()' class='signUp-container'>
-    Create a new Profile
-    <button ng-click="profileCtrl.routeTo('/newGrad')">Sign Up</button>
-    </div>
+    Sign Up:
+      <form ng-submit='submitSignUp()'>
+       <input placeholder='Email'type='text' ng-model='user.signUpCredentials.email'>
+       <input placeholder='Password'type='password' ng-model="user.signUpCredentials.password">
+       <input placeholder='Confirm Password'type='password' ng-model="user.signUpCredentials.password_confirmation">
+       <input type='submit'>
+     </form>
+  </div>
     <a ng-click='submitLogout()' ng-show='loggedIn()'>
      Logout
       </a>

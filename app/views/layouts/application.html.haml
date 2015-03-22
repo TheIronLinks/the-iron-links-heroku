@@ -16,18 +16,18 @@
           %section.middle.tab-bar-section
             %a.logoBar
               %img.logoBar{:src => "assets/finalLogo7.png", 'ng-click': 'goToHome()'}
-          %a{"ng-click" => "submitLogout()", "ng-show" => "loggedIn()"} Logout
           %a.right-off-canvas-toggle
             %section.right-small
-              %i.fa.fa-search.fa-2x
+              %i.fa.fa-search
           %a.left-off-canvas-toggle
             %section.left-small
-              %i.fa.fa-home.fa-2x
+              %i.fa.fa-user
         %aside.left-off-canvas-menu
           %ul.off-canvas-list
-            %li hello
-            %li testing
-            %li testing again
+            %li
+              %a{"ng-click" => "submitLogout()", "ng-show" => "loggedIn()"} Logout
+            %li
+              %a settings
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
             %li
