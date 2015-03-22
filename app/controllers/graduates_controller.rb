@@ -6,7 +6,7 @@ class GraduatesController < ApplicationController
   def get_grad
     if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
-      @messages = Message.where('receiver_id = ?', '#{@graduate.id}')
+      @messages = Message.where('receiver_id = ?', @graduate.id)
     else
       @graduate = []
     end

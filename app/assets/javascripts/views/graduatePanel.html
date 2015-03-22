@@ -6,7 +6,7 @@
     <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
     <p>{{profileCtrl.userData.profileData.graduate.grad_focus}}{{profileCtrl.userData.profileData.graduate.grad_year}}</p>
     <p>Current State: {{profileCtrl.userData.profileData.graduate.present_state}}</p>
-    <p>Education: {{profileCtrl.userData.profileData.graduate.education.level}}</p>
+    <p>Education: {{profileCtrl.userData.profileData.graduate.educations[0].education.level}}</p>
 
   </div>
   <div class="small-4 columns panel">
@@ -26,19 +26,20 @@
   <div twitter-timeline="578846099118632960" auto-resize="true" css-url="assets/welcome.css" data-tweet-limit="15">Loading tweets...</div>
 </div>
 
-<!----------------------------------MODAL 1---------------------------------->
+<!----------------------------------MODAL 1 - Messages ---------------------------------->
     <input class="modal-state" id="modal-1" type="checkbox" />
     <div class="modal">
       <label class="modal__bg" for="modal-1"></label>
       <div class="modal__inner">
         <label class="modal__close" for="modal-1"></label>
-          <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Inbox</h2>
-          <p>
+        <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Inbox</h2>
 
-          </p>
+        <div ng-repeat= "message in profileCtrl.userData.profileData.graduate.messages">
+          <p>Title: {{message.message.title}}</p>
+          <p>Content: {{message.message.content}}</p>
       </div>
     </div>
-<!----------------------------------MODAL 2---------------------------------->
+<!----------------------------------MODAL 2 - Notifications ---------------------------------->
     <input class="modal-state" id="modal-2" type="checkbox" />
     <div class="modal">
       <label class="modal__bg" for="modal-2"></label>
@@ -48,7 +49,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate commodi, expedita cumque minima, iusto quis laboriosam repellat ipsum quisquam sint, tempore voluptates sunt nam hic! Ad voluptas necessitatibus illum laboriosam!</p>
       </div>
     </div>
-<!----------------------------------MODAL 3---------------------------------->
+<!----------------------------------MODAL 3 - Favorites ---------------------------------->
     <input class="modal-state" id="modal-3" type="checkbox" />
     <div class="modal">
       <label class="modal__bg" for="modal-3"></label>
@@ -58,7 +59,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aliquid consectetur aut tenetur veritatis unde id, omnis optio eligendi assumenda sed dicta quos commodi harum nam, autem, accusantium minus at.</p>
       </div>
     </div>
-<!----------------------------------MODAL 4---------------------------------->
+<!----------------------------------MODAL 4 - Following ---------------------------------->
     <input class="modal-state" id="modal-4" type="checkbox" />
     <div class="modal">
       <label class="modal__bg" for="modal-4"></label>
@@ -68,4 +69,3 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium molestiae adipisci aut rerum nisi, facere est id dolore soluta. Delectus mollitia fugit alias doloremque molestiae, ullam similique architecto quod veniam.</p>
       </div>
     </div>
-<!----------------------------------MODAL 5---------------------------------->
