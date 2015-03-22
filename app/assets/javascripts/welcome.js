@@ -3,7 +3,8 @@
 
   angular.module('tilAPP', [
     'ngRoute',
-    'Devise'
+    'Devise',
+    'ngAnimate'
   ])
 
   .config(['$httpProvider', function($httpProvider) {

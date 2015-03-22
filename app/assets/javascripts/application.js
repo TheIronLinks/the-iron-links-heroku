@@ -17,6 +17,7 @@
 //= require underscore-min
 //= require angular.min
 //= require angular-route.min
+//= require angular-animate.min
 //= require devise
 //= require foundation
 //= require welcome

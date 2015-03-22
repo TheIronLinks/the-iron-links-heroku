@@ -171,6 +171,9 @@ $bgCards:lightgrey;
   position:absolute;
   top:45px;
   z-index:1000;
+  &:hover{
+    cursor:pointer;
+  }
 }
 .card-detail-wrapper{
   width:80%;
@@ -181,4 +184,54 @@ $bgCards:lightgrey;
   margin:80px auto;
   background-color:$bgCards;
   z-index:1001;
+  &:hover{
+    cursor:auto;
+  }
+}
+
+//.card-animation.ng-move,
+.card-animation.ng-enter,
+.card-animation.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.card-animation.ng-leave.ng-leave-active,
+//.card-animation.ng-move,
+.card-animation.ng-enter {
+  opacity:0;
+  transform:translateX(1000px);
+}
+.card-animation.ng-leave,
+//.card-animation.ng-move.ng-move-active,
+.card-animation.ng-enter.ng-enter-active {
+  opacity:1;
+  transform:translateX(0);
+}
+.card-animation.ng-enter-stagger {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+    //fall back if delay fails
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+
+
+
+
+
+
+////Transitions between views
+.view-animate.ng-enter, .view-animate.ng-leave {
+  -webkit-transition:all linear 0.2s;
+  transition:all linear 0.2s;
+}
+
+
+.view-animate.ng-enter.ng-enter-active {
+
+  opacity:1;
+}
+.view-animate.ng-leave.ng-leave-active {
+  opacity:0;
 }
