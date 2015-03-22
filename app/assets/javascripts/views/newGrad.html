@@ -2,6 +2,20 @@
 <h3>Create your new profile.</h3>
 <form ng-submit='profileCtrl.addProfile(profileCtrl.gradProfile)'>
   <div class="row">
+    <div class="small-4 columns">
+      <label for="">Email</label>
+      <input placeholder='Email'type='text' ng-model='user.signUpCredentials.email'>
+    </div>
+    <div class="small-4 columns">
+      <label for="">Password</label>
+        <input placeholder='Password'type='password' ng-model="user.signUpCredentials.password">
+    </div>
+    <div class="small-4 columns">
+      <label for="">Confirm Password</label>
+        <input placeholder='Confirm Password'type='password' ng-model="user.signUpCredentials.password_confirmation">
+    </div>
+  </div>
+  <div class="row">
     <div class="small-6 columns">
         <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
     </div>
@@ -9,13 +23,6 @@
         <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
     </div>
   </div>
-  <div class="row">
-<!--     <div class="small-4 columns">
-    <label>Current Location:</label>
-    <select>
-      <option value=""></option>
-    </select>
-</div> -->
 <div class="row">
     <div class="large-6 columns">
         <label>Program Completed:</label>
@@ -184,6 +191,5 @@
     </div>
   </div>
   <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
-
 </form>
 </div>

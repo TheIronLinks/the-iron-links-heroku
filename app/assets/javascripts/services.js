@@ -125,7 +125,7 @@
 
       var grad_url = '/graduates/search_graduates.json';
       var empl_url = '/employers/employer_search.json';
-      var job_url = '';
+      var job_url = '/job_listings/search_job_listings.json';
 
       var queryGrad = function (graduate_search) {
 
