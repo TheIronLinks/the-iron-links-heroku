@@ -74,6 +74,13 @@ describe EmployersController do
 
       expect(assigns(:employers)).to match_array([employer2])
     end
+
+    it "returns an advanced result" do
+      employer1
+      get :employer_search, :industry => 'test'
+
+      expect(assigns(:employers)).to match_array([employer1])
+    end
   end
 
   describe "POST #create" do
