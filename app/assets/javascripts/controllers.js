@@ -4,7 +4,7 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', ['CardService', function (CardService) {
+      .controller('CardController', ['CardService', '$rootScope', function (CardService, $rootScope) {
 
         var cardCtrl = this;
 
@@ -20,7 +20,13 @@
 
           cardCtrl.activeCard = [];
           console.log('active card cleared');
-          console.log(cardCtrl.activeCard);
+
+        };
+
+        cardCtrl.sendMsg = function (passed) {
+
+          console.log(passed);
+          cardCtrl.clearActiveCard();
 
         };
 
@@ -31,6 +37,9 @@
         // .error(function(){
         //   console.log('cardCtrl.stack error')
         // });
+
+
+
 
       }])
 

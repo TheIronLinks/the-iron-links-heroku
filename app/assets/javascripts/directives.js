@@ -221,13 +221,6 @@
 
             });
 
-            //=====================CARD DETAIL FUNCTIONALITY=====================
-
-            element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
-              //event.stopPropagation();
-
-            });
-
             }
           };
 
@@ -325,15 +318,8 @@
 
             });
 
-            //=====================CARD DETAIL FUNCTIONALITY=====================
-
-            element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
-              //event.stopPropagation();
-
-            });
-
-            }
-          };
+          }//end link
+        };//end return object
 
       })
 
@@ -429,13 +415,6 @@
 
             });
 
-            //=====================CARD DETAIL FUNCTIONALITY=====================
-
-            element.find('.fa.fa-lg.fa-flip-horizontal.fa-expand').on('click',function(){
-              //event.stopPropagation();
-
-            });
-
             }
           };
 
@@ -447,8 +426,9 @@
         return {
           restrict: 'E',
           scope: {
-            data: '=',
-            close: '&'
+            msg: '=',
+            close: '&',
+            send: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardMessage.directive.html',
           link: function(scope, element, attrs) {
@@ -500,7 +480,7 @@
   //           }else if($location.path() === '/jobs'){
   //             element.find('.search-jobs-form').removeClass('invis');
   //           }
-  // });
+  //          });
 
         }
       };

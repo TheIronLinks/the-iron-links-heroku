@@ -284,7 +284,7 @@ $bgCards:rgb(154, 169, 173);
     margin:auto;
     max-width:75%;
   }
-  form{
+  .msgForm{
     width:80%;
     margin:auto;
 
@@ -343,3 +343,16 @@ $bgCards:rgb(154, 169, 173);
     /* -webkit-transition-duration: 0s;
     transition-duration: 0s; */
 }
+
+
+
+/* .modal-animation.ng-enter{
+  -webkit-transition:all linear 0.1s;
+  transition:all linear 0.1s;
+}
+.modal-animation.ng-enter {
+  transform:translateY(-50px);
+}
+.modal-animation.ng-enter.ng-enter-active {
+  transform:translateY(0);
+} */
