@@ -23,14 +23,15 @@
 
         };
 
-        cardCtrl.sendMsg = function (passed) {
-          console.log(passed);
+        cardCtrl.sendGradMsg = function (passed) {
+
           var msgObj = {
             message: {
-              receiver_id:passed.message_from_card.subject,
+              receiver_id:passed.graduate.id,
               title: passed.message_from_card.subject,
               content:passed.message_from_card.content,
-              message_type:'message'
+              message_type: 'message',
+              sender_type: passed.graduate.class
             }
           };
           console.log(msgObj);
@@ -39,16 +40,27 @@
 
         };
 
+        cardCtrl.sendEmplMsg = function (passed) {
 
-        // CardService.getCards().success(function(data){
-        //   cardCtrl.stack = data;
-        // })
-        // .error(function(){
-        //   console.log('cardCtrl.stack error')
-        // });
+          var msgObj = {
+            message: {
+              receiver_id:passed.employer.id,
+              title: passed.message_from_card.subject,
+              content:passed.message_from_card.content,
+              message_type: 'message',
+              sender_type: passed.employer.class
+            }
+          };
+          console.log(msgObj);
+          cardCtrl.clearActiveCard();
+          CardService.sendMsg(msgObj);
 
+        };
 
-
+        cardCtrl.favoritedCard = function (passed) {
+          console.log('getting to favorite card');
+          console.log(passed);
+        };
 
       }])
 

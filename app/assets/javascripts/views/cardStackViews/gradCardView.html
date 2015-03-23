@@ -1,4 +1,4 @@
-<card-message-directive ng-repeat='modal in cardCtrl.activeCard' msg='modal' close='cardCtrl.clearActiveCard()' send='cardCtrl.sendMsg(modal)' class='modal-animation'></card-message-directive>
+<card-message-directive ng-repeat='modal in cardCtrl.activeCard' msg='modal' close='cardCtrl.clearActiveCard()' send='cardCtrl.sendGradMsg(modal)' class='modal-animation'></card-message-directive>
 <div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
-  <grad-card-directive ng-repeat='card in searchCtrl.gradResults.data' data='card' action='cardCtrl.selectedCard(card)' class='card-animation'></grad-card-directive>
+  <grad-card-directive ng-repeat='card in searchCtrl.gradResults.data' data='card' action='cardCtrl.selectedCard(card)' favorite='cardCtrl.favoritedCard(card)' class='card-animation'></grad-card-directive>
 </div>

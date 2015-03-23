@@ -50,6 +50,6 @@ class MessagesController < ApplicationController
   end
 
   def set_id
-    @id = Graduate.find(current_user.userable_id).id
+    @id = current_user.id
   end
 end

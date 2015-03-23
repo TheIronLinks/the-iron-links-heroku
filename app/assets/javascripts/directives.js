@@ -137,7 +137,8 @@
           restrict: 'E',
           scope: {
             data: '=',
-            action: '&'
+            action: '&',
+            favorite: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.graduate.directive.html',
           link: function(scope, element, attrs) {
@@ -234,7 +235,8 @@
           restrict: 'E',
           scope: {
             data: '=',
-            action: '&'
+            action: '&',
+            favorite: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.employer.directive.html',
           link: function(scope, element, attrs) {
@@ -331,7 +333,8 @@
           restrict: 'E',
           scope: {
             data: '=',
-            action: '&'
+            action: '&',
+            favorite: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.job.directive.html',
           link: function(scope, element, attrs) {
