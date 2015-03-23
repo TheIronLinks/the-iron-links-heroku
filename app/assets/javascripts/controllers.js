@@ -23,14 +23,15 @@
 
         };
 
-        cardCtrl.sendMsg = function (passed) {
-          console.log(passed);
+        cardCtrl.sendGradMsg = function (passed) {
+
           var msgObj = {
             message: {
-              receiver_id:passed.message_from_card.subject,
+              receiver_id:passed.graduate.id,
               title: passed.message_from_card.subject,
               content:passed.message_from_card.content,
-              message_type:'message'
+              message_type: 'message',
+              sender_type: passed.graduate.class
             }
           };
           console.log(msgObj);
@@ -39,16 +40,27 @@
 
         };
 
+        cardCtrl.sendEmplMsg = function (passed) {
 
-        // CardService.getCards().success(function(data){
-        //   cardCtrl.stack = data;
-        // })
-        // .error(function(){
-        //   console.log('cardCtrl.stack error')
-        // });
+          var msgObj = {
+            message: {
+              receiver_id:passed.employer.id,
+              title: passed.message_from_card.subject,
+              content:passed.message_from_card.content,
+              message_type: 'message',
+              sender_type: passed.employer.class
+            }
+          };
+          console.log(msgObj);
+          cardCtrl.clearActiveCard();
+          CardService.sendMsg(msgObj);
 
+        };
 
-
+        cardCtrl.favoritedCard = function (passed) {
+          console.log('getting to favorite card');
+          console.log(passed);
+        };
 
       }])
 
@@ -57,6 +69,17 @@
       .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams, $location, $scope, _, Auth){
 
         var userCtrl = this;
+
+        var cleanSignUpCredentials = {
+          email: '',
+          password: '',
+          password_confirmation: ''
+        };
+        var cleanLoginCredentials = {
+          email: '',
+          password: ''
+        };
+
 
         userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
@@ -68,6 +91,11 @@
           });
         };
 
+        userCtrl.resetUser = function(){
+          userCtrl.loginCredentials = cleanLoginCredentials;
+          userCtrl.signUpCredentials = cleanSignUpCredentials;
+        }();
+
         userCtrl.setUser();
 
         $scope.loggedIn = function() {
@@ -78,7 +106,7 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            $scope.signUpCredentials='';
+            userCtrl.resetUser();
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
@@ -90,6 +118,7 @@
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
+            userCtrl.resetUser();
             userCtrl.setUser();
             $location.url('/graduatePanel')
           }, function(error) {
@@ -104,7 +133,7 @@
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
-            $scope.currentUser = user;
+            userCtrl.resetUser();
             userCtrl.setUser();
             $scope.goToHome();
           });
@@ -112,6 +141,10 @@
 
         $scope.goToHome = function(){
           $location.path('/');
+        };
+
+        $scope.goToPanel = function(){
+          $location.path('/graduatePanel');
         };
 
       }])
