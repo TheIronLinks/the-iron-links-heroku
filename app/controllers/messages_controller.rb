@@ -15,8 +15,16 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create message_params
-    @message.sender_id = @id
+    if params[:message][:sender_type] == 'Employer'
+      @thing = Employer.find params[:message][:sender_id]
+    elsif params[:message][:sender_type] == 'Graduate'
+      @thing = Graduate.find params[:message][:sender_id]
+    end
+    @message.sender_id = @thing.user.id
     @message.save
+    respond_to do |format|
+      format.json{render nothing: true}
+    end
   end
 
   def unread_messages
