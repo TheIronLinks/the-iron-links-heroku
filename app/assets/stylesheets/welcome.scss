@@ -270,7 +270,7 @@ button {
 .small-4.columns.panelLeft {
   width: 225px;
   height: 454px;
-  padding: 5px;
+  padding: 1px;
   margin: 0px;
   background-color: white;
   text-align: center;
@@ -278,7 +278,8 @@ button {
 }
 
 .small-4.columns.panelLeft img {
-  margin: 2%;
+  height: 225px;
+  width: 225px;
 }
 
 .a.panelBtn.ng-hide {

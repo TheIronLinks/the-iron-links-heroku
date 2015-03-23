@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_action :set_id
   def index
     @messages = Message.where('receiver_id = ?', @id)
-    @favorites = UserFavorite.where('user_id = ?', params[:user_id])
   end
 
   def sent
@@ -43,6 +42,6 @@ class MessagesController < ApplicationController
   end
 
   def set_id
-    @id = current_user.id
+    @id = Graduate.find(current_user.userable_id).id
   end
 end
