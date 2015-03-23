@@ -441,46 +441,23 @@
 
       })
 
-//=====================GRAD DETAIL DIRECTIVE=====================
+//=====================CARD MESSAGE DIRECTIVE=====================
 
-      .directive('gradDetailDirective', function() {
-
+      .directive('cardMessageDirective', function() {
         return {
           restrict: 'E',
           scope: {
             data: '=',
-            return: '&',
             close: '&'
           },
-          templateUrl: 'assets/directiveTemplates/cardDetail.graduate.directive.html',
+          templateUrl: 'assets/directiveTemplates/cardMessage.directive.html',
           link: function(scope, element, attrs) {
 
-
-
-          }
-
-        };
-
-      })
-
-//=====================EMPL DETAIL DIRECTIVE=====================
-
-      .directive('emplDetailDirective', function() {
-        return {
-          restrict: 'E',
-          scope: {
-            data: '=',
-            return: '&',
-            close: '&'
-          },
-          templateUrl: 'assets/directiveTemplates/cardDetail.employer.directive.html',
-          link: function(scope, element, attrs) {
-
-            element.find('.card-detail-wrapper').on('click',function(event){
+            element.find('.card-message-wrapper').on('click',function(event){
               event.stopPropagation();
             });
 
-            element.find('.card-detail-surround').on('click',function(event){
+            element.find('.card-message-surround').on('click',function(event){
               event.stopPropagation();
               console.log('clicking surround');
 
@@ -489,28 +466,6 @@
           }
 
         };
-      })
-
-//=====================JOB DETAIL DIRECTIVE=====================
-
-      .directive('jobDetailDirective', function() {
-
-        return {
-          restrict: 'E',
-          scope: {
-            data: '=',
-            return: '&',
-            close: '&'
-          },
-          templateUrl: 'assets/directiveTemplates/cardDetail.job.directive.html',
-          link: function(scope, element, attrs) {
-
-
-
-          }
-
-        };
-
       })
 
 //=====================SEARCH DIRECTIVE=====================

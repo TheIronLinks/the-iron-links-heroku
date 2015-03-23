@@ -1,0 +1,11 @@
+<div class="card-message-surround"  ng-click='close()'>
+  <div class='card-message-wrapper'>
+    <div class="fa fa-lg fa-times" ng-click='close()'></div>
+    <h3>Message to {{data.employer.name}} {{data.graduate.first_name}}  {{data.graduate.last_name}} {{data.job.name}}</h3>
+    <form>
+      <input type="text" placeholder='Subject' data-ng-model='message_from_card.subject'>
+      <textarea placeholder='Message' data-ng-model='message_from_card.content'></textarea>
+      <button type='submit' class=''>Send</button>
+    </form>
+  </div>
+</div>
