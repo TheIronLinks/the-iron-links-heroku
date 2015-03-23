@@ -13,9 +13,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require underscore-min
 //= require angular.min
 //= require angular-route.min
+//= require twitter-timeline-angular
 //= require devise
 //= require foundation
 //= require welcome

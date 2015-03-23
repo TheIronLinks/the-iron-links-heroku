@@ -37,12 +37,11 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.middleware.use Rack::Cors do
-   allow do
-     origins '*'
-     resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete]
-   end
- end
-
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete]
+    end
+  end
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

@@ -1,10 +1,10 @@
-// This is your app.js file.
 (function () {
  'use strict';
 
   angular.module('tilAPP', [
     'ngRoute',
-    'Devise'
+    'Devise',
+    'twitter.timeline'
   ])
 
   .config(['$httpProvider', function($httpProvider) {
@@ -15,6 +15,10 @@
     $routeProvider
       .when('/', {
         templateUrl: 'assets/views/index.html'
+      })
+      .when('/graduatePanel', {
+        templateUrl: 'assets/views/graduatePanel.html',
+        controller: 'ProfileController as profileCtrl'
       })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html',
@@ -28,7 +32,7 @@
         templateUrl: 'assets/views/cardStackViews/employersCardView.html',
         controller: 'CardController as cardCtrl'
       })
-      .when('/jobListings', {
+      .when('/jobs', {
         templateUrl: 'assets/views/cardStackViews/jobsCardView.html',
         controller: 'CardController as cardCtrl'
       })

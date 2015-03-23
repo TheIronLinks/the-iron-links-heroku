@@ -3,19 +3,7 @@ class JobListingsController < ApplicationController
   before_action :set_location
   before_action :set_job_listing, only: [:show, :update, :edit, :destroy]
   def index
-    if params[:location_id]
-      @job_listings = @location.job_listings
-    else
-      @job_listings = JobListing.all
-    end
-  end
-
-  def show
-  end
-
-  def new
-    @location = Location.find params[:location_id]
-    @job_listing = JobListing.new
+    @job_listings = JobListing.all
   end
 
   def create
@@ -26,7 +14,12 @@ class JobListingsController < ApplicationController
     end 
   end
 
-  def edit
+  def search_job_listings
+    @job_listings = job_search(params)
+    respond_to do |format|
+      format.json
+      format.html
+    end
   end
 
   def update
@@ -46,6 +39,59 @@ class JobListingsController < ApplicationController
   end
 
   private
+  def job_search(input)
+    j = simple_job_search(input)
+    if input[:type] || input[:industry] || input[:location]
+      j = advanced_job_search(j, input)
+    end
+    return j.uniq
+  end
+
+  def simple_job_search(input)
+    r = []
+    r.push(JobListing.where("name LIKE ? OR position LIKE ? OR description LIKE ? OR post_date LIKE ?", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%"))
+    r.push(employer_check(input[:input]))
+    r.push(location_check(input[:input]))
+    return r.flatten
+  end
+
+  def location_check(input)
+    l = Location.where("region LIKE ?", "%#{input}%")
+    r = []
+    l.each do |location|
+      r.push(location.job_listings)
+    end
+    return r.flatten
+  end
+
+  def employer_check(input)
+    r = []
+    e = Employer.where('industry LIKE ?', "%#{input}%")
+    e.each do |employer|
+      employer.locations.each do |location|
+        r.push(location.job_listings)
+      end
+    end
+    return r.flatten
+  end
+
+  def advanced_job_search(jobs, input)
+    r = []
+    jobs.each do |job|
+      if job.location.employer.industry == input[:industry] || !input[:industry]
+        if job.location.region == input[:location] || !input[:location]
+          r.push(job)
+        end
+      end
+    end
+    return r
+  end
+
+  # input
+  # type(focus)
+  # industry
+  # region
+
   def set_employer
     if params[:employer_id]
       @employer = Employer.find params[:employer_id]

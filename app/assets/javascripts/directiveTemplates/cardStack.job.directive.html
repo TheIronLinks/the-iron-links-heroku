@@ -1,30 +1,38 @@
 <ul class ='card-outer-wrapper'>
 
+<!-- =====================CARD ONE===================== -->
+
   <li class='card-inner-wrapper' data-trait='1' data-state='1'>
-    <div class='fa fa-2x fa-ellipsis-v'></div>
+    <div class='fa fa-2x fa-ellipsis-v' ng-click='action()'></div>
     <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
     <span class='cardLabel'>{{data.employer.name}}</span>
     <span class='cardID'>1</span>
   </li>
 
+<!-- =====================CARD TWO===================== -->
+
   <li class='card-inner-wrapper' data-trait='2' data-state='2'>
-    <div class='fa fa-2x fa-ellipsis-v'></div>
+    <div class='fa fa-2x fa-ellipsis-v' ng-click='cardsSpread = true'></div>
     <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
     <span class='cardLabel'>About</span>
 
     <span class='cardID'>2</span>
   </li>
 
+<!-- =====================CARD THREE===================== -->
+
   <li class='card-inner-wrapper' data-trait='3' data-state='3'>
-    <div class='fa fa-2x fa-ellipsis-v'></div>
+    <div class='fa fa-2x fa-ellipsis-v' ng-click='cardsSpread = true'></div>
     <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
     <span class='cardLabel'>History</span>
 
     <span class='cardID'>3</span>
   </li>
 
+<!-- =====================CARD FOUR===================== -->
+
   <li class='card-inner-wrapper' data-trait='4' data-state='4'>
-    <div class='fa fa-2x fa-ellipsis-v'></div>
+    <div class='fa fa-2x fa-ellipsis-v' ng-click='cardsSpread = true'></div>
     <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
     <span class='cardLabel'>Contact</span>
 

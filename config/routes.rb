@@ -2,17 +2,33 @@ Rails.application.routes.draw do
   devise_for :users
   # get 'welcome/index'
 
-  resources :graduates
+  resources :graduates do
+    collection do
+      get 'get_grad'
+      get 'search_graduates'
+    end
+  end
   resources :employers do
     collection do
-      get 'advanced_employer_search'
-      get 'simple_employer_search'
+      get 'employer_search'
     end
     resources 'locations' do
       resources 'job_listings'
     end
   end
-  resources 'job_listings'
+  resources 'job_listings' do
+    collection do
+      get 'search_job_listings'
+    end
+  end
+  resources 'messages' do 
+    collection do
+      get 'unread_messages'
+    end
+    member do
+      patch 'viewed'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

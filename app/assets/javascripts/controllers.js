@@ -3,10 +3,10 @@
     angular.module('tilAPP')
 
 //==========================CARD CTRL==========================
-
-      .controller('CardController',['CardService', function (CardService) {
+      .controller('CardController', ['CardService', function (CardService) {
 
         var cardCtrl = this;
+
 
         CardService.getCards().success(function(data){
           cardCtrl.stack = data;
@@ -22,7 +22,7 @@
 
         var userCtrl = this;
 
-        $scope.setUser = function() {
+        userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
@@ -32,21 +32,20 @@
           });
         };
 
+        userCtrl.setUser();
+
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
-          $scope.url('/welcomeView');
-
         };
 
         $scope.submitSignUp = function() {
           var credentials = userCtrl.signUpCredentials;
-          Auth.register(userCtrl.signUpCredentials).then(function(user) {
-            $scope.setUser();
+          Auth.register(credentials).then(function(user) {
+            userCtrl.setUser();
             $scope.signUpCredentials='';
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
-            console.log(error);
           });
         };
 
@@ -54,72 +53,106 @@
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
-            $scope.setUser();
-            $scope.loginCredentials='';
+            userCtrl.setUser();
+            $location.url('/graduatePanel')
           }, function(error) {
             userCtrl.error_message = error;
             console.log(error);
           });
         };
 
+        $scope.gotoSignup = function(){
+          $location.url('/newGrad');
+        };
+
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
             $scope.currentUser = user;
-            $scope.setUser();
+            userCtrl.setUser();
+            $scope.goToHome();
           });
         };
 
         $scope.goToHome = function(){
           $location.path('/');
         };
+
       }])
 
 //==========================PROFILE CTRL==========================
-
-      .controller('ProfileController',['ProfileService', '$location', function (ProfileService,$location) {
+      .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
+        profileCtrl.userData = ProfileService.userData;
+
+        profileCtrl.getProfile = function() {
+          ProfileService.getPanel();
+        }();
+
+        profileCtrl.routeTo = function (path){
+          $location.url(path);
+        };
 
         profileCtrl.addProfile = function (newProfile) {
           ProfileService.addProfile(newProfile);
         };
 
-        profileCtrl.routeTo = function (path) {
-          $location.path(path);
+
+
+
+
+
+      }])
+
+//==========================EMPLOYER CTRL==========================
+
+      .controller('EmployerController', ['EmployerService', '$location', function (EmployerService,$location) {
+
+        var employerCtrl = this;
+        employerCtrl.userData = EmployerService.userData;
+
+
+        employerCtrl.addEmployer = function (newEmployer) {
+          EmployerService.addEmployer(newEmployer);
         };
+
+        employerCtrl.routeTo = function (path){
+          $location.url(path);
+        };
+        employerCtrl.getEmployer = function() {
+          EmployerService.getPanel();
+        }();
+
 
       }])
 
 //==========================SEARCH CTRL==========================
-
-      .controller('SearchController',['SerachService', function (SearchService) {
+      .controller('SearchController', ['SearchService', '$location', '$scope', function (SearchService,$location,$scope) {
 
         var searchCtrl = this;
-        searchCtrl.gradResults = SearchService.searchResults;
 
-        // <li ng-repeat="card in gradResults.data">
-        //   {{thing.name}}
-        // </li>
+        searchCtrl.gradResults = SearchService.gradResults;
+        searchCtrl.emplResults = SearchService.emplResults;
+        searchCtrl.jobResults = SearchService.jobResults;
 
         searchCtrl.queryGrad = function (graduate_search) {
-          //console.log(graduate_search);
           SearchService.queryGrad(graduate_search);
+          $scope.graduate_search = {};
+        };
 
-          //console.log(searchResults);
-        }
 
         searchCtrl.queryEmpl = function (employer_search) {
-          console.log(employer_search);
-          //var searchResults = SearchService.queryEmpl(employer_search);
-          //console.log(searchResults);
+          SearchService.queryEmpl(employer_search);
+          $scope.employer_search = {};
         };
 
         searchCtrl.queryJob = function (job_search) {
-          console.log(job_search);
-          //var searchResults = SearchService.queryJob(job_search);
-          //console.log(searchResults);
+          SearchService.queryJob(job_search);
+          $scope.job_search = {};
         };
 
-      }])
-
+        searchCtrl.routeTo = function (path) {
+          $location.path(path);
+        };
+      }]);
 })();

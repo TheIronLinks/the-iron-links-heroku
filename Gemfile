@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-
+gem 'simplecov', :require => false, :group => :test
+gem 'rspec-rails'
+gem 'whenever', :require => false
 gem 'rack-cors'
 gem 'rabl'
 gem 'oj'
