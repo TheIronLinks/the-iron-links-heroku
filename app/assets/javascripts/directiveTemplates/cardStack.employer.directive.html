@@ -4,41 +4,56 @@
 
   <li class='card-inner-wrapper' data-trait='1' data-state='1'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <span class='cardLabel'>{{data.employer.name}}</span>
-    <span class='cardID'>1</span>
+    <div class='card-header card-orange'><span class='card-label'>{{data.employer.name}}</span></div>
+    <img class='card-one-photo' src="http://placehold.it/175x175">
+    <span class='card-heading-one'>{{data.employer.city}}, {{data.employer.state}}</span>
+    <span class='card-heading-two'><blockquote>3-4 word company narrative goes here</blockquote></span>
   </li>
 
 <!-- =====================CARD TWO===================== -->
 
   <li class='card-inner-wrapper' data-trait='2' data-state='2'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <span class='cardLabel'>About</span>
+    <div class='card-header card-orange'><span class='card-label'>About Us</span></div>
+    <span class='card-heading-one add-top-margin'>Company Founded:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.founded}}</blockquote></span>
+    <span class='card-heading-one'>Current Size:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.size}} employees</blockquote></span>
+    <span class='card-heading-one'>Primary Industry:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.industry}}</blockquote></span>
 
-    <span class='cardID'>2</span>
   </li>
 
 <!-- =====================CARD THREE===================== -->
 
   <li class='card-inner-wrapper' data-trait='3' data-state='3'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <span class='cardLabel'>History</span>
-
-    <span class='cardID'>3</span>
+    <div class='card-header card-orange'><span class='card-label'>Our Culture</span></div>
+    <span class='card-heading-two add-top-margin'><blockquote>This is a short paragraph describing the specified company's culture. This is a short paragraph describing the specified company's culture. This is a short paragraph describing the specified company's culture. This is a short paragraph describing the specified company's culture.</blockquote></span>
   </li>
 
 <!-- =====================CARD FOUR===================== -->
 
   <li class='card-inner-wrapper' data-trait='4' data-state='4'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <span class='cardLabel'>Contact</span>
-
-    <span class='cardID'>4</span>
+    <div class='card-header card-orange'><span class='card-label'>Contact Us</span></div>
+    <span class='card-heading-one add-top-margin'>Company Address:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.name}}<br>9999 Fake Street<br>Fake City, Fake State 12345</blockquote></span>
+    <span class='card-heading-one'>E-mail:</span>
+    <span class='card-heading-two'><blockquote>emailaddress@fake.com</blockquote></span>
+    <span class='card-heading-one'>Telephone:</span>
+    <span class='card-heading-two'><blockquote>(555) 666-7777</blockquote></span>
   </li>
 
 <!-- =====================COMMON BUTTONS===================== -->
 
-  <div class='fa fa-lg fa-flip-horizontal fa-expand' ng-click="action('{card: card}')"></div>
+
   <div class='fa fa-5x fa-caret-left' rel='left'></div>
   <div class='fa fa-5x fa-caret-right' rel='right'></div>
+  <div class="card-buttons-wrapper-empl">
+    <div class='fa fa-2x fa-star'></div>
+    <div class="fa fa-2x fa-envelope" ng-click="action('{card: card}')"></div>
+    <div class="fa fa-2x fa-map-marker"></div>
+  </div>
 
 </ul>

@@ -25,15 +25,15 @@
         controller: 'ProfileController as profileCtrl'
       })
       .when('/graduates', {
-        templateUrl: 'assets/views/cardStackViews/alumniCardView.html',
+        templateUrl: 'assets/views/cardStackViews/gradCardView.html',
         controller: 'CardController as cardCtrl'
       })
       .when('/employers', {
-        templateUrl: 'assets/views/cardStackViews/employersCardView.html',
+        templateUrl: 'assets/views/cardStackViews/emplCardView.html',
         controller: 'CardController as cardCtrl'
       })
       .when('/jobs', {
-        templateUrl: 'assets/views/cardStackViews/jobsCardView.html',
+        templateUrl: 'assets/views/cardStackViews/jobCardView.html',
         controller: 'CardController as cardCtrl'
       })
       .when('/not-found', {

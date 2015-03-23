@@ -22,6 +22,9 @@ $bgJobDark:#A73E34;
     outline: 0;
   }
   text-align:left;
+  &:hover{
+    transform:scale(1.05);
+  }
   //position:relative;
   .fa.fa-chevron-down,.fa.fa-chevron-right{
     padding-left:10px;
