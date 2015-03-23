@@ -1,0 +1,4 @@
+<card-message-directive ng-repeat='card in cardCtrl.activeCard' msg='card' close='cardCtrl.clearActiveCard()' send='cardCtrl.sendMsg(modal)' class='modal-animation'></card-message-directive>
+<div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
+  <job-card-directive ng-repeat='card in searchCtrl.jobResults.data' data='card' action='cardCtrl.selectedCard(card)' class='card-animation'></job-card-directive>
+</div>

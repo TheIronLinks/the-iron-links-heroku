@@ -21,6 +21,17 @@ $bgJobDark:#A73E34;
   &:focus{
     outline: 0;
   }
+  text-align:left;
+  &:hover{
+    transform:scale(1.05);
+  }
+  //position:relative;
+  .fa.fa-chevron-down,.fa.fa-chevron-right{
+    padding-left:10px;
+    padding-right:10px;
+    /* position:absolute;
+    left:15px; */
+  }
 }
 .search-graduates-header{
   background-color:$bgGrad;
@@ -43,17 +54,44 @@ $bgJobDark:#A73E34;
 .search-input-wrapper{
   text-align:right;
   margin-top:10px;
-  input[type='text']{
-    width:100%;
-    margin-bottom:3px;
-  }
-  span{
+  margin-bottom:3px;
+  .search-filter-button{
     color:white;
     font-size:14px;
     &:hover{
-      transform:scale(1.05);
       cursor:pointer;
-      font-size:15px;
+      font-size:14.5px;
+    }
+  }
+}
+.search-input-button-combined{
+  width:100%;
+  height:37px;
+  display:relative;
+  input[type='text']{
+    height:37px;
+    border:0;
+    margin:0;
+    width:90%;
+    display:inline-block;
+    float:left;
+    box-shadow:none;
+  }
+  .search-button{
+    height:37px;
+    background-color:#FFFFFF;
+    width:10%;
+    display:inline-block;
+    float:right;
+    margin:0;
+    color:#AAAAAA;
+    padding:0;
+    &:hover{
+      cursor:pointer;
+      font-size:1.1rem;
+    }
+    &:focus{
+      outline:none;
     }
   }
 }
