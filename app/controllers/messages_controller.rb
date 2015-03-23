@@ -16,9 +16,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create message_params
     if params[:message][:sender_type] == 'Employer'
-      @thing = Employer.find params[:message][:sender_id]
+      @thing = Employer.find params[:message][:receiver_id]
     elsif params[:message][:sender_type] == 'Graduate'
-      @thing = Graduate.find params[:message][:sender_id]
+      @thing = Graduate.find params[:message][:receiver_id]
     end
     @message.sender_id = @thing.user.id
     @message.save
@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
       :receiver_id,
       :title,
       :content,
-      :type,
+      :message_type,
       :viewed
     )
   end
