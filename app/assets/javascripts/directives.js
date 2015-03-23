@@ -448,6 +448,33 @@
         };
       })
 
+//=====================CARD MAP DIRECTIVE=====================
+
+      .directive('cardMapDirective', function() {
+        return {
+          restrict: 'E',
+          scope: {
+            msg: '=',
+            close: '&'
+          },
+          templateUrl: 'assets/directiveTemplates/cardMessage.directive.html',
+          link: function(scope, element, attrs) {
+
+            element.find('.card-message-wrapper').on('click',function(event){
+              event.stopPropagation();
+            });
+
+            element.find('.card-message-surround').on('click',function(event){
+              event.stopPropagation();
+              console.log('clicking surround');
+
+            });
+
+          }
+
+        };
+      })
+
 //=====================SEARCH DIRECTIVE=====================
 
     .directive('searchDirective', function($location, $rootScope) {

@@ -24,9 +24,18 @@
         };
 
         cardCtrl.sendMsg = function (passed) {
-
           console.log(passed);
+          var msgObj = {
+            message: {
+              receiver_id:passed.message_from_card.subject,
+              title: passed.message_from_card.subject,
+              content:passed.message_from_card.content,
+              message_type:'message'
+            }
+          };
+          console.log(msgObj);
           cardCtrl.clearActiveCard();
+          CardService.sendMsg(msgObj);
 
         };
 

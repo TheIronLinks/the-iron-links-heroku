@@ -6,14 +6,24 @@
 
     .factory('CardService', function ($location,$http) {
 
-      var url = 'http://localhost:3000/employers.json';
+      var url = 'http://localhost:3000//messages.json';
 
-      var getCards = function () {
-        return $http.get(url);
+      // var getCards = function () {
+      //   return $http.get(url);
+      // };
+
+      var sendMsg = function (passedMsg) {
+        $http.post(url, passedMsg)
+        .success(function(){
+          console.log('msg sent to server');
+        })
+        .error(function(){
+          console.log('failed sending msg to server');
+        });
       };
 
       return {
-        getCards: getCards
+        sendMsg: sendMsg
       };
     })
 
