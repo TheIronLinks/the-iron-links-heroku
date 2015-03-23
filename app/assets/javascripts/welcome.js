@@ -4,7 +4,8 @@
   angular.module('tilAPP', [
     'ngRoute',
     'Devise',
-    'ngAnimate'
+    'ngAnimate',
+    'uiGmapgoogle-maps'
   ])
 
   .config(['$httpProvider', function($httpProvider) {

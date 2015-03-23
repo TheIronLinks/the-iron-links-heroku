@@ -18,6 +18,8 @@
 //= require angular.min
 //= require angular-route.min
 //= require angular-animate.min
+//= require angular-google-maps.min.js
+//= require lodash.min.js
 //= require devise
 //= require foundation
 //= require welcome
