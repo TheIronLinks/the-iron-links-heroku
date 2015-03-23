@@ -4,17 +4,51 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', ['CardService', function (CardService) {
+      .controller('CardController', ['CardService', '$rootScope', function (CardService, $rootScope) {
 
         var cardCtrl = this;
 
+        cardCtrl.selectedCard =function(passedProfile) {
 
-        CardService.getCards().success(function(data){
-          cardCtrl.stack = data;
-        })
-        .error(function(){
-          console.log('cardCtrl.stack error')
-        });
+          cardCtrl.activeCard = [passedProfile];
+          console.log('active card loaded');
+          console.log(cardCtrl.activeCard);
+
+        };
+
+        cardCtrl.clearActiveCard = function () {
+
+          cardCtrl.activeCard = [];
+          console.log('active card cleared');
+
+        };
+
+        cardCtrl.sendMsg = function (passed) {
+          console.log(passed);
+          var msgObj = {
+            message: {
+              receiver_id:passed.message_from_card.subject,
+              title: passed.message_from_card.subject,
+              content:passed.message_from_card.content,
+              message_type:'message'
+            }
+          };
+          console.log(msgObj);
+          cardCtrl.clearActiveCard();
+          CardService.sendMsg(msgObj);
+
+        };
+
+
+        // CardService.getCards().success(function(data){
+        //   cardCtrl.stack = data;
+        // })
+        // .error(function(){
+        //   console.log('cardCtrl.stack error')
+        // });
+
+
+
 
       }])
 
@@ -145,7 +179,6 @@
           SearchService.queryGrad(graduate_search);
           $scope.graduate_search = {};
         };
-
 
         searchCtrl.queryEmpl = function (employer_search) {
           SearchService.queryEmpl(employer_search);
