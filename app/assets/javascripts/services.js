@@ -2,9 +2,9 @@
   "use strict";
   angular.module('tilAPP')
 
-//==========================CARD SERVICE==========================
+//==========================MSG SERVICE==========================
 
-    .factory('CardService', function ($location,$http) {
+    .factory('MsgService', function ($location,$http) {
 
       var url = 'http://localhost:3000//messages.json';
 
@@ -24,6 +24,27 @@
 
       return {
         sendMsg: sendMsg
+      };
+    })
+
+//==========================FAV SERVICE==========================
+
+    .factory('FavService', function ($location,$http) {
+
+      //var url = 'http://localhost:3000//messages.json';
+
+      var favCard = function (passed) {
+        $http.post(url, passedMsg)
+        .success(function(){
+          console.log('msg sent to server');
+        })
+        .error(function(){
+          console.log('failed sending msg to server');
+        });
+      };
+
+      return {
+        favCard: favCard
       };
     })
 

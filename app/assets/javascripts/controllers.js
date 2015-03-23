@@ -4,7 +4,7 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', ['CardService', '$rootScope', function (CardService, $rootScope) {
+      .controller('CardController', ['MsgService', 'FavService', '$rootScope', function (MsgService, FavService, $rootScope) {
 
         var cardCtrl = this;
 
@@ -31,12 +31,12 @@
               title: passed.message_from_card.subject,
               content:passed.message_from_card.content,
               message_type: 'message',
-              sender_type: passed.graduate.class
+              receiver_type: passed.graduate.class
             }
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          CardService.sendMsg(msgObj);
+          MsgService.sendMsg(msgObj);
 
         };
 
@@ -48,18 +48,23 @@
               title: passed.message_from_card.subject,
               content:passed.message_from_card.content,
               message_type: 'message',
-              sender_type: passed.employer.class
+              receiver_type: passed.employer.class
             }
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          CardService.sendMsg(msgObj);
+          MsgService.sendMsg(msgObj);
 
         };
 
         cardCtrl.favoritedCard = function (passed) {
+          var favObj = {
+
+          };
+
           console.log('getting to favorite card');
           console.log(passed);
+          FavService.favCard(favObj);
         };
 
       }])
