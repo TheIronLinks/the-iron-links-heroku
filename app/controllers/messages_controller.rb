@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_id
   def index
     @messages = Message.where('receiver_id = ?', @id)
+    @favorites = UserFavorite.where('user_id = ?', params[:user_id])
   end
 
   def sent
@@ -15,6 +16,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create message_params
+    @message.sender_id = @id
+    @message.save
   end
 
   def unread_messages
