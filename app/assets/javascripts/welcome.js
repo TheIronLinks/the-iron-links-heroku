@@ -5,7 +5,7 @@
     'ngRoute',
     'Devise',
     'ngAnimate',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
     'twitter.timeline'
   ])
 
