@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_id
   def index
-    @messages = Message.where('receiver_id = ?', '#{@id}')
+    @messages = Message.where('receiver_id = ?', @id)
   end
 
   def sent
