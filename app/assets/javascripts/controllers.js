@@ -75,6 +75,17 @@
 
         var userCtrl = this;
 
+        var cleanSignUpCredentials = {
+          email: '',
+          password: '',
+          password_confirmation: ''
+        };
+        var cleanLoginCredentials = {
+          email: '',
+          password: ''
+        };
+
+
         userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
@@ -84,6 +95,11 @@
             userCtrl.error_message = error;
           });
         };
+
+        userCtrl.resetUser = function(){
+          userCtrl.loginCredentials = cleanLoginCredentials;
+          userCtrl.signUpCredentials = cleanSignUpCredentials;
+        }();
 
         userCtrl.setUser();
 
@@ -95,7 +111,7 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            $scope.signUpCredentials='';
+            userCtrl.resetUser();
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
@@ -107,6 +123,7 @@
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
+            userCtrl.resetUser();
             userCtrl.setUser();
             $location.url('/graduatePanel')
           }, function(error) {
@@ -121,7 +138,7 @@
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
-            $scope.currentUser = user;
+            userCtrl.resetUser();
             userCtrl.setUser();
             $scope.goToHome();
           });
@@ -129,6 +146,10 @@
 
         $scope.goToHome = function(){
           $location.path('/');
+        };
+
+        $scope.goToPanel = function(){
+          $location.path('/graduatePanel');
         };
 
       }])
