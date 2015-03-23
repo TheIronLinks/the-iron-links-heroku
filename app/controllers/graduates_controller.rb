@@ -4,31 +4,21 @@ class GraduatesController < ApplicationController
   end
 
   def get_grad
-    @graduate = Graduate.find current_user.userable_id
+    p user_signed_in?
+    if user_signed_in?
+      @graduate = Graduate.find current_user.userable_id
+      @messages = Message.where('receiver_id = ?', @graduate.id)
+    else
+      @graduate = []
+    end
   end
 
   def search_graduates
     @graduates = graduate_search
   end
 
-  def show
-    set_graduate
-    respond_to do |format|
-      format.html
-      format.json{render @graduate.as_json}
-    end
-  end
-
-
-
-  def new
-    @graduate = Graduate.new
-  end
-
   def create
-    p params
     @graduate = Graduate.create graduate_params
-    # @graduate.email = current_user.email
     @graduate.assign_region
     @graduate.save
     respond_to do |format|
@@ -40,22 +30,11 @@ class GraduatesController < ApplicationController
     end
   end
 
-  def edit
-    set_graduate
-  end
-
   def update
     set_graduate
     @graduate.update_attributes graduate_params
     respond_to do |format|
       format.html{redirect_to graduate_path(@graduate)}
-      format.json{render nothing: true}
-    end
-  end
-
-  def cancel_registration
-    current_user.destroy
-    respond_to do |format|
       format.json{render nothing: true}
     end
   end
@@ -99,36 +78,34 @@ class GraduatesController < ApplicationController
   def advanced_graduate_search(graduates)
      results = []
      graduates.each do |graduate|
-       if graduate.grad_year == params[:tiy_year] || !params[:tiy_year]
-         p 'year'
-         if graduate.grad_focus == params[:type] || !params[:type]
-           p 'type'
-           if graduate.grad_location == params[:tiy_location] || !params[:tiy_location]
-             p 'location'
-             if graduate.present_region == params[:current_location] || !params[:current_location]
-               p 'region'
+      if graduate.grad_year == params[:tiy_year] || !params[:tiy_year]
+        if graduate.grad_focus == params[:type] || !params[:type]
+          if graduate.grad_location == params[:tiy_location] || !params[:tiy_location]
+            if graduate.present_region == params[:current_location] || !params[:current_location]
                results.push(graduate)
-             end
-           end
-         end
-       end
-     end
-     return results
-   end
+            end
+          end
+        end
+      end
+    end
+    return results
+  end
 
-   def graduate_search
-     g = simple_graduate_search(Graduate)
-     if params[:tiy_year] || params[:type] || params[:tiy_location] || params[:current_location]
-       g = advanced_graduate_search(g)
-     end
-     return g
-   end
+  def graduate_search
+    g = simple_graduate_search(Graduate)
+    if params[:tiy_year] || params[:type] || params[:tiy_location] || params[:current_location]
+      g = advanced_graduate_search(g)
+    end
+    return g
+  end
 
   def handle_side_objects
     the_link = Link.new
     the_link.url = params[:link][:url]
     @graduate.links = [the_link]
-    @graduate.user = current_user
+    if user_signed_in?
+      @graduate.user = current_user
+    end
     top_education = Education.new
     top_education.school_name = params[:education][:school_name]
     top_education.concentration = params[:education][:concentration]

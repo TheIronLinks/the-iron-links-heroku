@@ -58,7 +58,7 @@
 
         var userCtrl = this;
 
-        $scope.setUser = function() {
+        userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
@@ -68,20 +68,21 @@
           });
         };
 
+        userCtrl.setUser();
+
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
-          $scope.url('/welcomeView');
-
         };
 
         $scope.submitSignUp = function() {
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
-            $scope.setUser();
+            userCtrl.setUser();
             $scope.signUpCredentials='';
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
+
           });
         };
 
@@ -89,7 +90,7 @@
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
-            $scope.setUser();
+            userCtrl.setUser();
             $location.url('/graduatePanel')
           }, function(error) {
             userCtrl.error_message = error;
@@ -97,10 +98,14 @@
           });
         };
 
+        $scope.gotoSignup = function(){
+          $location.url('/newGrad');
+        };
+
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
             $scope.currentUser = user;
-            $scope.setUser();
+            userCtrl.setUser();
             $scope.goToHome();
           });
         };
@@ -108,6 +113,7 @@
         $scope.goToHome = function(){
           $location.path('/');
         };
+
       }])
 
 //==========================PROFILE CTRL==========================
@@ -117,18 +123,44 @@
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
 
-        profileCtrl.addProfile = function (newProfile) {
-          ProfileService.addProfile(newProfile);
-        };
+        profileCtrl.getProfile = function() {
+          ProfileService.getPanel();
+        }();
 
         profileCtrl.routeTo = function (path){
           $location.url(path);
         };
 
-        profileCtrl.getProfile = function() {
-          profileCtrl.panel = ProfileService.getPanel;
-          console.log('hello');
+        profileCtrl.addProfile = function (newProfile) {
+          ProfileService.addProfile(newProfile);
         };
+
+
+
+
+
+
+      }])
+
+//==========================EMPLOYER CTRL==========================
+
+      .controller('EmployerController', ['EmployerService', '$location', function (EmployerService,$location) {
+
+        var employerCtrl = this;
+        employerCtrl.userData = EmployerService.userData;
+
+
+        employerCtrl.addEmployer = function (newEmployer) {
+          EmployerService.addEmployer(newEmployer);
+        };
+
+        employerCtrl.routeTo = function (path){
+          $location.url(path);
+        };
+
+        employerCtrl.getEmployer = function() {
+          EmployerService.getPanel();
+        }();
 
 
       }])

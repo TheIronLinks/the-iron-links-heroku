@@ -12,11 +12,6 @@
   %body{"ng-app" => "tilAPP"}
     .off-canvas-wrap{"data-offcanvas" => "", "ng-controller": "userCtrl as user"}
       .inner-wrap
-        .bgSlider
-          %img.photo{:src => "assets/bgslider1.png"}
-          %img.photo{:src => "assets/bgslider2.png"}
-          %img.photo{:src => "assets/bgslider3.png"}
-          %img.photo{:src => "assets/bgslider4.png"}
         %nav.tab-bar
           %section.middle.tab-bar-section
             %a.logoBar
@@ -24,6 +19,15 @@
           %a.right-off-canvas-toggle
             %section.right-small
               %i.fa.fa-search
+          %a.left-off-canvas-toggle
+            %section.left-small
+              %i.fa.fa-user
+        %aside.left-off-canvas-menu
+          %ul.off-canvas-list
+            %li
+              %a{"ng-click" => "submitLogout()", "ng-show" => "loggedIn()"} Logout
+            %li
+              %a settings
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
             %li

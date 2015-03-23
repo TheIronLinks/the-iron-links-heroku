@@ -1,23 +1,70 @@
-<div class="row">
-  <div class="large-12 small-12 columns">
-    <div class="welcomePanel">
-      <ul class='small-block-grid-1 medium-block-grid-2 large-block-grid-3'>
-        <li class="one"><h2>Testing Data Here</h2><p ng-init='profileCtrl.userData'>{{ profileCtrl.userData }}</p></li>
-        <li class="two"><h2>Messages</h2><i class="fa fa-envelope fa-5x"></i></li>
-        <li class="three"><h2>Notifications</h2><i class="fa fa-bell fa-5x"></i></li>
-        <li class="four"><h2>Following</h2><i class="fa fa-newspaper-o fa-5x"></i></li>
-        <li class="five"><h2>Favorites</h2><i class="fa fa-star fa-5x"></i></li>
-        <li class="six"><h2>Settings</h2><i class="fa fa-cog fa-5x"></i></li>
-      </ul>
-    </div>
+<!------------------PANEL VIEW/PANEL MODALS------------------>
 
-    <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+<div class="welcomePanel">
+  <div class="small-4 columns panelLeft">
+    <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
+    <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
+    <p>{{profileCtrl.userData.profileData.graduate.grad_focus}}{{profileCtrl.userData.profileData.graduate.grad_year}}</p>
+    <p>Current State: {{profileCtrl.userData.profileData.graduate.present_state}}</p>
+    <p>Education: {{profileCtrl.userData.profileData.graduate.educations[0].education.level}}</p>
 
-    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle">Awesome. I have it.</h2>
-      <p class="lead">Your couch.  It is mine.</p>
-      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
   </div>
+  <div class="small-4 columns panel">
+  <ul>
+    <li><label class="btn1" for="modal-1"><h4>Messages</h4><i class="fa fa-envelope fa-5x"></i></label></li>
+    <li><label class="btn2" for="modal-2"><h4>Notifications</h4><i class="fa fa-bell fa-5x"></i></label></li>
+  </ul>
 </div>
+  <div class="small-4 columns panel">
+  <ul>
+    <li><label class="btn3" for="modal-3"><h4>Favorites</h4><i class="fa fa-star fa-5x"></i></label></li>
+    <li><label class="btn4" for="modal-4"><h4>Following</h4><i class="fa fa-newspaper-o fa-5x"></i></label></li>
+  </ul>
+</div>
+<div class="small-4 columns twitterRow">
+  <h5>Follow The Iron Yard <i class="fa fa-twitter"></i></h5>
+  <div twitter-timeline="578846099118632960" auto-resize="true" css-url="assets/welcome.css" data-tweet-limit="15">Loading tweets...</div>
+</div>
+
+<!----------------------------------MODAL 1---------------------------------->
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal">
+      <label class="modal__bg" for="modal-1"></label>
+      <div class="modal__inner">
+        <label class="modal__close" for="modal-1"></label>
+          <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Inbox</h2>
+          <p>
+
+          </p>
+      </div>
+    </div>
+<!----------------------------------MODAL 2---------------------------------->
+    <input class="modal-state" id="modal-2" type="checkbox" />
+    <div class="modal">
+      <label class="modal__bg" for="modal-2"></label>
+      <div class="modal__inner">
+        <label class="modal__close" for="modal-2"></label>
+          <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Notifications</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate commodi, expedita cumque minima, iusto quis laboriosam repellat ipsum quisquam sint, tempore voluptates sunt nam hic! Ad voluptas necessitatibus illum laboriosam!</p>
+      </div>
+    </div>
+<!----------------------------------MODAL 3---------------------------------->
+    <input class="modal-state" id="modal-3" type="checkbox" />
+    <div class="modal">
+      <label class="modal__bg" for="modal-3"></label>
+      <div class="modal__inner">
+        <label class="modal__close" for="modal-3"></label>
+          <h2>Favorites</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aliquid consectetur aut tenetur veritatis unde id, omnis optio eligendi assumenda sed dicta quos commodi harum nam, autem, accusantium minus at.</p>
+      </div>
+    </div>
+<!----------------------------------MODAL 4---------------------------------->
+    <input class="modal-state" id="modal-4" type="checkbox" />
+    <div class="modal">
+      <label class="modal__bg" for="modal-4"></label>
+      <div class="modal__inner">
+        <label class="modal__close" for="modal-4"></label>
+          <h2>Following</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium molestiae adipisci aut rerum nisi, facere est id dolore soluta. Delectus mollitia fugit alias doloremque molestiae, ullam similique architecto quod veniam.</p>
+      </div>
+    </div>

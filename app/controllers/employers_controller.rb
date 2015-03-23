@@ -64,6 +64,7 @@ private
   def the_employer_search(input)
     e = simple_employer_search(input)
     if input[:location] || input[:industry]
+      p 'past if 1'
       e = advanced_employer_search(e, input)
     end
     return e

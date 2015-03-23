@@ -81,35 +81,35 @@ class Graduate < ActiveRecord::Base
     self.present_region = self.check_region
   end
 
-  def link_assignment(link)
-    new_link = Link.new
-    new_link.url = link[:url]
-    self.links = [new_link]
-    new_link.save
-  end
+  # def link_assignment(link)
+  #   new_link = Link.new
+  #   new_link.url = link[:url]
+  #   self.links = [new_link]
+  #   new_link.save
+  # end
 
-  def user_assignment
-    self.user = current_user
-    self.email = current_user.email
-  end
+  # def user_assignment
+  #   self.user = current_user
+  #   self.email = current_user.email
+  # end
 
-  def education_assignment(education)
-    top_education = Education.new
-    top_education.school_name = education[:school_name]
-    top_education.concentration = education[:concentration]
-    top_education.level = education[:level]
-    self.educations = [top_education]
-    top_education.save
-  end
+  # def education_assignment(education)
+  #   top_education = Education.new
+  #   top_education.school_name = education[:school_name]
+  #   top_education.concentration = education[:concentration]
+  #   top_education.level = education[:level]
+  #   self.educations = [top_education]
+  #   top_education.save
+  # end
 
-  def handle_side_objects(link, education)
-    link_assignment(link)
-    user_assignment()
-    education_assignment(params[:education])
-    # Handle Portfolio Link
-    # Handle User Logic
-    # Handle Education
-  end
+  # def handle_side_objects(link, education)
+  #   link_assignment(link)
+  #   user_assignment()
+  #   education_assignment(params[:education])
+  #   # Handle Portfolio Link
+  #   # Handle User Logic
+  #   # Handle Education
+  # end
 
   include Workflow
 
