@@ -17,6 +17,9 @@
 //= require underscore-min
 //= require angular.min
 //= require angular-route.min
+//= require angular-animate.min
+//= require angular-google-maps.min.js
+//= require lodash.min.js
 //= require twitter-timeline-angular
 //= require mm-foundation.min
 //= require devise
