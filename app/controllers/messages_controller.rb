@@ -15,6 +15,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create message_params
+    @message.sender_id = @id
+    @message.save
   end
 
   def unread_messages
