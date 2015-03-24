@@ -31,7 +31,7 @@
         controller: 'RouteValidationController'
       })
       .when('/employerPanel', {
-        templateUrl: 'assets/views/graduatePanel.html',
+        templateUrl: 'assets/views/employerPanel.html',
         controller: 'RouteValidationController'
       })
       .when('/newGrad', {
