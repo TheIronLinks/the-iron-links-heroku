@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'geocoder'
 gem 'simplecov', :require => false, :group => :test
 gem 'rspec-rails'
 gem 'whenever', :require => false
