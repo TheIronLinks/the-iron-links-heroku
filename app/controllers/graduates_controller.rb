@@ -21,7 +21,8 @@ class GraduatesController < ApplicationController
   end
 
   def unlike_employer
-    GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:receiver_id], current_user.id)[0].destroy
+    f = GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:receiver_id], current_user.id)[0]
+    f.destroy
     render nothing: true
   end
 
@@ -81,6 +82,8 @@ class GraduatesController < ApplicationController
       :grad_year,
       :present_city,
       :present_state,
+      :email,
+      :title,
       links_attributes: [:id, :url, :description, :graduate_id, :_destroy],
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]
