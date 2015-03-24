@@ -7,6 +7,8 @@ class GraduatesController < ApplicationController
     if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
       @messages = Message.where('receiver_id = ?', @graduate.id)
+      @favorites = get_favorites
+      p @favorites
     else
       @graduate = []
     end
@@ -109,6 +111,15 @@ class GraduatesController < ApplicationController
       end
     end
     return results
+  end
+
+  def get_favorites
+    f = GradEmplFavorite.where('graduate_id = ?', current_user.id)
+    r = []
+    f.each do |favorite|
+      r.push(Employer.find(favorite.employer_id).name)
+    end
+    return r
   end
 
   def graduate_search

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :employers do
     collection do
       get 'employer_search'
+      get 'get_empl'
     end
     resources 'locations' do
       resources 'job_listings'

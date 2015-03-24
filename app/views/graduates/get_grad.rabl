@@ -5,6 +5,10 @@ child(:educations) do
   attributes :school_name, :level, :concentraton
 end
 
+node(:favorites) do
+  @graduate.favorited_employers
+end
+
 child(@messages) do
  attributes :id, :sender_id, :receiver_id, :title, :content, :viewed, :message_type
 end
