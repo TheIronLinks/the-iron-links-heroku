@@ -31,12 +31,12 @@
         controller: 'RouteValidationController'
       })
       .when('/employerPanel', {
-        templateUrl: 'assets/views/graduatePanel.html',
+        templateUrl: 'assets/views/employerPanel.html',
         controller: 'RouteValidationController'
       })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html',
-        controller: 'ProfileController as profileCtrl'
+        controller: 'RouteValidationController'
       })
       .when('/newEmployer', {
         templateUrl: 'assets/views/newEmployer.html',
