@@ -7,6 +7,17 @@ class Graduate < ActiveRecord::Base
   accepts_nested_attributes_for :links
   accepts_nested_attributes_for :educations
   accepts_nested_attributes_for :experiences
+
+  def favorited_employers
+    u = self.user
+    f = GradEmplFavorite.where('graduate_id = ?', u.id)
+    r = []
+    f.each do |favorite|
+      r.push(Employer.find(favorite.employer_id).name)
+    end
+    return r
+  end
+
   REGIONS = {
     west: [
       'CO',
