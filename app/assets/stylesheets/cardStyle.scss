@@ -3,6 +3,7 @@ $bgRed:#b8584c;
 $bgOrange:#ce832d;
 $bgGreen:#0dc67d;
 $bgAqua:#35a0ad;
+$bgYellow:#d5b810;
 $bgCover:rgba(227, 231, 233, 0.9);
 $bgCards:rgb(154, 169, 173);
 
@@ -140,30 +141,12 @@ $bgCards:rgb(154, 169, 173);
   }
   z-index:999;
 }
-.card-buttons-wrapper-empl{
+.card-buttons-wrapper{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-around;
   width:100%;
   padding:0 10%;
-  position:absolute;
-  bottom:20px;
-}
-.card-buttons-wrapper-grad{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-  width:100%;
-  padding:0 25%;
-  position:absolute;
-  bottom:20px;
-}
-.card-buttons-wrapper-job{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-  width:100%;
-  padding:0 25%;
   position:absolute;
   bottom:20px;
 }
@@ -184,13 +167,21 @@ $bgCards:rgb(154, 169, 173);
   color:$cardColor;
 }
 
-.fa.fa-2x.fa-star{
+.fa.fa-2x.fa-star.white{
   &:hover{
     transform:scale(1.1);
     cursor:pointer;
   }
   z-index:999;
   color:$cardColor;
+}
+.fa.fa-2x.fa-star.yellow{
+  &:hover{
+    transform:scale(1.1);
+    cursor:pointer;
+  }
+  z-index:999;
+  color:$bgYellow;
 }
 .fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
   visibility:hidden;
@@ -316,6 +307,16 @@ $bgCards:rgb(154, 169, 173);
     }
   }
 }
+
+.angular-google-map-container{
+  width:80%;
+  min-width:300px;
+  margin:auto;
+  height:425px;
+}
+
+
+
 
 //.card-animation.ng-move,
 

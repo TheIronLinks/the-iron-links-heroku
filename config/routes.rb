@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_grad'
       get 'search_graduates'
+      get 'like_employer'
+      get 'unlike_employer'
     end
   end
   resources :employers do

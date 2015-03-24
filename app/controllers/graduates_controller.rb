@@ -4,13 +4,25 @@ class GraduatesController < ApplicationController
   end
 
   def get_grad
-    p user_signed_in?
     if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
       @messages = Message.where('receiver_id = ?', @graduate.id)
     else
       @graduate = []
     end
+  end
+
+  def like_employer
+    GradEmplFavorite.create({
+      employer_id: params[:receiver_id],
+      graduate_id: current_user.id  
+    })
+    render nothing: true
+  end
+
+  def unlike_employer
+    GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:receiver_id], current_user.id).destroy
+    render nothing: true
   end
 
   def search_graduates
@@ -28,6 +40,10 @@ class GraduatesController < ApplicationController
         render nothing: true
       end
     end
+  end
+
+  def edit
+    set_graduate
   end
 
   def update

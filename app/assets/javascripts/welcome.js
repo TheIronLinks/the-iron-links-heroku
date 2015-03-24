@@ -9,6 +9,14 @@
     'twitter.timeline',
   ])
 
+  .config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+      //    key: 'your api key',
+      v: '3.17',
+      libraries: 'weather,geometry,visualization'
+    });
+  }])
+
   .config(['$httpProvider', function($httpProvider) {
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $("meta[name=csrf-token]").attr("content");
    }])
@@ -20,7 +28,7 @@
       })
       .when('/graduatePanel', {
         templateUrl: 'assets/views/graduatePanel.html',
-        controller: 'ProfileController as profileCtrl'
+        controller: 'RouteValidationController'
       })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html',
@@ -28,15 +36,15 @@
       })
       .when('/graduates', {
         templateUrl: 'assets/views/cardStackViews/gradCardView.html',
-        controller: 'CardController as cardCtrl'
+        controller: 'RouteValidationController'
       })
       .when('/employers', {
         templateUrl: 'assets/views/cardStackViews/emplCardView.html',
-        controller: 'CardController as cardCtrl'
+        controller: 'RouteValidationController'
       })
       .when('/jobs', {
         templateUrl: 'assets/views/cardStackViews/jobCardView.html',
-        controller: 'CardController as cardCtrl'
+        controller: 'RouteValidationController'
       })
       .when('/not-found', {
         templateUrl: 'assets/views/notFoundView.html'
