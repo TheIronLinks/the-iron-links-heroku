@@ -81,8 +81,8 @@
       };
 
       var addGradProfile = function (newProfile) {
-        $http.post(gradUrl, newProfile).success(function(){
-          $location.url('/graduatePanel');
+        $http.post(grad_url, newProfile).success(function(){
+          $location.url('/graduate-panel');
         })
         .error(function(){
           console.log('service/add profile error');
@@ -90,8 +90,8 @@
       };
 
       var addEmplProfile = function (newProfile) {
-        $http.post(emplUrl, newProfile).success(function(){
-          $location.url('/employerPanel');
+        $http.post(employer_url, newProfile).success(function(){
+          $location.url('/employer-panel');
         })
         .error(function(){
           console.log('service/add profile error');
@@ -157,7 +157,7 @@
     //
     //   var addProfile = function (newEmployer) {
     //     $http.post(url, newEmployer).success(function(){
-    //       $location.url('/graduatePanel');
+    //       $location.url('/graduate-panel');
     //     })
     //     .error(function(){
     //       console.log('service/add employer error');

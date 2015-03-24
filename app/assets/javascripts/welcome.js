@@ -26,19 +26,19 @@
       .when('/', {
         templateUrl: 'assets/views/index.html'
       })
-      .when('/graduatePanel', {
-        templateUrl: 'assets/views/graduatePanel.html',
-        controller: 'RouteValidationController'
-      })
-      .when('/employerPanel', {
+      .when('/graduate-panel', {
         templateUrl: 'assets/views/employerPanel.html',
         controller: 'RouteValidationController'
       })
-      .when('/newGrad', {
+      .when('/employer-panel', {
+        templateUrl: 'assets/views/employerPanel.html',
+        controller: 'RouteValidationController'
+      })
+      .when('/new-grad', {
         templateUrl: 'assets/views/newGrad.html',
         controller: 'RouteValidationController'
       })
-      .when('/newEmployer', {
+      .when('/new-employer', {
         templateUrl: 'assets/views/newEmployer.html',
         controller: 'RouteValidationController'
       })
