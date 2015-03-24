@@ -67,18 +67,19 @@
             additional_info: "",
             image_url: ""
           },
-            employer: {
-              name: "",
-              industry: "",
-              founded: "",
-              size: "",
-              city: "",
-              state: "",
-              zip: "",
-              image_url: "",
-              }
-            }
-          };
+          employer: {
+            name: "",
+            industry: "",
+            founded: "",
+            size: "",
+            city: "",
+            state: "",
+            zip: "",
+            image_url: "",
+          }
+        }
+      };
+
 
       var addGradProfile = function (newProfile) {
         $http.post(grad_url, newProfile).success(function(){
