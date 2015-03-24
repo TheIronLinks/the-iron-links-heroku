@@ -11,17 +11,18 @@
         <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
     </div>
   </div>
-<div class="row">
-    <div class="large-6 columns">
-        <label>Program Completed:</label>
-        <select ng-model="profileCtrl.gradProfile.graduate.grad_focus">
-          <option value="Front End Engineering">Front End Engineering</option>
-          <option value="Mobile Engineering">Mobile Engineering</option>
-          <option value="Python Engineering">Python Engineering</option>
-          <option value="Rails Engineering">Rails Engineering</option>
-          <option value="User Interface Design">User Interface Design</option>
-        </select>
+  <div class="row">
+    <div class="large-12 columns">
+        <input ng-model='profileCtrl.gradProfile.graduate.title' type="text" placeholder="Professional Title" />
     </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <label>"About Me" Statement (4-5 sentences)</label>
+      <textarea class='newGradTextArea' ng-model="profileCtrl.gradProfile.graduate.additional_info" placeholder=""></textarea>
+    </div>
+  </div>
+  <div class="row">
     <div class="large-6 columns">
         <label>Iron Yard Attended:</label>
         <select ng-model="profileCtrl.gradProfile.graduate.grad_location">
@@ -42,8 +43,26 @@
           <option value="Washington, D.C.">Washington, D.C.</option>
         </select>
     </div>
+    <div class="large-6 columns">
+        <label>Program Completed:</label>
+        <select ng-model="profileCtrl.gradProfile.graduate.grad_focus">
+          <option value="Front End Engineering">Front End Engineering</option>
+          <option value="Mobile Engineering">Mobile Engineering</option>
+          <option value="Python Engineering">Python Engineering</option>
+          <option value="Rails Engineering">Rails Engineering</option>
+          <option value="User Interface Design">User Interface Design</option>
+        </select>
+    </div>
   </div>
   <div class="row">
+    <div class="large-6 columns">
+      <label>Session Completed:</label>
+      <select ng-model="profileCtrl.gradProfile.graduate.grad_session">
+        <option value="Spring">Spring Session</option>
+        <option value="Summer">Summer Session</option>
+        <option value="Fall">Fall Session</option>
+      </select>
+    </div>
     <div class="large-6 columns">
       <label>Year Completed:</label>
       <select ng-model="profileCtrl.gradProfile.graduate.grad_year">
@@ -52,15 +71,7 @@
         <option value="2013">2013</option>
         <option value="2012">2012</option>
       </select>
-      </div>
-    <div class="large-6 columns">
-      <label>Session Completed:</label>
-      <select ng-model="profileCtrl.gradProfile.graduate.grad_session">
-          <option value="Spring">Spring Session</option>
-          <option value="Summer">Summer Session</option>
-          <option value="Fall">Fall Session</option>
-        </select>
-      </div>
+    </div>
   </div>
   <div class="row">
     <div class="small-6 columns">
@@ -175,13 +186,7 @@
         <input type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
       </div>
   </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <label>Additional Information
-        <textarea ng-model="profileCtrl.gradProfile.graduate.additional_info" placeholder=""></textarea>
-      </label>
-    </div>
-  </div>
+
   <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
 
 </form>
