@@ -508,7 +508,15 @@ p img {
 }
 
 /////////////////NEWGRAD FORM
-
-/* .newGradTextArea{
-  width:100%;
-} */
+.newGradOuterWrapper{
+  select,textarea{
+    margin:0;
+  }
+}
+/////////////////INITIAL LOGIN FORM
+.createNewProfileRadio{
+  width:auto;
+}
+.makeInline{
+  display:inline-block;
+}

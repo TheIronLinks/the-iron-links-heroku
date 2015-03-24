@@ -27,12 +27,20 @@
         templateUrl: 'assets/views/index.html'
       })
       .when('/graduatePanel', {
+        templateUrl: 'assets/views/employerPanel.html',
+        controller: 'RouteValidationController'
+      })
+      .when('/employerPanel', {
         templateUrl: 'assets/views/graduatePanel.html',
         controller: 'RouteValidationController'
       })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html',
         controller: 'ProfileController as profileCtrl'
+      })
+      .when('/newEmployer', {
+        templateUrl: 'assets/views/newEmployer.html',
+        controller: 'RouteValidationController'
       })
       .when('/graduates', {
         templateUrl: 'assets/views/cardStackViews/gradCardView.html',

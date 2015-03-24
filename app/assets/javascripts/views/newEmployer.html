@@ -1,13 +1,7 @@
-<div class="newEmployer">
-<h3>Create a new employer.</h3>
+<div class="row">
+<div class="newProfile">
+<h3>Create New Employer</h3>
 <form ng-submit='ProfileCtrl.addEmplProfile(ProfileCtrl.employerProfile)'>
-  <div class="row">
-    <div class="small-12 columns">
-      <label>Company Motto:
-        <textarea ng-model="profileCtrl.employerProfile.employer.motto" placeholder=""></textarea>
-      </label>
-    </div>
-  </div>
   <div class="row">
     <div class="small-6 columns">
         <input ng-model='profileCtrl.employerProfile.employer.name' type="text" placeholder="Company Name" />
@@ -116,11 +110,19 @@
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <label>Company Culture Statement:
+      <label>Company Motto (4-5 words):
+        <input type='text' ng-model="profileCtrl.employerProfile.employer.motto" placeholder=""/>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Company Culture Statement (5-6 sentences):
         <textarea ng-model="profileCtrl.gradProfile.graduate.culture_statement" placeholder=""></textarea>
       </label>
     </div>
   </div>
   <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
 </form>
+</div>
 </div>

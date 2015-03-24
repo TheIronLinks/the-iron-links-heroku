@@ -1,28 +1,27 @@
-<div class="row">
+<div class="row" class='newGradOuterWrapper'>
+<div class="newProfile">
+<h3>Create your new profile.</h3>
+<form ng-submit='profileCtrl.addProfile(profileCtrl.gradProfile)'>
   <div class="row">
-    <div class="newProfile">
-      <h3>Create your new profile.</h3>
-        <form ng-submit='profileCtrl.addGradProfile(profileCtrl.gradProfile)'>
-          <div class="row">
-            <div class="small-6 columns">
-              <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
-            </div>
-            <div class="small-6 columns">
-              <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <input ng-model='profileCtrl.gradProfile.graduate.title' type="text" placeholder="Professional Title" />
-            </div>
-          </div>
-        <div class="row">
-          <div class="small-12 columns">
-            <label>"About Me" Statement (4-5 sentences)</label>
-            <textarea class='newGradTextArea' ng-model="profileCtrl.gradProfile.graduate.additional_info" placeholder=""></textarea>
-          </div>
-        </div>
-        <div class="row">
+    <div class="small-6 columns">
+        <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
+    </div>
+    <div class="small-6 columns">
+        <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+        <input ng-model='profileCtrl.gradProfile.graduate.title' type="text" placeholder="Professional Title" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <label>"About Me" Statement (4-5 sentences)</label>
+      <textarea class='newGradTextArea' ng-model="profileCtrl.gradProfile.graduate.additional_info" placeholder=""></textarea>
+    </div>
+  </div>
+<div class="row">
           <div class="large-6 columns">
               <label>Iron Yard Attended:</label>
               <select ng-model="profileCtrl.gradProfile.graduate.grad_location">
@@ -189,4 +188,3 @@
         <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
     </form>
   </div>
-</div>
