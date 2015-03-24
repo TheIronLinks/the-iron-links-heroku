@@ -76,10 +76,9 @@
               state: "",
               zip: "",
               image_url: "",
-              }
-            }
           }
-        };
+        }
+      };
 
       var addGradProfile = function (newProfile) {
         $http.post(grad_url, newProfile).success(function(){

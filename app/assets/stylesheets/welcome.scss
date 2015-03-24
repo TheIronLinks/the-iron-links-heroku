@@ -507,16 +507,17 @@ p img {
   margin: 0 1em 1em 0;
 }
 
-/////////////////NEWGRAD FORM
-.newGradOuterWrapper{
-  select,textarea{
-    margin:0;
-  }
-}
 /////////////////INITIAL LOGIN FORM
 .createNewProfileRadio{
   width:auto;
 }
 .makeInline{
   display:inline-block;
+}
+
+
+
+
+select{
+  margin:0!important;
 }

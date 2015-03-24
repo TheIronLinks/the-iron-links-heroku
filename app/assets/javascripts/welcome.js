@@ -36,7 +36,7 @@
       })
       .when('/newGrad', {
         templateUrl: 'assets/views/newGrad.html',
-        controller: 'ProfileController as profileCtrl'
+        controller: 'RouteValidationController'
       })
       .when('/newEmployer', {
         templateUrl: 'assets/views/newEmployer.html',
