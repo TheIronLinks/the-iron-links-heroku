@@ -51,7 +51,8 @@
 
     .factory('ProfileService', function ($location,$http) {
 
-      var url = 'http://localhost:3000/graduates.json';
+      var grad_url = 'http://localhost:3000/graduates.json';
+      var employer_url = 'http://localhost:3000/employers.json';
 
       var userData = {
         profileData: {
@@ -65,12 +66,23 @@
             current_location: "",
             additional_info: "",
             image_url: ""
+          },
+            employer: {
+              name: "",
+              industry: "",
+              founded: "",
+              size: "",
+              city: "",
+              state: "",
+              zip: "",
+              image_url: "",
+              }
             }
           }
         };
 
-      var addProfile = function (newProfile) {
-        $http.post(url, newProfile).success(function(){
+      var addGradProfile = function (newProfile) {
+        $http.post(grad_url, newProfile).success(function(){
           $location.url('/graduatePanel');
         })
         .error(function(){
@@ -78,7 +90,17 @@
         });
       };
 
-      var getPanel = function() {
+      var addEmplProfile = function (newProfile) {
+        $http.post(employer_url, newProfile).success(function(){
+          $location.url('/employerPanel');
+        })
+        .error(function(){
+          console.log('service/add profile error');
+        });
+      };
+
+
+      var getGradPanel = function() {
         $http.get('/graduates/get_grad.json')
         .success(function(data){
           console.log(data)
@@ -86,57 +108,77 @@
           console.log(userData.profileData)
         });
       };
+
+      var getEmplPanel = function() {
+        $http.get('/employers/get_empl.json')
+        .success(function(data){
+          console.log(data)
+          userData.profileData = data;
+          console.log(userData.profileData)
+        });
+      };
+
+      var updateGradProfile = function (profile) {
+        http.patch(gradUrl, profile)
+        .success(function(data){
+          getGradPanel()
+        });
+      }
+
+      var updateEmplProfile = function (profile) {
+        http.patch(emplUrl, profile)
+        .success(function(data){
+          getEmplPanel()
+        });
+      };
+
       return {
-        addProfile: addProfile,
+        addGradProfile: addGradProfile,
+        addEmplProfile: addEmplProfile,
         userData: userData,
-        getPanel: getPanel
+        getGradPanel: getGradPanel,
+        getEmplPanel: getEmplPanel,
+        updateEmplProfile: updateEmplProfile,
+        updateGradProfile: updateGradProfile
+
       };
     })
 
 //==========================EMPLOYER SERVICE==========================
-
-    .factory('EmployerService', function ($location,$http) {
-
-      var url = 'http://localhost:3000/employers.json';
-
-      var employerData = {
-        empData: {
-          employer: {
-            name: "",
-            industry: "",
-            founded: "",
-            size: "",
-            city: "",
-            state: "",
-            zip: "",
-            image_url: "",
-            }
-          }
-        };
-
-      var addProfile = function (newEmployer) {
-        $http.post(url, newEmployer).success(function(){
-          $location.url('/graduatePanel');
-        })
-        .error(function(){
-          console.log('service/add employer error');
-        });
-      };
-
-      var getPanel = function() {
-        $http.get('/employers/get_employer.json')
-        .success(function(data){
-          console.log(data)
-          userData.employerData = data;
-          console.log(userData.employerData)
-        });
-      };
-      return {
-        addEmployer: addEmployer,
-        userData: userData,
-        getPanel: getPanel
-      };
-        })
+    //
+    // .factory('EmployerService', function ($location,$http) {
+    //
+    //   var url = 'http://localhost:3000/employers.json';
+    //
+    //   var employerData = {
+    //     empData: {
+    //
+    //       }
+    //     };
+    //
+    //   var addProfile = function (newEmployer) {
+    //     $http.post(url, newEmployer).success(function(){
+    //       $location.url('/graduatePanel');
+    //     })
+    //     .error(function(){
+    //       console.log('service/add employer error');
+    //     });
+    //   };
+    //
+    //   var getPanel = function() {
+    //     $http.get('/employers/get_employer.json')
+    //     .success(function(data){
+    //       console.log(data)
+    //       userData.employerData = data;
+    //       console.log(userData.employerData)
+    //     });
+    //   };
+    //   return {
+    //     addEmployer: addEmployer,
+    //     userData: userData,
+    //     getPanel: getPanel
+    //   };
+    //     })
 //==========================SEARCH SERVICE==========================
 
     .factory('SearchService', function ($http) {
