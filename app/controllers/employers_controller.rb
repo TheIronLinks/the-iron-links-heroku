@@ -24,6 +24,7 @@ class EmployersController < ApplicationController
   end
 
   def create
+    p params
     @employer = Employer.create employer_params
     @employer.full_street_address = "#{params[:employer][:address]}, #{params[:employer][:city]}, #{params[:employer][:state]} #{params[:employer][:zip]}"
     @employer.user = current_user
