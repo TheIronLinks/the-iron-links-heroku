@@ -177,7 +177,7 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
+      .controller('ProfileController', ['ProfileService', '$location', '$route', function (ProfileService,$location, $route) {
 
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
@@ -203,13 +203,19 @@
           ProfileService.addEmplProfile(newProfile);
         };
 
-        profileCtrl.updateGradProfile = function (gradProfile) {
-          ProfileService.updateGradProfile(gradProfile)
-        }
+        profileCtrl.updateGradProfile = function (gradProfile, id) {
+          ProfileService.updateGradProfile(gradProfile, id)
+          $('#form__close').click();
+        };
 
         profileCtrl.updateEmplProfile = function (emplProfile) {
           ProfileService.updateEmplProfile(emplProfile)
-        }
+          $('#form__close').click();
+        };
+
+        profileCtrl.reloadPage = function () {
+          $route.reload();
+        };
 
       }])
 

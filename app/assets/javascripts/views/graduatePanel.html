@@ -1,10 +1,10 @@
 <!------------------PANEL VIEW/PANEL MODALS------------------>
 <div class="row" ng-controller='ProfileController as profileCtrl'>
-  <div class="welcomePanel">
+  <div ng-init='profileCtrl.getGradProfile()' class="welcomePanel">
     <div class="small-4 columns panelLeft">
       <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
       <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
-      <p>{{profileCtrl.userData.profileData.graduate.grad_focus}}{{profileCtrl.userData.profileData.graduate.grad_year}}</p>
+      <p>{{profileCtrl.userData.profileData.graduate.grad_focus}} {{profileCtrl.userData.profileData.graduate.grad_year}}</p>
       <p>Current State: {{profileCtrl.userData.profileData.graduate.present_state}}</p>
       <p>Education: {{profileCtrl.userData.profileData.graduate.educations[0].education.level}}</p>
 
@@ -46,21 +46,21 @@
       <div class="modal">
         <label class="modal__bg" for="modal-2"></label>
         <div class="modal__inner">
-          <label class="modal__close" for="modal-2"></label>
+          <label id="form__close" class="modal__close" for="modal-2"></label>
             <h2>Edit Your Profile</h2>
-              <form ng-submit='profileCtrl.addProfile(profileCtrl.gradProfile)'>
+              <form class='editProfile' ng-submit='profileCtrl.updateGradProfile(profileCtrl.userData.profileData, profileCtrl.userData.profileData.graduate.id)'>
                 <div class="row">
                   <div class="small-6 columns">
-                      <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
+                      <input ng-model='profileCtrl.userData.profileData.graduate.first_name' type="text" placeholder="First Name" />
                   </div>
                   <div class="small-6 columns">
-                      <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
+                      <input ng-model='profileCtrl.userData.profileData.graduate.last_name' type="text" placeholder="Last Name" />
                   </div>
                 </div>
               <div class="row">
                   <div class="large-6 columns">
                       <label>Program Completed:</label>
-                      <select ng-model="profileCtrl.gradProfile.graduate.grad_focus">
+                      <select ng-model="profileCtrl.userData.profileData.graduate.grad_focus">
                         <option value="Front End Engineering">Front End Engineering</option>
                         <option value="Mobile Engineering">Mobile Engineering</option>
                         <option value="Python Engineering">Python Engineering</option>
@@ -70,7 +70,7 @@
                   </div>
                   <div class="large-6 columns">
                       <label>Iron Yard Attended:</label>
-                      <select ng-model="profileCtrl.gradProfile.graduate.grad_location">
+                      <select ng-model="profileCtrl.userData.profileData.graduate.grad_location">
                         <option value="Atlanta">Atlanta, GA</option>
                         <option value="Austin">Austin, TX</option>
                         <option value="Charleston">Charleston, SC</option>
@@ -92,7 +92,7 @@
                 <div class="row">
                   <div class="large-6 columns">
                     <label>Year Completed:</label>
-                    <select ng-model="profileCtrl.gradProfile.graduate.grad_year">
+                    <select ng-model="profileCtrl.userData.profileData.graduate.grad_year">
                       <option value="2015">2015</option>
                       <option value="2014">2014</option>
                       <option value="2013">2013</option>
@@ -101,7 +101,7 @@
                     </div>
                   <div class="large-6 columns">
                     <label>Session Completed:</label>
-                    <select ng-model="profileCtrl.gradProfile.graduate.grad_session">
+                    <select ng-model="profileCtrl.userData.profileData.graduate.grad_session">
                         <option value="Spring">Spring Session</option>
                         <option value="Summer">Summer Session</option>
                         <option value="Fall">Fall Session</option>
@@ -111,11 +111,11 @@
                 <div class="row">
                   <div class="small-6 columns">
                     <label>Current City</label>
-                      <input ng-model="profileCtrl.gradProfile.graduate.present_city" type='text' placeholder="Current City"/>
+                      <input ng-model="profileCtrl.userData.profileData.graduate.present_city" type='text' placeholder="Current City"/>
                     </div>
                   <div class="small-6 columns">
                     <label>Current State:</label>
-                    <select ng-model="profileCtrl.gradProfile.graduate.present_state">
+                    <select ng-model="profileCtrl.userData.profileData.graduate.present_state">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -175,7 +175,7 @@
                       <span class="prefix">http://</span>
                     </div>
                     <div class="small-10 large-10 columns">
-                      <input ng-model="profileCtrl.gradProfile.link.url"type="text" placeholder="Enter your URL...">
+                      <input ng-model="profileCtrl.userData.profileData.link.url"type="text" placeholder="Enter your URL...">
                     </div>
                   </div>
                   <div class="row collapse">
@@ -188,13 +188,13 @@
                       <span class="prefix">http://</span>
                     </div>
                     <div class="small-10 large-10 columns">
-                      <input ng-model="profileCtrl.gradProfile.graduate.image_url"type="text" placeholder="Enter your image URL...">
+                      <input ng-model="profileCtrl.userData.profileData.graduate.image_url"type="text" placeholder="Enter your image URL...">
                     </div>
                   </div>
                 <div class="row">
                   <div class="small-4 columns">
                     <label for="">Highest Level of Education</label>
-                    <select ng-model="profileCtrl.gradProfile.education.level">
+                    <select>
                       <option value="HS/GED">HS/GED</option>
                       <option value="Attended College">Attended College</option>
                       <option value="Associates Degree">Associates Degree</option>
@@ -205,12 +205,12 @@
                   </div>
                   <div class="small-4 columns">
                     <label for="">School Attended</label>
-                      <input ng-model="profileCtrl.gradProfile.education.school_name"type="text" placeholder="" />
+                      <input type="text" placeholder="" />
                     </label>
                   </div>
                   <div class="small-4 columns">
                     <label for="">Concentration</label>
-                      <input ng-model="profileCtrl.gradProfile.concentration.education.concentration"type="text" placeholder="" />
+                      <input type="text" placeholder="" />
                   </div>
                 </div>
                   <div class="row">
@@ -224,11 +224,11 @@
                 <div class="row">
                   <div class="small-12 columns">
                     <label>Additional Information
-                      <textarea ng-model="profileCtrl.gradProfile.graduate.additional_info" placeholder=""></textarea>
+                      <textarea ng-model="profileCtrl.userData.profileData.graduate.additional_info" placeholder=""></textarea>
                     </label>
                   </div>
                 </div>
-                <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
+                <button type="submit">Submit</button> <button ng-click="profileCtrl.reloadPage()">Cancel</button>
               </form>
         </div>
       </div>
