@@ -15,13 +15,13 @@ class GraduatesController < ApplicationController
   def like_employer
     GradEmplFavorite.create({
       employer_id: params[:receiver_id],
-      graduate_id: current_user.id  
+      graduate_id: current_user.id
     })
     render nothing: true
   end
 
   def unlike_employer
-    GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:receiver_id], current_user.id).destroy
+    GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:receiver_id], current_user.id)[0].destroy
     render nothing: true
   end
 

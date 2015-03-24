@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_grad'
       get 'search_graduates'
-      get 'like_employer'
-      get 'unlike_employer'
+      post 'like_employer'
+      post 'unlike_employer'
     end
   end
   resources :employers do
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get 'search_job_listings'
     end
   end
-  resources 'messages' do 
+  resources 'messages' do
     collection do
       get 'unread_messages'
     end
