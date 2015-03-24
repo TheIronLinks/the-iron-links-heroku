@@ -4,9 +4,11 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', ['CardService', '$rootScope', function (CardService, $rootScope) {
+      .controller('CardController', ['FeaturesService', '$rootScope', function (FeaturesService, $rootScope) {
 
         var cardCtrl = this;
+
+
 
         cardCtrl.selectedCard =function(passedProfile) {
 
@@ -31,12 +33,12 @@
               title: passed.message_from_card.subject,
               content:passed.message_from_card.content,
               message_type: 'message',
-              sender_type: passed.graduate.class
+              receiver_type: passed.graduate.class
             }
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          CardService.sendMsg(msgObj);
+          MsgService.sendMsg(msgObj);
 
         };
 
@@ -48,18 +50,33 @@
               title: passed.message_from_card.subject,
               content:passed.message_from_card.content,
               message_type: 'message',
-              sender_type: passed.employer.class
+              receiver_type: passed.employer.class
             }
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          CardService.sendMsg(msgObj);
+          MsgService.sendMsg(msgObj);
 
         };
 
-        cardCtrl.favoritedCard = function (passed) {
-          console.log('getting to favorite card');
+        cardCtrl.favoriteEmpl = function (passed) {
+          var favObj = {
+            receiver_id:passed.employer.id
+          };
+
+          console.log('getting to favorite in ctrl');
           console.log(passed);
+          FeaturesService.favCard(favObj);
+        };
+
+        cardCtrl.unfavoriteEmpl = function (passed) {
+          var favObj = {
+            receiver_id:passed.employer.id
+          };
+
+          console.log('getting to unfavorite in ctrl');
+          console.log(passed);
+          FeaturesService.unfavCard(favObj);
         };
 
       }])
@@ -79,6 +96,7 @@
           email: '',
           password: ''
         };
+
 
 
         userCtrl.setUser = function() {
@@ -141,12 +159,25 @@
 
       }])
 
+//==========================ROUTE VALIDATION CTRL==========================
+
+      .controller('RouteValidationController', ['$location', 'Auth', function($location, Auth){
+
+        //VALIDATE USER IS LOGGED IN*******************
+        if(Auth.isAuthenticated() === false){
+          $location.path('/');
+        };
+        //*********************************
+
+      }])
+
 //==========================PROFILE CTRL==========================
 
       .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
+
 
         profileCtrl.getProfile = function() {
           ProfileService.getPanel();
