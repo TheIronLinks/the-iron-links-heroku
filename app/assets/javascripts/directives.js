@@ -285,7 +285,7 @@
               element.find('li').removeClass('cardSpreadOne cardSpreadTwo cardSpreadThree cardSpreadFour');
               element.find('ul').removeClass('cardSpreadStack');
               element.find('li').css({'cursor':'auto'});
-              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'inline-block'});
+              element.find('.fa-ellipsis-v,.card-buttons-wrapper-outer').css({'display':'inline-block'});
             });
 
             //=====================SPREAD CARD=====================
@@ -317,7 +317,7 @@
               element.find('li[data-trait='+fourthCard+']').addClass('cardSpreadFour');
               element.find('ul').addClass('cardSpreadStack');
               element.find('li').removeClass('invis');
-              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'none'});
+              element.find('.fa-ellipsis-v,.card-buttons-wrapper-outer').css({'display':'none'});
               element.find('li').css({'cursor':'pointer'});
 
             });
@@ -325,7 +325,7 @@
             //=====================FAVORITE FEATURE=====================
 
             //runs on init to show favorites from previous sessions
-            if(scope.data.employer.city === 'Charleston'){
+            if(scope.data.employer.favorited === true){
               //favorited
               element.find('.fa.fa-2x.fa-star.white').css({'display':'none'});
             }else{
@@ -335,6 +335,7 @@
             //toggle fav status icon
             element.find('.fa.fa-2x.fa-star.white,.fa.fa-2x.fa-star.yellow').on('click',function(event){
 
+              event.stopPropagation();
               element.find('.fa.fa-2x.fa-star.white,.fa.fa-2x.fa-star.yellow').css({'display':'inline-block'});
               $(this).css({'display':'none'});
 

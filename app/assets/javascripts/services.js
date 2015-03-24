@@ -7,8 +7,8 @@
     .factory('FeaturesService', function ($location,$http) {
 
       var msgUrl = 'http://localhost:3000//messages.json';
-      var favUrl = '';
-      var unfavUrl = '';
+      var favUrl = 'http://localhost:3000//graduates/like_employer.json';
+      var unfavUrl = 'http://localhost:3000//graduates/unlike_employer.json';
 
       var sendMsg = function (passed) {
         $http.post(msgUrl, passed)
