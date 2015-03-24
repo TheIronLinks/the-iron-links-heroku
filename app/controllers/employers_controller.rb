@@ -6,7 +6,7 @@ class EmployersController < ApplicationController
   end
 
   def employer_search
-    @employers = the_employer_search(params)
+    @employers = search_employers(params)
 
     respond_to do |format|
       format.json
@@ -64,10 +64,9 @@ private
     )
   end
 
-  def the_employer_search(input)
+  def search_employers(input)
     e = simple_employer_search(input)
     if input[:location] || input[:industry]
-      p 'past if 1'
       e = advanced_employer_search(e, input)
     end
     return e

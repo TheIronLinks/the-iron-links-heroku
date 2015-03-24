@@ -1,0 +1,11 @@
+.row.admin-panel
+  .columns.small-12
+    - @graduates.each do |grad|
+      = grad.first_name
+      = grad.last_name
+      %br/
+      = grad.grad_location
+      %br/
+      = grad.grad_session
+      %br/
+      = link_to edit_graduate_path(grad)
