@@ -138,7 +138,8 @@
           scope: {
             data: '=',
             action: '&',
-            favorite: '&'
+            favorite: '&',
+            unfavorite: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.graduate.directive.html',
           link: function(scope, element, attrs) {
@@ -236,7 +237,8 @@
           scope: {
             data: '=',
             action: '&',
-            favorite: '&'
+            favorite: '&',
+            unfavorite: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.employer.directive.html',
           link: function(scope, element, attrs) {
@@ -320,6 +322,24 @@
 
             });
 
+            //=====================FAVORITE FEATURE=====================
+
+            //runs on init to show favorites from previous sessions
+            if(scope.data.employer.city === 'Charleston'){
+              //favorited
+              element.find('.fa.fa-2x.fa-star.white').css({'display':'none'});
+            }else{
+              //not favorited
+              element.find('.fa.fa-2x.fa-star.yellow').css({'display':'none'});
+            }
+            //toggle fav status icon
+            element.find('.fa.fa-2x.fa-star.white,.fa.fa-2x.fa-star.yellow').on('click',function(event){
+
+              element.find('.fa.fa-2x.fa-star.white,.fa.fa-2x.fa-star.yellow').css({'display':'inline-block'});
+              $(this).css({'display':'none'});
+
+            });
+
           }//end link
         };//end return object
 
@@ -334,7 +354,8 @@
           scope: {
             data: '=',
             action: '&',
-            favorite: '&'
+            favorite: '&',
+            unfavorite: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.job.directive.html',
           link: function(scope, element, attrs) {

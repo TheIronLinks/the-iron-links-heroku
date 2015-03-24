@@ -2,18 +2,16 @@
   "use strict";
   angular.module('tilAPP')
 
-//==========================MSG SERVICE==========================
+//==========================FEATURES SERVICE==========================
 
-    .factory('MsgService', function ($location,$http) {
+    .factory('FeaturesService', function ($location,$http) {
 
-      var url = 'http://localhost:3000//messages.json';
+      var msgUrl = 'http://localhost:3000//messages.json';
+      var favUrl = '';
+      var unfavUrl = '';
 
-      // var getCards = function () {
-      //   return $http.get(url);
-      // };
-
-      var sendMsg = function (passedMsg) {
-        $http.post(url, passedMsg)
+      var sendMsg = function (passed) {
+        $http.post(msgUrl, passed)
         .success(function(){
           console.log('msg sent to server');
         })
@@ -21,30 +19,31 @@
           console.log('failed sending msg to server');
         });
       };
-
-      return {
-        sendMsg: sendMsg
-      };
-    })
-
-//==========================FAV SERVICE==========================
-
-    .factory('FavService', function ($location,$http) {
-
-      //var url = 'http://localhost:3000//messages.json';
 
       var favCard = function (passed) {
-        $http.post(url, passedMsg)
+        $http.post(favUrl, passed)
         .success(function(){
-          console.log('msg sent to server');
+          console.log('fav sent to server');
         })
         .error(function(){
-          console.log('failed sending msg to server');
+          console.log('failed sending fav to server');
+        });
+      };
+
+      var unfavCard = function (passed) {
+        $http.post(unfavUrl, passed)
+        .success(function(){
+          console.log('unfav sent to server');
+        })
+        .error(function(){
+          console.log('failed sending unfav to server');
         });
       };
 
       return {
-        favCard: favCard
+        sendMsg: sendMsg,
+        favCard: favCard,
+        unfavCard: unfavCard
       };
     })
 

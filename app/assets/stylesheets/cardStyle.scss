@@ -3,6 +3,7 @@ $bgRed:#b8584c;
 $bgOrange:#ce832d;
 $bgGreen:#0dc67d;
 $bgAqua:#35a0ad;
+$bgYellow:#d5b810;
 $bgCover:rgba(227, 231, 233, 0.9);
 $bgCards:rgb(154, 169, 173);
 
@@ -184,13 +185,21 @@ $bgCards:rgb(154, 169, 173);
   color:$cardColor;
 }
 
-.fa.fa-2x.fa-star{
+.fa.fa-2x.fa-star.white{
   &:hover{
     transform:scale(1.1);
     cursor:pointer;
   }
   z-index:999;
   color:$cardColor;
+}
+.fa.fa-2x.fa-star.yellow{
+  &:hover{
+    transform:scale(1.1);
+    cursor:pointer;
+  }
+  z-index:999;
+  color:$bgYellow;
 }
 .fa.fa-5x.fa-caret-right,.fa.fa-5x.fa-caret-left{
   visibility:hidden;

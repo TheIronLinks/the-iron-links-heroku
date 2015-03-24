@@ -4,9 +4,11 @@
 
 //==========================CARD CTRL==========================
 
-      .controller('CardController', ['MsgService', 'FavService', '$rootScope', function (MsgService, FavService, $rootScope) {
+      .controller('CardController', ['FeaturesService', '$rootScope', function (FeaturesService, $rootScope) {
 
         var cardCtrl = this;
+
+
 
         cardCtrl.selectedCard =function(passedProfile) {
 
@@ -57,14 +59,24 @@
 
         };
 
-        cardCtrl.favoritedCard = function (passed) {
+        cardCtrl.favoriteEmpl = function (passed) {
           var favObj = {
-
+            receiver_id:passed.employer.id
           };
 
-          console.log('getting to favorite card');
+          console.log('getting to favorite in ctrl');
           console.log(passed);
-          FavService.favCard(favObj);
+          FeaturesService.favCard(favObj);
+        };
+
+        cardCtrl.unfavoriteEmpl = function (passed) {
+          var favObj = {
+            receiver_id:passed.employer.id
+          };
+
+          console.log('getting to unfavorite in ctrl');
+          console.log(passed);
+          FeaturesService.unfavCard(favObj);
         };
 
       }])
@@ -84,6 +96,7 @@
           email: '',
           password: ''
         };
+
 
 
         userCtrl.setUser = function() {
@@ -154,12 +167,25 @@
 
       }])
 
+//==========================ROUTE VALIDATION CTRL==========================
+
+      .controller('RouteValidationController', ['$location', 'Auth', function($location, Auth){
+
+        //VALIDATE USER IS LOGGED IN*******************
+        if(Auth.isAuthenticated() === false){
+          $location.path('/');
+        };
+        //*********************************
+
+      }])
+
 //==========================PROFILE CTRL==========================
 
       .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
 
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
+
 
         profileCtrl.getProfile = function() {
           ProfileService.getPanel();

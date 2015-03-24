@@ -1,4 +1,6 @@
-<card-message-directive ng-repeat='modal in cardCtrl.activeCard' msg='modal' close='cardCtrl.clearActiveCard()' send='cardCtrl.sendEmplMsg(modal)' class='modal-animation'></card-message-directive>
-<div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
-  <empl-card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card' action='cardCtrl.selectedCard(card)' favorite='cardCtrl.favoritedCard(card)' class='card-animation'></empl-card-directive>
+<div ng-controller='CardController as cardCtrl'>
+  <card-message-directive ng-repeat='modal in cardCtrl.activeCard' msg='modal' close='cardCtrl.clearActiveCard()' send='cardCtrl.sendEmplMsg(modal)' class='modal-animation'></card-message-directive>
+  <div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
+    <empl-card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card' action='cardCtrl.selectedCard(card)' favorite='cardCtrl.favoriteEmpl(card)' unfavorite='cardCtrl.unfavoriteEmpl(card)' class='card-animation'></empl-card-directive>
+  </div>
 </div>
