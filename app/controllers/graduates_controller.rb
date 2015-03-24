@@ -13,6 +13,21 @@ class GraduatesController < ApplicationController
     end
   end
 
+  def like_employer
+    g = GradEmplFavorite.new({
+      employer_id: params[:employer_id],
+      graduate_id: current_user.id  
+    })
+    g.save
+    render nothing: true
+  end
+
+  def unlike_employer
+    f = GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:employer_id], current_user.id)
+    f.destroy
+    render nothing: true
+  end
+
   def search_graduates
     @graduates = graduate_search
   end

@@ -7,6 +7,7 @@ class EmployersController < ApplicationController
 
   def employer_search
     @employers = the_employer_search(params)
+
     respond_to do |format|
       format.json
       format.html
@@ -43,6 +44,8 @@ class EmployersController < ApplicationController
   end
 
 private
+
+
 
   def set_employer
     @employer = Employer.find params[:id]

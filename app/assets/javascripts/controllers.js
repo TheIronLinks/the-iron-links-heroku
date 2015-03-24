@@ -91,11 +91,6 @@
           });
         };
 
-        userCtrl.resetUser = function(){
-          userCtrl.loginCredentials = cleanLoginCredentials;
-          userCtrl.signUpCredentials = cleanSignUpCredentials;
-        }();
-
         userCtrl.setUser();
 
         $scope.loggedIn = function() {
@@ -106,7 +101,6 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            userCtrl.resetUser();
             $location.url('/newGrad');
           },function(error){
             userCtrl.error_message = error;
@@ -118,7 +112,6 @@
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
-            userCtrl.resetUser();
             userCtrl.setUser();
             $location.url('/graduatePanel')
           }, function(error) {
@@ -133,7 +126,6 @@
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
-            userCtrl.resetUser();
             userCtrl.setUser();
             $scope.goToHome();
           });
