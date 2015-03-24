@@ -169,45 +169,33 @@
         profileCtrl.userData = ProfileService.userData;
 
 
-        profileCtrl.getProfile = function() {
-          ProfileService.getPanel();
-        }();
+        profileCtrl.getGradProfile = function() {
+          ProfileService.getGradPanel();
+        };
+
+        profileCtrl.getEmplProfile = function() {
+          ProfileService.getEmplPanel();
+        };
 
         profileCtrl.routeTo = function (path){
           $location.url(path);
         };
 
-        profileCtrl.addProfile = function (newProfile) {
-          ProfileService.addProfile(newProfile);
+        profileCtrl.addGradProfile = function (newProfile) {
+          ProfileService.addGradProfile(newProfile);
         };
 
-
-
-
-
-
-      }])
-
-//==========================EMPLOYER CTRL==========================
-
-      .controller('EmployerController', ['EmployerService', '$location', function (EmployerService,$location) {
-
-        var employerCtrl = this;
-        employerCtrl.userData = EmployerService.userData;
-
-
-        employerCtrl.addEmployer = function (newEmployer) {
-          EmployerService.addEmployer(newEmployer);
+        profileCtrl.addEmplProfile = function (newProfile) {
+          ProfileService.addEmplProfile(newProfile);
         };
 
-        employerCtrl.routeTo = function (path){
-          $location.url(path);
-        };
+        profileCtrl.updateGradProfile = function (gradProfile) {
+          ProfileService.updateGradProfile(gradProfile)
+        }
 
-        employerCtrl.getEmployer = function() {
-          EmployerService.getPanel();
-        }();
-
+        profileCtrl.updateEmplProfile = function (emplProfile) {
+          ProfileService.updateEmplProfile(emplProfile)
+        }
 
       }])
 
