@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323204933) do
+ActiveRecord::Schema.define(version: 20150324165430) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -33,8 +33,16 @@ ActiveRecord::Schema.define(version: 20150323204933) do
     t.string   "state"
     t.string   "zip"
     t.text     "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "full_street_address"
+    t.string   "motto"
+    t.text     "culture_statement"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -69,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150323204933) do
     t.string   "grad_session"
     t.string   "present_region"
     t.string   "grad_year"
+    t.string   "title"
   end
 
   create_table "job_listings", force: :cascade do |t|
