@@ -2,18 +2,16 @@
   "use strict";
   angular.module('tilAPP')
 
-//==========================CARD SERVICE==========================
+//==========================FEATURES SERVICE==========================
 
-    .factory('CardService', function ($location,$http) {
+    .factory('FeaturesService', function ($location,$http) {
 
-      var url = 'http://localhost:3000//messages.json';
+      var msgUrl = 'http://localhost:3000//messages.json';
+      var favUrl = 'http://localhost:3000//graduates/like_employer.json';
+      var unfavUrl = 'http://localhost:3000//graduates/unlike_employer.json';
 
-      // var getCards = function () {
-      //   return $http.get(url);
-      // };
-
-      var sendMsg = function (passedMsg) {
-        $http.post(url, passedMsg)
+      var sendMsg = function (passed) {
+        $http.post(msgUrl, passed)
         .success(function(){
           console.log('msg sent to server');
         })
@@ -22,8 +20,30 @@
         });
       };
 
+      var favCard = function (passed) {
+        $http.post(favUrl, passed)
+        .success(function(){
+          console.log('fav sent to server');
+        })
+        .error(function(){
+          console.log('failed sending fav to server');
+        });
+      };
+
+      var unfavCard = function (passed) {
+        $http.post(unfavUrl, passed)
+        .success(function(){
+          console.log('unfav sent to server');
+        })
+        .error(function(){
+          console.log('failed sending unfav to server');
+        });
+      };
+
       return {
-        sendMsg: sendMsg
+        sendMsg: sendMsg,
+        favCard: favCard,
+        unfavCard: unfavCard
       };
     })
 
