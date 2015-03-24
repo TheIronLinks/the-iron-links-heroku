@@ -11,11 +11,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="small-6 columns">
+    <div class="small-4 columns">
       <label>City</label>
         <input ng-model='profileCtrl.employerProfile.employer.city' type="text" placeholder="City" />
     </div>
-    <div class="small-6 columns">
+    <div class="small-4 columns">
         <label>State</label>
         <select ng-model="profileCtrl.employerProfile.employer.state">
             <option value="AL">Alabama</option>
@@ -70,11 +70,15 @@
             <option value="WY">Wyoming</option>
           </select>
     </div>
+    <div class="small-4 columns">
+      <label>Zip code</label>
+        <input ng-model='profileCtrl.employerProfile.employer.zip' type="text" placeholder="Zip Code" />
+    </div>
   </div>
   <div class="row">
     <div class="small-4 columns">
       <label for="">Industry</label>
-      <select ng-model="profileCtrl.employerProfile.industry">
+      <select ng-model="profileCtrl.employerProfile.employer.industry">
         <option value="Business-to-consumer">Business-to-consumer</option>
         <option value="Business-to-business">Business-to-business</option>
         <option value="Consulting">Consulting</option>
@@ -85,22 +89,22 @@
     </div>
     <div class="small-4 columns">
       <label for="">Company Size</label>
-        <input ng-model="profileCtrl.employerProfile.size"type="text" placeholder="" />
+        <input ng-model="profileCtrl.employerProfile.employer.size"type="text" placeholder="" />
       </label>
     </div>
     <div class="small-4 columns">
       <label for="">Year Founded</label>
-        <input ng-model="profileCtrl.employerProfile.founded"type="text" placeholder="" />
+        <input ng-model="profileCtrl.employerProfile.employer.founded"type="text" placeholder="" />
     </div>
   </div>
   <div class="row">
     <div class="small-4 columns">
       <label for="">Email</label>
-      <input ng-model="profileCtrl.employerProfile.email"type="text" placeholder="" />
+      <input ng-model="profileCtrl.employerProfile.employer.email"type="text" placeholder="" />
     </div>
     <div class="small-4 columns">
       <label for="">Company Telephone</label>
-        <input ng-model="profileCtrl.employerProfile.phone"type="text" placeholder="" />
+        <input ng-model="profileCtrl.employerProfile.employer.phone"type="text" placeholder="" />
       </label>
     </div>
     <div class="small-4 columns">
@@ -110,7 +114,7 @@
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <label>Company Motto (4-5 words):
+      <label>Company Description (4-5 words):
         <input type='text' ng-model="profileCtrl.employerProfile.employer.motto" placeholder=""/>
       </label>
     </div>
@@ -118,7 +122,7 @@
   <div class="row">
     <div class="small-12 columns">
       <label>Company Culture Statement (5-6 sentences):
-        <textarea ng-model="profileCtrl.gradProfile.graduate.culture_statement" placeholder=""></textarea>
+        <textarea ng-model="profileCtrl.employerProfile.employer.culture_statement" placeholder=""></textarea>
       </label>
     </div>
   </div>

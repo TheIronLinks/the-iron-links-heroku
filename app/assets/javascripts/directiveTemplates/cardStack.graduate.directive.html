@@ -6,8 +6,8 @@
     <div class='fa fa-2x fa-ellipsis-v'></div>
     <div class='card-header card-aqua'><span class='card-label'>{{data.graduate.first_name}} {{data.graduate.last_name}}</span></div>
     <img class='card-one-photo' src="http://placehold.it/175x175">
-    <span class='card-heading-one'>Professional title</span>
-    <span class='card-heading-two'><blockquote><a href="">www.portfolio.com</a><br>myemail@fake.com</blockquote></span>
+    <span class='card-heading-one'>{{data.graduate.title}}</span>
+    <span class='card-heading-two'><blockquote><a href={{data.graduate.links[0].link.url}} target="_blank">View my Portfolio</a><br>E-mail: {{data.graduate.email}}</blockquote></span>
   </li>
 
 <!-- =====================CARD TWO===================== -->
@@ -16,7 +16,6 @@
     <div class='fa fa-2x fa-ellipsis-v'></div>
     <div class='card-header card-aqua'><span class='card-label'>About Me</span></div>
     <span class='card-heading-two add-top-margin'><blockquote>{{data.graduate.additional_info}}</blockquote></span>
-
   </li>
 
 <!-- =====================CARD THREE===================== -->
@@ -29,7 +28,7 @@
     <span class='card-heading-one'>Iron Yard Attended:</span>
     <span class = 'card-heading-two'><blockquote>{{data.graduate.grad_location}}, {{data.graduate.grad_session}} {{data.graduate.grad_year}}</blockquote></span>
     <span class='card-heading-one'>Additional Education:</span>
-    <span class = 'card-heading-two'><blockquote>{{data.graduate.educations[0].education.school_name}} <br> Concentration: {{data.graduate.educations[0].concentration}} <br>Degree type:</blockquote></span>
+    <span class = 'card-heading-two'><blockquote>{{data.graduate.educations[0].education.school_name}} <br> {{data.graduate.educations[0].education.level}}, {{data.graduate.educations[0].education.concentration}}</blockquote></span>
   </li>
 
 <!-- =====================CARD FOUR===================== -->
@@ -38,11 +37,11 @@
     <div class='fa fa-2x fa-ellipsis-v'></div>
     <div class='card-header card-aqua'><span class='card-label'>Contact</span></div>
     <span class='card-heading-one add-top-margin'>Portfolio:</span>
-    <span class='card-heading-two'><blockquote><a href="">www.portfolio.com</a></blockquote></span>
+    <span class='card-heading-two'><blockquote><a href={{data.graduate.links[0].link.url}} target="_blank">{{data.graduate.links[0].link.url}}</a></blockquote></span>
     <span class='card-heading-one'>E-mail:</span>
-    <span class='card-heading-two'><blockquote><a href="">myemail@fake.com</a></blockquote></span>
+    <span class='card-heading-two'><blockquote>{{data.graduate.email}}</blockquote></span>
     <span class='card-heading-one'>Telephone:</span>
-    <span class='card-heading-two'><blockquote><a href="">(111) 222-3333</a></blockquote></span>
+    <span class='card-heading-two'><blockquote>{{data.graduate.phone}}</blockquote></span>
   </li>
 
 <!-- =====================COMMON BUTTONS===================== -->

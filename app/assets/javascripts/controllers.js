@@ -87,7 +87,13 @@
 
         var userCtrl = this;
 
-
+        userCtrl.goToPanel = function() {
+          if(userCtrl.currentUser.userable_type === 'Employer'){
+            $location.url('/employer-panel')
+          }else if(userCtrl.currentUser.userable_type === 'Graduate'){
+            $location.url('/graduate-panel')
+          }
+        };
 
         userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
@@ -110,10 +116,11 @@
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
             if(userCtrl.type === 'graduate'){
-               $location.url('/newGrad');
+               $location.url('/new-grad');
             }else if(userCtrl.type === 'employer'){
-               $location.url('/newEmployer');
+               $location.url('/new-employer');
             }
+            $scope.user = {};
           },function(error){
             userCtrl.error_message = error;
 
@@ -127,19 +134,20 @@
             userCtrl.setUser();
             if(user.userable_type === 'Graduate'){
               console.log('login as grad');
-               $location.url('/graduatePanel');
+               $location.url('/graduate-panel');
              }else if(user.userable_type === 'Employer'){
                console.log('login as empl');
-               $location.url('/employerPanel');
+               $location.url('/employer-panel');
              }
-          }, function(error) {
+             $scope.user = {};
+          },function(error) {
             userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.gotoSignup = function(){
-          $location.url('/newGrad');
+          $location.url('/new-grad');
         };
 
         $scope.submitLogout = function() {
@@ -153,15 +161,11 @@
           $location.path('/');
         };
 
-        $scope.goToPanel = function(){
-          $location.path('/graduatePanel');
-        };
-
       }])
 
 //==========================ROUTE VALIDATION CTRL==========================
 
-      .controller('RouteValidationController', ['$location', 'Auth', function($location, Auth){
+      .controller('RouteValidationController', ['$location', '$rootScope', 'Auth', function($location, $rootScope, Auth){
 
         //VALIDATE USER IS LOGGED IN*******************
         if(Auth.isAuthenticated() === false){
