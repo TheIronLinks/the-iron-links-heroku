@@ -15,6 +15,10 @@
       <input placeholder='Email' type='text' ng-model='user.signUpCredentials.email'>
       <input placeholder='Password' type='password' ng-model="user.signUpCredentials.password" class="logpass">
       <input placeholder='Password Confirmation' type='password' ng-model="user.signUpCredentials.password_confirmation" class="logpass">
+
+      <input class='createNewProfileRadio' type="radio" value='graduate' ng-model='user.type' name='gradType'><label for="gradType" class='makeInline'>New Graduate Account</label>
+      <br>
+      <input class='createNewProfileRadio' type="radio" value='employer' ng-model='user.type' name='emplType'><label for="emplType" class='makeInline'>New Employer Account</label>
       <input type='submit'>
       </form>
     </div>

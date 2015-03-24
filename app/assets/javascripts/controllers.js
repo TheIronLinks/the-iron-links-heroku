@@ -109,10 +109,10 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            if(userCtrl.type === 'grad'){
-              $location.url('/newGrad');
-            }else if(userCtrl.type === 'empl'){
-              $location.url('/newEmployer');
+            if(userCtrl.type === 'graduate'){
+               $location.url('/newGrad');
+            }else if(userCtrl.type === 'employer'){
+               $location.url('/newEmployer');
             }
           },function(error){
             userCtrl.error_message = error;
@@ -126,10 +126,12 @@
             console.log(user);
             userCtrl.setUser();
             if(user.userable_type === 'Graduate'){
-              $location.url('/graduatePanel');
-            }else if(user.userable_type === 'Employer'){
-              $location.url('/employerPanel');
-            }
+              console.log('login as grad');
+               $location.url('/graduatePanel');
+             }else if(user.userable_type === 'Employer'){
+               console.log('login as empl');
+               $location.url('/employerPanel');
+             }
           }, function(error) {
             userCtrl.error_message = error;
             console.log(error);
