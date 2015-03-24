@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324165430) do
+ActiveRecord::Schema.define(version: 20150324171938) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150324165430) do
     t.string   "present_region"
     t.string   "grad_year"
     t.string   "title"
+    t.string   "phone"
   end
 
   create_table "job_listings", force: :cascade do |t|
