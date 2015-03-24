@@ -1,6 +1,6 @@
 <!------------------PANEL VIEW/PANEL MODALS------------------>
 <div class="row" ng-controller='ProfileController as profileCtrl'>
-  <div class="welcomePanel">
+  <div class="welcomePanel" ng-init="profileCtrl.getEmplProfile()">
     <div class="small-4 columns panelLeft">
       <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
       <p>{{profileCtrl.userData.profileData.employer.name}}</p>
@@ -44,32 +44,32 @@
       <div class="modal">
         <label class="modal__bg" for="modal-2"></label>
         <div class="modal__inner">
-          <label class="modal__close" for="modal-2"></label>
+          <label class="modal__close" id="form__close" for="modal-2"></label>
             <h2>Edit Your Profile</h2>
-            <form ng-submit='ProfileCtrl.addProfile(ProfileCtrl.employerProfile)'>
+            <form class='editProfile' ng-submit='profileCtrl.updateEmplProfile(profileCtrl.userData.profileData, profileCtrl.userData.profileData.employer.id)'>
               <div class="row">
                 <div class="small-12 columns">
                   <label>Company Motto:
-                    <textarea ng-model="profileCtrl.employerProfile.employer.motto" placeholder=""></textarea>
+                    <textarea ng-model="profileCtrl.userData.profileData.employer.motto" placeholder=""></textarea>
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="small-6 columns">
-                    <input ng-model='profileCtrl.employerProfile.employer.name' type="text" placeholder="Company Name" />
+                    <input ng-model='profileCtrl.userData.profileData.employer.name' type="text" placeholder="Company Name" />
                 </div>
                 <div class="small-6 columns">
-                    <input ng-model='profileCtrl.employerProfile.employer.address' type="text" placeholder="Company Street Address" />
+                    <input ng-model='profileCtrl.userData.profileData.employer.address' type="text" placeholder="Company Street Address" />
                 </div>
               </div>
               <div class="row">
                 <div class="small-6 columns">
                   <label>City</label>
-                    <input ng-model='profileCtrl.employerProfile.employer.city' type="text" placeholder="City" />
+                    <input ng-model='profileCtrl.userData.profileData.employer.city' type="text" placeholder="City" />
                 </div>
                 <div class="small-6 columns">
                     <label>State</label>
-                    <select ng-model="profileCtrl.employerProfile.employer.state">
+                    <select ng-model="profileCtrl.userData.profileData.employer.state">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -126,7 +126,7 @@
               <div class="row">
                 <div class="small-4 columns">
                   <label for="">Industry</label>
-                  <select ng-model="profileCtrl.employerProfile.industry">
+                  <select ng-model="profileCtrl.userData.profileData.industry">
                     <option value="Business-to-consumer">Business-to-consumer</option>
                     <option value="Business-to-business">Business-to-business</option>
                     <option value="Consulting">Consulting</option>
@@ -137,37 +137,37 @@
                 </div>
                 <div class="small-4 columns">
                   <label for="">Company Size</label>
-                    <input ng-model="profileCtrl.employerProfile.size"type="text" placeholder="" />
+                    <input ng-model="profileCtrl.userData.profileData.size"type="text" placeholder="" />
                   </label>
                 </div>
                 <div class="small-4 columns">
                   <label for="">Year Founded</label>
-                    <input ng-model="profileCtrl.employerProfile.founded"type="text" placeholder="" />
+                    <input ng-model="profileCtrl.userData.profileData.founded"type="text" placeholder="" />
                 </div>
               </div>
               <div class="row">
                 <div class="small-4 columns">
                   <label for="">Email</label>
-                  <input ng-model="profileCtrl.employerProfile.email"type="text" placeholder="" />
+                  <input ng-model="profileCtrl.userData.profileData.email"type="text" placeholder="" />
                 </div>
                 <div class="small-4 columns">
                   <label for="">Company Telephone</label>
-                    <input ng-model="profileCtrl.employerProfile.phone"type="text" placeholder="" />
+                    <input ng-model="profileCtrl.userData.profileData.phone"type="text" placeholder="" />
                   </label>
                 </div>
                 <div class="small-4 columns">
                   <label for="">Company Logo</label>
-                  <input ng-model="profileCtrl.employerProfile.employer.image_url"type="text" placeholder="Enter your Company Image URL...">
+                  <input ng-model="profileCtrl.userData.profileData.employer.image_url"type="text" placeholder="Enter your Company Image URL...">
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 columns">
                   <label>Company Culture Statement:
-                    <textarea ng-model="profileCtrl.gradProfile.graduate.culture_statement" placeholder=""></textarea>
+                    <textarea ng-model="profileCtrl.userData.profileData.graduate.culture_statement" placeholder=""></textarea>
                   </label>
                 </div>
               </div>
-              <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
+              <button type="submit">Submit</button> <button ng-click="profileCtrl.reloadPage()">Cancel</button>
             </form>
         </div>
       </div>
