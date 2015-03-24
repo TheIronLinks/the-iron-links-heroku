@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get 'search_job_listings'
     end
   end
-  resources 'messages' do 
+  resources 'messages' do
     collection do
       get 'unread_messages'
     end

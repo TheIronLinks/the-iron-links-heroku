@@ -3,6 +3,7 @@ $bgRed:#b8584c;
 $bgOrange:#ce832d;
 $bgGreen:#0dc67d;
 $bgAqua:#35a0ad;
+$bgBlue:#3576af;
 $bgYellow:#d5b810;
 $bgCover:rgba(227, 231, 233, 0.9);
 $bgCards:rgb(154, 169, 173);
@@ -154,6 +155,7 @@ $bgCards:rgb(154, 169, 173);
   &:hover{
     transform:scale(1.1);
     cursor:pointer;
+    color:$bgBlue;
   }
   z-index:999;
   color:$cardColor;
@@ -162,6 +164,7 @@ $bgCards:rgb(154, 169, 173);
   &:hover{
     transform:scale(1.1);
     cursor:pointer;
+    color:$bgRed;
   }
   z-index:999;
   color:$cardColor;
@@ -171,6 +174,7 @@ $bgCards:rgb(154, 169, 173);
   &:hover{
     transform:scale(1.1);
     cursor:pointer;
+    color:$bgYellow;
   }
   z-index:999;
   color:$cardColor;
@@ -179,6 +183,7 @@ $bgCards:rgb(154, 169, 173);
   &:hover{
     transform:scale(1.1);
     cursor:pointer;
+    color:$cardColor;
   }
   z-index:999;
   color:$bgYellow;
