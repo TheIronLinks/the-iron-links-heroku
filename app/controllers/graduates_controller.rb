@@ -84,6 +84,7 @@ class GraduatesController < ApplicationController
       :present_state,
       :email,
       :title,
+      :phone,
       links_attributes: [:id, :url, :description, :graduate_id, :_destroy],
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]
