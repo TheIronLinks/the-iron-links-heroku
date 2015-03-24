@@ -51,8 +51,8 @@
 
     .factory('ProfileService', function ($location,$http) {
 
-      var grad_url = 'http://localhost:3000/graduates.json';
-      var employer_url = 'http://localhost:3000/employers.json';
+      var gradUrl = 'http://localhost:3000/graduates.json';
+      var emplUrl = 'http://localhost:3000/employers.json';
 
       var userData = {
         profileData: {
@@ -81,7 +81,7 @@
       };
 
       var addGradProfile = function (newProfile) {
-        $http.post(grad_url, newProfile).success(function(){
+        $http.post(gradUrl, newProfile).success(function(){
           $location.url('/graduatePanel');
         })
         .error(function(){
@@ -90,7 +90,7 @@
       };
 
       var addEmplProfile = function (newProfile) {
-        $http.post(employer_url, newProfile).success(function(){
+        $http.post(emplUrl, newProfile).success(function(){
           $location.url('/employerPanel');
         })
         .error(function(){
@@ -117,15 +117,15 @@
         });
       };
 
-      var updateGradProfile = function (profile) {
-        http.patch(gradUrl, profile)
+      var updateGradProfile = function (profile, id) {
+        $http.patch('/graduates/' + id + '.json', profile)
         .success(function(data){
           getGradPanel()
         });
       }
 
       var updateEmplProfile = function (profile) {
-        http.patch(emplUrl, profile)
+        $http.patch(emplUrl, profile)
         .success(function(data){
           getEmplPanel()
         });
