@@ -87,16 +87,6 @@
 
         var userCtrl = this;
 
-        var cleanSignUpCredentials = {
-          email: '',
-          password: '',
-          password_confirmation: ''
-        };
-        var cleanLoginCredentials = {
-          email: '',
-          password: ''
-        };
-
 
 
         userCtrl.setUser = function() {
