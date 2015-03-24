@@ -109,7 +109,11 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            $location.url('/newGrad');
+            if(userCtrl.type === 'graduate'){
+               $location.url('/newGrad');
+            }else if(userCtrl.type === 'employer'){
+               $location.url('/newEmployer');
+            }
           },function(error){
             userCtrl.error_message = error;
 
@@ -121,7 +125,13 @@
           Auth.login(credentials).then(function(user) {
             console.log(user);
             userCtrl.setUser();
-            $location.url('/graduatePanel')
+            if(user.userable_type === 'Graduate'){
+              console.log('login as grad');
+               $location.url('/graduatePanel');
+             }else if(user.userable_type === 'Employer'){
+               console.log('login as empl');
+               $location.url('/employerPanel');
+             }
           }, function(error) {
             userCtrl.error_message = error;
             console.log(error);
