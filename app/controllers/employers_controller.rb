@@ -26,6 +26,8 @@ class EmployersController < ApplicationController
   def create
     @employer = Employer.create employer_params
     @employer.full_street_address = "#{params[:employer][:address]}, #{params[:employer][:city]}, #{params[:employer][:state]} #{params[:employer][:zip]}"
+    @employer.user = current_user
+    @employer.save
     respond_to do |format|
       format.html{redirect_to employers_path}
       format.json{
