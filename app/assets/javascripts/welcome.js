@@ -6,7 +6,7 @@
     'Devise',
     'ngAnimate',
     'uiGmapgoogle-maps',
-    'twitter.timeline'
+    'twitter.timeline',
   ])
 
   .config(['$httpProvider', function($httpProvider) {
