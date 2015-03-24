@@ -48,6 +48,14 @@ p {
   display: inline;
 }
 
+.row {
+  margin-left: 18%;
+  padding: 0px;
+}
+
+h5 {
+  font-size: 18px;
+}
 /////////////////////////////////SETTING HOME VIEW
 /////////////////////////////////SETTING HOME VIEW
 * {
@@ -236,13 +244,15 @@ button {
   color: white;
 }
 
+.fa-home {
+  padding: 15px;
+  color: white;
+}
 /////////////////////////////////PANEL VIEW
 /////////////////////////////////PANEL VIEW
 .welcomePanel {
-  margin-top: 15%;
-  margin-left: 5%;
-  margin-right: 1.9%;
-  padding: 0px;
+  margin-top: 21%;
+  margin-bottom: 0%;
   width: auto;
   text-align: center;
   background: transparent;

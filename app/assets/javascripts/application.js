@@ -21,9 +21,9 @@
 //= require angular-google-maps.min.js
 //= require lodash.min.js
 //= require twitter-timeline-angular
-//= require mm-foundation.min
 //= require devise
 //= require foundation
+//= require mm-foundation.min
 //= require welcome
 //= require_tree .
 
