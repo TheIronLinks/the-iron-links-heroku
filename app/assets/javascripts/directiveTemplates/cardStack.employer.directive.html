@@ -5,7 +5,7 @@
   <li class='card-inner-wrapper' data-trait='1' data-state='1'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
     <div class='card-header card-orange'><span class='card-label'>{{data.employer.name}}</span></div>
-    <img class='card-one-photo' src="http://placehold.it/175x175">
+    <img class='card-one-photo' src={{data.employer.image_url}}>
     <span class='card-heading-one'>{{data.employer.city}}, {{data.employer.state}}</span>
     <span class='card-heading-two'><blockquote>{{data.employer.motto}}</blockquote></span>
   </li>
@@ -38,7 +38,7 @@
     <div class='fa fa-2x fa-ellipsis-v'></div>
     <div class='card-header card-orange'><span class='card-label'>Contact Us</span></div>
     <span class='card-heading-one add-top-margin'>Company Address:</span>
-    <span class='card-heading-two'><blockquote>{{data.employer.name}}<br>9999 Fake Street<br>{{data.employer.city}}, {{data.employer.state}} {{data.employer.zip}}</blockquote></span>
+    <span class='card-heading-two'><blockquote>{{data.employer.name}}<br>{{data.employer.address}}<br>{{data.employer.city}}, {{data.employer.state}} {{data.employer.zip}}</blockquote></span>
     <span class='card-heading-one'>E-mail:</span>
     <span class='card-heading-two'><blockquote>{{data.employer.email}}</blockquote></span>
     <span class='card-heading-one'>Telephone:</span>
