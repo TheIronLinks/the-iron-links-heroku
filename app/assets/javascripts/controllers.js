@@ -124,7 +124,6 @@
             userCtrl.goToPanel();
           });
         };
-
         userCtrl.setUser();
 
         $scope.loggedIn = function() {
@@ -224,6 +223,7 @@
         profileCtrl.reloadPage = function () {
           $route.reload();
         };
+
 
       }])
 
