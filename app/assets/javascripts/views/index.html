@@ -4,7 +4,7 @@
   <div class='homeForm'>
     <div ng-hide='loggedIn()' class='login-container'>
       Login
-     <form ng-submit='submitLogin()'>
+     <form ng-submit='user.submitLogin()'>
        <input placeholder='Email' type='text' ng-model='user.loginCredentials.email'>
        <input placeholder='Password' type='password' ng-model="user.loginCredentials.password" class="logpass">
        <input type='submit'>

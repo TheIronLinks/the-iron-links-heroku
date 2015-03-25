@@ -19,10 +19,8 @@
         };
 
         cardCtrl.clearActiveCard = function () {
-
           cardCtrl.activeCard = [];
           console.log('active card cleared');
-
         };
 
         cardCtrl.sendGradMsg = function (passed) {
@@ -93,9 +91,9 @@
             $location.url('/employer-panel')
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
             $location.url('/graduate-panel')
-          }else {
-           $location.url('/')
-         }
+          }else{
+            $location.url('/')
+          }
         };
 
         userCtrl.setUser = function() {
@@ -120,19 +118,12 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            if(userCtrl.type === 'graduate'){
-               $location.url('/new-grad');
-            }else if(userCtrl.type === 'employer'){
-               $location.url('/new-employer');
-            }
-            // $scope.user = {};
           },function(error){
             userCtrl.error_message = error;
-
           });
         };
 
-        $scope.submitLogin = function() {
+        userCtrl.submitLogin = function() {
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
@@ -147,17 +138,11 @@
           $location.url('/new-grad');
         };
 
-        $scope.submitLogout = function() {
+        userCtrl.submitLogout = function() {
           Auth.logout().then(function(user) {
             userCtrl.setUser();
-            $scope.goToHome();
           });
         };
-
-        $scope.goToHome = function(){
-          $location.path('/');
-        };
-
       }])
 
 //==========================ROUTE VALIDATION CTRL==========================
@@ -174,11 +159,16 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', ['ProfileService', '$location', '$route', function (ProfileService,$location, $route) {
+      .controller('ProfileController', ['ProfileService', '$location', '$route', 'Auth', function (ProfileService,$location, $route, Auth) {
 
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
 
+        profileCtrl.submitSignOut = function(){
+          Auth.logout().then(function(){
+            $location.url('/');
+          });
+        };
 
         profileCtrl.getGradProfile = function() {
           ProfileService.getGradPanel();
