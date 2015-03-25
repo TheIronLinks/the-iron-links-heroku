@@ -77,7 +77,8 @@ private
       :motto,
       :culture_statement,
       :email,
-      :address
+      :address,
+      :phone
     )
   end
 

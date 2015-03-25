@@ -89,9 +89,9 @@
 
         userCtrl.goToPanel = function() {
           if(userCtrl.currentUser.userable_type === 'Employer'){
-            $location.url('/employer-panel')
+            $location.url('/employer-panel');
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
-            $location.url('/graduate-panel')
+            $location.url('/graduate-panel');
           }
         };
 
@@ -120,7 +120,7 @@
             }else if(userCtrl.type === 'employer'){
                $location.url('/new-employer');
             }
-            $scope.user = {};
+
           },function(error){
             userCtrl.error_message = error;
 
@@ -139,7 +139,7 @@
                console.log('login as empl');
                $location.url('/employer-panel');
              }
-             $scope.user = {};
+
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
