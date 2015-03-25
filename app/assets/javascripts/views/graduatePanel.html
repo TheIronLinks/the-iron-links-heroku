@@ -239,7 +239,9 @@
         <div class="modal__inner">
           <label class="modal__close" for="modal-3"></label>
             <h2>Favorites</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, a enim illo ducimus numquam laudantium? Officiis ut enim eveniet, est nobis nihil ipsa vitae non explicabo molestiae error repudiandae quaerat!</p>
+            <div ng-repeat="favorite in profileCtrl.userData.profileData.graduate.favorites">
+              <p>{{favorite}}</p>
+            </div>
         </div>
       </div>
   </div>
