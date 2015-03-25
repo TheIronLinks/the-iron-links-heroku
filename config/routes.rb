@@ -6,11 +6,14 @@ Rails.application.routes.draw do
     collection do
       get 'get_grad'
       get 'search_graduates'
+      post 'like_employer'
+      post 'unlike_employer'
     end
   end
   resources :employers do
     collection do
       get 'employer_search'
+      get 'get_empl'
     end
     resources 'locations' do
       resources 'job_listings'
@@ -21,7 +24,7 @@ Rails.application.routes.draw do
       get 'search_job_listings'
     end
   end
-  resources 'messages' do 
+  resources 'messages' do
     collection do
       get 'unread_messages'
     end
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
       patch 'viewed'
     end
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

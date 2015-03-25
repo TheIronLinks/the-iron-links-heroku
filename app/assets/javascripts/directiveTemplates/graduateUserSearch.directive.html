@@ -3,11 +3,14 @@
   <!-- =====================GRAD SEARCH===================== -->
 
   <li>
-    <button class='search-graduates-header' ng-click='toggleGradForm = !toggleGradForm; toggleEmplForm = undefined; toggleJobForm = undefined'>Search Graduates</button>
-    <form class='search-form search-graduates-form' ng-submit="searchCtrl.queryGrad(graduate_search); searchCtrl.routeTo('/graduates')" ng-show='toggleGradForm'>
+    <button class='search-graduates-header' ng-click='toggleGradForm = !toggleGradForm; toggleEmplForm = undefined; toggleJobForm = undefined'><i class="fa fa-chevron-right" ng-hide='toggleGradForm'></i><i class="fa fa-chevron-down" ng-show='toggleGradForm'></i>Search Graduates</button>
+    <form class='search-form search-graduates-form' ng-submit="searchCtrl.queryGrad(graduate_search); searchCtrl.routeTo('/graduates')" ng-show='toggleGradForm' ng-animate='vertical-slide'>
       <div class='search-input-wrapper'>
-        <input type='text' placeholder='Search Graduates' data-ng-model='graduate_search.input'>
-        <span ng-click='toggleGradFilters = !toggleGradFilters'>Advanced</span>
+        <div class='search-input-button-combined'>
+          <input type='text' placeholder='Search Graduates' data-ng-model='graduate_search.input'>
+          <button type='submit' class='search-button fa fa-search'></button>
+        </div>
+        <span class='search-filter-button' ng-click='toggleGradFilters = !toggleGradFilters'>Advanced</span>
       </div>
       <div class='search-filter-wrapper' ng-show='toggleGradFilters'>
 
@@ -82,11 +85,14 @@
   <!-- =====================EMPL SEARCH===================== -->
 
   <li>
-    <button class='search-employers-header' ng-click='toggleEmplForm = !toggleEmplForm; toggleGradForm = undefined; toggleJobForm = undefined'>Search Employers</button>
+    <button class='search-employers-header' ng-click='toggleEmplForm = !toggleEmplForm; toggleGradForm = undefined; toggleJobForm = undefined'><i class="fa fa-chevron-right" ng-hide='toggleEmplForm'></i><i class="fa fa-chevron-down" ng-show='toggleEmplForm'></i>Search Employers</button>
     <form class='search-form search-employers-form' ng-submit="searchCtrl.queryEmpl(employer_search); searchCtrl.routeTo('/employers')" ng-show='toggleEmplForm'>
       <div class='search-input-wrapper'>
-        <input type='text' placeholder='Search Employers' data-ng-model='employer_search.input'>
-        <span ng-click='toggleEmplFilters = !toggleEmplFilters'>Advanced</span>
+        <div class='search-input-button-combined'>
+          <input type='text' placeholder='Search Employers' data-ng-model='employer_search.input'>
+          <button type='submit' class='search-button fa fa-search'></button>
+        </div>
+        <span class='search-filter-button' ng-click='toggleEmplFilters = !toggleEmplFilters'>Advanced</span>
       </div>
       <div class='search-filter-wrapper' ng-show='toggleEmplFilters'>
 
@@ -97,6 +103,7 @@
           <option value='Consulting'>Consulting</option>
           <option value='Defense'>Defense</option>
           <option value='Design'>Design</option>
+          <option value='Other'>Other</option>
         </select>
 
         <select data-ng-model='employer_search.location'>
@@ -115,11 +122,14 @@
   <!-- =====================JOB SEARCH===================== -->
 
   <li>
-    <button class='search-jobs-header' ng-click='toggleJobForm = !toggleJobForm; toggleGradForm = undefined; toggleEmplForm = undefined'>Search Jobs</button>
+    <button class='search-jobs-header' ng-click='toggleJobForm = !toggleJobForm; toggleGradForm = undefined; toggleEmplForm = undefined'><i class="fa fa-chevron-right" ng-hide='toggleJobForm'></i><i class="fa fa-chevron-down" ng-show='toggleJobForm'></i>Search Jobs</button>
     <form class='search-form search-jobs-form' ng-submit="searchCtrl.queryJob(job_search); searchCtrl.routeTo('/jobs')" ng-show='toggleJobForm'>
       <div class='search-input-wrapper'>
-        <input type='text' placeholder='Search Jobs' data-ng-model='job_search.input'>
-        <span ng-click='toggleJobFilters = !toggleJobFilters'>Advanced</span>
+        <div class='search-input-button-combined'>
+          <input type='text' placeholder='Search Jobs' data-ng-model='job_search.input'>
+          <button type='submit' class='search-button fa fa-search'></button>
+        </div>
+        <span class='search-filter-button' ng-click='toggleJobFilters = !toggleJobFilters'>Advanced</span>
       </div>
       <div class='search-filter-wrapper' ng-show='toggleJobFilters'>
 
@@ -139,6 +149,7 @@
           <option value='Consulting'>Consulting</option>
           <option value='Defense'>Defense</option>
           <option value='Design'>Design</option>
+          <option value='Other'>Other</option>
         </select>
 
         <select data-ng-model='job_search.location'>

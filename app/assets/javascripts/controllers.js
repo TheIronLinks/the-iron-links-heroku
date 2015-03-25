@@ -3,7 +3,7 @@
     angular.module('tilAPP')
 
 //==========================CARD CTRL==========================
-      .controller('CardController', ['CardService', function (CardService) {
+      .controller('CardController', ['FeaturesService', '$rootScope', function (FeaturesService, $rootScope) {
 
         var cardCtrl = this;
 
@@ -14,6 +14,76 @@
         .error(function(){
           console.log('cardCtrl.stack error')
         });
+
+        cardCtrl.selectedCard =function(passedProfile) {
+
+          cardCtrl.activeCard = [passedProfile];
+          console.log('active card loaded');
+          console.log(cardCtrl.activeCard);
+
+        };
+
+        cardCtrl.clearActiveCard = function () {
+
+          cardCtrl.activeCard = [];
+          console.log('active card cleared');
+
+        };
+
+        cardCtrl.sendGradMsg = function (passed) {
+
+          var msgObj = {
+            message: {
+              receiver_id:passed.graduate.id,
+              title: passed.message_from_card.subject,
+              content:passed.message_from_card.content,
+              message_type: 'message',
+              receiver_type: passed.graduate.class
+            }
+          };
+          console.log(msgObj);
+          cardCtrl.clearActiveCard();
+          FeaturesService.sendMsg(msgObj);
+
+        };
+
+        cardCtrl.sendEmplMsg = function (passed) {
+
+          var msgObj = {
+            message: {
+              receiver_id:passed.employer.id,
+              title: passed.message_from_card.subject,
+              content:passed.message_from_card.content,
+              message_type: 'message',
+              receiver_type: passed.employer.class
+            }
+          };
+          console.log(msgObj);
+          cardCtrl.clearActiveCard();
+          FeaturesService.sendMsg(msgObj);
+
+        };
+
+        cardCtrl.favoriteEmpl = function (passed) {
+          var favObj = {
+            receiver_id:passed.employer.id
+          };
+
+          console.log('getting to favorite in ctrl');
+          console.log(passed);
+          FeaturesService.favCard(favObj);
+        };
+
+        cardCtrl.unfavoriteEmpl = function (passed) {
+          var favObj = {
+            receiver_id:passed.employer.id
+          };
+
+          console.log('getting to unfavorite in ctrl');
+          console.log(passed);
+          FeaturesService.unfavCard(favObj);
+        };
+
       }])
 
 //==========================USER CTRL==========================
@@ -21,6 +91,15 @@
       .controller('userCtrl', ['$routeParams', '$location', '$scope', '_', 'Auth', function($routeParams, $location, $scope, _, Auth){
 
         var userCtrl = this;
+
+        userCtrl.goToPanel = function() {
+          console.log(userCtrl.currentUser.userable_type);
+          if(userCtrl.currentUser.userable_type === 'Employer'){
+            $location.url('/employer-panel')
+          }else if(userCtrl.currentUser.userable_type === 'Graduate'){
+            $location.url('/graduate-panel')
+          }
+        };
 
         userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
@@ -42,8 +121,12 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            $scope.signUpCredentials='';
-            $location.url('/newGrad');
+            if(userCtrl.type === 'graduate'){
+               $location.url('/new-grad');
+            }else if(userCtrl.type === 'employer'){
+               $location.url('/new-employer');
+            }
+            // $scope.user = {};
           },function(error){
             userCtrl.error_message = error;
           });
@@ -54,20 +137,25 @@
           Auth.login(credentials).then(function(user) {
             console.log(user);
             userCtrl.setUser();
-            $location.url('/graduatePanel')
-          }, function(error) {
+            if(user.userable_type === 'Graduate'){
+              console.log('login as grad');
+               $location.url('/graduate-panel');
+             }else if(user.userable_type === 'Employer'){
+               console.log('login as empl');
+               $location.url('/employer-panel');
+             }
+          },function(error) {
             userCtrl.error_message = error;
             console.log(error);
           });
         };
 
         $scope.gotoSignup = function(){
-          $location.url('/newGrad');
+          $location.url('/new-grad');
         };
 
         $scope.submitLogout = function() {
           Auth.logout().then(function(user) {
-            $scope.currentUser = user;
             userCtrl.setUser();
             $scope.goToHome();
           });
@@ -79,50 +167,59 @@
 
       }])
 
+//==========================ROUTE VALIDATION CTRL==========================
+
+      .controller('RouteValidationController', ['$location', '$rootScope', 'Auth', function($location, $rootScope, Auth){
+
+        //VALIDATE USER IS LOGGED IN*******************
+        // if(Auth.isAuthenticated() === false){
+        //   $location.path('/');
+        // };
+        //*********************************
+
+      }])
+
 //==========================PROFILE CTRL==========================
-      .controller('ProfileController', ['ProfileService', '$location', function (ProfileService,$location) {
+      .controller('ProfileController', ['ProfileService', '$location', '$route', function (ProfileService,$location, $route) {
 
-        var profileCtrl = this;
-        profileCtrl.userData = ProfileService.userData;
 
-        profileCtrl.getProfile = function() {
-          ProfileService.getPanel();
-        }();
+        profileCtrl.getGradProfile = function() {
+          ProfileService.getGradPanel();
+        };
+
+        profileCtrl.getEmplProfile = function() {
+          ProfileService.getEmplPanel();
+        };
 
         profileCtrl.routeTo = function (path){
           $location.url(path);
         };
 
-        profileCtrl.addProfile = function (newProfile) {
-          ProfileService.addProfile(newProfile);
+        profileCtrl.addGradProfile = function (newProfile) {
+          ProfileService.addGradProfile(newProfile);
         };
 
-
-
-
-
-
-      }])
-
-//==========================EMPLOYER CTRL==========================
-
-      .controller('EmployerController', ['EmployerService', '$location', function (EmployerService,$location) {
-
-        var employerCtrl = this;
-        employerCtrl.userData = EmployerService.userData;
-
-
-        employerCtrl.addEmployer = function (newEmployer) {
-          EmployerService.addEmployer(newEmployer);
+        profileCtrl.addEmplProfile = function (newProfile) {
+          ProfileService.addEmplProfile(newProfile);
         };
 
-        employerCtrl.routeTo = function (path){
-          $location.url(path);
+        profileCtrl.updateGradProfile = function (gradProfile, id) {
+          ProfileService.updateGradProfile(gradProfile, id)
+          $('#form__close').click();
         };
+        
         employerCtrl.getEmployer = function() {
           EmployerService.getPanel();
         }();
 
+        profileCtrl.updateEmplProfile = function (emplProfile, id) {
+          ProfileService.updateEmplProfile(emplProfile, id)
+          $('#form__close').click();
+        };
+
+        profileCtrl.reloadPage = function () {
+          $route.reload();
+        };
 
       }])
 
@@ -139,7 +236,6 @@
           SearchService.queryGrad(graduate_search);
           $scope.graduate_search = {};
         };
-
 
         searchCtrl.queryEmpl = function (employer_search) {
           SearchService.queryEmpl(employer_search);

@@ -2,18 +2,48 @@
   "use strict";
   angular.module('tilAPP')
 
-//==========================CARD SERVICE==========================
+//==========================FEATURES SERVICE==========================
 
-    .factory('CardService',['$location', '$http', function ($location,$http) {
+    .factory('FeaturesService', ['$location', '$http', function ($location,$http) {
 
-      var url = 'http://localhost:3000/employers.json';
+      var msgUrl = '/messages.json';
+      var favUrl = '/graduates/like_employer.json';
+      var unfavUrl = '/graduates/unlike_employer.json';
 
-      var getCards = function () {
-        return $http.get(url);
+      var sendMsg = function (passed) {
+        $http.post(msgUrl, passed)
+        .success(function(){
+          console.log('msg sent to server');
+        })
+        .error(function(){
+          console.log('failed sending msg to server');
+        });
+      };
+
+      var favCard = function (passed) {
+        $http.post(favUrl, passed)
+        .success(function(){
+          console.log('fav sent to server');
+        })
+        .error(function(){
+          console.log('failed sending fav to server');
+        });
+      };
+
+      var unfavCard = function (passed) {
+        $http.post(unfavUrl, passed)
+        .success(function(){
+          console.log('unfav sent to server');
+        })
+        .error(function(){
+          console.log('failed sending unfav to server');
+        });
       };
 
       return {
-        getCards: getCards
+        sendMsg: sendMsg,
+        favCard: favCard,
+        unfavCard: unfavCard
       };
     }])
 
@@ -21,7 +51,8 @@
 
     .factory('ProfileService',['$location', '$http', function ($location,$http) {
 
-      var url = 'http://localhost:3000/graduates.json';
+      var gradUrl = '/graduates.json';
+      var emplUrl = '/employers.json';
 
       var userData = {
         profileData: {
@@ -35,20 +66,40 @@
             current_location: "",
             additional_info: "",
             image_url: ""
-            }
+          },
+          employer: {
+            name: "",
+            industry: "",
+            founded: "",
+            size: "",
+            city: "",
+            state: "",
+            zip: "",
+            image_url: "",
           }
-        };
+        }
+      };
 
-      var addProfile = function (newProfile) {
-        $http.post(url, newProfile).success(function(){
-          $location.url('/graduatePanel');
+      var addGradProfile = function (newProfile) {
+        $http.post(gradUrl, newProfile).success(function(){
+          $location.url('/graduate-panel');
         })
         .error(function(){
           console.log('service/add profile error');
         });
       };
 
-      var getPanel = function() {
+      var addEmplProfile = function (newProfile) {
+        $http.post(emplUrl, newProfile).success(function(){
+          $location.url('/employer-panel');
+        })
+        .error(function(){
+          console.log('service/add profile error');
+        });
+      };
+
+
+      var getGradPanel = function() {
         $http.get('/graduates/get_grad.json')
         .success(function(data){
           console.log(data)
@@ -65,9 +116,9 @@
 
 //==========================EMPLOYER SERVICE==========================
 
-    .factory('EmployerService', function ($location,$http) {
+    .factory('EmployerService', ['$location', '$http', function ($location,$http) {
 
-      var url = 'http://localhost:3000/employers.json';
+      var url = '/employers.json';
 
       var employerData = {
         empData: {
@@ -84,29 +135,76 @@
           }
         };
 
-      var addProfile = function (newEmployer) {
-        $http.post(url, newEmployer).success(function(){
-          $location.url('/graduatePanel');
-        })
-        .error(function(){
-          console.log('service/add employer error');
+      var getEmplPanel = function() {
+        $http.get('/employers/get_empl.json')
+        .success(function(data){
+          console.log(data)
+          userData.profileData = data;
+          console.log(userData.profileData)
         });
       };
 
-      var getPanel = function() {
-        $http.get('/employers/get_employer.json')
+      var updateGradProfile = function (profile, id) {
+        $http.patch('/graduates/' + id + '.json', profile)
         .success(function(data){
-          console.log(data)
-          userData.employerData = data;
-          console.log(userData.employerData)
+          getGradPanel()
+        });
+      }
+
+      var updateEmplProfile = function (profile, id) {
+        $http.patch('/employers/' + id + '.json', profile)
+        .success(function(data){
+          getEmplPanel()
         });
       };
+
       return {
-        addEmployer: addEmployer,
+        addGradProfile: addGradProfile,
+        addEmplProfile: addEmplProfile,
         userData: userData,
-        getPanel: getPanel
+        getGradPanel: getGradPanel,
+        getEmplPanel: getEmplPanel,
+        updateEmplProfile: updateEmplProfile,
+        updateGradProfile: updateGradProfile
+
       };
-        })
+    }])
+
+//==========================EMPLOYER SERVICE==========================
+    //
+    // .factory('EmployerService', function ($location,$http) {
+    //
+    //   var url = '/employers.json';
+    //
+    //   var employerData = {
+    //     empData: {
+    //
+    //       }
+    //     };
+    //
+    //   var addProfile = function (newEmployer) {
+    //     $http.post(url, newEmployer).success(function(){
+    //       $location.url('/graduate-panel');
+    //     })
+    //     .error(function(){
+    //       console.log('service/add employer error');
+    //     });
+    //   };
+    //
+    //   var getPanel = function() {
+    //     $http.get('/employers/get_employer.json')
+    //     .success(function(data){
+    //       console.log(data)
+    //       userData.employerData = data;
+    //       console.log(userData.employerData)
+    //     });
+    //   };
+    //   return {
+    //     addEmployer: addEmployer,
+    //     userData: userData,
+    //     getPanel: getPanel
+    //   };
+    //     })
 //==========================SEARCH SERVICE==========================
 
     .factory('SearchService',['$http', function ($http) {

@@ -15,25 +15,17 @@
         %nav.tab-bar
           %section.middle.tab-bar-section
             %a.logoBar
-              %img.logoBar{:src => "assets/finalLogo7.png", 'ng-click': 'goToHome()'}
+              %img.logoBar{:src => "assets/finalLogo7.png", 'ng-click': 'user.goToPanel()'}
           %a.right-off-canvas-toggle
             %section.right-small
               %i.fa.fa-search
-          %a.left-off-canvas-toggle
+          %a{'ng-click': 'user.goToPanel()'}
             %section.left-small
-              %i.fa.fa-user
-        %aside.left-off-canvas-menu
-          %ul.off-canvas-list
-            %li
-              %a{"ng-click" => "submitLogout()", "ng-show" => "loggedIn()"} Logout
-            %li
-              %a settings
+              %i.fa.fa-home
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
             %li
             = render "layouts/searchSidebar"
         %section.main-section
-          .row
-            .large-12.small-12.columns
-              = yield
+          = yield
         %a.exit-off-canvas

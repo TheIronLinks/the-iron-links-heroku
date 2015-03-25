@@ -6,15 +6,29 @@ class EmployersController < ApplicationController
   end
 
   def employer_search
-    @employers = the_employer_search(params)
+    @employers = search_employers(params)
+
     respond_to do |format|
       format.json
       format.html
     end
   end
 
+  def get_empl
+    if user_signed_in?
+      @employer = Employer.find current_user.userable_id
+      @messages = Message.where('receiver_id = ?', @employer.id)
+    else
+      @employer = []
+    end
+  end
+
   def create
+    p params
     @employer = Employer.create employer_params
+    @employer.full_street_address = "#{params[:employer][:address]}, #{params[:employer][:city]}, #{params[:employer][:state]} #{params[:employer][:zip]}"
+    @employer.user = current_user
+    @employer.save
     respond_to do |format|
       format.html{redirect_to employers_path}
       format.json{
@@ -44,6 +58,8 @@ class EmployersController < ApplicationController
 
 private
 
+
+
   def set_employer
     @employer = Employer.find params[:id]
   end
@@ -57,14 +73,18 @@ private
       :city,
       :state,
       :zip,
-      :image_url
+      :image_url,
+      :motto,
+      :culture_statement,
+      :email,
+      :address,
+      :phone
     )
   end
 
-  def the_employer_search(input)
+  def search_employers(input)
     e = simple_employer_search(input)
     if input[:location] || input[:industry]
-      p 'past if 1'
       e = advanced_employer_search(e, input)
     end
     return e

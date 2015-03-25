@@ -4,42 +4,59 @@
 
   <li class='card-inner-wrapper' data-trait='1' data-state='1'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
-    <span class='cardLabel'>{{data.employer.name}}</span>
-    <span class='cardID'>1</span>
+    <div class='card-header card-orange'><span class='card-label'>{{data.employer.name}}</span></div>
+    <img class='card-one-photo' src="http://placehold.it/175x175">
+    <span class='card-heading-one'>{{data.employer.city}}, {{data.employer.state}}</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.motto}}</blockquote></span>
   </li>
 
 <!-- =====================CARD TWO===================== -->
 
   <li class='card-inner-wrapper' data-trait='2' data-state='2'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
-    <span class='cardLabel'>About</span>
+    <div class='card-header card-orange'><span class='card-label'>About Us</span></div>
+    <span class='card-heading-one add-top-margin'>Company Founded:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.founded}}</blockquote></span>
+    <span class='card-heading-one'>Current Size:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.size}} employees</blockquote></span>
+    <span class='card-heading-one'>Primary Industry:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.industry}}</blockquote></span>
 
-    <span class='cardID'>2</span>
   </li>
 
 <!-- =====================CARD THREE===================== -->
 
   <li class='card-inner-wrapper' data-trait='3' data-state='3'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
-    <span class='cardLabel'>History</span>
-
-    <span class='cardID'>3</span>
+    <div class='card-header card-orange'><span class='card-label'>Our Culture</span></div>
+    <span class='card-heading-two add-top-margin'><blockquote>{{data.employer.culture_statement}}</blockquote></span>
   </li>
 
 <!-- =====================CARD FOUR===================== -->
 
   <li class='card-inner-wrapper' data-trait='4' data-state='4'>
     <div class='fa fa-2x fa-ellipsis-v'></div>
-    <div class='fa fa-lg fa-flip-horizontal fa-expand'></div>
-    <span class='cardLabel'>Contact</span>
-
-    <span class='cardID'>4</span>
+    <div class='card-header card-orange'><span class='card-label'>Contact Us</span></div>
+    <span class='card-heading-one add-top-margin'>Company Address:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.name}}<br>9999 Fake Street<br>{{data.employer.city}}, {{data.employer.state}} {{data.employer.zip}}</blockquote></span>
+    <span class='card-heading-one'>E-mail:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.email}}</blockquote></span>
+    <span class='card-heading-one'>Telephone:</span>
+    <span class='card-heading-two'><blockquote>{{data.employer.phone}}</blockquote></span>
   </li>
+
+<!-- =====================COMMON BUTTONS===================== -->
+
 
   <div class='fa fa-5x fa-caret-left' rel='left'></div>
   <div class='fa fa-5x fa-caret-right' rel='right'></div>
+  <div class='card-buttons-wrapper-outer'>
+    <div class="card-buttons-wrapper">
+      <div class='fa fa-2x fa-star white' ng-click="favorite()"></div>
+      <div class='fa fa-2x fa-star yellow' ng-click="unfavorite()"></div>
+      <div class="fa fa-2x fa-envelope" ng-click="action('{card: card}')"></div>
+      <div class="fa fa-2x fa-map-marker"></div>
+    </div>
+  </div>
 
 </ul>

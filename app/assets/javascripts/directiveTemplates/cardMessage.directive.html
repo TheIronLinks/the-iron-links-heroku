@@ -1,0 +1,18 @@
+<div class="card-message-surround"  ng-click='close()'>
+  <div class='card-message-wrapper'>
+    <div class="fa fa-lg fa-times" ng-click='close()'></div>
+    <h3>Message to {{msg.employer.name}} {{msg.graduate.first_name}}  {{msg.graduate.last_name}} {{data.job.name}}</h3>
+    <form class='msgForm'>
+      <input type="text" placeholder='Subject' data-ng-model='msg.message_from_card.subject'>
+      <textarea placeholder='Message' data-ng-model='msg.message_from_card.content'></textarea>
+      <button ng-click="send()">Send</button>
+    </form>
+  </div>
+</div>
+<!-- <div class="card-message-surround"  ng-click='close()'>
+  <div class='card-message-wrapper'>
+    <div class="fa fa-lg fa-times" ng-click='close()'></div>
+    <h3>{{msg.employer.name}} HQ Location</h3>
+    <ui-gmap-google-map center="{latitude: 51.219053, longitude: 4.404418}" zoom="14"></ui-gmap-google-map>
+  </div>
+</div> -->

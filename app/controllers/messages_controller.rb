@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_id
   def index
-    @messages = Message.where('receiver_id = ?', '#{@id}')
+    @messages = Message.where('receiver_id = ?', @id)
   end
 
   def sent
@@ -15,6 +15,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create message_params
+    @message.sender_id = params[:message][:receiver_type].constantize.find(params[:message][:receiver_id]).user.id
+    @message.save
+    respond_to do |format|
+      format.json{render nothing: true}
+    end
   end
 
   def unread_messages
@@ -34,7 +39,7 @@ class MessagesController < ApplicationController
       :receiver_id,
       :title,
       :content,
-      :type,
+      :message_type,
       :viewed
     )
   end

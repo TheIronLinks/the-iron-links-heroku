@@ -6,10 +6,26 @@ class GraduatesController < ApplicationController
   def get_grad
     if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
-      @messages = Message.where('receiver_id = ?', '#{@graduate.id}')
+      @messages = Message.where('receiver_id = ?', @graduate.id)
+      @favorites = get_favorites
+      p @favorites
     else
       @graduate = []
     end
+  end
+
+  def like_employer
+    GradEmplFavorite.create({
+      employer_id: params[:receiver_id],
+      graduate_id: current_user.id
+    })
+    render nothing: true
+  end
+
+  def unlike_employer
+    f = GradEmplFavorite.where('employer_id = ? AND graduate_id = ?', params[:receiver_id], current_user.id)[0]
+    f.destroy
+    render nothing: true
   end
 
   def search_graduates
@@ -27,6 +43,10 @@ class GraduatesController < ApplicationController
         render nothing: true
       end
     end
+  end
+
+  def edit
+    set_graduate
   end
 
   def update
@@ -64,6 +84,9 @@ class GraduatesController < ApplicationController
       :grad_year,
       :present_city,
       :present_state,
+      :email,
+      :title,
+      :phone,
       links_attributes: [:id, :url, :description, :graduate_id, :_destroy],
       experiences_attributes: [:id, :company, :description, :position, :graduate_id, :_destroy],
       educations_attributes: [:id, :school_name, :start_date, :end_date, :concentration, :graduate_id]
@@ -88,6 +111,15 @@ class GraduatesController < ApplicationController
       end
     end
     return results
+  end
+
+  def get_favorites
+    f = GradEmplFavorite.where('graduate_id = ?', current_user.id)
+    r = []
+    f.each do |favorite|
+      r.push(Employer.find(favorite.employer_id).name)
+    end
+    return r
   end
 
   def graduate_search
