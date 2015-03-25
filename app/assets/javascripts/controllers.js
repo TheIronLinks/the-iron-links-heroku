@@ -38,7 +38,7 @@
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          MsgService.sendMsg(msgObj);
+          FeaturesService.sendMsg(msgObj);
 
         };
 
@@ -55,7 +55,7 @@
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          MsgService.sendMsg(msgObj);
+          FeaturesService.sendMsg(msgObj);
 
         };
 
