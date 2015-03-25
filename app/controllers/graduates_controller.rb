@@ -15,8 +15,7 @@ class GraduatesController < ApplicationController
     if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
       @messages = Message.where('receiver_id = ?', @graduate.id).reverse
-      @favorites = get_favorites
-      p @favorites
+      @employers = @graduate.favorited_employers
     else
       @graduate = []
     end
