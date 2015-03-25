@@ -12,6 +12,11 @@
 
 /////////////////////////////////GENERAL SETTINGS
 /////////////////////////////////GENERAL SETTINGS
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+
 * {
 font-family: 'Playfair Display', serif;
 }

@@ -13,7 +13,7 @@ class Graduate < ActiveRecord::Base
     f = GradEmplFavorite.where('graduate_id = ?', u.id)
     r = []
     f.each do |favorite|
-      r.push(Employer.find(favorite.employer_id).name)
+      r.push(Employer.find(favorite.employer_id))
     end
     return r
   end

@@ -239,8 +239,10 @@
         <div class="modal__inner">
           <label class="modal__close" for="modal-3"></label>
             <h2>Favorites</h2>
-            <div ng-repeat="favorite in profileCtrl.userData.profileData.graduate.favorites">
-              <p>{{favorite}}</p>
+            <div ng-repeat="favorite in profileCtrl.userData.profileData.graduate.employers">
+              <p>{{favorite.employer.name}}</p>
+              <p>{{favorite.employer.phone}}</p>
+              <p>{{favorite.employer.full_street_address}}</p>
             </div>
         </div>
       </div>

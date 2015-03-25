@@ -1,20 +1,23 @@
-= link_to "New Employer", new_employer_path
-%br/
-- @employers.each do |employer|
-  = employer.name
-  %br/
-  = employer.industry
-  %br/
-  = employer.founded
-  %br/
-  = employer.size
-  %br/
-  = employer.city
-  %br/
-  = employer.state
-  %br/
-  = employer.zip
-  %br/
-  = image_tag(employer.image_url)
-  %br/
-  = link_to "Show", employer_path(employer)
+.row.admin-panel
+  .columns.small-12  
+    = link_to "New Employer", new_employer_path
+    %br/
+    - @employers.each do |employer|
+      = employer.name
+      %br/
+      = employer.industry
+      %br/
+      = employer.founded
+      %br/
+      = employer.size
+      %br/
+      = employer.city
+      %br/
+      = employer.state
+      %br/
+      = employer.zip
+      %br/
+      = image_tag(employer.image_url)
+      %br/
+      = link_to "Show", employer_path(employer)
+      %br/
