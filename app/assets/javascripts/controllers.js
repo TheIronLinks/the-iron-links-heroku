@@ -18,9 +18,26 @@
 
         };
 
+        cardCtrl.selectedMap = function(passedProfile){
+          passedProfile.mapCenter = {
+            latitude:passedProfile.employer.latitude,
+            longitude:passedProfile.employer.longitude
+          };
+          passedProfile.mapMarker = {
+            latitude:passedProfile.employer.latitude,
+            longitude:passedProfile.employer.longitude
+          };
+          cardCtrl.mapCard = [passedProfile];
+          console.log('map card loaded');
+          console.log(cardCtrl.mapCard);
+
+        };
+
         cardCtrl.clearActiveCard = function () {
           cardCtrl.activeCard = [];
-          console.log('active card cleared');
+          console.log('msg card cleared');
+          cardCtrl.mapCard = [];
+          console.log('map card cleared');
         };
 
         cardCtrl.sendGradMsg = function (passed) {
@@ -88,7 +105,7 @@
         userCtrl.goToPanel = function() {
           console.log(userCtrl.currentUser.userable_type);
           if(userCtrl.currentUser.userable_type === 'Employer'){
-            $location.url('/employer-panel')
+            $location.url('/employer-panel');
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
             $location.url('/graduate-panel')
           }else{
