@@ -102,7 +102,8 @@
             userCtrl.error_message = '';
             userCtrl.goToPanel();
           },function(error){
-            userCtrl.currentUser = {userable_type: ''};
+            userCtrl.currentUser = '';
+            userCtrl.error_message = error;
             userCtrl.goToPanel();
           });
         };
@@ -127,7 +128,6 @@
           Auth.login(credentials).then(function(user) {
             console.log(user);
             userCtrl.setUser();
-            userCtrl.goToPanel();
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);

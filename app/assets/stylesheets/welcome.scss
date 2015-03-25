@@ -12,6 +12,9 @@
 
 /////////////////////////////////GENERAL SETTINGS
 /////////////////////////////////GENERAL SETTINGS
+* {
+font-family: 'Playfair Display', serif;
+}
 .admin-panel{
   background-color: white
 }
@@ -32,6 +35,8 @@ img.logoBar {
   color: white;
   padding: 10px;
   margin-top: -10px;
+  font-size: 25px;
+  font-family: 'Playfair Display', serif;
 }
 
 p {
@@ -58,9 +63,6 @@ h5 {
 }
 /////////////////////////////////SETTING HOME VIEW
 /////////////////////////////////SETTING HOME VIEW
-* {
-font-family: 'Playfair Display', serif;
-}
 
 .main-section {
   padding: 0px;
@@ -279,6 +281,7 @@ button {
   padding: 0px;
   margin: 0px;
   border: 0px;
+  background: transparent;
 }
 
 .small-4.columns.panelLeft {
@@ -425,39 +428,43 @@ button {
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn2 {
   cursor: pointer;
-  background: #B69C2A;
+  background: #39474E;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn3 {
   cursor: pointer;
-  background: #9C6527;
+  background: #1C4857;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn4 {
   cursor: pointer;
-  background: #5B9D99;
+  background: #6F3D38;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn5 {
