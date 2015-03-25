@@ -88,6 +88,7 @@
         var userCtrl = this;
 
         userCtrl.goToPanel = function() {
+          console.log(userCtrl.currentUser.userable_type);
           if(userCtrl.currentUser.userable_type === 'Employer'){
             $location.url('/employer-panel')
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
@@ -120,7 +121,7 @@
             }else if(userCtrl.type === 'employer'){
                $location.url('/new-employer');
             }
-            $scope.user = {};
+            // $scope.user = {};
           },function(error){
             userCtrl.error_message = error;
 
@@ -139,7 +140,7 @@
                console.log('login as empl');
                $location.url('/employer-panel');
              }
-             $scope.user = {};
+             // $scope.user = {};
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
@@ -168,9 +169,9 @@
       .controller('RouteValidationController', ['$location', '$rootScope', 'Auth', function($location, $rootScope, Auth){
 
         //VALIDATE USER IS LOGGED IN*******************
-        if(Auth.isAuthenticated() === false){
-          $location.path('/');
-        };
+        // if(Auth.isAuthenticated() === false){
+        //   $location.path('/');
+        // };
         //*********************************
 
       }])

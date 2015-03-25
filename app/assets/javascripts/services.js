@@ -90,7 +90,7 @@
       };
 
       var addEmplProfile = function (newProfile) {
-        $http.post(employer_url, newProfile).success(function(){
+        $http.post(emplUrl, newProfile).success(function(){
           $location.url('/employer-panel');
         })
         .error(function(){
