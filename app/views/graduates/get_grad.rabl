@@ -5,8 +5,8 @@ child(:educations) do
   attributes :school_name, :level, :concentraton
 end
 
-node(:favorites) do
-  @graduate.favorited_employers
+child(@employers) do
+  attributes :id, :name, :full_street_address, :phone
 end
 
 child(@messages) do

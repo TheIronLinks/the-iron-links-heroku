@@ -51,8 +51,8 @@
 
     .factory('ProfileService', function ($location,$http) {
 
-      var grad_url = 'http://localhost:3000/graduates.json';
-      var employer_url = 'http://localhost:3000/employers.json';
+      var gradUrl = 'http://localhost:3000/graduates.json';
+      var emplUrl = 'http://localhost:3000/employers.json';
 
       var userData = {
         profileData: {

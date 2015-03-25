@@ -1,7 +1,7 @@
 <div class="row" ng-controller='ProfileController as profileCtrl'>
 <div class="newProfile">
 <h3>Create your new profile.</h3>
-<form ng-submit='profileCtrl.addGradProfile(profileCtrl.gradProfile)'>
+<form ng-submit='profileCtrl.addGradProfile(profileCtrl.gradProfile); user.setUser()'>
   <div class="row">
     <div class="small-6 columns">
         <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
