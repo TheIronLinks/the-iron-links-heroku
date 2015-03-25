@@ -93,16 +93,20 @@
             $location.url('/employer-panel')
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
             $location.url('/graduate-panel')
-          }
+          }else {
+           $location.url('/')
+         }
         };
 
         userCtrl.setUser = function() {
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
+            userCtrl.goToPanel();
           },function(error){
             userCtrl.currentUser = '';
             userCtrl.error_message = error;
+            userCtrl.goToPanel();
           });
         };
 
@@ -133,13 +137,6 @@
           Auth.login(credentials).then(function(user) {
             console.log(user);
             userCtrl.setUser();
-            if(user.userable_type === 'Graduate'){
-              console.log('login as grad');
-               $location.url('/graduate-panel');
-             }else if(user.userable_type === 'Employer'){
-               console.log('login as empl');
-               $location.url('/employer-panel');
-             }
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
