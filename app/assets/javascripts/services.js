@@ -81,7 +81,7 @@
       };
 
       var addGradProfile = function (newProfile) {
-        $http.post(grad_url, newProfile).success(function(){
+        $http.post(gradUrl, newProfile).success(function(){
           $location.url('/graduate-panel');
         })
         .error(function(){
@@ -90,7 +90,7 @@
       };
 
       var addEmplProfile = function (newProfile) {
-        $http.post(employer_url, newProfile).success(function(){
+        $http.post(emplUrl, newProfile).success(function(){
           $location.url('/employer-panel');
         })
         .error(function(){
@@ -124,8 +124,8 @@
         });
       }
 
-      var updateEmplProfile = function (profile) {
-        $http.patch(emplUrl, profile)
+      var updateEmplProfile = function (profile, id) {
+        $http.patch('/employers/' + id + '.json', profile)
         .success(function(data){
           getEmplPanel()
         });

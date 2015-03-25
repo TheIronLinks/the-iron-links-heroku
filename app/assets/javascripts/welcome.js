@@ -27,7 +27,7 @@
         templateUrl: 'assets/views/index.html'
       })
       .when('/graduate-panel', {
-        templateUrl: 'assets/views/employerPanel.html',
+        templateUrl: 'assets/views/graduatePanel.html',
         controller: 'RouteValidationController'
       })
       .when('/employer-panel', {
