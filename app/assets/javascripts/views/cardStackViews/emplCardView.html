@@ -1,6 +1,7 @@
 <div ng-controller='CardController as cardCtrl'>
+  <card-map-directive ng-repeat='refCard in cardCtrl.mapCard' map='refCard' exit='cardCtrl.clearActiveCard()'></card-map-directive>
   <card-message-directive ng-repeat='modal in cardCtrl.activeCard' msg='modal' close='cardCtrl.clearActiveCard()' send='cardCtrl.sendEmplMsg(modal)' class='modal-animation'></card-message-directive>
   <div class='cards-wrapper' ng-controller='SearchController as searchCtrl'>
-    <empl-card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card' action='cardCtrl.selectedCard(card)' favorite='cardCtrl.favoriteEmpl(card)' unfavorite='cardCtrl.unfavoriteEmpl(card)' class='card-animation'></empl-card-directive>
+    <empl-card-directive ng-repeat='card in searchCtrl.emplResults.data' data='card' action='cardCtrl.selectedCard(card)' mapthis='cardCtrl.selectedMap(card)' favorite='cardCtrl.favoriteEmpl(card)' unfavorite='cardCtrl.unfavoriteEmpl(card)' class='card-animation'></empl-card-directive>
   </div>
 </div>
