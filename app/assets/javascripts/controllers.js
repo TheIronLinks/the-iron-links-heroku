@@ -7,14 +7,6 @@
 
         var cardCtrl = this;
 
-
-        CardService.getCards().success(function(data){
-          cardCtrl.stack = data;
-        })
-        .error(function(){
-          console.log('cardCtrl.stack error')
-        });
-
         cardCtrl.selectedCard =function(passedProfile) {
 
           cardCtrl.activeCard = [passedProfile];
@@ -183,6 +175,8 @@
       .controller('ProfileController', ['ProfileService', '$location', '$route', function (ProfileService,$location, $route) {
 
         var profileCtrl = this;
+        profileCtrl.userData = ProfileService.userData;
+
 
         profileCtrl.getGradProfile = function() {
           ProfileService.getGradPanel();
