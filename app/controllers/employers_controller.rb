@@ -2,12 +2,30 @@ class EmployersController < ApplicationController
   before_action :set_employer, only: [:show, :update, :edit, :destroy]
 
   def index
-    @employers = Employer.all
+    if user_signed_in?
+      if current_user.userable_type == 'Admin'
+        @employers = Employer.all
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+  def show
+    if user_signed_in?
+      if current_user.userable_type == 'Admin'
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def employer_search
     @employers = search_employers(params)
-
     respond_to do |format|
       format.json
       format.html
@@ -38,13 +56,30 @@ class EmployersController < ApplicationController
   end
 
   def edit
+    if user_signed_in?
+      if current_user.userable_type == 'Admin'
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-    @employer.update_attributes employer_params
     respond_to do |format|
-      format.html{redirect_to employers_path}
-      format.json{render nothing: true}
+      format.html{
+        if user_signed_in?
+          if current_user.userable_type == 'Admin'
+            @employer.update_attributes employer_params
+            redirect_to employers_path
+          end
+        end
+      }
+      format.json{
+        @employer.update_attributes employer_params
+        render nothing: true
+      }
     end
   end
 

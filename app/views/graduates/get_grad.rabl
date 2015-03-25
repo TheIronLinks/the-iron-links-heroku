@@ -10,7 +10,7 @@ node(:favorites) do
 end
 
 child(@messages) do
- attributes :id, :sender_id, :receiver_id, :title, :content, :viewed, :message_type
+  attributes :id, :sender_id, :receiver_id, :title, :content, :viewed, :message_type
 end
 
 child(:links) do

@@ -1,12 +1,20 @@
 class GraduatesController < ApplicationController
   def index
-    @graduates = Graduate.all
+    if user_signed_in?
+      if current_user.userable_type == 'Admin'
+        @graduates = Graduate.all
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def get_grad
     if user_signed_in?
       @graduate = Graduate.find current_user.userable_id
-      @messages = Message.where('receiver_id = ?', @graduate.id)
+      @messages = Message.where('receiver_id = ?', @graduate.id).reverse
       @favorites = get_favorites
       p @favorites
     else
@@ -46,7 +54,15 @@ class GraduatesController < ApplicationController
   end
 
   def edit
-    set_graduate
+    if user_signed_in?
+      if current_user.userable_type == 'Admin'
+        set_graduate
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def update
