@@ -2,8 +2,8 @@
   <div class='card-message-wrapper'>
     <div class="fa fa-lg fa-times" ng-click='exit()'></div>
     <h3>{{map.employer.name}} Location</h3>
-    <ui-gmap-google-map center='map.mapConfig' zoom="14" options='{disableDefaultUI: true}'>
-      <ui-gmap-marker idkey='0' coords='map.mapConfig'></ui-gmap-marker>
+    <ui-gmap-google-map center='map.mapCenter' zoom="14" options='{disableDefaultUI: true}'>
+      <ui-gmap-marker idkey='0' coords='map.mapMarker'></ui-gmap-marker>
     </ui-gmap-google-map>
   </div>
 </div>

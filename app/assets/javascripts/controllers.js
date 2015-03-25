@@ -19,7 +19,11 @@
         };
 
         cardCtrl.selectedMap = function(passedProfile){
-          passedProfile.mapConfig = {
+          passedProfile.mapCenter = {
+            latitude:passedProfile.employer.latitude,
+            longitude:passedProfile.employer.longitude
+          };
+          passedProfile.mapMarker = {
             latitude:passedProfile.employer.latitude,
             longitude:passedProfile.employer.longitude
           };
