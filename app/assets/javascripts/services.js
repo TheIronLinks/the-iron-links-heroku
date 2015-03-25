@@ -107,6 +107,29 @@
           console.log(userData.profileData)
         });
       };
+
+      var getEmplPanel = function() {
+        $http.get('/employers/get_empl.json')
+        .success(function(data){
+          console.log(data)
+          userData.profileData = data;
+          console.log(userData.profileData)
+        });
+      };
+
+      var updateGradProfile = function (profile, id) {
+        $http.patch('/graduates/' + id + '.json', profile)
+        .success(function(data){
+          getGradPanel()
+        });
+      }
+
+      var updateEmplProfile = function (profile, id) {
+        $http.patch('/employers/' + id + '.json', profile)
+        .success(function(data){
+          getEmplPanel()
+        });
+      };
       return {
         addGradProfile: addGradProfile,
         addEmplProfile: addEmplProfile,
