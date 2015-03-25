@@ -82,7 +82,7 @@
 
       var addGradProfile = function (newProfile) {
         $http.post(gradUrl, newProfile).success(function(){
-          $location.url('/graduate-panel');
+          $window.location.reload();
         })
         .error(function(){
           console.log('service/add profile error');
