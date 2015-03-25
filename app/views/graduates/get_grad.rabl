@@ -5,12 +5,15 @@ child(:educations) do
   attributes :school_name, :level, :concentraton
 end
 
-node(:favorites) do
-  @graduate.favorited_employers
+child(@employers) do
+  attributes :id, :name, :full_street_address, :phone
 end
 
 child(@messages) do
- attributes :id, :sender_id, :receiver_id, :title, :content, :viewed, :message_type
+  attributes :id, :sender_id, :receiver_id, :title, :content, :viewed, :message_type
+  node(:sender_email) do |message|
+    User.find(message.sender_id).email
+  end
 end
 
 child(:links) do

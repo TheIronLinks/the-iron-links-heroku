@@ -12,18 +12,30 @@
 
 /////////////////////////////////GENERAL SETTINGS
 /////////////////////////////////GENERAL SETTINGS
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+
+* {
+font-family: 'Playfair Display', serif;
+}
 .admin-panel{
   background-color: white
 }
 
 
 h3 {
+  font-family: 'Playfair Display', serif;
   text-align: center;
   margin: 10px;
   padding: 10px;
   color: #39474E;
 }
-
+h2 {
+  color: #39474E;
+  font-family: 'Playfair Display', serif;
+}
 img.logoBar {
   height: 200%;
 }
@@ -32,6 +44,8 @@ img.logoBar {
   color: white;
   padding: 10px;
   margin-top: -10px;
+  font-size: 25px;
+  font-family: 'Playfair Display', serif;
 }
 
 p {
@@ -53,14 +67,14 @@ p {
   padding: 0px;
 }
 
-h5 {
+h4.messages {
   font-size: 18px;
+  color: #39474E;
+  padding: 5px;
+  font-family: 'Playfair Display', serif;
 }
 /////////////////////////////////SETTING HOME VIEW
-/////////////////////////////////SETTING HOME VIEW
-* {
-font-family: 'Playfair Display', serif;
-}
+/////////////////////////////////SETTING HOME V#39474E;IEW
 
 .main-section {
   padding: 0px;
@@ -82,6 +96,7 @@ font-family: 'Playfair Display', serif;
   z-index:1001;
   position:fixed;
   width:100%;
+  opacity: .8;
 }
 
 
@@ -279,6 +294,7 @@ button {
   padding: 0px;
   margin: 0px;
   border: 0px;
+  background: transparent;
 }
 
 .small-4.columns.panelLeft {
@@ -374,7 +390,6 @@ button {
   padding: 1em 2em;
   height: 50%;
 }
-
 .modal__close {
   position: absolute;
   right: 1em;
@@ -425,39 +440,43 @@ button {
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn2 {
   cursor: pointer;
-  background: #B69C2A;
+  background: #39474E;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn3 {
   cursor: pointer;
-  background: #9C6527;
+  background: #444444;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn4 {
   cursor: pointer;
-  background: #5B9D99;
+  background: #6F3D38;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
   width: 225px;
   height: 225px;
   margin: 0px;
+  opacity: .9;
 }
 
 .btn5 {
@@ -513,4 +532,41 @@ p img {
 }
 .makeInline{
   display:inline-block;
+}
+.remove-margin{
+  margin:0;
+}
+.width-100{
+  width:100%;
+}
+textarea{
+  padding:8px!important;
+}
+.bottom-16{
+  margin-bottom:16px!important;
+}
+/////////////////MESSAGING DROP DOWN
+div.menu_wrap {
+  background-color: lightgray;
+  color: white;
+  border: 1px solid #39474E;
+}
+ul.menu_items > li {
+  background-color: #39474E;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin: 0px;
+  display: block;
+}
+div.menu_wrap > input[type=checkbox]{
+  display: none;
+}
+
+div.menu_wrap > ul.menu_items{
+  display: none;
+}
+
+div.menu_wrap > input[type=checkbox]:checked + ul.menu_items{
+display: block;
 }
