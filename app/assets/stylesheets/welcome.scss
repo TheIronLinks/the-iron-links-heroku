@@ -484,6 +484,18 @@ p img {
 .makeInline{
   display:inline-block;
 }
+.remove-margin{
+  margin:0;
+}
+.width-100{
+  width:100%;
+}
+textarea{
+  padding:8px!important;
+}
+.bottom-16{
+  margin-bottom:16px!important;
+}
 /////////////////MESSAGING DROP DOWN
 div.menu_wrap {
   background-color: lightgray;

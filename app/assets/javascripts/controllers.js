@@ -113,6 +113,7 @@
         };
 
         userCtrl.setUser = function() {
+          console.log('getting to userCtrl.setUser');
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
