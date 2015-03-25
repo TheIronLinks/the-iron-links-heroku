@@ -208,10 +208,6 @@
           ProfileService.updateGradProfile(gradProfile, id)
           $('#form__close').click();
         };
-        
-        employerCtrl.getEmployer = function() {
-          EmployerService.getPanel();
-        }();
 
         profileCtrl.updateEmplProfile = function (emplProfile, id) {
           ProfileService.updateEmplProfile(emplProfile, id)
