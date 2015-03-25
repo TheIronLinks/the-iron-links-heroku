@@ -1,6 +1,6 @@
 <!------------------PANEL VIEW/PANEL MODALS------------------>
 <div class="row" ng-controller='ProfileController as profileCtrl'>
-  <div ng-init='profileCtrl.getGradProfile()' class="welcomePanel">
+  <div ng-init='profileCtrl.getGradProfile(); user.setUser();' class="welcomePanel">
     <div class="small-4 columns panelLeft">
       <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
       <h3>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</h3>

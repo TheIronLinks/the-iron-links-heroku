@@ -49,7 +49,7 @@
 
 //==========================PROFILE SERVICE==========================
 
-    .factory('ProfileService', function ($location,$http) {
+    .factory('ProfileService', function ($location,$http,$route) {
 
       var gradUrl = 'http://localhost:3000/graduates.json';
       var emplUrl = 'http://localhost:3000/employers.json';
