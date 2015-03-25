@@ -1,6 +1,6 @@
 <!------------------PANEL VIEW/PANEL MODALS------------------>
 <div class="row" ng-controller='ProfileController as profileCtrl'>
-  <div ng-init='profileCtrl.getGradProfile(); user.goToPanel()' class="welcomePanel">
+  <div ng-init='profileCtrl.getGradProfile()' class="welcomePanel">
     <div class="small-4 columns panelLeft">
       <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
       <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
@@ -29,16 +29,21 @@
   </div>
 
   <!----------------------------------MODAL 1 - Messages ---------------------------------->
-      <input class="modal-state" id="modal-1" type="checkbox" />
+    <input class="modal-state" id="modal-1" type="checkbox" />
       <div class="modal">
         <label class="modal__bg" for="modal-1"></label>
         <div class="modal__inner">
           <label class="modal__close" for="modal-1"></label>
           <h2>{{profileCtrl.userData.profileData.graduate.first_name}}'s Inbox</h2>
-        <div class="panel callout radius" ng-repeat= "message in profileCtrl.userData.profileData.graduate.messages">
-          <h5>Title: {{message.message.title}}</h5>
-          <p>Content: {{message.message.content}}</p>
-        </div>
+          <div ng-repeat= "message in profileCtrl.userData.profileData.graduate.messages">
+            <div class="menu_wrap">
+              <label for="menu_1-{{$index}}"><h4 class="messages">{{message.message.title}}</h4></label>
+                <input id="menu_1-{{$index}}" type="checkbox"></input>
+                <ul class="menu_items">
+                  <li>{{message.message.content}}</li>
+                </ul>
+            </div>
+          </div>
       </div>
     </div>
   <!----------------------------------MODAL 2 - Edit ---------------------------------->
@@ -182,9 +187,6 @@
                     <label>Upload your photo:</label>
                     <div class="small-2 large-2 columns">
               <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-              <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-              <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-              <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
                       <span class="prefix">http://</span>
                     </div>
                     <div class="small-10 large-10 columns">
@@ -241,6 +243,8 @@
             <h2>Favorites</h2>
             <div ng-repeat="favorite in profileCtrl.userData.profileData.graduate.favorites">
               <p>{{favorite}}</p>
+              <p>{{favorite.phone}}</p>
+              <p>{{favorite.address}}</p>
             </div>
         </div>
       </div>

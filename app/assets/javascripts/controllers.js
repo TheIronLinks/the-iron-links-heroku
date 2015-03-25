@@ -107,7 +107,6 @@
             userCtrl.goToPanel();
           });
         };
-
         userCtrl.setUser();
 
         $scope.loggedIn = function() {
@@ -115,13 +114,18 @@
         };
 
         $scope.submitSignUp = function() {
-          var credentials = userCtrl.signUpCredentials;
-          Auth.register(credentials).then(function(user) {
-            userCtrl.setUser();
-          },function(error){
-            userCtrl.error_message = error;
-          });
-        };
+         var credentials = userCtrl.signUpCredentials;
+         Auth.register(credentials).then(function(user){
+           if(userCtrl.type === 'graduate'){
+              $location.url('/new-grad');
+           }else if(userCtrl.type === 'employer'){
+              $location.url('/new-employer');
+             }
+           },
+          function(error){
+             userCtrl.error_message = error;
+           });
+         };
 
         userCtrl.submitLogin = function() {
           var credentials = userCtrl.loginCredentials;
@@ -203,6 +207,7 @@
         profileCtrl.reloadPage = function () {
           $route.reload();
         };
+        
 
       }])
 

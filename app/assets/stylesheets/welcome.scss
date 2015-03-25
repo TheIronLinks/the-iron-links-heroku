@@ -21,12 +21,16 @@ font-family: 'Playfair Display', serif;
 
 
 h3 {
+  font-family: 'Playfair Display', serif;
   text-align: center;
   margin: 10px;
   padding: 10px;
   color: #39474E;
 }
-
+h2 {
+  color: #39474E;
+  font-family: 'Playfair Display', serif;
+}
 img.logoBar {
   height: 200%;
 }
@@ -58,11 +62,14 @@ p {
   padding: 0px;
 }
 
-h5 {
+h4.messages {
   font-size: 18px;
+  color: #39474E;
+  padding: 5px;
+  font-family: 'Playfair Display', serif;
 }
 /////////////////////////////////SETTING HOME VIEW
-/////////////////////////////////SETTING HOME VIEW
+/////////////////////////////////SETTING HOME V#39474E;IEW
 
 .main-section {
   padding: 0px;
@@ -84,6 +91,7 @@ h5 {
   z-index:1001;
   position:fixed;
   width:100%;
+  opacity: .8;
 }
 
 
@@ -377,7 +385,6 @@ button {
   padding: 1em 2em;
   height: 50%;
 }
-
 .modal__close {
   position: absolute;
   right: 1em;
@@ -445,7 +452,7 @@ button {
 
 .btn3 {
   cursor: pointer;
-  background: #1C4857;
+  background: #444444;
   display: inline-block;
   padding: 5em 3em;
   color: #fff;
@@ -520,4 +527,29 @@ p img {
 }
 .makeInline{
   display:inline-block;
+}
+/////////////////MESSAGING DROP DOWN
+div.menu_wrap {
+  background-color: lightgray;
+  color: white;
+  border: 1px solid #39474E;
+}
+ul.menu_items > li {
+  background-color: #39474E;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin: 0px;
+  display: block;
+}
+div.menu_wrap > input[type=checkbox]{
+  display: none;
+}
+
+div.menu_wrap > ul.menu_items{
+  display: none;
+}
+
+div.menu_wrap > input[type=checkbox]:checked + ul.menu_items{
+display: block;
 }
