@@ -182,6 +182,7 @@
 //==========================PROFILE CTRL==========================
       .controller('ProfileController', ['ProfileService', '$location', '$route', function (ProfileService,$location, $route) {
 
+        var profileCtrl = this;
 
         profileCtrl.getGradProfile = function() {
           ProfileService.getGradPanel();
