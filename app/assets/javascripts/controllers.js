@@ -18,10 +18,22 @@
 
         };
 
+        cardCtrl.selectedMap = function(passedProfile){
+          passedProfile.mapConfig = {
+            latitude:passedProfile.employer.latitude,
+            longitude:passedProfile.employer.longitude
+          };
+          cardCtrl.mapCard = [passedProfile];
+          console.log('map card loaded');
+          console.log(cardCtrl.mapCard);
+
+        };
+
         cardCtrl.clearActiveCard = function () {
 
           cardCtrl.activeCard = [];
-          console.log('active card cleared');
+          cardCtrl.mapCard = [];
+          console.log('active card and map cleared');
 
         };
 
