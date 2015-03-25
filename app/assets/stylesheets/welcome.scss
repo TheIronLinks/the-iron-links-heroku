@@ -15,16 +15,12 @@
 input.ng-invalid.ng-touched {
   border: 2px solid red;
 }
-
-
 * {
 font-family: 'Playfair Display', serif;
 }
-.admin-panel{
+.admin-panel {
   background-color: white
 }
-
-
 h3 {
   font-family: 'Playfair Display', serif;
   text-align: center;
@@ -39,7 +35,6 @@ h2 {
 img.logoBar {
   height: 200%;
 }
-
 .panel h4 {
   color: white;
   padding: 10px;
@@ -47,26 +42,21 @@ img.logoBar {
   font-size: 25px;
   font-family: 'Playfair Display', serif;
 }
-
 p {
   z-index: -100;
 }
-
 .inner-wrap {
   background-image: url("bwbackground.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 .ng-hide:not(.ng-hide-animate) {
   display: inline;
 }
-
 .row {
   margin-left: 18%;
   padding: 0px;
 }
-
 h4.messages {
   font-size: 18px;
   color: #39474E;
@@ -74,12 +64,10 @@ h4.messages {
   font-family: 'Playfair Display', serif;
 }
 /////////////////////////////////SETTING HOME VIEW
-/////////////////////////////////SETTING HOME V#39474E;IEW
-
+/////////////////////////////////SETTING HOME VIEW
 .main-section {
   padding: 0px;
 }
-
 .inner-wrap {
   min-height: 100vh;
   .photo {
@@ -88,7 +76,6 @@ h4.messages {
     opacity:0;
   }
 }
-
 /////////////////////////////////SETTING TOP NAV
 /////////////////////////////////SETTING TOP NAV
 .tab-bar {
@@ -96,10 +83,8 @@ h4.messages {
   z-index:1001;
   position:fixed;
   width:100%;
-  opacity: .8;
+  opacity: .9;
 }
-
-
 /////////////////////////////////FORM STYLING
 /////////////////////////////////FORM STYLING
 .newProfile {
@@ -110,19 +95,16 @@ h4.messages {
   border-radius: 1%;
   box-shadow: 6px 6px 5px #454545;
 }
-
 .mainForm {
   margin: 0px;
   padding-top: 10%;
 }
-
 .logoBlue {
   width: 100px;
   height: 100px;
   margin: auto;
   padding: 5px;
 }
-
 .homeForm {
   background: white;
   border-radius: 2%;
@@ -131,23 +113,19 @@ h4.messages {
   padding: 8px;
   box-shadow: 6px 6px 5px #454545;
 }
-
 .login-container, .signUp-container {
    margin: auto;
    padding: 0px;
 }
-
 .ng-valid {
   margin: 0px;
   padding: 0px;
   width: 90%;
   margin-left: 5%;
 }
-
 .logoBar a{
   height: 100px;
 }
-
 input {
   background-color: #39474E;
   border: 0px;
@@ -157,19 +135,16 @@ input {
   font-size: 14px;
   margin-left: 77%;
 }
-
 label {
   margin-top: 5px;
   margin-top: 5px;
 }
-
 button {
   padding: 10px;
   margin: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 /////////////////////////////////LOGIN HOME VIEW
 /////////////////////////////////LOGIN HOME VIEW
 .userPanel {
@@ -185,35 +160,29 @@ button {
   min-height: auto;
   border: 2px dotted red;
 }
-
 .userPanel h1 {
   color: #39474E;
   font-size: 25px;
   margin: 5px;
   padding: 5px;
 }
-
 .userPanel h3 {
   font-size: 18px;
   margin: 10px;
   padding: 15px;
   color: #39474E;
 }
-
 .userPanel p {
   margin: 5px;
   padding: 5px;
 }
-
 .userPanel i {
   color: #39474E;
 }
-
 .userPanel a {
   color: #39474E;
   font-size: 18px;
 }
-
 .left {
   border: 2px dotted blue;
   width: 50%;
@@ -221,13 +190,11 @@ button {
   padding: 0px;
   display: inline-table;
 }
-
 .left img {
   border: 2px dotted purple;
   margin: 0px;
   padding: 10px;
 }
-
 .right {
   border: 2px dotted yellow;
   width: 50%;
@@ -235,7 +202,6 @@ button {
   padding: 0px;
   display: inline-table;
 }
-
 /////////////////////////////////LEFT SIDEBAR
 /////////////////////////////////LEFT SIDEBAR
 #searchWrapper {
@@ -244,21 +210,17 @@ button {
   top:0;
   z-index:99999;
 }
-
 .off-canvas-list {
   color: white;
 }
-
 .fa-search {
   padding: 15px;
   color: white;
 }
-
 .fa-user {
   padding: 15px;
   color: white;
 }
-
 .fa-home {
   padding: 15px;
   color: white;
@@ -272,7 +234,6 @@ button {
   text-align: center;
   background: transparent;
 }
-
 .welcomePanel ul {
   list-style-type: none;
   margin: 0px;
@@ -280,13 +241,11 @@ button {
   display: grid;
   background: transparent;
 }
-
 .welcomePanel li {
   display: inline-flex;
   border: 1px solid white;
   background: transparent;
 }
-
 .small-4.columns.panel {
   height: 500px;
   width: 225px;
@@ -296,7 +255,6 @@ button {
   border: 0px;
   background: transparent;
 }
-
 .small-4.columns.panelLeft {
   width: 225px;
   height: 454px;
@@ -306,12 +264,23 @@ button {
   text-align: center;
   border: 1px solid white;
 }
-
 .small-4.columns.panelLeft img {
   height: 225px;
   width: 225px;
 }
-
+.small-4.columns.panelLeft h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #39474E;
+  margin: 2px;
+  padding: 4px;
+}
+.small-4.columns.panelLeft p {
+  font-family: 'Playfair Display', serif;
+  color: #39474E;
+  margin: 2px;
+  padding: 4px;
+}
 .a.panelBtn.ng-hide {
   border: 2px solid red;
   display: inline-block;
@@ -335,9 +304,10 @@ button {
   display: inline;
   margin-top: -8%;
   font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  color: #39474E;
   position: absolute;
 }
-
 /////////////////////////////////MODAL EVENT FOR PANEL
 /////////////////////////////////MODAL EVENT FOR PANEL
 .modal {
@@ -352,7 +322,6 @@ button {
   background: rgba(0,0,0, .9);
   transition: opacity .25s ease;
 }
-
 .modal__bg {
   position: absolute;
   top: 0;
@@ -361,20 +330,16 @@ button {
   left: 0;
   cursor: pointer;
 }
-
 .modal-state {
   display: none;
 }
-
 .modal-state:checked + .modal {
   opacity: 1;
   visibility: visible;
 }
-
 .modal-state:checked + .modal .modal__inner {
   top: 0;
 }
-
 .modal__inner {
   transition: top .25s ease;
   position: absolute;
@@ -398,7 +363,6 @@ button {
   height: 1.1em;
   cursor: pointer;
 }
-
 .modal__close:after,
 .modal__close:before {
   content: '';
@@ -412,7 +376,6 @@ button {
   margin: -3px 0 0 -1px;
   top: 0;
 }
-
 .modal__close:hover:after,
 .modal__close:hover:before {
   background: #aaa;
@@ -421,7 +384,6 @@ button {
 .modal__close:before {
   transform: rotate(-45deg);
 }
-
 @media screen and (max-width: 768px) {
 
   .modal__inner {
@@ -430,7 +392,6 @@ button {
     box-sizing: border-box;
   }
 }
-
 .btn1 {
   cursor: pointer;
   background: #221F20;
@@ -442,7 +403,6 @@ button {
   margin: 0px;
   opacity: .9;
 }
-
 .btn2 {
   cursor: pointer;
   background: #39474E;
@@ -454,7 +414,6 @@ button {
   margin: 0px;
   opacity: .9;
 }
-
 .btn3 {
   cursor: pointer;
   background: #444444;
@@ -466,7 +425,6 @@ button {
   margin: 0px;
   opacity: .9;
 }
-
 .btn4 {
   cursor: pointer;
   background: #6F3D38;
@@ -478,7 +436,6 @@ button {
   margin: 0px;
   opacity: .9;
 }
-
 .btn5 {
   cursor: pointer;
   background: #39474E;
@@ -489,7 +446,6 @@ button {
   height: 225px;
   margin: 0px;
 }
-
 .btn6 {
   cursor: pointer;
   background: #78413B;
@@ -504,28 +460,23 @@ button {
 .btn:focus {
   background: #2ecc71;
 }
-
 .btn:active {
   background: #27ae60;
   box-shadow: 0 1px 2px rgba(0,0,0, .2) inset;
 }
-
 .btn--blue:hover,
 .btn--blue:focus {
   background: #3498db;
 }
-
 .btn--blue:active {
   background: #2980b9;
 }
-
 p img {
   max-width: 200px;
   height: auto;
   float: left;
   margin: 0 1em 1em 0;
 }
-
 /////////////////INITIAL LOGIN FORM
 .createNewProfileRadio{
   width:auto;
@@ -550,11 +501,9 @@ ul.menu_items > li {
 div.menu_wrap > input[type=checkbox]{
   display: none;
 }
-
 div.menu_wrap > ul.menu_items{
   display: none;
 }
-
 div.menu_wrap > input[type=checkbox]:checked + ul.menu_items{
 display: block;
 }
