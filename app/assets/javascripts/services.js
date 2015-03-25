@@ -82,7 +82,7 @@
 
       var addGradProfile = function (newProfile) {
         $http.post(gradUrl, newProfile).success(function(){
-          $route.reload();
+          $location.url('/graduate-panel');
         })
         .error(function(){
           console.log('service/add profile error');
@@ -91,7 +91,7 @@
 
       var addEmplProfile = function (newProfile) {
         $http.post(emplUrl, newProfile).success(function(){
-          $route.reload();
+          $location.url('/employer-panel');
         })
         .error(function(){
           console.log('service/add profile error');
