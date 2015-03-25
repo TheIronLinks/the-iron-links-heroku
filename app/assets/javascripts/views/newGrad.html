@@ -1,21 +1,13 @@
 <div class="row" ng-controller='ProfileController as profileCtrl'>
 <div class="newProfile">
 <h3>Create your new profile.</h3>
-<form ng-submit='profileCtrl.addGradProfile(profileCtrl.gradProfile); user.setUser()'>
+<form ng-submit='profileCtrl.addGradProfile(profileCtrl.gradProfile)'>
   <div class="row">
     <div class="small-6 columns">
         <input ng-model='profileCtrl.gradProfile.graduate.first_name' type="text" placeholder="First Name" />
     </div>
     <div class="small-6 columns">
         <input ng-model='profileCtrl.gradProfile.graduate.last_name' type="text" placeholder="Last Name" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-6 columns">
-        <input ng-model='profileCtrl.gradProfile.graduate.email' type="text" placeholder="E-mail" />
-    </div>
-    <div class="small-6 columns">
-        <input ng-model='profileCtrl.gradProfile.graduate.phone' type="text" placeholder="Telephone" />
     </div>
   </div>
   <div class="row">

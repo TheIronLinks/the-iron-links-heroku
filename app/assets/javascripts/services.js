@@ -49,7 +49,7 @@
 
 //==========================PROFILE SERVICE==========================
 
-    .factory('ProfileService', function ($location,$http) {
+    .factory('ProfileService', function ($location,$http,$route) {
 
       var gradUrl = 'http://localhost:3000/graduates.json';
       var emplUrl = 'http://localhost:3000/employers.json';
@@ -82,7 +82,7 @@
 
       var addGradProfile = function (newProfile) {
         $http.post(gradUrl, newProfile).success(function(){
-          $location.url('/graduate-panel');
+          $route.reload();
         })
         .error(function(){
           console.log('service/add profile error');
@@ -91,7 +91,7 @@
 
       var addEmplProfile = function (newProfile) {
         $http.post(emplUrl, newProfile).success(function(){
-          $location.url('/employer-panel');
+          $route.reload();
         })
         .error(function(){
           console.log('service/add profile error');
