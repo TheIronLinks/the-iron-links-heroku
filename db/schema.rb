@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20150324191946) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.text     "image_url"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.text     "image_url",           default: "http://placehold.it/175x175"
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
     t.float    "latitude"
     t.float    "longitude"
     t.text     "full_street_address"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 20150324191946) do
     t.string   "grad_focus"
     t.string   "workflow_state"
     t.text     "additional_info"
-    t.text     "image_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.text     "image_url",       default: "http://placehold.it/175x175"
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.string   "email"
     t.string   "present_city"
     t.string   "present_state"
