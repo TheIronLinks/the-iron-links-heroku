@@ -120,59 +120,7 @@
 
 //==========================EMPLOYER SERVICE==========================
 
-    .factory('EmployerService', ['$location', '$http', function ($location,$http) {
-
-      var url = '/employers.json';
-
-      var employerData = {
-        empData: {
-          employer: {
-            name: "",
-            industry: "",
-            founded: "",
-            size: "",
-            city: "",
-            state: "",
-            zip: "",
-            image_url: "",
-            }
-          }
-        };
-
-      var getEmplPanel = function() {
-        $http.get('/employers/get_empl.json')
-        .success(function(data){
-          console.log(data)
-          userData.profileData = data;
-          console.log(userData.profileData)
-        });
-      };
-
-      var updateGradProfile = function (profile, id) {
-        $http.patch('/graduates/' + id + '.json', profile)
-        .success(function(data){
-          getGradPanel()
-        });
-      }
-
-      var updateEmplProfile = function (profile, id) {
-        $http.patch('/employers/' + id + '.json', profile)
-        .success(function(data){
-          getEmplPanel()
-        });
-      };
-
-      return {
-        addGradProfile: addGradProfile,
-        addEmplProfile: addEmplProfile,
-        userData: userData,
-        getGradPanel: getGradPanel,
-        getEmplPanel: getEmplPanel,
-        updateEmplProfile: updateEmplProfile,
-        updateGradProfile: updateGradProfile
-
-      };
-    }])
+  
 
 //==========================EMPLOYER SERVICE==========================
     //
