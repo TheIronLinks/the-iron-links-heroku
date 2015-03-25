@@ -34,11 +34,10 @@
         };
 
         cardCtrl.clearActiveCard = function () {
-
           cardCtrl.activeCard = [];
+          console.log('msg card cleared');
           cardCtrl.mapCard = [];
-          console.log('active card and map cleared');
-
+          console.log('map card cleared');
         };
 
         cardCtrl.sendGradMsg = function (passed) {
@@ -108,7 +107,13 @@
           if(userCtrl.currentUser.userable_type === 'Employer'){
             $location.url('/employer-panel');
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
+<<<<<<< HEAD
             $location.url('/graduate-panel');
+=======
+            $location.url('/graduate-panel')
+          }else{
+            $location.url('/')
+>>>>>>> 184adaa51ad6fb3df7763805396360df7a5202b7
           }
         };
 
@@ -116,9 +121,11 @@
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
+            userCtrl.goToPanel();
           },function(error){
             userCtrl.currentUser = '';
             userCtrl.error_message = error;
+            userCtrl.goToPanel();
           });
         };
 
@@ -132,30 +139,16 @@
           var credentials = userCtrl.signUpCredentials;
           Auth.register(credentials).then(function(user) {
             userCtrl.setUser();
-            if(userCtrl.type === 'graduate'){
-               $location.url('/new-grad');
-            }else if(userCtrl.type === 'employer'){
-               $location.url('/new-employer');
-            }
-            // $scope.user = {};
           },function(error){
             userCtrl.error_message = error;
-
           });
         };
 
-        $scope.submitLogin = function() {
+        userCtrl.submitLogin = function() {
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
             console.log(user);
             userCtrl.setUser();
-            if(user.userable_type === 'Graduate'){
-              console.log('login as grad');
-               $location.url('/graduate-panel');
-             }else if(user.userable_type === 'Employer'){
-               console.log('login as empl');
-               $location.url('/employer-panel');
-             }
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
@@ -166,17 +159,11 @@
           $location.url('/new-grad');
         };
 
-        $scope.submitLogout = function() {
+        userCtrl.submitLogout = function() {
           Auth.logout().then(function(user) {
             userCtrl.setUser();
-            $scope.goToHome();
           });
         };
-
-        $scope.goToHome = function(){
-          $location.path('/');
-        };
-
       }])
 
 //==========================ROUTE VALIDATION CTRL==========================
@@ -193,11 +180,16 @@
 
 //==========================PROFILE CTRL==========================
 
-      .controller('ProfileController', ['ProfileService', '$location', '$route', function (ProfileService,$location, $route) {
+      .controller('ProfileController', ['ProfileService', '$location', '$route', 'Auth', function (ProfileService,$location, $route, Auth) {
 
         var profileCtrl = this;
         profileCtrl.userData = ProfileService.userData;
 
+        profileCtrl.submitSignOut = function(){
+          Auth.logout().then(function(){
+            $location.url('/');
+          });
+        };
 
         profileCtrl.getGradProfile = function() {
           ProfileService.getGradPanel();

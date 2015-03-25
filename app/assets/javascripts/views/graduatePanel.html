@@ -1,6 +1,6 @@
 <!------------------PANEL VIEW/PANEL MODALS------------------>
 <div class="row" ng-controller='ProfileController as profileCtrl'>
-  <div ng-init='profileCtrl.getGradProfile()' class="welcomePanel">
+  <div ng-init='profileCtrl.getGradProfile(); user.goToPanel()' class="welcomePanel">
     <div class="small-4 columns panelLeft">
       <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
       <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
@@ -19,7 +19,7 @@
     <ul>
       <li><label class="btn3" for="modal-3"><h4>Favorites</h4><i class="fa fa-star fa-5x"></i></label></li>
 
-      <a ng-click="submitLogout()" ng-show="loggedIn()">
+      <a ng-click="user.submitLogout()" ng-show="loggedIn()">
       <li><label class="btn4" for="modal-4"><h4>Sign Out</h4><i class="fa fa-sign-out fa-5x"></i></label></li></a>
     </ul>
   </div>
