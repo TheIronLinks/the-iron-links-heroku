@@ -1,6 +1,6 @@
 <div class="row" ng-controller='ProfileController as profileCtrl'>
 <div class="newProfile">
-<h3>Create New Employer</h3>
+<h3>Employer Sign-Up</h3>
 <form ng-submit='profileCtrl.addEmplProfile(profileCtrl.employerProfile)'>
   <div class="row">
     <div class="small-6 columns">
@@ -19,7 +19,7 @@
     </div>
     <div class="small-4 columns">
         <label for="companyState">State</label>
-        <select ng-model="profileCtrl.employerProfile.employer.state" id="companyState">
+        <select ng-model="profileCtrl.employerProfile.employer.state" id="companyState" class="remove-margin width-100">
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -73,14 +73,14 @@
           </select>
     </div>
     <div class="small-4 columns">
-      <label for="companyZipCode">Zip code</label>
+      <label for="companyZipCode">Zip Code</label>
         <input ng-model='profileCtrl.employerProfile.employer.zip' type="text" id="companyZipCode" />
     </div>
   </div>
   <div class="row">
     <div class="small-4 columns">
       <label for="companyIndustry">Industry</label>
-      <select ng-model="profileCtrl.employerProfile.employer.industry" id="companyIndustry">
+      <select ng-model="profileCtrl.employerProfile.employer.industry" id="companyIndustry" class="remove-margin width-100">
         <option value="Business-to-consumer">Business-to-consumer</option>
         <option value="Business-to-business">Business-to-business</option>
         <option value="Consulting">Consulting</option>
@@ -90,7 +90,7 @@
       </select>
     </div>
     <div class="small-4 columns">
-      <label for="companySize">Size</label>
+      <label for="companySize">Company Size</label>
         <input ng-model="profileCtrl.employerProfile.employer.size"type="text" id="companySize" />
       </label>
     </div>
@@ -101,11 +101,11 @@
   </div>
   <div class="row">
     <div class="small-4 columns">
-      <label for="companyEmail">Email</label>
+      <label for="companyEmail">Company E-mail</label>
       <input ng-model="profileCtrl.employerProfile.employer.email"type="text" id="companyEmail" />
     </div>
     <div class="small-4 columns">
-      <label for="companyPhone">Phone</label>
+      <label for="companyPhone"> Company Phone</label>
         <input ng-model="profileCtrl.employerProfile.employer.phone"type="text" id="companyPhone" />
       </label>
     </div>
@@ -116,14 +116,14 @@
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <label for='companyDescription'>Company Description (4-5 words):</label>
+      <label for='companyDescription'>Company Description (4-5 words)</label>
         <input type='text' ng-model="profileCtrl.employerProfile.employer.motto" id="companyDescription"/>
     </div>
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <label for='companyCultureStatement'>Company Culture Statement (5-6 sentences):</label>
-        <textarea ng-model="profileCtrl.employerProfile.employer.culture_statement" id="companyCultureStatement"></textarea>
+      <label for='companyCultureStatement'>Culture Statement (5-6 sentences)</label>
+        <textarea ng-model="profileCtrl.employerProfile.employer.culture_statement" id="companyCultureStatement" class="width-100 remove-margin"></textarea>
     </div>
   </div>
   <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
