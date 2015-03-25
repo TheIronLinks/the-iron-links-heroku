@@ -107,13 +107,9 @@
           if(userCtrl.currentUser.userable_type === 'Employer'){
             $location.url('/employer-panel');
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
-<<<<<<< HEAD
-            $location.url('/graduate-panel');
-=======
             $location.url('/graduate-panel')
           }else{
             $location.url('/')
->>>>>>> 184adaa51ad6fb3df7763805396360df7a5202b7
           }
         };
 
