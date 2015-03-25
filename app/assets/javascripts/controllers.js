@@ -140,7 +140,6 @@
                console.log('login as empl');
                $location.url('/employer-panel');
              }
-             // $scope.user = {};
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
@@ -209,8 +208,8 @@
           $('#form__close').click();
         };
 
-        profileCtrl.updateEmplProfile = function (emplProfile) {
-          ProfileService.updateEmplProfile(emplProfile)
+        profileCtrl.updateEmplProfile = function (emplProfile, id) {
+          ProfileService.updateEmplProfile(emplProfile, id)
           $('#form__close').click();
         };
 
