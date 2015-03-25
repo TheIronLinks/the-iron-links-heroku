@@ -3,4 +3,8 @@ class Message < ActiveRecord::Base
     self.viewed = true
     self.save
   end
+
+  def sender_email
+    Employer.find(self.sender_id).name
+  end
 end

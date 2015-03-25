@@ -6,7 +6,7 @@ $bgAqua:#35a0ad;
 $bgBlue:#3576af;
 $bgYellow:#d5b810;
 $bgCover:rgba(227, 231, 233, 0.9);
-$bgCards:rgb(154, 169, 173);
+$bgCards:rgb(173, 174, 175);
 
 
 
@@ -51,6 +51,7 @@ $bgCards:rgb(154, 169, 173);
   left:0;
   right:0;
 }
+
 /* [data-trait='1']{
   .card-label{
     background-color:$bgCardOne;
@@ -313,8 +314,7 @@ $bgCards:rgb(154, 169, 173);
 }
 
 .angular-google-map-container{
-  width:80%;
-  min-width:300px;
+
   margin:auto;
   height:425px;
 }

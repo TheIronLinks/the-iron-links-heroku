@@ -1,1 +1,8 @@
 <search-directive></search-directive>
+<%- if user_signed_in? %>
+  <%- if current_user.userable_type == 'Admin' %>
+    <%= link_to "Graduates", graduates_path %>
+    <br>
+    <%= link_to "Employers", employers_path %>
+  <% end %>
+<% end %>

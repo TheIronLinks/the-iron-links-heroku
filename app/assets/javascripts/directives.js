@@ -238,7 +238,8 @@
             data: '=',
             action: '&',
             favorite: '&',
-            unfavorite: '&'
+            unfavorite: '&',
+            mapthis: '&'
           },
           templateUrl: 'assets/directiveTemplates/cardStack.employer.directive.html',
           link: function(scope, element, attrs) {
@@ -479,10 +480,10 @@
         return {
           restrict: 'E',
           scope: {
-            msg: '=',
-            close: '&'
+            map: '=',
+            exit: '&'
           },
-          templateUrl: 'assets/directiveTemplates/cardMessage.directive.html',
+          templateUrl: 'assets/directiveTemplates/cardMap.directive.html',
           link: function(scope, element, attrs) {
 
             element.find('.card-message-wrapper').on('click',function(event){
@@ -503,12 +504,12 @@
 //=====================SEARCH DIRECTIVE=====================
 
     .directive('searchDirective', function($location, $rootScope) {
-      var returnObject = {
+      return {
         restrict: 'E',
         scope: {
           data: '='
         },
-        templateUrl: '',
+        templateUrl: 'assets/directiveTemplates/cardSearch.directive.html',
         link: function(scope, element, attrs) {
 
           //=====================TOGGLE SEARCH FORMS TO MATCH ROUTE=====================
@@ -544,8 +545,8 @@
       // }else if(Auth._currentUser.account_type === 'employer'){
       //
       // }
-      returnObject.templateUrl = 'assets/directiveTemplates/graduateUserSearch.directive.html'
-      return returnObject;
+      // returnObject.templateUrl = 'assets/directiveTemplates/graduateUserSearch.directive.html'
+      // return returnObject;
   });
 
 
