@@ -108,9 +108,13 @@
         });
       };
       return {
-        addProfile: addProfile,
+        addGradProfile: addGradProfile,
+        addEmplProfile: addEmplProfile,
         userData: userData,
-        getPanel: getPanel
+        getGradPanel: getGradPanel,
+        getEmplPanel: getEmplPanel,
+        updateEmplProfile: updateEmplProfile,
+        updateGradProfile: updateGradProfile
       };
     }])
 
