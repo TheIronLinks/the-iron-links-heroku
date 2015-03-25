@@ -38,7 +38,7 @@
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          MsgService.sendMsg(msgObj);
+          FeaturesService.sendMsg(msgObj);
 
         };
 
@@ -55,7 +55,7 @@
           };
           console.log(msgObj);
           cardCtrl.clearActiveCard();
-          MsgService.sendMsg(msgObj);
+          FeaturesService.sendMsg(msgObj);
 
         };
 
@@ -88,6 +88,7 @@
         var userCtrl = this;
 
         userCtrl.goToPanel = function() {
+          console.log(userCtrl.currentUser.userable_type);
           if(userCtrl.currentUser.userable_type === 'Employer'){
             $location.url('/employer-panel')
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
@@ -139,7 +140,6 @@
                console.log('login as empl');
                $location.url('/employer-panel');
              }
-            //  $scope.user = {};
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
@@ -168,9 +168,9 @@
       .controller('RouteValidationController', ['$location', '$rootScope', 'Auth', function($location, $rootScope, Auth){
 
         //VALIDATE USER IS LOGGED IN*******************
-        if(Auth.isAuthenticated() === false){
-          $location.path('/');
-        };
+        // if(Auth.isAuthenticated() === false){
+        //   $location.path('/');
+        // };
         //*********************************
 
       }])

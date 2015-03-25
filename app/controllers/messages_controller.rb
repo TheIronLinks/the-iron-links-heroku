@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create message_params
-    @message.sender_id = params[:message][:sender_type].constantize.find(params[:message][:receiver_id]).user.id
+    @message.sender_id = params[:message][:receiver_type].constantize.find(params[:message][:receiver_id]).user.id
     @message.save
     respond_to do |format|
       format.json{render nothing: true}
