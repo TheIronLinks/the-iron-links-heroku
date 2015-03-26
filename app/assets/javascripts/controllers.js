@@ -117,11 +117,9 @@
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
-            userCtrl.goToPanel();
           },function(error){
             userCtrl.currentUser = '';
             userCtrl.error_message = error;
-            userCtrl.goToPanel();
           });
         };
         userCtrl.setUser();
@@ -148,6 +146,7 @@
           Auth.login(credentials).then(function(user) {
             console.log(user);
             userCtrl.setUser();
+            userCtrl.goToPanel();
           },function(error) {
             userCtrl.error_message = error;
             console.log(error);
@@ -160,7 +159,6 @@
 
         userCtrl.submitLogout = function() {
           Auth.logout().then(function(user) {
-            userCtrl.setUser();
           });
         };
       }])
