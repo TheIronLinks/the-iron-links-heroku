@@ -102,14 +102,18 @@
       var getGradPanel = function() {
         $http.get('/graduates/get_grad.json')
         .success(function(data){
+          console.log(data)
           userData.profileData = data;
+          console.log(userData.profileData)
         });
       };
 
       var getEmplPanel = function() {
         $http.get('/employers/get_empl.json')
         .success(function(data){
+          console.log(data)
           userData.profileData = data;
+          console.log(userData.profileData)
         });
       };
 
