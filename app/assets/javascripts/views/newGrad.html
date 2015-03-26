@@ -148,24 +148,14 @@
         </div>
           <div class="row collapse">
             <label for="gradPortfolio">Portfolio URL</label>
-            <div class="small-2 large-2 columns">
-              <span class="prefix">http://</span>
-            </div>
             <div class="small-10 large-10 columns">
-              <input ng-model="profileCtrl.gradProfile.link.url" type="text" id="gradPortfolio">
+              <input ng-model="profileCtrl.gradProfile.link.url" type="text" id="gradPortfolio" placeholder="http://www.example.com">
             </div>
           </div>
           <div class="row collapse">
             <label for="gradPhoto">Profile Photo URL</label>
-            <div class="small-2 large-2 columns">
-      <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-      <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-      <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-      <!--HTTP IS NOT APPENDING TO URL - FIX THIS!-->
-              <span class="prefix">http://</span>
-            </div>
             <div class="small-10 large-10 columns">
-              <input ng-model="profileCtrl.gradProfile.graduate.image_url"type="text" id="gradPhoto">
+              <input ng-model="profileCtrl.gradProfile.graduate.image_url"type="text" id="gradPhoto" placeholder="http://www.example.com">
             </div>
           </div>
         <div class="row">
@@ -190,14 +180,6 @@
               <input ng-model="profileCtrl.gradProfile.education.concentration"type="text" id="gradEduConcentration" />
           </div>
         </div>
-          <!-- <div class="row">
-            <div class="small-6 columns">
-              <label>Email Visibility Settings:</label>
-              <input type="radio" name="private" value="private" id="private"><label for="private">Only Myself</label>
-              <input type="radio" name="partial" value="partial" id="partial"><label for="partial">Other Alumni</label>
-              <input type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
-            </div>
-          </div> -->
         <button type="submit">Submit</button> <button ng-click="profileCtrl.routeTo('/')">Cancel</button>
     </form>
   </div>

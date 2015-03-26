@@ -9,7 +9,6 @@
         var cardCtrl = this;
 
 
-
         cardCtrl.selectedCard =function(passedProfile) {
 
           cardCtrl.activeCard = [passedProfile];
