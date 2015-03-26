@@ -102,13 +102,12 @@
         var userCtrl = this;
 
         userCtrl.goToPanel = function() {
-          console.log(userCtrl.currentUser.userable_type);
           if(userCtrl.currentUser.userable_type === 'Employer'){
             $location.url('/employer-panel');
           }else if(userCtrl.currentUser.userable_type === 'Graduate'){
-            $location.url('/graduate-panel')
+            $location.url('/graduate-panel');
           }else{
-            $location.url('/')
+            $location.url('/');
           }
         };
 
@@ -122,7 +121,6 @@
             userCtrl.error_message = error;
           });
         };
-        userCtrl.setUser();
 
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
@@ -144,8 +142,8 @@
         userCtrl.submitLogin = function() {
           var credentials = userCtrl.loginCredentials;
           Auth.login(credentials).then(function(user) {
-            console.log(user);
-            userCtrl.setUser();
+            userCtrl.currentUser = user;
+            console.log(userCtrl.currentUser);
             userCtrl.goToPanel();
           },function(error) {
             userCtrl.error_message = error;
@@ -159,6 +157,7 @@
 
         userCtrl.submitLogout = function() {
           Auth.logout().then(function(user) {
+            $location.url('/');
           });
         };
       }])
@@ -253,7 +252,6 @@
         searchCtrl.routeTo = function (path) {
           $location.path(path);
         };
-
       }]);
 
 })();
