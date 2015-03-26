@@ -118,14 +118,13 @@
           Auth.currentUser().then(function(user) {
             userCtrl.currentUser = user;
             userCtrl.error_message = '';
-            userCtrl.goToPanel();
+            //userCtrl.goToPanel();
           },function(error){
             userCtrl.currentUser = '';
             userCtrl.error_message = error;
-            userCtrl.goToPanel();
+            //userCtrl.goToPanel();
           });
         };
-        userCtrl.setUser();
 
         $scope.loggedIn = function() {
           return Auth.isAuthenticated();
@@ -161,7 +160,8 @@
 
         userCtrl.submitLogout = function() {
           Auth.logout().then(function(user) {
-            userCtrl.setUser();
+            //userCtrl.setUser();
+            $location.url('/');
           });
         };
       }])
