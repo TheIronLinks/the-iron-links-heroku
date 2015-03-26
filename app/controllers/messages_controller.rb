@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create message_params
+    @message.sender_id = current_user.id
     @message.receiver_id = params[:message][:receiver_type].constantize.find(params[:message][:receiver_id]).user.id
     @message.save
     respond_to do |format|
