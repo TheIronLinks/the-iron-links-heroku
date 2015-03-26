@@ -123,12 +123,15 @@ $bgCards:rgb(173, 174, 175);
   blockquote{
     font-size:13px;
     max-height:230px;
-    overflow:scroll;
     a {
       color:inherit;
       text-decoration: none;
      }
   }
+}
+.add-scroll{
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 .add-top-margin{
   margin-top:25px;
