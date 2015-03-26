@@ -127,7 +127,7 @@ private
 
 
   def simple_employer_search(input)
-    return Employer.where("name LIKE ? OR industry LIKE ? OR size LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%")
+    return Employer.where("name LIKE ? OR industry LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ?", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%", "%#{input[:input]}%")
   end
 
 
