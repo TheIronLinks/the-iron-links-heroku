@@ -12,7 +12,7 @@ end
 child(@messages) do
   attributes :id, :sender_id, :receiver_id, :title, :content, :viewed, :message_type
   node(:sender_email) do |message|
-    # User.find(message.sender_id).email
+    User.find(message.sender_id).email
   end
 end
 

@@ -25,7 +25,7 @@ class EmployersController < ApplicationController
   end
 
   def employer_search
-    @employers = search_employers(params)
+    @employers = search_employers(params).reverse
     respond_to do |format|
       format.json
       format.html
