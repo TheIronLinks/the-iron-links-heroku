@@ -3,7 +3,7 @@
   <div ng-init='profileCtrl.getGradProfile(); user.setUser();' class="welcomePanel">
     <div class="small-4 columns panelLeft">
       <img ng-src={{profileCtrl.userData.profileData.graduate.image_url}}></p>
-      <p>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</p>
+      <h3>{{profileCtrl.userData.profileData.graduate.first_name}} {{profileCtrl.userData.profileData.graduate.last_name}}</h3>
       <p>{{profileCtrl.userData.profileData.graduate.grad_focus}} {{profileCtrl.userData.profileData.graduate.grad_year}}</p>
       <p>Current State: {{profileCtrl.userData.profileData.graduate.present_state}}</p>
       <p>Education: {{profileCtrl.userData.profileData.graduate.educations[0].education.level}}</p>
@@ -213,14 +213,6 @@
                     <label for="">Concentration</label>
                       <input type="text" placeholder="" />
                   </div>
-                </div>
-                  <div class="row">
-                    <div class="small-6 columns">
-                      <label>Email Visibility Settings:</label>
-                      <input type="radio" name="private" value="private" id="private"><label for="private">Only Myself</label>
-                      <input type="radio" name="partial" value="partial" id="partial"><label for="partial">Other Alumni</label>
-                      <input type="radio" name="public" value="public" id="public"><label for="public">Alumni and Employers</label>
-                    </div>
                 </div>
                 <div class="row">
                   <div class="small-12 columns">
