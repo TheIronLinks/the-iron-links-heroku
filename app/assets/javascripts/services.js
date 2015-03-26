@@ -91,6 +91,7 @@
 
       var addEmplProfile = function (newProfile) {
         $http.post(emplUrl, newProfile).success(function(){
+          console.log('getting success');
           $location.url('/employer-panel');
         })
         .error(function(){
