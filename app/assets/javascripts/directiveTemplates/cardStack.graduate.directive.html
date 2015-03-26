@@ -7,7 +7,7 @@
     <div class='card-header card-aqua'><span class='card-label'>{{data.graduate.first_name}} {{data.graduate.last_name}}</span></div>
     <img class='card-one-photo' src={{data.graduate.image_url}}>
     <span class='card-heading-one'>{{data.graduate.title}}</span>
-    <span class='card-heading-two'><blockquote>{{data.graduate.email}}</blockquote></span>
+    <span class='card-heading-two'><blockquote><a href={{data.graduate.links[0].link.url}} target="_blank">View my Portfolio</a><br>{{data.graduate.email}}</blockquote></span>
   </li>
 
 <!-- =====================CARD TWO===================== -->
