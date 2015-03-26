@@ -134,11 +134,11 @@ private
   def advanced_employer_search(employers, input)
     results = []
     employers.each do |employer|
-      if employer_location_check(employer, input[:location]) || !input[:location]
+      # if employer_location_check(employer, input[:location]) || !input[:location]
         if employer.industry == input[:industry] || !input[:industry]
           results.push(employer)
         end
-      end
+      # end
     end
     return results
   end
