@@ -1,10 +1,10 @@
 $cardColor:white;
 $bgRed:#b8584c;
-$bgOrange:#ce832d;
+$bgOrange:#39474E;//#ce832d;
 $bgGreen:#0dc67d;
-$bgAqua:#35a0ad;
+$bgAqua:#6F3D38;//#35a0ad;
 $bgBlue:#3576af;
-$bgYellow:#d5b810;
+$bgYellow:#ecc119;
 $bgCover:rgba(227, 231, 233, 0.9);
 $bgCards:rgb(173, 174, 175);
 
@@ -100,6 +100,7 @@ $bgCards:rgb(173, 174, 175);
 .card-one-photo{
   margin: 10px auto 15px auto;
   border-radius:100%;
+  background-color:white;
   height:175px;
   width:175px;
   object-fit:contain;
