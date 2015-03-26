@@ -36,7 +36,7 @@ class GraduatesController < ApplicationController
   end
 
   def search_graduates
-    @graduates = graduate_search
+    @graduates = graduate_search.reverse
   end
 
   def create
