@@ -186,7 +186,7 @@
               element.find('li').removeClass('cardSpreadOne cardSpreadTwo cardSpreadThree cardSpreadFour');
               element.find('ul').removeClass('cardSpreadStack');
               element.find('li').css({'cursor':'auto'});
-              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'inline-block'});
+              element.find('.fa-ellipsis-v, .card-buttons-wrapper-outer, .fa.fa-5x.fa-caret-left, .fa.fa-5x.fa-caret-right').css({'display':'inline-block'});
             });
 
             //=====================SPREAD CARD=====================
@@ -218,7 +218,7 @@
               element.find('li[data-trait='+fourthCard+']').addClass('cardSpreadFour');
               element.find('ul').addClass('cardSpreadStack');
               element.find('li').removeClass('invis');
-              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'none'});
+              element.find('..fa-ellipsis-v, .card-buttons-wrapper-outer, .fa.fa-5x.fa-caret-left, .fa.fa-5x.fa-caret-right').css({'display':'none'});
               element.find('li').css({'cursor':'pointer'});
 
             });
@@ -286,7 +286,7 @@
               element.find('li').removeClass('cardSpreadOne cardSpreadTwo cardSpreadThree cardSpreadFour');
               element.find('ul').removeClass('cardSpreadStack');
               element.find('li').css({'cursor':'auto'});
-              element.find('.fa-ellipsis-v,.card-buttons-wrapper-outer').css({'display':'inline-block'});
+              element.find('.fa-ellipsis-v, .card-buttons-wrapper-outer, .fa.fa-5x.fa-caret-left, .fa.fa-5x.fa-caret-right').css({'display':'inline-block'});
             });
 
             //=====================SPREAD CARD=====================
@@ -318,7 +318,7 @@
               element.find('li[data-trait='+fourthCard+']').addClass('cardSpreadFour');
               element.find('ul').addClass('cardSpreadStack');
               element.find('li').removeClass('invis');
-              element.find('.fa-ellipsis-v,.card-buttons-wrapper-outer').css({'display':'none'});
+              element.find('.fa-ellipsis-v, .card-buttons-wrapper-outer, .fa.fa-5x.fa-caret-left, .fa.fa-5x.fa-caret-right').css({'display':'none'});
               element.find('li').css({'cursor':'pointer'});
 
             });
@@ -404,7 +404,7 @@
               element.find('li').removeClass('cardSpreadOne cardSpreadTwo cardSpreadThree cardSpreadFour');
               element.find('ul').removeClass('cardSpreadStack');
               element.find('li').css({'cursor':'auto'});
-              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'inline-block'});
+              element.find('.fa-ellipsis-v, .card-buttons-wrapper-outer, .fa.fa-5x fa-caret-left, .fa.fa-5x fa-caret-right').css({'display':'inline-block'});
             });
 
             //=====================SPREAD CARD=====================
@@ -436,7 +436,7 @@
               element.find('li[data-trait='+fourthCard+']').addClass('cardSpreadFour');
               element.find('ul').addClass('cardSpreadStack');
               element.find('li').removeClass('invis');
-              element.find('.fa.fa-lg,.fa.fa-2x,.fa.fa-5x').css({'display':'none'});
+              element.find('.fa-ellipsis-v, .card-buttons-wrapper-outer, .fa.fa-5x fa-caret-left, .fa.fa-5x fa-caret-right').css({'display':'none'});
               element.find('li').css({'cursor':'pointer'});
 
             });

@@ -8,7 +8,7 @@ class CreateEmployers < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
-      t.text :image_url
+      t.text :image_url, :default => 'http://placehold.it/175x175'
 
       t.timestamps null: false
     end

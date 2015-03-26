@@ -13,7 +13,7 @@ class CreateGraduates < ActiveRecord::Migration
       t.string :current_zip
       t.string :workflow_state
       t.text :additional_info
-      t.text :image_url
+      t.text :image_url, :default => 'http://placehold.it/175x175'
 
       t.timestamps null: false
     end
